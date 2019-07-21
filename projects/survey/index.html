@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SeriousSurvey</title>
+    <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+    html,
+    body {
+        background-color: silver;
+        text-align: center;
+        font-family: 'Raleway', Helvetica, sans-serif;
+        min-width: 320px;
+    }
+
+    header {
+        font-size: 2em;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+    #form-outer {
+        background-color: rgb(250, 250, 250);
+        margin: 0 auto;
+        border-radius: 4px;
+        width: 75%;
+        max-width: 900px;
+        padding: 10px;
+        padding-top: 20px;
+    }
+
+    .labels {
+        display: inline-block;
+        text-align: right;
+        width: 40%;
+        padding: 5px;
+        vertical-align: top;
+        margin-top: 10px;
+    }
+
+    .rightTab {
+        display: inline-block;
+        text-align: left;
+        width: 48%;
+        vertical-align: middle;
+    }
+
+    .input-field {
+        height: 20px;
+        width: 280px;
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid #c0c0c0;
+        border-radius: 2px;
+    }
+
+    #userAge {
+        width: 40px;
+    }
+
+    .userRatings,
+    input[type="checkbox"] {
+        float: left;
+        margin-right: 5px;
+    }
+
+    #submit {
+        background-color: #59ace0;
+        border-radius: 4px;
+        color: white;
+        font-size: 1em;
+        height: 40px;
+        width: 96px;
+        margin: 10px;
+        border: 0px solid;
+    }
+
+    .dropdown {
+        height: 35px;
+        width: 140px;
+        padding: 5px;
+        margin: 10px;
+        margin-top: 15px;
+        border: 1px solid #c0c0c0;
+        border-radius: 2px;
+    }
+
+    .radio,
+    .checkbox {
+        position: relative;
+        left: -43px;
+        margin-left: 10px;
+        display: block;
+        padding-bottom: 10px;
+    }
+
+    @media screen and (max-width: 833px) {
+        .input-field {
+            width: 80%;
+        }
+
+        select {
+            width: 90%;
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        .labels {
+            width: 100%;
+            text-align: left;
+        }
+
+        .rightTab {
+            width: 80%;
+            float: left;
+        }
+
+        .input-field {
+            width: 100%;
+        }
+
+        select {
+            width: 100%;
+        }
+    }
+
+    #subtitle a{
+      text-decoration: none;
+      color: black;
+    }
+
+    #subtitle a:hover{
+      text-decoration: underline;
+      color: blue;
+    }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="title">Serious Survey</h1>
+    <div id="form-outer">
+        
+        <p id="description">
+            Let see how serious you are!
+        </p>
+
+        <form id="survey-form" method="GET" action="">
+            
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label id="name-label" for="name">* Name: </label>
+                </div>
+                <div class="rightTab">
+                    <input autofocus type="text" name="name" id="name" class="input-field" placeholder="Enter your name...Tarzan" required>
+                </div>
+            </div>
+            
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label id="email-label" for="email">* Email: </label>
+                </div>
+                <div class="rightTab">
+                    <input type="email" name="email" id="email" class="input-field" required placeholder="Do you even know what Email is?">
+                </div>
+            </div>
+            
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label id="number-label" for="age">* Age: </label>
+                </div>
+                <div class="rightTab">
+                    <input type="number" name="age" id="number" min="1" max="125" class="input-field" placeholder="How are you still alive?">
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="currentPos">What happens when you get 'scared half to death' twice?</label>
+                </div>
+                <div class="rightTab">
+                    <select id="dropdown" name="currentPos" class="dropdown">
+                        <option disabled value>Select an option</option>
+                        <option value="student">What?</option>
+                        <option value="learner">Yawn</option>
+                        <option value="other">Laugh</option>
+                        <option value="other">Burp</option>
+                        <option value="other">Poop</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="currentPos">When was the last time you rode a dinosaur?</label>
+                </div>
+                <div class="rightTab">
+                    <select id="dropdown" name="currentPos" class="dropdown">
+                        <option disabled value>Select an option</option>
+                        <option value="student">Excuse me?</option>
+                        <option value="learner">This week</option>
+                        <option value="other">Last month</option>
+                        <option value="other">This year</option>
+                        <option value="other">Always</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="currentPos">Whats your greatest accomplishment? </label>
+                </div>
+                <div class="rightTab">
+                    <select id="dropdown" name="currentPos" class="dropdown">
+                        <option disabled value>Select an option</option>
+                        <option value="student">Lemme think</option>
+                        <option value="learner">I ain't done sh**</option>
+                        <option value="other">I'm for real</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="userRating">* If it’s a tourist season, why can’t we shoot them?</label>
+                </div>
+
+                <div class="rightTab">
+                    <ul style="list-style: none;">
+                        <li class="radio"><label>They can shoot back<input name="radio-buttons" value="1" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>Guns are expensive<input name="radio-buttons" value="2" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>Tourists run fast<input name="radio-buttons" value="3" type="radio" class="userRatings"></label></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="userRating">* How small and thin do you let a bar of soap get before you replace it?</label>
+                </div>
+
+                <div class="rightTab">
+                    <ul style="list-style: none;">
+                        <li class="radio"><label>Until it no longer exists<input name="radio-buttons" value="1" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>When it's thin and bendy, like an orange peel <input name="radio-buttons" value="2" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>after discovering it has no jelly center<input name="radio-buttons" value="3" type="radio" class="userRatings"></label></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="userRating">* I disagree with people a lot</label>
+                </div>
+
+                <div class="rightTab">
+                    <ul style="list-style: none;">
+                        <li class="radio"><label>Strongly agree<input name="radio-buttons" value="1" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>Neither<input name="radio-buttons" value="2" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>Disagree<input name="radio-buttons" value="3" type="radio" class="userRatings"></label></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="most-like">Why do all the superheroes wear their underpants on the outside? </label>
+                </div>
+                <div class="rightTab">
+                    <select id="most-like" name="mostLike" class="dropdown">
+                        <option disabled selected value>Select an option</option>
+                        <option value="challenges">to go commando</option>
+                        <option value="projects">to look really cool</option>
+                        <option value="community">it's comfortable</option>
+                        <option value="openSource">Not to wash them</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="most-like">If an accidental fire started in a building with employees inside, what steps would you take? </label>
+                </div>
+                <div class="rightTab">
+                    <select id="most-like" name="mostLike" class="dropdown">
+                        <option disabled selected value>Select an option</option>
+                        <option value="challenges">F***ing big ones!</option>
+                        <option value="projects">Tell my haters...</option>
+                        <option value="community">everything is fine</option>
+                        <option value="openSource">cook some hotdogs</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="most-like">How to lose 50 pounds in a month? </label>
+                </div>
+                <div class="rightTab">
+                    <select id="most-like" name="mostLike" class="dropdown">
+                        <option disabled selected value>Select an option</option>
+                        <option value="challenges">Amputation!</option>
+                        <option value="projects">Do you really...</option>
+                        <option value="community">...need legs?</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="preferences">Are you a member or representative of a terrorist organization?<br>(Check all that apply): </label>
+                </div>
+                <div class="rightTab">
+                    <ul id="preferences" style="list-style: none;">
+                        <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">Are you retarted?</label></li>
+                        <li class="checkbox"><input name="prefer" value="2" type="checkbox" class="userRatings">No, I'm Santa Claus</li>
+                        <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">Yes, I'm Bin Laden</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="preferences"> If a two-year-old hand you a toy phone, should you answer it? <br>(Check all that apply): </label>
+                </div>
+                <div class="rightTab">
+                    <ul id="preferences" style="list-style: none;">
+                        <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">Oh definitely, what happens if</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">it’s someone massively important</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">on the other end?</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="preferences">My grandfather died peacefully, in his sleep…<br>(Check all that apply): </label>
+                </div>
+                <div class="rightTab">
+                    <ul id="preferences" style="list-style: none;">
+                        <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">not screaming</label></li>
+                        <li class="checkbox"><input name="prefer" value="2" type="checkbox" class="userRatings">like the passengers</li>
+                        <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">in his car</label></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="comments">How do I get rid of an oily face?</label>
+                </div>
+                <div class="rightTab">
+                    <textarea id="comments" class="input-field" style="height:50px;resize:vertical;" name="comment" placeholder="Getting rid of your face is not recommended not matter how oily it is. The face serves many functions and you should not try to remove it... Also, if you want to find out who loves you more, stick your wife and dog in the trunk of your car for an hour. When you open the trunk, who is happy to see you? Moreover, why don’t blind people skydive? Because it scares the crap out of their dogs!"></textarea>
+                </div>
+            </div>
+        </form>
+        <!-- <button id="submit">Submit</button>
+        <p id="pic"></p> -->
+        <img style="display:none; width:300px; margin:auto;" id="bigpic" src="bigpic" />
+        <button id="submit" onclick="showPicture()">Do NOT Submit</button>
+        <p id="subtitle">Plagiarized by <a href="https://www.freecodecamp.org/muhiddin">@Muhiddin</a></p>
+    
+
+        <script type="text/javascript">
+           function showPicture() {
+            var sourceOfPicture = "https://i.etsystatic.com/13990290/r/il/52bee8/1651898581/il_794xN.1651898581_9s1m.jpg";
+            var img = document.getElementById('bigpic')
+            img.src = sourceOfPicture.replace('90x90', '225x225');
+            img.style.display = "block";
+          }
+        </script>
+</div>
+</body>
+
+</html>

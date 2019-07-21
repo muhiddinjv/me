@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Technology - BBC News</title>
+
+	<style type="text/css">
+
+	#topbar{
+
+		width: 1100px;
+		margin: 0 auto;
+		/*background-color: lightgreen;*/
+		height: 40px;
+	}
+
+	body{
+
+		margin:0; 
+		padding:0;
+		font-family: Helvetic, Arial, sans-serif;
+
+	}
+
+	#logo{
+
+		margin-top: 8px;
+		width: 100px;
+		height: 30px;
+		float:left;
+		margin-right: 8px;
+
+	}
+
+	.topbar-section{
+
+		float: left;
+		border-left: 1px #cccccc solid;
+		height: 45px;
+
+	}
+
+	#signin-image{
+
+		width: 25px;
+		margin: 12px 15px;
+		float: left;
+	}
+
+	#signin-text{
+
+		font-weight: bold;
+		font-size: 90%;
+		position: relative;
+		top: 14px;
+		padding-right: 50px;
+	}
+
+	#wigglyline {
+		float: left;
+		height: 45px;
+		width: 5px;
+	}
+
+	#bell {
+
+		height: 25px;
+		margin: 12px 8px;
+	}
+
+	#bell-div{
+
+		float: left;
+	}
+
+	.topbar-menu{
+
+		font-weight: bold;
+		font-size: 90%;
+		padding: 13px 15px;
+		height: 19px;
+	}
+
+	#arrow {
+
+		width: 15px;
+		margin-left: 20px;
+	}
+
+	#search-box {
+
+		background-color: #E4E4E4;
+		border:none;
+		font-weight: bold;
+		font-size: 14px;
+		padding: 5px;
+		margin: 8px 0 7px 7px;
+		float: left;
+	}
+
+	#magnifyglass {
+
+		background-color: #E4E4E4;
+		height: 20px;
+		margin-top: 8px;
+		padding: 3px;
+	}
+
+	.clear {
+
+		clear: both;
+	}
+
+	#menu-bar-container {
+		
+		border-top: 1px #cccccc solid;
+		background-color: #BB1919;
+		width: 100%;
+		height: 70px;
+	}
+
+	#menu-bar {
+
+		width: 1100px;
+		margin: 0 auto;
+	}
+
+	h1 {
+
+		padding: 0;
+		margin: 0;
+		color: white;
+		font-size: 40px;
+		font-weight: normal;
+		padding-top: 10px;
+		float: left;
+	}
+
+	#local-news {
+
+		border: 1px #BB4545 solid;
+		float: right;
+		width: 250px;
+		padding: 10px 0 0 15px;
+		margin: 12px 90px 0 0;
+	}
+
+	#local-news a {
+
+		color: white;
+		text-decoration: none;
+		font-size: 30px;
+		padding-right: 5px;
+		position: relative;
+		top: -5px;
+		
+	}
+
+	#local-news a:hover {
+
+		text-decoration: underline;
+	}
+
+	#local-news img {
+
+		height: 25px;
+	}
+
+	#menu-bar-2-container {
+		
+		background-color: #A91717;
+		width: 100%;
+	}
+
+
+
+	#menu-bar-2 {
+		width: 1100px;
+		margin: 0 auto;
+		height: 40px;
+		
+	}
+
+	#menu-bar-2 a {
+
+		text-decoration: none;
+		color: white;
+		padding: 0 10px;
+		border-right: 1px solid #BB4545;
+		font-size: 14px;
+		position: relative;
+		top: 10px;
+	}
+
+	#menu-bar-2 a:hover {
+
+		text-decoration: underline;
+	}
+
+	.no-border {
+
+		border: none !important;
+	}
+
+	/*Here >> #menu-bar-2 a { we are telling every menu item to have a border on the right and here >> .no-border { we're telling everything with a class .no-border to have no border. So how does the browser know which one to do? If you want to be completely clear on it, then you use "!important" and it will make sure that this one has a priority over anything which is not important.*/
+
+	#down-arrow {
+
+		width: 10px;
+		position: relative;
+		top: 8px;
+	}
+
+	#page-container {
+
+		width: 1100px;
+		margin: 0 auto;
+	}
+
+	h2 {
+
+		font-weight: normal;
+		margin-top: 40px;
+		font-size: 20px;
+		border-bottom: 2px solid #a91717;
+		width: 105px;
+	}
+
+	h3 a {
+
+		text-decoration: none;
+		color: black;
+		font-size: 30px;
+	}
+
+	h3 a:hover {
+
+		color: #1167a8;
+	}
+
+	#article-summary {
+
+		color: #5a5a5a;
+		width: 250px;
+		float: left;
+	}
+
+	#article-summary img {
+
+		height: 15px;
+		position: relative;
+		top: 2px;
+	}
+
+	.topic-link {
+
+		text-decoration: none;
+		color: red;
+		border-left: 1px solid #cccccc;
+		padding-left: 10px;
+	}
+
+	#article-summary a:hover {color: #1167a8;}
+
+	.date {
+
+		padding-right: 10px;
+		color: #5a5a5a;
+	}
+
+	#article-container {
+		/*background-color: lightblue;*/
+		float: left;
+		width: 670px;
+		border-right: 1px solid #cccccc;
+		padding-right: 20px;
+	}
+
+	#main-article-image {
+
+		width: 400px;
+		margin-left: 20px;
+	}
+
+	#article-hr {
+
+		border-top: 1px solid #a91717;
+		width: 50px;
+	}
+
+	.article-link {
+
+		text-decoration: none;
+		color: black;
+	}
+
+	#watch-listen {
+
+		float: left;
+		width: 300px;
+		/*background-color: lightgreen;*/
+		margin-left: 20px;
+	}
+
+	.watch-listen-heading {
+
+		font-weight: normal;
+		font-size: 20px;
+		margin-bottom: 15px;
+	}
+
+	.article-side-image {
+
+		float: left;
+		width: 90px;
+	}
+
+	.watch-listen-link {
+
+		text-decoration: none;
+		color: black;
+		font-weight: bold;
+		font-size: 16px;
+
+	}
+
+	.watch-listen-link:hover {
+
+		color: #1167a8;
+	}
+
+	.clock {
+
+		height: 15px;
+		position: relative;
+		top: 2px;
+	}
+
+	#side-article {
+
+		float: right;
+		width: 200px;
+		position: relative;
+		top: -18px;
+
+	}
+
+	.no-border {
+
+		border-left: none;
+		padding: 0;
+	}
+
+	.border-right {
+
+		border-right: 1px solid #cccccc;
+
+	}
+
+	.date-link{
+
+		margin-top: -10px;
+	}
+
+	
+
+
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="topbar">
+
+		<img id="logo" src="bbc-logo.png" alt="">
+
+		<div id="signin-div" class="topbar-section">
+
+			<img id="signin-image" src="signinimage.png" alt="">
+		
+			<span id="signin-text">Sign in</span>
+
+		</div>
+
+		<div class="topbar-section topbar-menu">
+			
+			<div id="bell-div">
+				<img src="bell.png">
+			</div>
+			
+		</div>
+
+		<div class="topbar-section topbar-menu">News</div>
+
+		<div class="topbar-section topbar-menu">Sports</div>
+
+		<div class="topbar-section topbar-menu">Weather</div>
+
+		<div class="topbar-section topbar-menu">iPlayer</div>
+
+		<div class="topbar-section topbar-menu">TV</div>
+
+		<div class="topbar-section topbar-menu">
+			More
+			<img id="arrow" src="arrow2.png" alt="">
+		</div>
+
+		<div class="topbar-section">
+			
+			<input id="search-box" type="text" value="Search">
+			<input type="image" id="magnifyglass" src="magnifyglass.png" alt="">
+		</div>
+		
+	</div>
+
+
+
+
+	<div class="clear"></div>
+
+	<div id="menu-bar-container">
+
+		<div id="menu-bar">
+
+			<h1>NEWS</h1>
+
+			<div id="local-news">
+				
+				<a href="">Find local news</a>
+
+				<img id="pointer" src="pointer.png">
+
+			</div>
+			
+		</div>
+
+
+
+
+		<div class="clear"></div>
+
+		<div id="menu-bar-2-container">
+			
+			<div id="menu-bar-2">
+				<a href="">Home</a>
+				<a href="">UK</a>
+				<a href="">World</a>
+				<a href="">Business</a>
+				<a href="">Politics</a>
+				<a href="">Tech</a>
+				<a href="">Science</a>
+				<a href="">Health</a>
+				<a href="">Education</a>
+				<a href="">Entertainment & Arts</a>
+				<a href="">Video & Audio</a>
+				<a href="" class="no-border">More</a>
+				<img id="down-arrow" src="down-arrow.png" alt="">
+				
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+	<div class="clear"></div>
+
+	<div id="page-container">
+		
+		<div id="main-article">
+
+			<h2>Technology</h2>
+
+			<div id="article-container">
+
+				<h3><a href="">ASDA Bug Exposed Payment Details</a></h3>
+
+				<div id="article-summary">
+
+					<p>
+						Security vulnerabilities that put customers at risk have affected Asda's website for a couple of years, a security expert has revealed.
+					</p>
+
+					<p>
+						<img src="clock.png" alt="">
+						<span class="date">19 January 2019</span><a class="topic-link" href="">Technology</a>
+					</p>
+
+					<hr id="article-hr" align="left">
+
+					<p><a class="article-link" href="">Surveillence firm hit in hack attack</a></p>
+					<p><a class="article-link" href="">eBay flaw has existed for months</a></p>
+
+				</div>
+
+				<img id="main-article-image" src="main-article-image.png" alt="">	
+
+				<!-- <br><br><hr> -->
+
+
+
+			</div>
+
+			
+		</div>
+
+	</div>
+
+
+
+
+
+		<div id="watch-listen">
+
+			<h4 class="watch-listen-heading">Watch/Listen</h4>
+
+			<img class="article-side-image" src="right-section-pic1.png" alt="">
+
+			<div id="side-article">
+
+				<p><a class="watch-listen-link" href="">UK science chief backs block chains</a></p>
+					
+				<p class="date-link">
+					<img class="clock" src="clock.png">
+
+					<span class="date">19 January 2019</span>
+				</p>
+
+			</div>
+
+
+
+			<div class="clear"></div>
+
+			<img class="article-side-image" src="right-section-pic2.png" alt="">
+
+			<div id="side-article">
+
+				<p><a class="watch-listen-link" href="">Drone register gives accountability</a></p>
+					
+				<p class="date-link">
+					<img class="clock" src="clock.png">
+
+					<span class="date border-right">19 January 2019</span>
+
+					<a class="topic-link no-border" href="">Technology</a>
+				</p>
+
+			</div>
+
+
+			<div class="clear"></div>
+
+			<img class="article-side-image" src="right-section-pic3.png" alt="">
+
+			<div id="side-article">
+
+				<p><a class="watch-listen-link" href="">SpaceX rocket explodes during landing</a></p>
+					
+				<p class="date-link">
+					<img class="clock" src="clock.png">
+
+					<span class="date border-right">19 January 2019</span>
+
+					<a class="topic-link no-border" href="">Science & Environment</a>
+				</p>
+
+			</div>
+			
+		</div>
+
+
+</body>
+
+</html>
+
+ 
