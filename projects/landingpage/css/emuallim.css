@@ -17,7 +17,7 @@ html,body{
 
 ul {
 	margin: 0;
-	padding: 0;
+	padding-left: 50px;
 	text-decoration: none;
 }
 
@@ -25,7 +25,7 @@ ul {
   display: inline-block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px;
+  padding: 5px;
   font-size: 20px;
 }
 
@@ -39,7 +39,7 @@ ul {
 }
 
 .headerbg {
-	background: url('../img/bg.png');
+	background: url('https://raw.githubusercontent.com/Emuallim/emuallim.github.io/master/projects/landingpage/img/bg.png');
 	background-size: cover;
 	color: #FFF;
 	padding: 5%;
@@ -93,23 +93,58 @@ h3{
 
 }
 
-.footer button{
+/* #video{
+  background: #ECF0F1;
+} */
+
+#video-container{
+  padding-bottom:56.25%; 
+  position:relative; 
+  display:block; 
+  width: 100%;
+}
+
+iframe {
+        padding: 30px;
+        width: 100%;
+        height: 100%;
+        margin: 100px 0 100px 0;
+        background: #ECF0F1;
+        border: 5px solid #333333;
+        border-radius: 30px;
+        position:absolute; 
+        top:0; left: 0
+    }
+
+#download{
+  margin-top: 150px;
+}
+    
+   
+
+.footer #submit{
 	background: #fff;
 	color: #fc3232;
 	height: 60px;
-	padding: 10px;
 	width: 80%;
 	border-radius: 80px 80px 80px 80px;
 	-moz-border-radius: 80px 80px 80px 80px;
 	-webkit-border-radius: 80px 80px 80px 80px;
 	margin-top: 5%;
 	border: none;
+  font-size: 30px;
 }
 
-.footer button:hover{
+.footer #submit:hover{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 	background: #fc3232;
 	color: #fff;
+}
+
+#email{
+  margin: 10px;
+  height: 30px;
+  width: 180px;
 }
 
 .footerbrand{

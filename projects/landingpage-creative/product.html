@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 	<head>
+		<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<title>Responsive Landing Page Design</title>
@@ -15,30 +16,32 @@
 		<section>
 			<div class="header">
 				<h2 class="logo">MUHIDDIN</h2>
-				<ul>
+				<i class="fa fa-bars x2" onclick="menuToggle()"></i>
+				<ul id="navigation">
 					<li>
 						<a href="#" class="active">Home</a>
 					</li>
 					<li>
-						<a href="#">About</a>
+						<a href="about.html">About</a>
 					</li>
 					<li>
-						<a href="#">Services</a>
+						<a href="../landingpage/index.html">Product</a>
 					</li>
 					<li>
 						<a href="#">Our Work</a>
 					</li>
 					<li>
-						<a href="#">Portfolio</a>
+						<a href="../../index.html">Portfolio</a>
 					</li>
 					<li>
 						<a href="#">Contact</a>
 					</li>
+					<i class="fa fa-times x2" onclick="menuToggle()"></i>
 				</ul>
 			</div>
 			<div class="bannerText">
 				<h2>Think Creative</h2><br>
-				<h3>And Make Innovative Design</h3>
+				<h3>Make Innovative Design</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -47,6 +50,7 @@
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<a href="#">Read More</a>
 			</div>
+			<!--https://raw.githubusercontent.com/Emuallim/emuallim.github.io/master/projects/landingpage-slider/bulb.jpg-->
 			<img src="bulb.jpg" class="bulb">
 			<ul class="sci">
 				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -57,5 +61,13 @@
 			<div class="element1"></div>
 			<div class="element2"></div>
 		</section>
+
+		<script type="text/javascript">
+			function menuToggle() {
+				var element = document.getElementById('navigation');
+				element.classList.toggle("show");
+			}
+		</script>
+
 	</body>
 </html>
