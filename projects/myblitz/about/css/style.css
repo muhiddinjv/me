@@ -183,6 +183,7 @@ p {
 	float: left;
 	width: 30%;
 	margin-right: 5%;
+	margin-bottom: 2.4rem;
 	/*border: 10px solid orange;*/
 	}
 
@@ -215,20 +216,11 @@ p {
 /* ==========================================================================
    		PORTFOLIO
 ========================================================================== */
-.portfolio {
+.staff {
 	position: relative;
 }
 
-.portfolio:before {
-	/* BEFORE b/c it comes before any other child elements */
-	content: " "; /* you don't put anything here */
-	display: block;
-	height: 30px;
-	background: url(../img/pattern.png) left top repeat-x;
-	margin-bottom: 2em;
-}
-
-.portfolio .title-wrapper {
+.staff .title-wrapper {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -236,7 +228,7 @@ p {
 	text-align: center;
 }
 
-.portfolio h2 {
+.staff h2 {
 	display: inline;
 	background: #fff;
 	padding: 0.8em;
@@ -244,8 +236,9 @@ p {
 
 .work {
 	float: left;
-	width: 22%;
-	margin-right: 4%;
+	width: 31.5%;
+	margin-right: 2.5%;
+	margin-bottom: 2.4rem;
 	}
 
 	.work:last-child {
