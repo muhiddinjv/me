@@ -1,3 +1,11 @@
+/*=============================================
+=            article-wrap
+ems and rems solved problems which I faced 
+using pixels. I use rem in spacing (margin, 
+padding, etc.) and font sizing. And I use em 
+for layouts like menu           =
+=============================================*/
+
 body, *, *:before, *:after {
 	box-sizing: border-box;
 }
@@ -13,7 +21,7 @@ h1,h2,h3,h4,h5,h6, .title {
 	font-family: "Economica", sans-serif;
 	text-transform: uppercase;
 	font-weight: bold;
-	margin: 0 0 1em;
+	margin: 0 0 0.5em;
 }
 	/* 
 	we use EM because it works relative to the main font in
@@ -42,7 +50,7 @@ h3 {
 }
 
 a {
-	color: inherit;
+	/*color: inherit;*/
 	/*
 	 * There won't be any custom color applied. If its parent has a 
 	 specific color, it will keep the same color. 
@@ -147,7 +155,7 @@ p {
 ========================================================================== */
 .contact-us-container {
 	width: 70.5%;
-	background-color: lightgrey;
+	/*background-color: lightgreen;*/
 }
 
 .contact-us{
@@ -171,16 +179,21 @@ p {
 		height: 5px;
 		background: url(../img/pattern.png) left top repeat-x;
 		margin-bottom: 3rem;
-		margin-top: 5px;
+		
 	}
 	
 /* ==========================================================================
    		ASIDE
 ========================================================================== */
 .aside-container {
-	background-color: lightblue;
+	margin-top: 4.2rem;
+	/*background-color: lightblue;*/
 	width: 23.5%;
 	float: right;
+}
+
+.aside-section {
+	margin-bottom: 1rem;
 }
 
 	.aside-paragraph:before {
@@ -189,9 +202,28 @@ p {
 		display: block;
 		height: 5px;
 		background: url(../img/pattern.png) left top repeat-x;
-		margin-bottom: 3rem;
-		margin-top: 5px;
+		margin-bottom: 1rem;	
 	}
+
+	.aside-paragraph {
+		padding-bottom: 1.2rem;
+	}
+
+		.aside-paragraph .tweet-message {
+			margin-bottom: 0.1rem;
+		}
+
+		.aside-paragraph .tweet-time {
+			color: #b2b2b2;
+			margin-bottom: 1rem;
+			margin-top: 0.3rem;
+		}
+
+			.tweet-message a{
+				color: #d8d8d8;
+			}
+
+	
 
 
 /* ==========================================================================
@@ -230,4 +262,34 @@ p {
 }
 
 
+/*=============================================
+=            FORM           =
+=============================================*/
 
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  background: #fafafa;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  padding-left: 0;
+  width: 77%;
+  margin-bottom: 10rem;
+}
+
+.form-names {
+	width: 13.6rem;
+}
+
+.container #subject {
+	height: 13rem;
+}

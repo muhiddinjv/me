@@ -38,11 +38,42 @@
 
 	<!-- SIDEBAR -->
 		<aside class="aside-container">
-			<section>
+			<section class="aside-section">
 				<h3>about blitz</h3>
 				<p class="aside-paragraph">
 					When you work simply for yourself or for your own personal gain your mind will seldom rise
 				</p>
+			</section>
+
+			<section class="aside-section">
+				<h3>categories</h3>
+				<ul class="aside-paragraph">
+					<li>Video (3)</li>
+					<li>Sports (5)</li>
+					<li>Media (2)</li>
+					<li>Entertainment (7)</li>
+					<li>Life (4)</li>
+					<li>Super Cool Stuff (8)</li>
+				</ul>
+			</section>
+
+			<section class="aside-section">
+				<h3>twitter widget</h3>
+				<div class="aside-paragraph">
+					<p class="tweet-message">
+						<a href="#">@pixelmater</a> what an awesome design with great functionality :)
+					</p>
+					<p class="tweet-time">about 1 hour ago</p>
+
+					<p class="tweet-message">
+						<a href="#">@designdude</a> This is simply jaw-dropping desing and functionality :)
+					</p>
+					<p class="tweet-time">about 2 hour ago</p>
+
+					<p class="tweet-message">
+						Follow <a href="#">@emuallim</a>
+					</p>
+				</div>
 			</section>
 		</aside>
 
@@ -50,13 +81,11 @@
 
 		<article class="contact-us-container">
 			<header class="contact-us">
-				<div class="clearfix">
-					<h1 class="about-us-header">contact us</h1>
-					<p class="silver silver-italic">
-						When you work simply for yourself or for your
-						own personal gain your mind will seldom rise above the limitations of the undeveloped personal life.
-					</p>
-				</div>
+				<h1 class="about-us-header">contact us</h1>
+				<p class="silver silver-italic">
+					When you work simply for yourself or for your
+					own personal gain your mind will seldom rise above the limitations of the undeveloped personal life.
+				</p>
 			</header>
 
 	<!-- INTRO -->
@@ -68,9 +97,33 @@
 					<p>
 						but when you are inspired by some great purpose, some extraordinary project, all your thoughts break bounds; your mind transcends limitations; your consciousness expands in every direction; and you find yourself in a new world, a great world, a wonderful world; dormant powers, faculties and talents become alive, and you discover yourself to be a larger man by far than you ever dreamed yourself to be.
 					</p>
-					<i class="fa fa-angle-double-right"></i>
-					<a href="#" class="title">find out more</a>
+
+					<div class="container">
+					  <form action="/action_page.php">
+					  	<div class="form-names">
+						    <label for="fname"></label>
+						    <input type="text" id="fname" name="firstname" placeholder="FIRST NAME">
+
+						    <label for="lname"></label>
+						    <input type="text" id="lname" name="lastname" placeholder="LAST NAME">
+
+						    <label for="country"></label>
+						    <input type="text" id="email" name="email" placeholder="EMAIL ADRESS">
+					    </div>
+
+					    <label for="subject"></label>
+					    <textarea id="subject" name="subject" placeholder="MESSAGE"></textarea>
+
+						<h4>
+					    	<i class="fa fa-angle-double-right"></i>
+							<a href="#" class="submit">submit</a>
+						</h4>
+					  </form>
+					</div>
 			</section>
+
+			
+
 		</article>
 	</main>
 	
