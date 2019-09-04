@@ -6,6 +6,7 @@ html, body{
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 16px;
 	color: #474747;
+	background-color: #fefefe;
 }
 
 h1,h2,h3,h4,h5,h6, .title {
@@ -142,112 +143,60 @@ p {
 	}
 
 /* ==========================================================================
-	   MAIN VISUAL
+	   CONTACT
 ========================================================================== */
+.contact-us-container {
+	width: 70.5%;
+	background-color: lightgrey;
+}
 
-.main-visual {
-	border: 10px solid green;
+.contact-us{
+	margin-top: 3rem;
+}
+
+	.about-us-header {
+		font-size: 2.5em;
+		margin-bottom: 0;
 	}
 
-	.main-visual img {
+	.silver-italic {
+		color: #cecece;
+		font-style: italic;
+	}
+
+	.contact-us:after {
+		content: " "; /* empty space */
+		/*background: green;*/
 		display: block;
-		/* since img is an inline element, the browser thinks that
-		you're gonna add more inline elements and that's why it
-		leaves white space between the elements. To remove the space
-		you need to use display block */
+		height: 5px;
+		background: url(../img/pattern.png) left top repeat-x;
+		margin-bottom: 3rem;
+		margin-top: 5px;
 	}
-
-	.main-visual figcaption {
-		background-color: #f6f6f6;
-		padding: 0.5em 1em;
-	}
-
-	.main-visual figcaption > strong {
-		font-size: 1.4em;
-	}
-
+	
 /* ==========================================================================
-	   CLAIMS
+   		ASIDE
 ========================================================================== */
-
-.claim {
-	float: left;
-	width: 30%;
-	margin-right: 5%;
-	/*border: 10px solid orange;*/
-	}
-
-	.claim:last-child {
-		margin-right: 0;		
-	}
-
-	.claim header > i {
-		font-size: 2.5rem;
-		font-weight: bold;
-		color: #9a9a9a;
-		float: left;
-		width: 25%;
-	}
-
-	.claim header > h2 {
-		float: left;
-		width: 75%;
-	}
-/* ==========================================================================
-   		PORTFOLIO
-========================================================================== */
-.portfolio {
-	position: relative;
+.aside-container {
+	background-color: lightblue;
+	width: 23.5%;
+	float: right;
 }
 
-.portfolio:before {
-	/* BEFORE b/c it comes before any other child elements */
-	content: " "; /* you don't put anything here */
-	display: block;
-	height: 30px;
-	background: url(../img/pattern.png) left top repeat-x;
-	margin-bottom: 2em;
-}
-
-.portfolio .title-wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-}
-
-.portfolio h2 {
-	display: inline;
-	background: #fff;
-	padding: 0.8em;
-}
-
-.work {
-	float: left;
-	width: 22%;
-	margin-right: 4%;
-	}
-
-	.work:last-child {
-		margin-right: 0;
-	}
-
-	.work figure {
-		margin-bottom: 1em;
-	}
-
-	.work figure > img {
-		width: 100%;
+	.aside-paragraph:before {
+		content: " "; /* empty space */
+		/*background: green;*/
+		display: block;
+		height: 5px;
+		background: url(../img/pattern.png) left top repeat-x;
+		margin-bottom: 3rem;
+		margin-top: 5px;
 	}
 
 
 /* ==========================================================================
        FOOTER
 ========================================================================== */
-
-
-
 
 .page-footer:before {
 	content: " "; /* empty space */
