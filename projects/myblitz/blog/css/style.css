@@ -226,28 +226,35 @@ p {
 ====================================*/
 .blogpost {
 	height: auto;
-	margin-bottom: 3.5rem;
-}
-.blog-text {
-	background-color: lightblue;
-	width: 75%;
-	float: right;
-
 }
 
-.blogtags {
-	background-color: lightpink;
-	/*float: left;*/
-}
-
-.blogpost:after {
-		content: " "; /* empty space */
-		/*background: green;*/
-		display: block;
-		height: 5px;
-		background: url(../img/pattern.png) left top repeat-x;
-		margin-bottom: 3rem;
+	.blogpost header h2 {
+		margin-bottom: 1.25rem;
 	}
+
+	.blog-text-container {
+		margin-top: 1.75rem;
+	}
+	.blog-text {
+		width: 75%;
+		float: right;
+		margin-bottom: 3.5rem;
+	}
+
+	.tags {
+		color: #bebebe;
+		margin: 0.625rem 0 1.25rem;
+	}
+
+	.blogpost:after {
+			content: " "; /* empty space */
+			/*background: green;*/
+			display: block;
+			height: 5px;
+			background: url(../img/pattern.png) left top repeat-x;
+			margin-bottom: 3rem;
+			margin-top: 3rem;
+		}
 
 
 /*=====  End of Blog Section  ======*/
