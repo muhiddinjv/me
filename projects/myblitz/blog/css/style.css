@@ -178,8 +178,7 @@ p {
 		display: block;
 		height: 5px;
 		background: url(../img/pattern.png) left top repeat-x;
-		margin-bottom: 3rem;
-		
+		margin-bottom: 3rem;	
 	}
 	
 /* ==========================================================================
@@ -222,7 +221,36 @@ p {
 			.tweet-message a{
 				color: #d8d8d8;
 			}
+/*====================================
+=            Blog Section            =
+====================================*/
+.blogpost {
+	height: auto;
+	margin-bottom: 3.5rem;
+}
+.blog-text {
+	background-color: lightblue;
+	width: 75%;
+	float: right;
 
+}
+
+.blogtags {
+	background-color: lightpink;
+	/*float: left;*/
+}
+
+.blogpost:after {
+		content: " "; /* empty space */
+		/*background: green;*/
+		display: block;
+		height: 5px;
+		background: url(../img/pattern.png) left top repeat-x;
+		margin-bottom: 3rem;
+	}
+
+
+/*=====  End of Blog Section  ======*/
 	
 
 
@@ -240,6 +268,7 @@ p {
 }
 
 .page-footer {
+	position: relative;
 	/*border: 10px solid yellow;*/
 	background-color: #f4f4f4;
 	color: #9b9b9b;
@@ -259,37 +288,4 @@ p {
 
 .page-footer-content {
 	padding: 1em 0;
-}
-
-
-/*=============================================
-=            FORM           =
-=============================================*/
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  background: #fafafa;
-}
-
-.container {
-  border-radius: 5px;
-  padding: 20px;
-  padding-left: 0;
-  width: 77%;
-  margin-bottom: 10rem;
-}
-
-.form-names {
-	width: 13.6rem;
-}
-
-.container #subject {
-	height: 13rem;
 }
