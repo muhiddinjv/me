@@ -1,0 +1,295 @@
+/*=============================================
+=            article-wrap
+ems and rems solved problems which I faced 
+using pixels. I use rem in spacing (margin, 
+padding, etc.) and font sizing. And I use em 
+for layouts like menu           =
+=============================================*/
+
+body, *, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html, body{
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 16px;
+	color: #474747;
+	background-color: #fefefe;
+}
+
+h1,h2,h3,h4,h5,h6, .title {
+	font-family: "Economica", sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin: 0 0 0.5em;
+}
+	/* 
+	we use EM because it works relative to the main font in
+	the body tag. So if you change font-size: 16px; to 20px 
+	EM will change too. As a result your text becomes adaptive 
+	*/
+
+h2 {
+	font-size: 1.6rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+	/*
+	 * The difference between REM and EM is REM is computed from
+	 the root (html, body: font-size: 16px) whereas EM is a relative
+	 size computed from the size of the elements that contains this
+	 element.
+
+	 So if I put this H3 inside of a section with a font-size of 20px
+	 1em will be computed starting from that value not the root.
+
+	 When you want to have a measure that is always relative to the
+	 root (html, body) you should use REM.
+	 */
+}
+
+a {
+	/*color: inherit;*/
+	/*
+	 * There won't be any custom color applied. If its parent has a 
+	 specific color, it will keep the same color. 
+	 */
+	 font-weight: bold;
+	 text-decoration: none;
+}
+
+a:hover, a:visited, a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+p {
+	margin: 0.5em 0;
+	line-height: 1.3;
+}
+
+.fixed-width {
+	width: 940px;
+	margin: 0 auto;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+} 
+.clearfix:after {
+  clear: both;
+}
+
+.data-block {
+	margin-bottom: 3rem;
+	/* 	REM: relative to the root size of the page */	
+}
+
+/*==============================
+=            Header            =
+==============================*/
+
+.page-header { /*delete this*/
+	/*border: 10px solid red;*/
+	border-top: 5px solid #ebebeb;
+	padding-bottom: 2em; 
+	}
+
+	.page-header h1 {
+		position: absolute;
+		overflow: hidden;
+		top: -100%;
+		left: -100%;
+		/* you need this to make the page SEO friendly.
+		There are a bunch of H2s but no H1 which defines
+		the main title of the page. Now a screen reader
+		can read the title of the page and google search
+		index will continue to index the page and see the H1.
+		And our page will have a better outline.*/
+	}
+
+	.page-header > div {  /*delete this*/
+		/*border: 10px solid blue;*/
+		position: relative;
+	}
+
+	.page-header .identity {
+		font-family: "Pacifico", cursive;
+		font-size: 3.5em;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.page-header nav {
+		float: right;
+		font-family: "Economica", sans-serif;
+		text-transform: uppercase;
+	}
+
+	.page-header nav li {
+		color: #bfbfbf;
+		float: left;
+		margin-right: 3em;
+		margin-top: 3em;
+	}
+
+	.page-header nav li:last-child {
+		margin-right: 0;
+	}
+
+	.page-header nav li em {
+		display: block;
+		color: #474747;
+		font-size: 1.6em;
+		/*
+		 * use reeddesign.co.uk to see if 
+		 20px in your PSD file is equal to 1.6em
+		 */
+	}
+
+/* ==========================================================================
+	   CONTACT
+========================================================================== */
+.contact-us-container {
+	width: 70.5%;
+	/*background-color: lightgreen;*/
+}
+
+.contact-us{
+	margin-top: 3rem;
+}
+
+	.about-us-header {
+		font-size: 2.5em;
+		margin-bottom: 0;
+	}
+
+	.silver-italic {
+		color: #cecece;
+		font-style: italic;
+	}
+
+	.contact-us:after {
+		content: " "; /* empty space */
+		/*background: green;*/
+		display: block;
+		height: 5px;
+		background: url(../img/pattern.png) left top repeat-x;
+		margin-bottom: 3rem;
+		
+	}
+	
+/* ==========================================================================
+   		ASIDE
+========================================================================== */
+.aside-container {
+	margin-top: 4.2rem;
+	/*background-color: lightblue;*/
+	width: 23.5%;
+	float: right;
+}
+
+.aside-section {
+	margin-bottom: 1rem;
+}
+
+	.aside-paragraph:before {
+		content: " "; /* empty space */
+		/*background: green;*/
+		display: block;
+		height: 5px;
+		background: url(../img/pattern.png) left top repeat-x;
+		margin-bottom: 1rem;	
+	}
+
+	.aside-paragraph {
+		padding-bottom: 1.2rem;
+	}
+
+		.aside-paragraph .tweet-message {
+			margin-bottom: 0.1rem;
+		}
+
+		.aside-paragraph .tweet-time {
+			color: #b2b2b2;
+			margin-bottom: 1rem;
+			margin-top: 0.3rem;
+		}
+
+			.tweet-message a{
+				color: #d8d8d8;
+			}
+
+	
+
+
+/* ==========================================================================
+       FOOTER
+========================================================================== */
+
+.page-footer:before {
+	content: " "; /* empty space */
+	/*background: green;*/
+	display: block;
+	height: 5px;
+	background: url(../img/pattern.png) left top repeat-x;
+	
+}
+
+.page-footer {
+	/*border: 10px solid yellow;*/
+	background-color: #f4f4f4;
+	color: #9b9b9b;
+	font-size: 1rem;
+	/* no matter where the footer is coming
+	REM relative to the base size of the page */
+	height: 70px;
+	}
+
+	.page-footer .copyright {
+		float: left;
+	}
+
+	.page-footer .credits {
+		float: right;
+	}
+
+.page-footer-content {
+	padding: 1em 0;
+}
+
+
+/*=============================================
+=            FORM           =
+=============================================*/
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  background: #fafafa;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+  padding-left: 0;
+  width: 77%;
+  margin-bottom: 10rem;
+}
+
+.form-names {
+	width: 13.6rem;
+}
+
+.container #subject {
+	height: 13rem;
+}
