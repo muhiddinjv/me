@@ -247,14 +247,18 @@ p {
 	}
 
 	.blogpost:after {
-			content: " "; /* empty space */
-			/*background: green;*/
-			display: block;
-			height: 5px;
-			background: url(../img/pattern.png) left top repeat-x;
-			margin-bottom: 3rem;
-			margin-top: 3rem;
+		content: " "; /* empty space */
+		/*background: green;*/
+		display: block;
+		height: 5px;
+		background: url(../img/pattern.png) left top repeat-x;
+		margin-bottom: 3rem;
+		margin-top: 3rem;
 		}
+
+	.blogpost:last-child:after {
+		display: none;
+	}
 
 
 /*=====  End of Blog Section  ======*/
@@ -296,3 +300,32 @@ p {
 .page-footer-content {
 	padding: 1em 0;
 }
+
+
+/*==================================
+=            Pagination            =
+==================================*/
+.pagination {
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.pagination a {
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #474747;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+
+/*=====  End of Pagination  ======*/
