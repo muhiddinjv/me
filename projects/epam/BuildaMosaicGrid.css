@@ -1,0 +1,134 @@
+/* Import Google Font - Raleway 300 & 700 */
+/*@import url('http://fonts.googleapis.com/css?family=Raleway');*/
+
+
+	/*----------  Font and color variables  ----------*/
+
+/* fonts */
+/*$sans-serif: 'Raleway', sans-serif;
+$font-light: 300;
+$font-bold: 700;*/
+
+/* colors */
+/*$black: #353535;
+$gray: #4f4f4f;
+$medium-gray: #737373;
+$light-gray: #c4c4c4;
+$orange: #f96855;*/
+
+/*----------  Semantic color names  ----------*/
+/*$accent: $orange;
+
+$body-background: $black;
+$menu-background: $gray;
+
+$main-font-color: $light-gray;
+$menu-active-color: $light-gray;
+$menu-font-color: $medium-gray;
+$link-color: $accent;*/
+
+
+/*======================================
+=            General Styles            =
+======================================*/
+
+* { box-sizing: border-box; }
+
+body {
+	background: #353535;
+	color: #c4c4c4;
+	font-family: sans-serif;
+	font-size: 1.2rem;
+	line-height: 1.45;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+
+/*==================================
+=            Navigation            =
+==================================*/
+
+.sidebar {
+	background: #4f4f4f;
+	flex: 1 1 20%;
+	min-width: 300px;
+	padding: 3em;
+}
+
+.logo {
+	text-transform: uppercase;
+	margin-bottom: 2em;
+
+	@media (min-width: 1500px) {
+		margin-bottom: 5em;
+	}
+
+	span {
+		font-weight: gray;
+	}
+}
+
+.nav-item{
+	color: #c4c4c4;
+	text-decoration: none;
+	font-size: 1.7rem;
+	display: inline-block;
+	margin-right: 2em;
+	@media (min-width: 1500px) {
+		display: block;
+		margin: 7vh 0;
+	}
+
+	&.active {
+		color: #c4c4c4;
+	}
+}
+
+
+
+
+/*=========================================
+=            Main Content Area            =
+=========================================*/
+
+.main-content {
+	padding: 10%;
+	flex: 1 1 80%;
+	min-height: 100vh;
+}
+
+
+
+/*=================================
+=            Portfolio            =
+=================================*/
+
+.portfolio {
+	display: grid;
+	height: 100%;
+	grid-template-rows: repeat(6, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 20px;
+}
+
+.portfolio-item {
+	background: #f96855;
+	color: #353535;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	/* & = repeat the name of the parent class 
+		so & = .portfolio-item */
+	&.medium {
+		grid-row: span 2;
+		grid-column: span 2;
+	}
+}
+
+
+
+
