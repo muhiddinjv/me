@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href='style.css'></head>
+  <style type="text/css" media="screen">
+  	.grid {
+	  border: 2px blue solid;
+	  height: 500px;
+	  width: 500px;
+	  display: grid;
+	  /*
+	  Structure the grid to have four columns — the 		first two each taking up 25% of the total width, 		the third column taking up two-thirds of the 		remaining space, and the last column taking up 		the last third of the remaining space.
+	  */
+	  
+	/*   done */
+	  
+	/*   Great! Now, feel free to play around with refactoring to see how short you can make your style.css file while not changing the layout we’ve created. When you’re ready, move on to the next lesson. In the next lesson, you will learn some advanced techniques to further style your CSS grids. */
+	  
+	/*grid-template-columns: 25% 25% 2fr 1fr;
+	  grid-template-rows: 200px 200px; */
+	  grid-template: repeat(2, 25%) 2fr 1fr / repeat(2, 200px)
+	  
+	/*   grid-row-gap: 10px;
+	  grid-column-gap: 15px; */
+	  grid-gap: 10px / 15px;
+	}
+
+	.a {
+	/*   grid-column: 1 / span 2;
+	  grid-row-start: 1;
+	  grid-row-end: 3; */
+	  grid-area: 1 / 1 / span 2 / span 2;
+	}
+	.box {
+	  background-color: beige;
+	  color: black;
+	  border-radius: 5px;
+	  border: 2px dodgerblue solid;
+	}
+  </style>
+<body>
+  <div class="grid">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+    <div class="box c">C</div>
+    <div class="box d">D</div>
+    <div class="box e">E</div>
+  </div>
+</body>
+
+</html>
