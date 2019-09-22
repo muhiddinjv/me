@@ -1,0 +1,83 @@
+body{
+
+font family: 'lucida granade' , tahoma, verdana, arian, sans-serif;
+background-color:lightgreen;
+}
+
+#container{
+width:1080px;
+margin: 0 auto;
+padding:1px;
+background-color:lightgreen;
+}
+
+#navigation{
+height:60px;
+border:3px solid #e3e3e3;
+background-image: url(../images/galaxy.jpg)
+}
+
+ul#navmenu{
+list-style-type:none;
+font-size:20px;
+}
+
+ul#navmenu li{
+width:200px;
+text-align:center;
+float:left;
+margin-right:4px;
+}
+
+ul#navmenu a {
+text-decoration:none;
+display:block;
+width:180px;
+height:25px;
+background-color:white;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+#banner{
+height:295px;
+background-image:url(../images/grammar.jpg);
+background-size:cover; 
+}
+
+#content_area{
+float:left;
+width:750px;
+margin:20px 0 20px 0;
+padding:10px
+border:3px solid #e3e3e3;
+}
+
+.imgleft{
+float:left;
+margin: 0px 10px 10px 0;
+padding:5px;
+}
+
+.imgRight{
+float:right;
+margin: 0px 10px 10px 0;
+padding:5px;
+}
+
+#sidebar{
+float:right;
+width:250px;
+margin:20px 10px 20px 10px;
+border:3px solid #e3e3e3;
+}
+
+#footer{
+clear:both;
+width: auto;
+height: 20px;
+padding: 20px;
+background-image:url(../images/galaxy.jpg);
+color:lightgreen;
+text-align:center;
+}
