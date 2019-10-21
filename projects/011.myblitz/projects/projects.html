@@ -22,7 +22,7 @@
 				<ul>
 					<li><a href="../index.html">Homepage<em>Home</em></a></li>
 					<li><a href="../about/about.html">Who are we?<em>About</em></a></li>
-					<li><a href="#">My portfolio<em>Projects</em></a></li>
+					<li><a href="../projects/projects.html">My portfolio<em>Projects</em></a></li>
 					<li><a href="../blog/blog.html">Latest News<em>Blog</em></a></li>
 					<li><a href="../contact/contact.html">Get in touch<em>contact</em></a></li>
 				</ul>
@@ -91,12 +91,120 @@
 	<!-- INTRO -->
 
 			<section class="intro clearfix data-block">
-				<h2>THE PAGE IS UNDER CONSTRUCTION</h2>
+				<ul class="projects-nav">
+					<li class="nav-item active-text"><a href="#">all</a></li>
+					<li class="nav-item"><a href="#">web</a></li>
+					<li class="nav-item"><a href="#">print</a></li>
+					<li class="nav-item"><a href="#">art</a></li>
+					<li class="nav-item"><a href="#">photoshop</a></li>
+					<li class="nav-item"><a href="#">development</a></li>
+				</ul>
+				<div class="article">
+					<div class="one-column">
+						<article class="work">
+							<figure>
+								<img src="http://lorempixel.com/220/120/people?t=1" alt="image"  class="fixed-width-again">
+							</figure>
+							<div class="staff-info">
+								<div class="staff-number">
+									<h3>jane doe</h3>
+								</div>
+								<h4 class="staff-job">ceo</h4>
+								<p>
+									Sep-8, 2019, 12:02AM: I just learned about nesting the hard way. I've been working on this project for several weeks 
+									mostly b/c of my extremely tight schedule with moving office and tryina catch up with my online course in the meantime... 
+								</p>
+							</div>
+						</article>
+						<article class="work">
+							<figure>
+								<img src="http://lorempixel.com/220/120/people?t=1" alt="image"  class="fixed-width-again">
+							</figure>
+							<div class="staff-info">
+								<div class="staff-number">
+									<h3>jane doe</h3>
+								</div>
+								<h4 class="staff-job">ceo</h4>
+								<p>
+									And the number one problem I've had so far was making these columns vertically flexible so that they can change their height according to the content inside...
+								</p>
+							</div>
+						</article>
+					</div>
+
+					<div class="one-column">
+						<article class="work">
+							<figure>
+								<img src="http://lorempixel.com/220/120/people?t=1" alt="image"  class="fixed-width-again">
+							</figure>
+							<div class="staff-info">
+								<div class="staff-number">
+									<h3>jane doe</h3>
+								</div>
+								<h4 class="staff-job">ceo</h4>
+								<p>I found out that if wrapper {display:grid;grid-template-columns: repeat(3, 1fr)} these 3 columns height change accordin to their siblings height. Their height don't work independent from each other...
+								</p>
+							</div>
+						</article>
+						<article class="work">
+							<figure>
+								<img src="http://lorempixel.com/220/120/people?t=1" alt="image"  class="fixed-width-again">
+							</figure>
+							<div class="staff-info">
+								<div class="staff-number">
+									<h3>jane doe</h3>
+								</div>
+								<h4 class="staff-job">ceo</h4>
+								<p>
+									<strong>SOLUTION:</strong> I put every two siblings in one div and {display:grid;grid-template-columns:1fr;} THATS IT. It was THAT simple. I simply nested one column in each of the 3 columns. Look at it, I mean take a close look at this column! Ain't it beautiful :)
+								</p>
+							</div>
+						</article>
+					</div>
+
+					<div class="one-column">
+						<article class="work">
+							<figure>
+								<img src="http://lorempixel.com/220/120/people?t=1" alt="image"  class="fixed-width-again">
+							</figure>
+							<div class="staff-info">
+								<div class="staff-number">
+									<h3>jane doe</h3>
+								</div>
+								<h4 class="staff-job">ceo</h4>
+								<p>
+									When you work simply for yourself or for your own personal gain yo	ur mind will seldom rise above the limitations. 
+									When you work simply for yourself or for your own personal gain yo	ur mind will seldom rise above the limitations.
+								</p>
+							</div>
+						</article>
+						<article class="work">
+							<figure>
+								<img src="http://lorempixel.com/220/120/people?t=1" alt="image"  class="fixed-width-again">
+							</figure>
+							<div class="staff-info">
+								<div class="staff-number">
+									<h3>jane doe</h3>
+								</div>
+								<h4 class="staff-job">ceo</h4>
+								<p>
+									When you work simply for yourself or for your own personal gain yo	ur mind will seldom rise above the limitations.
+								</p>
+							</div>
+						</article>
+					</div>					
+				</div>
+				
 			</section>
-
-			
-
+			<div>
+				<span class="dot active-bg" onclick="currentSlide(1)"></span>
+				<span class="dot" onclick="currentSlide(2)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+				<span class="dot" onclick="currentSlide(4)"></span>
+				<span class="dot" onclick="currentSlide(5)"></span>
+			  </div>	
 		</article>
+		
 	</main>
 	
 <!-- Footer -->

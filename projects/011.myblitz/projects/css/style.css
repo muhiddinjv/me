@@ -1,6 +1,6 @@
 /*=============================================
 =            article-wrap
-ems and rems solved problems which I faced 
+ems and rems solved the annoying problems I faced 
 using pixels. I use rem in spacing (margin, 
 padding, etc.) and font sizing. And I use em 
 for layouts like menu           =
@@ -178,7 +178,7 @@ p {
 		display: block;
 		height: 5px;
 		background: url(../img/pattern.png) left top repeat-x;
-		margin-bottom: 3rem;
+		margin-bottom: 1rem;
 		
 	}
 	
@@ -223,6 +223,114 @@ p {
 				color: #d8d8d8;
 			}
 
+/* ==========================================================================
+   		PROJECTS NAV-BAR
+========================================================================== */
+.projects-nav {
+	display: inline-flex;
+	margin: 0.5rem 0;
+}
+
+	.nav-item {
+		text-transform: uppercase;
+		font-size: 1rem;
+		letter-spacing: -1px;
+		border-right: 1px grey solid;
+		margin: 0 5px;
+		padding-right: 12px;
+	}
+
+	.active, .nav-item:hover {
+		color: #bbb;
+	}
+
+	.active-text {
+		color: #bbb;
+	}
+
+	.nav-item:last-child {
+		border-right: none;	
+	}
+
+	.nav-item:first-child {
+		margin-left: 0;	
+	}
+
+.article {
+	margin-top: 1.5rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1em 1.3em;
+	align-items: start;
+}
+
+	.one-column {
+		display: grid;
+		grid-gap: 1em;
+		grid-template-columns: 1fr;
+	}
+
+.work {
+	margin-right: 2%;
+	border: 2px solid #f8f8f8;
+	background-color: white;
+}
+	
+	.work figure {
+		margin-bottom: 1em;
+	}
+
+	.work figure > img {
+		width: 100%;
+	}
+
+	.staff-info {
+		/*background: lightblue;*/
+	}
+
+	.staff-info{
+	padding: 0 15px 20px 15px;
+	}
+
+	.staff-number p {
+		margin: 0;
+		float: right;
+	}
+
+	.staff-number h3 {
+		font-weight: bold;
+		margin: 0;
+	}
+
+	.staff-job {
+		text-transform: uppercase;
+		font-size: 0.9em;
+		color: #949393;
+		margin-top: 5px;
+		margin-bottom: 20px;
+		font-weight: bold;
+	}
+
+	/* The dots/bullets/indicators */
+	.dot {
+		cursor:pointer;
+		height: 5px;
+		width: 22px;
+		margin: 0 2px;
+		background-color: #717171;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+		margin-top: 27px;
+		margin-bottom: 72px;
+	}
+	
+	.dot:hover {
+		background-color: #bbb;
+	}
+
+	.active-bg {
+		background-color: #bbb;
+	}
 	
 
 
@@ -258,38 +366,6 @@ p {
 	}
 
 .page-footer-content {
-	padding: 1em 0;
+	padding: 1rem 0;
 }
 
-
-/*=============================================
-=            FORM           =
-=============================================*/
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  background: #fafafa;
-}
-
-.container {
-  border-radius: 5px;
-  padding: 20px;
-  padding-left: 0;
-  width: 77%;
-  margin-bottom: 10rem;
-}
-
-.form-names {
-	width: 13.6rem;
-}
-
-.container #subject {
-	height: 13rem;
-}
