@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GridSite</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .site {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: auto 1fr 3fr;
+            grid-gap: 0.5em;
+            grid-template-areas:
+                "title title title"
+                "main header header"
+                "main sidebar footer";
+        }
+
+        .masthead {
+            grid-area: header;
+            background: purple;
+            grid-column: 2/4;
+            grid-row: 2/3;
+            text-align: center;
+        }
+
+        .page-title {
+            grid-area: title;
+            background: lightseagreen;
+            grid-column: 1/4;
+            grid-row: 1/2;
+            margin: 0;
+            text-align: center;
+        }
+
+        .main-content {
+            grid-area: main;
+            background: lightgreen;
+            grid-column: 1/2;
+            grid-row: 2/4;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background: lightsalmon;
+            grid-column: 2/3;
+            grid-row: 3/4;
+        }
+
+        .timetable {
+            padding: 0 1em;
+        }
+
+        .footer {
+            grid-area: footer;
+            background: lightskyblue;
+            grid-column: 3/4;
+            grid-row: 3/4;
+        }
+    </style>
+</head>
+<body>
+    <div class="site">
+        <header class="masthead">masthead</header>
+
+        <h1 class="page-title">Saturday, June 17th</h1>
+
+        <main class="main-content">
+            <div class="timetable">
+                <h3>CSS Grid Changes Everything (About Web Layouts)</h3>
+                <p>Morten Rand-Handriksen</p>
+                <p><strong>9:00 am</strong></p>
+                <hr>
+            </div>
+            
+            <div class="timetable">
+                <h3>Using WordPress for Good</h3>
+                <p>Sasha Endoh</p>
+                <p><strong>10:00 am</strong></p>
+                <hr>
+            </div>
+
+            <div class="timetable">
+                <h3>Accessibility in the Age of Headless CMS</h3>
+                <p>Rian Rietveld</p>
+                <p><strong>11:00 am</strong></p>
+                <hr>
+            </div>
+            
+            <div class="timetable">
+                <h3>Selfish Accessibility</h3>
+                <p>Adrean Roselli</p>
+                <p><strong>12:00 pm</strong></p>
+                <hr>
+            </div>
+
+            <div class="timetable">
+                <h3>Lunch</h3>
+                <p>Italian Pizza</p>
+                <p><strong>1:00 pm</strong></p>
+                <hr>
+            </div>
+
+            <div class="timetable">
+                <h3>Lightening Talks - Inspire</h3>
+                <p>Thabo Tswana, Marco Calcchia, Alice Omu, Tom Greenwood</p>
+                <p><strong>2:00 pm</strong></p>
+                <hr>
+            </div>
+
+            <div class="timetable">
+                <h3>Interview and Q&A with Matt Mullenweg</h3>
+                <p>Matt Mullenweg and Om Malik</p>
+                <p><strong>3:00 pm</strong></p>
+                <hr>
+            </div>
+
+            <div class="timetable">
+                <h3>React Natively with WordPress</h3>
+                <p>Pirabe Dunbar</p>
+                <p><strong>4:00 pm</strong></p>
+                <hr>
+            </div>
+
+            <div class="timetable">
+                <h3>Data Visualization with the REST API</h3>
+                <p>K. Adam White</p>
+                <p><strong>5:00 pm</strong></p>
+                <hr>
+            </div>
+
+            <div class="timetable">
+                <h3>Closing Remarks</h3>
+                <p>Pacia Belcastro</p>
+                <p><strong>6:00 pm</strong></p>
+                <hr>
+            </div>
+        </main>
+
+        <aside class="sidebar">sidebar</aside>
+
+        <footer class="footer">footer</footer>
+    </div>
+</body>
+</html>
