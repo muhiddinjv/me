@@ -1,11 +1,3 @@
-/*
-  Oh Hello!
-
-  These are some base styles so that our tutorial looks good.
-
-  Let's go through the important bits real quick
-*/
-
 :root {
     --yellow: #ffc600;
     --black: #272727;
@@ -54,7 +46,7 @@ h6 {
 }
 
 
-/* Each item in our grid will contain numbers */
+/* Each item in grid will contain numbers */
 
 .item {
     /* We center the contents of these items. You can also do this with flexbox too! */

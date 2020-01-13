@@ -1,0 +1,271 @@
+/* ----------------VARIABLES------------------- */
+
+:root {
+    --primary: #f5c506;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #ccc;
+    line-height: 1.4;
+    /* max-width: 1020px; */
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+
+/* -----------------HEADER-------------------- */
+
+header {
+    background: url(images/banner.jpg);
+    background-size: cover;
+    padding: 25px;
+}
+
+.fixed-width {
+    width: 1140px;
+}
+
+
+/* -------------- Navigation ----------------- */
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 60px 0 60px;
+    border: 1px solid white;
+    margin: 0 auto;
+}
+
+.top-nav ul {
+    background: url(images/nav.png) no-repeat 0 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 479px;
+    list-style: none;
+    border: 1px solid red;
+}
+
+.top-nav ul>li {
+    border-right: 1px solid #b99403;
+    padding-right: 20px;
+}
+
+.top-nav ul li:nth-child(3) {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 30px;
+}
+
+.top-nav ul li a {
+    text-decoration: none;
+    /* border: 1px solid white; */
+    color: #b99403;
+    font-size: 1em;
+    font-weight: 400;
+    display: block;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.top-nav ul li a:hover {
+    color: #fff;
+}
+
+.top-nav ul li a span {
+    background: url(images/img-sprite.png);
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.top-nav ul li a span.service {
+    background-position: -34px 0px;
+}
+
+.top-nav ul li a span.mail {
+    background-position: -68px -5px;
+}
+
+
+/*----*/
+
+.top-nav span.menu:before {
+    content: url(images/menu.png)no-repeat 0px 0px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.top-nav span.menu {
+    display: none;
+}
+
+
+/* --------------------SLIDER------------------- */
+
+.slider-wrapper {
+    color: white;
+    border: 1px solid blue;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 8fr 1fr;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.slider-wrapper2 {
+    border: 1px solid red;
+    margin: 0 auto;
+    display: flex;
+}
+
+.slider-wrapper video {
+    border: 1px solid white;
+    width: 650;
+    height: 404;
+}
+
+.slider-header {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    padding-right: 20px;
+}
+
+.slider-header span {
+    color: orange;
+}
+
+.slider1 {
+    border: 1px solid yellow;
+}
+
+.sliderPagination {
+    visibility: hidden;
+}
+
+.blog-post {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid white;
+}
+
+
+/* ---------------MAIN SECTION------------------ */
+
+main {
+    margin: 0 auto;
+}
+
+.features {
+    background: url(images/banner1.jpg);
+}
+
+.features2 {
+    margin: 0 auto;
+    background-size: cover;
+    border: 1px solid white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.feature {
+    border: 1px solid white;
+    text-align: center;
+}
+
+.banner3 {
+    margin: 0 auto;
+}
+
+
+/*------------------Range Slider-----------------*/
+
+.blog {
+    background: url(images/banner2.jpg);
+    margin: 0;
+}
+
+.blog h2 {
+    margin-top: 0;
+}
+
+
+/*------------------Range Slider-----------------*/
+
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    /* background: #d3d3d3; */
+    background: white;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 125px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+
+/* -----------------FOOTER--------------------- */
+
+footer {
+    background: url(images/banner3.jpg);
+}
+
+.bonuses {
+    margin: 0 auto;
+}
+
+.bonuses h2 {
+    text-align: center;
+}
+
+.bonus {
+    text-transform: uppercase;
+    display: grid;
+    grid-gap: 60px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.footer {
+    margin: 0 auto;
+    display: flex;
+}
