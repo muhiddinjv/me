@@ -1,0 +1,116 @@
+/* ----------------- Method-1: Line NUMBERS ----------------------- */
+
+
+/*
+.wrapper {
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr) 2.2fr;
+    grid-template-rows: 1fr 2fr 4fr 1fr;
+    grid-gap: 1rem;
+}
+
+.wrapper>* {
+    background-color: blueviolet;
+    padding: 2rem;
+}
+
+.header,
+.footer {
+    grid-column: 1/-1;
+}
+
+.sidebar {
+    grid-area: 2 / 4 / 4 / 5;
+}
+
+.main-content {
+    grid-column: 1 / span 3;
+}
+*/
+
+
+/* ---------------- METHOD-2: LINE NAMES ------------------------ */
+
+
+/* ------------Great for BIG layouts like 12/12-------------- */
+
+
+/*
+.wrapper {
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    display: grid;
+    grid-template-rows: [header-start] 1fr [header-end box-start] 2fr [box-end main-start] 4fr [main-end footer-start] 1fr [footer-end];
+    grid-template-columns: repeat(3, [col-start] 3fr [col-end]) 2.2fr [grid-end];
+    grid-gap: 1rem;
+}
+
+.wrapper>* {
+    background-color: blueviolet;
+    padding: 2rem;
+}
+
+.header,
+.footer {
+    grid-column: col-start 1 / grid-end;
+}
+
+.sidebar {
+    grid-column: col-end 3 / grid-end;
+    grid-row: box-start / main-end;
+}
+
+.main-content {
+    grid-column: col-start 1 / col-end 3;
+}
+*/
+
+
+/* ---------------- METHOD-3: GRID AREAS ------------------------ */
+
+
+/* ------------Great for SMALL layouts like 12/12-------------- */
+
+body {
+    font-size: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ddd;
+}
+
+.wrapper {
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr) 2.2fr;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-rows: 1fr 2fr 4fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: "head head head head" "box box box side" "main main main side" "foot foot foot foot";
+}
+
+.wrapper>* {
+    background-color: blueviolet;
+    padding: 2rem;
+}
+
+.header {
+    grid-area: head;
+}
+
+.sidebar {
+    grid-area: side;
+}
+
+.main-content {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: foot;
+}

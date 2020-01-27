@@ -1,22 +1,6 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
 *,
-
-/* all the elements will have these changes */
-
 *::after,
-
-/* all the AFTER pseudo elements will have these changes */
-
 *::before {
-    /* all the BEFORE pseudo elements will have these changes */
     margin: 0;
     padding: 0;
     box-sizing: inherit;
@@ -44,7 +28,7 @@ body {
 
 .header {
     height: 95vh;
-    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
     position: relative;
@@ -149,12 +133,17 @@ body {
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn--white {
@@ -162,9 +151,13 @@ body {
     color: #777;
 }
 
-.btn:after {
+.btn--white::after {
+    background-color: #fff;
+}
+
+.btn::after {
     content: "";
-    /* content+display should be specified (even when it's empty) to make it appear */
+    /* content+display must be specified (even when it's empty) to make it appear */
     display: inline-block;
     height: 100%;
     width: 100%;
@@ -174,15 +167,6 @@ body {
     left: 0;
     z-index: -1;
     transition: all .4s;
-}
-
-.btn--white:after {
-    background-color: #fff;
-}
-
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
 }
 
 .btn--animated {

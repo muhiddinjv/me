@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* people with bad eye-sight usually change
+    the default size of their browser. If you set
+    the font to 10px, then people can't change
+    the default font size. That's why use precentage.
+    */
+    font-size: 62.5%;
+    /* font-size: 10px; */
+}
+
+body {
+    box-sizing: border-box;
+}
