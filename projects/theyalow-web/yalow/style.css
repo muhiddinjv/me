@@ -64,10 +64,11 @@ ul {
 
 .container {
     display: grid;
-    grid-template-columns: [full-start] 1fr [center-start] repeat(6, [col-start] minmax(min-content, 114rem) [col-end]) [center-end] 1fr [full-end];
+    grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 102rem) [col-end]) [center-end] 1fr [full-end];
 }
 
 .container>* {
+    /* this is to make things look better so it should be deleted once all is done */
     padding: 40px;
     font-size: 3rem;
 }
@@ -91,12 +92,14 @@ ul {
     background-image: url(img/banner1.jpg);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 2rem;
+    /* grid-gap: 2rem; */
     justify-items: center;
+    align-content: center;
 }
 
 .feature {
-    padding: 3rem;
+    padding: 5rem;
+    width: 38rem;
     justify-content: center;
     border: 1px solid blue;
     text-align: center;
