@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount</title>
+</head>
+
+<body>
+    <script>
+        //20% discount from a shopping cart
+        const cartItems = prompt("Necha pulli narsala oldiz?");
+        const discount = (cartItems / 100) * 20;
+        const totalPay = cartItems - discount;
+        //Print the results
+        console.log('Total: ' + cartItems);
+        console.log('Discount: ' + discount);
+        console.log('Pay : $' + totalPay);
+    </script>
+</body>
+
+</html>

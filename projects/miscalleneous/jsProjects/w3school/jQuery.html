@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w3jQuery</title>
+    <script src="jquery.min.js"></script>
+    <script src="jQuery.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* background-color: silver; */
+            text-align: center;
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            padding: 30px;
+        }
+        /* .fadeIn {
+            display: flex;
+            justify-content: center;
+        } */
+        
+        .boxes {
+            width: 80px;
+            height: 80px;
+            display: none;
+            margin: 10px;
+            /* border: 1px solid black; */
+        }
+        
+        #boxes {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .box1 {
+            background-color: blue;
+        }
+        
+        .box2 {
+            background-color: green;
+        }
+        
+        .box3 {
+            background-color: red;
+        }
+        
+        #panel,
+        #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+        
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+        
+        #panel2,
+        #flip2 {
+            padding: 5px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #555;
+            color: white;
+            border: solid 1px #666;
+            border-radius: 3px;
+            width: 500px;
+            margin: auto;
+        }
+        
+        #panel2 {
+            /* padding: 50px; */
+            display: none;
+        }
+        
+        .important {
+            font-weight: bold;
+            font-size: xx-large;
+        }
+        
+        .blue {
+            color: blue;
+        }
+        
+        .dimension {
+            display: grid;
+            justify-items: center;
+        }
+        
+        #dim1 {
+            height: 150px;
+            width: 400px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+        
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+        
+        .descendants * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+        
+        .siblings * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h4>Started: 2:51pm 2/4/2020</h4>
+    <div class="tutorial">
+        <h1>(1) Tutorial</h1>
+        <div class="selectors">
+            <h2>jQuery Selectors</h2>
+            <h3>This is a heading</h3>
+            <p class="p0">This is a paragraph.</p>
+            <p class="p0">This is another paragraph.</p>
+            <button>Click me to hide paragraphs</button>
+        </div>
+        <div class="events">
+            <h2>jQuery Event Methods</h2>
+            <h3>click()</h3>
+            <p class="pA">If you click on me, I will disappear.</p>
+            <p class="pA">Click me away!</p>
+            <p class="pA">Click me too!</p>
+
+            <h3>mouse hover()</h3>
+            <p id="p1" style="width: 500px;">Enter this paragraph.</p>
+
+            <h3>mousedown()</h3>
+            <p id="p2">Press this paragraph.</p>
+
+            <h3>focus() / blur()</h3>
+            Name: <input type="text" name="fullname"><br> Email: <input type="text" name="email">
+
+            <h3>multiple events</h3>
+            <div id="para">Click or move the mouse pointer over this paragraph.</div>
+        </div>
+    </div>
+    <div class="effects">
+        <h1>(2) Effects</h1>
+        <div class="hideShow">
+            <button id="btn">Toggle</button>
+            <p class="p3">This is a paragraph with little content.</p>
+            <p class="p3">This is another small paragraph.</p>
+        </div>
+        <div class="fadeIn">
+            <p>Demonstrate fadeIn() with different parameters.</p>
+            <button id="btn2">Click to fade in boxes</button><br><br>
+            <div id="boxes">
+                <div class="boxes box1"></div>
+                <div class="boxes box2"></div>
+                <div class="boxes box3"></div>
+            </div>
+        </div>
+        <div class="slide">
+            <div id="flip">Click to slide down panel</div>
+            <div id="panel">Hello world!</div>
+        </div>
+        <div class="animate">
+            <button>Start Animation</button>
+            <p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+            <!-- <div id="div4" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div> -->
+            <div id="div3" style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>
+        </div>
+        <div class="stop">
+            <button id="stop">Stop sliding</button>
+            <div id="flip2">Click to slide down panel</div>
+            <div id="panel2">Hello world!</div>
+        </div>
+        <div class="many">
+            <p id="p4">jQuery is fun!!</p>
+            <button id="btn5">Click me</button>
+        </div>
+    </div>
+    <div class="jHtml">
+        <h1>(3) jQuery HTML</h1>
+        <div class="jGet">
+            <h3>jQuery Get</h3>
+            <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+            <button id="btn6">Show Text</button>
+            <button id="btn7">Show HTML</button>
+            <p>Name: <input type="text" id="test0" value="Mickey Mouse"></p>
+            <button id="btn8">Show Value</button>
+        </div>
+        <div class="set">
+            <p id="test1">This is a paragraph.</p>
+            <p id="test2">This is another paragraph.</p>
+            <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+            <button id="btn9">Set Text</button>
+            <button id="btn10">Set HTML</button>
+            <button id="btn11">Set Value</button>
+        </div>
+        <div class="add">
+            <p class="addP">This is a paragraph.</p>
+            <p class="addP">This is another paragraph.</p>
+            <ol class="addOl">
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <li>List item 3</li>
+            </ol>
+            <button id="btn12">Append text</button>
+            <button id="btn13">Append list items</button>
+        </div>
+        <div class="remove">
+            <div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+                This is some text in the div.
+                <p>This is a paragraph in the div.</p>
+                <p>This is another paragraph in the div.</p>
+            </div>
+            <br>
+            <button id="rmv">remove()</button>
+            <button id="emp">empty()</button>
+        </div>
+        <div class="classes">
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <p>This is a paragraph.</p>
+            <p>This is another paragraph.</p>
+            <div>This is some important text!</div><br>
+            <button id="class">Add classes to elements</button>
+        </div>
+        <div class="css">
+            <p style="background-color:#ff0000">This is a paragraph.</p>
+            <p style="background-color:#00ff00">This is a paragraph.</p>
+            <p style="background-color:#0000ff">This is a paragraph.</p>
+            <p>This is a paragraph.</p>
+            <button id="css">Set background-color of p</button>
+        </div>
+        <div class="dimension">
+            <div id="dim1"></div>
+            <button>
+            <button id="dim">Display dimensions of div</button>
+            <p>outerWidth(true) - returns the width of an element (includes padding, border, and margin).</p>
+            <p>outerHeight(true) - returns the height of an element (includes padding, border, and margin).</p>
+            <button id="disDim">Display dimensions of document and window</button>
+        </div>
+    </div>
+    <div class="traversing">
+        <h1>(4) Traversing</h1>
+        <div class="ancestor">
+            <div class="ancestors" style="border:2px solid green;">
+                <div style="width:500px;">div (great-grandparent)
+                    <ul>ul (grandparent)
+                        <li>li (direct parent)
+                            <span class="span1">span (you are here)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="width:500px;">div (grandparent)
+                    <p>p (direct parent)
+                        <span class="span1">span (you are here)</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button id="prnt">parent()</button>
+        <button id="prntsUntil">parentsUntil()</button>
+        <button id="prnts">parents()</button><br><br>
+        <div class="descendants" style="width:500px; border:2px solid blue;">div (current element)
+            <p class="first">p (child)
+                <span>span (grandchild)</span>
+            </p>
+            <p class="second">p (child)
+                <span>span (grandchild)</span>
+            </p>
+        </div>
+        <button id="first">Chld:First</button>
+        <button id="chld">Children</button>
+        <button id="find">Find(span)</button>
+
+        <div class="siblings">
+            <div class="parent">
+                <div>div (parent)
+                    <p>p</p>
+                    <span>span</span>
+                    <h2 id="h2">h2 (current)</h2>
+                    <h3>h3</h3>
+                    <p>p</p>
+                    <ul> ul
+                        <li>list</li>
+                        <li>list</li>
+                    </ul>
+                    <h6>h6</h6>
+                    <p>p</p>
+                </div>
+            </div>
+        </div>
+        <button id="nextUntill">nextUntill</button>
+        <button id="nextAll">NextAll</button>
+        <button id="sib">Siblings</button>
+        <div class="filter">
+            <h1>Welcome to My Homepage</h1>
+            <p>This is the first paragraph in body.</p>
+            <div style="border: 1px solid black;">
+                <p class="intro">This is the first paragraph in a div.</p>
+                <p class="intro">This is the last paragraph in a div.</p>
+            </div><br>
+            <div style="border: 1px solid black;">
+                <p>This is the first paragraph in another div.</p>
+                <p>This is the last paragraph in another div.</p>
+            </div>
+            <p>This is the last paragraph in body.</p>
+        </div>
+        <button id="frst">First</button>
+        <button id="lst">last</button>
+        <button id="eq">eq(3)</button>
+        <button id="fltr">filter(class)</button>
+        <button id="not">not</button>
+    </div>
+    <div class="ajax">
+        <h1>(5) AJAX</h1>
+        <div id="intro">
+            <div id="adiv">
+                <h2>Let jQuery AJAX Change This Text</h2>
+            </div>
+            <button class="external">Get External Content</button>
+        </div>
+        <div class="noConflict">
+            <h4>noConflict();</h4>
+            <p class="noCon">This is a paragraph.</p>
+            <button id="noConBtn">Test jQuery</button>
+        </div>
+    </div>
+</body>
+
+</html>

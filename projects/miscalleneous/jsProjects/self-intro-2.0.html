@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+    }
+    
+    .header {
+        background: #f4f4f4;
+        border-bottom: #ccc 3px solid;
+        padding: 20px;
+    }
+    
+    .subheading {
+        background-color: teal;
+        color: white;
+        padding: 20px;
+    }
+    
+    .instructions {
+        background-color: salmon;
+        color: white;
+        padding: 20px;
+    }
+    
+    .container {
+        margin: auto;
+    }
+    
+    .menu-list {
+        font-size: 20px;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px #999;
+    }
+    
+    .btn:hover {
+        background-color: #3e8e41;
+    }
+    
+    .btn:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        color: darkblue;
+    }
+    
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -60px;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    
+    #myDiv {
+        display: none;
+    }
+    
+    #myDiv a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    #myDiv a:hover {
+        color: blue;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Intro-2.0</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Introduce Yourself</h1>
+        <p id="heading">(O'zingizni Tanishtiring)</p>
+        <p class="subheading">
+            Quyidagi gaplarni yodlab olib chet elliklar bilan ko'chada yoki online tanishganda ularni Inglizcha gapirib <i>"Vay oka siz gapirseyz Amerikansla hijolat"</i> diydigan darajada qoyil qoldiring!
+        </p>
+        <p class="instructions">
+            <i>Savollarga javoblarni Ingliz tilida bilganizcha yozing. Agar bilmasangiz unda bilganizzi qiling :)</i>
+        </p>
+        <div class="container">
+            <button class="btn" onclick="tekstniOzgartir()">Savollar!</button>
+        </div>
+        <p>
+            <span class="tooltip"> My name is <span class="tooltiptext">Mening ismim___</span></span>
+            <span id="name">___</span>
+            <span class="tooltip"> and I am from <span class="tooltiptext">va men___danman </span></span>
+            <span id="from">___</span>.
+            <span class="tooltip"> I live in <span class="tooltiptext">Men___da yashayman</span></span>
+            <span id="live">___</span>.
+            <span class="tooltip"> I am <span class="tooltiptext">Men___man</span></span>
+            <span id="age">___</span>
+            <span class="tooltip"> years old. <span class="tooltiptext">__yosh__</span></span>
+            <span class="tooltip"> I am a student at <span class="tooltiptext">Men___da talabaman.</span></span>
+            <span id="study">___</span>.
+            <span class="tooltip"> My favorite subject is <span class="tooltiptext">Meni sevimli fanim bu____.</span></span>
+            <span id="subject">___</span>.
+            <span class="tooltip"> I have <span class="tooltiptext">Menda bor____.</span></span>
+            <span id="family">___</span>
+            <span class="tooltip"> brothers and sisters <span class="tooltiptext">Oka+uka va opa+singillar.</span></span>
+            and I have <span id="uncle">___</span>
+            <span class="tooltip"> uncles and aunts. <span class="tooltiptext">toga+amakilar va amma+holalar</span></span>
+            <span class="tooltip"> My hobby is <span class="tooltiptext">Mening hobbiyim bu___.</span></span>
+            <span id="hobby">___</span>.
+            <span class="tooltip"> I love to eat <span class="tooltiptext">Men yoqtiraman___yeyishni, </span></span>
+            <span id="food">___</span>,
+            <span class="tooltip"> drink <span class="tooltiptext">___ichishni.</span></span>
+            <span id="drink">___</span>,
+            <span class="tooltip"> and watch <span class="tooltiptext">Va___tomosha qilishni.</span></span>
+            <span id="movie">___</span>
+            <span class="tooltip"> on the weekend. <span class="tooltiptext">dam olish kunida.</span></span>
+            <span class="tooltip"> I am good at <span class="tooltiptext">Men____ga ustaman.</span></span>
+            <span id="good">___</span>
+            <span class="tooltip"> and I would like to be a <span class="tooltiptext">va men hohlardim____bo'lishni</span></span>
+            <span id="job">___</span>.
+        </p>
+        <p class="instructions">
+            <i>Shu <span class="tooltip">gapni ustiga bosing<span class="tooltiptext">Vaachaach! Shunaqayam DODA programma boladimi!</span></span>, mo'jizani ko'rasiz! <br>Endi yuqoridagi hohlagan gapni ustiga bosing!</i>
+        </p>
+        <button class="btn" onclick="myFunction()">Bosma!</button>
+        <div id="myDiv">
+            <p class="subheading">
+                <i>"Bosma"</i> disayam bosadiya... Chimchilab tashiman hozi... Karantin vaqtida jaa quyushqonda chiqvosde :) <i>"Kelajakda shunaqa doda dasturlani ko'rish niyyatiz bo'sa telegramda <a href="https://t.me/emuallimuz">@emuallimuz</a> kanalimizga obuna bo'ling baraka topgur!"</i>                diyishim shartmasdur!
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        function tekstniOzgartir() {
+            var name = document.getElementById('name');
+            name.innerHTML = prompt('Ismingiz nima?');
+
+            var from = document.getElementById('from');
+            from.innerHTML = prompt('Qaysi shaxardansiz?');
+
+            var live = document.getElementById('live');
+            live.innerHTML = prompt("Qayerda yashaysiz?");
+
+            var age = document.getElementById('age');
+            age.innerHTML = prompt("Yoshingiz?");
+
+            var study = document.getElementById('study');
+            study.innerHTML = prompt("Qayerda o'qiysiz?");
+
+            var subject = document.getElementById('subject');
+            subject.innerHTML = prompt("Yoqtirgan faningiz?");
+
+            var family = document.getElementById('family');
+            family.innerHTML = prompt("Nechta oka+uka va opa+singliz bor?");
+
+            var uncle = document.getElementById('uncle');
+            uncle.innerHTML = prompt("Nechta amaki+toga va amma+holalaringiz bor?");
+
+            var hobby = document.getElementById('hobby');
+            hobby.innerHTML = prompt("Hobbiyingiz?");
+
+            var food = document.getElementById('food');
+            food.innerHTML = prompt("Yoqtirgan taomingiz?");
+
+            var drink = document.getElementById('drink');
+            drink.innerHTML = prompt("Yoqtirgan ichimlikingiz?");
+
+            var movie = document.getElementById('movie');
+            movie.innerHTML = prompt("Yoqtirgan kinoingiz?");
+
+            var good = document.getElementById('good');
+            good.innerHTML = prompt("Nima qilishga ustasiz?");
+
+            var job = document.getElementById('job');
+            job.innerHTML = prompt("Kim bo'lishni hohlaysiz?");
+        };
+
+        function myFunction() {
+            var x = document.getElementById('myDiv');
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            };
+        }
+    </script>
+</body>
+
+</html>

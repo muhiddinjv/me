@@ -1,0 +1,2 @@
+<p id="para1">This is the text from the para1 tag in the notepad file in the same folder as the website</p>
+<p>This text is from the notepad file in the same folder as this index file</p>
