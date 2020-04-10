@@ -12,6 +12,7 @@ nextButton.addEventListener('click', () => {
     setNextQuestion()
 })
 
+// ------ Start --------------------------------------------
 function startGame() {
     // alert('started')
     startButton.classList.add('hide')
@@ -23,6 +24,8 @@ function startGame() {
     setNextQuestion()
 }
 
+
+// ------ Next --------------------------------------------
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -44,12 +47,14 @@ function showQuestion(question) {
 
 function resetState() {
     clearStatusClass(document.body)
-    nextButton.classList.add('hidden')
+    nextButton.classList.add('hide')
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
 }
 
+
+// ------ Answer --------------------------------------------
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
@@ -106,12 +111,12 @@ const questions = [{
 
         ]
     }, {
-        question: 'What is 4 x 2?',
+        question: 'What is 4 * 2?',
         answers: [
             { text: '8', correct: true },
             { text: '6', correct: false },
 
         ]
-    },
+    }
 
 ]
