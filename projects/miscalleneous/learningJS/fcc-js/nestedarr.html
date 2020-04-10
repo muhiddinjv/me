@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nested</title>
+</head>
+
+<body>
+    <div class="temp"></div>
+    <button onclick="convertToF()">temp</button>
+    <script>
+        function convertToF(celsius) {
+
+            let fahrenheit;
+            fahrenheit = (celsius * (9 / 5)) + 32;
+            return fahrenheit;
+        }
+        convertToF(prompt("type in temperature"));
+    </script>
+</body>
+
+</html>

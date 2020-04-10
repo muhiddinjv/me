@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCC JS Algorithms</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Convert Celsius to Fahrenheit</h3>
+    <button id="btn">Click</button>
+    <div class="demo">text</div>
+
+    <script>
+        $("#btn").click(function() {
+                function convertToF(celsius) {
+                    let fahrenheit;
+                    fahrenheit = (celsius * (9 / 5)) + 32;
+                    fahrenheit.prompt("type");
+                });
+        }
+    </script>
+</body>
+
+</html>

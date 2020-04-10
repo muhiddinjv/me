@@ -1,0 +1,8 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* this will make the widths and heights easier to style */
