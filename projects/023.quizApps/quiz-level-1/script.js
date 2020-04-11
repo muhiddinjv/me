@@ -1,4 +1,5 @@
-const options = document.querySelector('.options').children;
+const options = document.querySelector('.options').children; //-32
+const answerTrackerContainer = document.querySelector('.answers-tracker'); //-36
 const questionNumberSpan = document.querySelector(".question-num-value"); //-7
 const totalQuestionSpan = document.querySelector(".total-question"); //-8
 const question = document.querySelector(".question"); //-6
@@ -51,16 +52,30 @@ function check(element) { //-24
     if (element.id == questions[questionIndex].answer) {
         // console.log("correct") //-26
         element.classList.add("correct"); //-28
+        updateAnswerTracker("correct"); //-41
     } else {
         // console.log("wrong") //-27
         element.classList.add("wrong"); //-29
+        updateAnswerTracker("wrong"); //-42
     }
     //if the user selected one option then disable the rest
     disabledOptions(); //-30
 }
 
 function disabledOptions() { //-31
+    for (let i = 0; i < options.length; i++) {
+        options[i].classList.add("disabled"); //-33
+        // now you can't reselect other options
+        // if (options[i].id == questions[questionIndex].answer) {
+        //     options[i].classList.add("correct"); //-34
+        // } // if you want to show the correct answer
+    }
+}
 
+function next() {
+    // before going to the next question, check if the user selected any option
+    // if the user didn't select any options, alert "select one option"
+    validate()
 }
 
 function randomQuestion() { //-19
@@ -70,7 +85,19 @@ function randomQuestion() { //-19
     load(); //-20
 }
 
+function answerTracker() { //-35
+    for (let i = 0; i < questions.length; i++) {
+        const div = document.createElement("div") //-37
+        answerTrackerContainer.appendChild(div); //-38
+    }
+}
+
+function updateAnswerTracker(className) { //-40
+    answerTrackerContainer.children[index - 1].classList.add(className); //-43
+}
+
 window.onload = function() {
     // load(); //-9
     randomQuestion() //-21
+    answerTracker() //-39
 }

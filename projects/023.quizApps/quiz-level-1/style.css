@@ -77,6 +77,10 @@ body {
     cursor: pointer;
 }
 
+.options div.disabled {
+    pointer-events: none;
+}
+
 .options div.wrong {
     z-index: 1;
     color: #fff;
