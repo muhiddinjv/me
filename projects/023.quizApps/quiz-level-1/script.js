@@ -1,3 +1,4 @@
+const options = document.querySelector('.options').children;
 const questionNumberSpan = document.querySelector(".question-num-value"); //-7
 const totalQuestionSpan = document.querySelector(".total-question"); //-8
 const question = document.querySelector(".question"); //-6
@@ -5,7 +6,7 @@ const op1 = document.querySelector(".option1"); //-1
 const op2 = document.querySelector(".option2"); //-2
 const op3 = document.querySelector(".option3"); //-3
 const op4 = document.querySelector(".option4"); //-4
-let questionIndex = 0; //-10
+let questionIndex; //-10
 let index = 0; //-15
 
 // questions and options and answers
@@ -42,6 +43,24 @@ function load() {
     op3.innerHTML = questions[questionIndex].options[2]; //-13
     op4.innerHTML = questions[questionIndex].options[3]; //-14
     index++; //-17
+}
+
+function check(element) { //-24
+    // now let's check if the option is correct or not
+    // console.log(element.id); //-25
+    if (element.id == questions[questionIndex].answer) {
+        // console.log("correct") //-26
+        element.classList.add("correct"); //-28
+    } else {
+        // console.log("wrong") //-27
+        element.classList.add("wrong"); //-29
+    }
+    //if the user selected one option then disable the rest
+    disabledOptions(); //-30
+}
+
+function disabledOptions() { //-31
+
 }
 
 function randomQuestion() { //-19
