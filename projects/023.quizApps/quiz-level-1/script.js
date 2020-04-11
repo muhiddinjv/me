@@ -1,10 +1,10 @@
 const options = document.querySelector('.options').children; //-32
-const answerTrackerContainer = document.querySelector('.answers-tracker'); //-36
+const answerTrackerContainer = document.querySelector('.answer-tracker'); //-36
 const questionNumberSpan = document.querySelector(".question-num-value"); //-7
 const totalQuestionSpan = document.querySelector(".total-question"); //-8
 const correctAnswerSpan = document.querySelector('.correct-answers'); //-65
 const totalQuestionSpan2 = document.querySelector('.total-question2'); //-66
-const precentage = document.querySelector('.precentage'); //-67
+const percentage = document.querySelector('.percentage'); //-67
 const question = document.querySelector(".question"); //-6
 const op1 = document.querySelector(".option1"); //-1
 const op2 = document.querySelector(".option2"); //-2
@@ -61,7 +61,7 @@ function check(element) { //-24
         element.classList.add("correct"); //-28
         updateAnswerTracker("correct"); //-41
         score++; //-64
-        console.log("score: " + score);
+        // console.log("score: " + score);
     } else {
         // console.log("wrong") //-27
         element.classList.add("wrong"); //-29
@@ -109,6 +109,7 @@ function randomQuestion() { //-19
     let hitDuplicate = 0; //-55
     if (index == questions.length) { //-50
         quizOver(); //-61
+        // alert('quiz over');
     } else {
         if (myArray.length > 0) { //-51
             for (let i = 0; i < myArray.length; i++) { //-53
@@ -158,10 +159,11 @@ function updateAnswerTracker(className) { //-40
 }
 
 function quizOver() { //-62
-    document.querySelector(".quiz-over").classList.add("show"); //-68
+    // console.log('its working');
+    document.querySelector('.quiz-over').classList.add('show'); //-68
     correctAnswerSpan.innerHTML = score;
     totalQuestionSpan2.innerHTML = questions.length;
-    precentage.innerHTML = (score / questions.length) * 100 + "%"; //-69
+    percentage.innerHTML = (score / questions.length) * 100 + "%"; //-69
 }
 
 function tryAgain() {

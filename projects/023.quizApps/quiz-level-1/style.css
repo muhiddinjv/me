@@ -47,7 +47,7 @@ body {
 .question,
 .options,
 .button,
-.answers-tracker {
+.answer-tracker {
     float: left;
     width: 100%;
 }
@@ -147,12 +147,12 @@ body {
     margin: 1.5rem 0 2rem;
 }
 
-.answers-tracker {
+.answer-tracker {
     border-top: 0.1rem solid #ccc;
     padding-top: 1.5rem;
 }
 
-.answers-tracker div {
+.answer-tracker div {
     height: 4rem;
     width: 4rem;
     background-color: #ccc;
@@ -161,7 +161,7 @@ body {
     margin-right: 0.5rem;
 }
 
-.answers-tracker div.correct {
+.answer-tracker div.correct {
     background-color: green;
     background-image: url('img/complete.png');
     background-position: center;
@@ -169,7 +169,7 @@ body {
     background-size: 60%;
 }
 
-.answers-tracker div.wrong {
+.answer-tracker div.wrong {
     background-color: red;
     background-image: url('img/dismiss.png');
     background-position: center;
