@@ -9,6 +9,7 @@ const op3 = document.querySelector(".option3"); //-3
 const op4 = document.querySelector(".option4"); //-4
 let questionIndex; //-10
 let index = 0; //-15
+let myArray = []; //-48
 
 // questions and options and answers
 
@@ -64,6 +65,7 @@ function check(element) { //-24
 
 function disabledOptions() { //-31
     for (let i = 0; i < options.length; i++) {
+        //below i disabled all the options. For next question, i have to enable again.
         options[i].classList.add("disabled"); //-33
         // now you can't reselect other options
         // if (options[i].id == questions[questionIndex].answer) {
@@ -72,17 +74,55 @@ function disabledOptions() { //-31
     }
 }
 
+function enableOptions() { //-46
+    for (let i = 0; i < options.length; i++) {
+        options[i].classList.remove("disabled", "correct", "wrong");
+    }
+}
+
+function validate() {
+    if (!options[0].classList.contains("disabled")) {
+        // if options[0] doesn't have class "disabled"
+        alert("Please Select One Option"); //-45
+    } else {
+        enableOptions() //-47
+        randomQuestion();
+    }
+}
+
 function next() {
     // before going to the next question, check if the user selected any option
     // if the user didn't select any options, alert "select one option"
-    validate()
+    validate(); //-44
 }
 
 function randomQuestion() { //-19
     let randomNumber = Math.floor(Math.random() * questions.length); //-22
-    questionIndex = randomNumber; //-23
-    // console.log(questionIndex);
-    load(); //-20
+    let hitDuplicate = 0; //-55
+    if (index == questions.length) { //-50
+        console.log("quiz over");
+    } else {
+        if (myArray.length > 0) { //-51
+            for (let i = 0; i < myArray.length; i++) { //-53
+                if (myArray[i] == randomNumber) {
+                    hitDuplicate = 1;
+                    break;
+                }
+            }
+        }
+        if (myArray.length == 0) { //-52
+            questionIndex = randomNumber;
+            load();
+        }
+        //console.log("index: " + index); //check removed duplicates
+        // questionIndex = randomNumber; //-23
+        //Below code checks question duplicacy
+        // myArray.push(questionIndex); //-49
+        myArray.push(randomNumber); //-54
+        // console.log("myArray:" + myArray);
+        // question 4 is repeating 3 times, let's remove the duplicate.
+        // load(); //-20
+    }
 }
 
 function answerTracker() { //-35
