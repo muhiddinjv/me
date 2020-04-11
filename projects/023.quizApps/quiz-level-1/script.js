@@ -10,6 +10,8 @@ const op4 = document.querySelector(".option4"); //-4
 let questionIndex; //-10
 let index = 0; //-15
 let myArray = []; //-48
+// to test, create a new array to push quizIndex value to know value Duplicate or not
+myArr = [];
 
 // questions and options and answers
 
@@ -100,24 +102,37 @@ function randomQuestion() { //-19
     let randomNumber = Math.floor(Math.random() * questions.length); //-22
     let hitDuplicate = 0; //-55
     if (index == questions.length) { //-50
-        console.log("quiz over");
+        quizOver(); //-61
     } else {
         if (myArray.length > 0) { //-51
             for (let i = 0; i < myArray.length; i++) { //-53
-                if (myArray[i] == randomNumber) {
+                if (myArray[i] == randomNumber) { //-56
                     hitDuplicate = 1;
                     break;
+                    // if myArray[item] equals to randomNumber then duplicate found
+                    // if found, then hitDuplicate=1 and break the for loop
                 }
+            }
+            // if hitDuplicate found then call randomQuestion() again
+            if (hitDuplicate == 1) { //-57
+                randomQuestion();
+            } else { //-58
+                questionIndex = randomNumber;
+                load();
+                myArr.push(questionIndex); //-60
+                // 0,1,2,3,4 all questions are one now and no duplicates
             }
         }
         if (myArray.length == 0) { //-52
             questionIndex = randomNumber;
             load();
+            myArr.push(questionIndex); //-59
         }
         //console.log("index: " + index); //check removed duplicates
         // questionIndex = randomNumber; //-23
         //Below code checks question duplicacy
         // myArray.push(questionIndex); //-49
+        console.log("myArr: " + myArr);
         myArray.push(randomNumber); //-54
         // console.log("myArray:" + myArray);
         // question 4 is repeating 3 times, let's remove the duplicate.
@@ -134,6 +149,10 @@ function answerTracker() { //-35
 
 function updateAnswerTracker(className) { //-40
     answerTrackerContainer.children[index - 1].classList.add(className); //-43
+}
+
+function quizOver() { //-62
+
 }
 
 window.onload = function() {
