@@ -2,6 +2,9 @@ const options = document.querySelector('.options').children; //-32
 const answerTrackerContainer = document.querySelector('.answers-tracker'); //-36
 const questionNumberSpan = document.querySelector(".question-num-value"); //-7
 const totalQuestionSpan = document.querySelector(".total-question"); //-8
+const correctAnswerSpan = document.querySelector('.correct-answers'); //-65
+const totalQuestionSpan2 = document.querySelector('.total-question2'); //-66
+const precentage = document.querySelector('.precentage'); //-67
 const question = document.querySelector(".question"); //-6
 const op1 = document.querySelector(".option1"); //-1
 const op2 = document.querySelector(".option2"); //-2
@@ -11,7 +14,8 @@ let questionIndex; //-10
 let index = 0; //-15
 let myArray = []; //-48
 // to test, create a new array to push quizIndex value to know value Duplicate or not
-myArr = [];
+let myArr = [];
+let score = 0; //-63
 
 // questions and options and answers
 
@@ -56,6 +60,8 @@ function check(element) { //-24
         // console.log("correct") //-26
         element.classList.add("correct"); //-28
         updateAnswerTracker("correct"); //-41
+        score++; //-64
+        console.log("score: " + score);
     } else {
         // console.log("wrong") //-27
         element.classList.add("wrong"); //-29
@@ -132,7 +138,7 @@ function randomQuestion() { //-19
         // questionIndex = randomNumber; //-23
         //Below code checks question duplicacy
         // myArray.push(questionIndex); //-49
-        console.log("myArr: " + myArr);
+        // console.log("myArr: " + myArr);
         myArray.push(randomNumber); //-54
         // console.log("myArray:" + myArray);
         // question 4 is repeating 3 times, let's remove the duplicate.
@@ -152,7 +158,14 @@ function updateAnswerTracker(className) { //-40
 }
 
 function quizOver() { //-62
+    document.querySelector(".quiz-over").classList.add("show"); //-68
+    correctAnswerSpan.innerHTML = score;
+    totalQuestionSpan2.innerHTML = questions.length;
+    precentage.innerHTML = (score / questions.length) * 100 + "%"; //-69
+}
 
+function tryAgain() {
+    window.location.reload();
 }
 
 window.onload = function() {
