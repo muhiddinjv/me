@@ -52,26 +52,18 @@
             const tana = document.querySelector('body')
             const tugma = document.querySelector('#btn')
             const qiymat = document.querySelector('#qiymat')
-            const boqQiymat = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
-            tugma.addEventListener('click', uzgartirBoq)
+            const vayQiymat = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+            tugma.addEventListener('click', uzgartirVay)
 
-            function uzgartirBoq() {
-                let boq = "#"
+            function uzgartirVay() {
+                let vay = "#"
                 for (let i = 0; i < 6; i++) {
-                    const index = Math.floor(Math.random() * boqQiymat.length)
-                    bog += boqQiymat[index]
+                    const index = Math.floor(Math.random() * vayQiymat.length)
+                    vay += vayQiymat[index]
                 }
+                qiymat.textContent = vay
+                tana.style.backgroundColor = vay
             }
-
-            // function uzgartirBoq() {
-            //     let boq = '#'
-            //     for (let i = 0; i < 6; i++) {
-            //         const index = Math.floor(Math.random() * boqQiymat.length)
-            //         boq += boqQiymat[index]
-            //     }
-            //     qiymat.textContent = boq
-            //     tana.style.backgroundColor = boq
-            // }
         })()
         // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
     </script>
