@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p2-hexBgColor</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            background-color: #542FFA;
+        }
+        
+        .hex {
+            align-self: center;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 35px;
+            margin: 15px;
+        }
+        
+        #btn {
+            padding: 10px 15px;
+            background-color: #6C757D;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 15px;
+            border: 2px solid rgb(142, 153, 163);
+            align-self: center;
+        }
+        
+        #btn:hover {
+            background-color: rgb(70, 77, 83);
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="hex">Hex Color: <span id="value"></span></p>
+    <button id="btn">Click Me!</button>
+    <script>
+        (function() {
+            const tana = document.querySelector('body')
+            const tugma = document.querySelector('#btn')
+            const qiymat = document.querySelector('#value')
+            const hexQiymat = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+
+            tugma.addEventListener('click', uzgartirHex)
+
+            function uzgartirHex() {
+                let hex = '#'
+
+                for (let i = 0; i < 6; i++) {
+                    const index = Math.floor(Math.random() * hexQiymat.length)
+                    hex += hexQiymat[index]
+                }
+                qiymat.textContent = hex
+                tana.style.backgroundColor = hex
+            }
+        })()
+        // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+    </script>
+</body>
+
+</html>
