@@ -11,11 +11,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
             background: url('img/nightSky.jpg');
             background-position: center;
             background-size: cover;
             color: white;
-            font-family: Arial, Helvetica, sans-serif;
         }
         
         .counter-box {
@@ -26,6 +26,31 @@
             font-weight: bold;
             box-shadow: 3px 3px 10px 10px black;
         }
+        
+        .counter {
+            font-size: 6rem;
+        }
+        
+        .btn {
+            background: #fff;
+            border-radius: 10px;
+            font-size: 2rem;
+            padding: 0.5rem;
+            margin: 0.5rem 0.25rem;
+            border: 3px solid #333;
+            box-shadow: 0 3px #001221;
+            outline: none;
+        }
+        
+        .btn:hover {
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .btn:active {
+            box-shadow: none;
+        }
     </style>
 </head>
 
@@ -34,10 +59,26 @@
         <h1>counter</h1>
         <h1 class="counter">0</h1>
         <div id="btns">
-            <button class="btn" id="lowerCountBtn">Lower Count</button>
-            <button class="btn" id="addCountBtn">Add Count</button>
+            <button class="btn" id="lowerCntBtn">Lower Count</button>
+            <button class="btn" id="addCntBtn">Add Count</button>
         </div>
     </div>
+
+    <script>
+        let counter = document.querySelector('.counter')
+        const buttons = document.querySelector('#btns')
+        const addCount = document.querySelector('#addCntBtn')
+        const lowerCount = document.querySelector('#lowerCntBtn')
+
+        let count = 0;
+        addCount.addEventListener('click', incrementCounter)
+        lowerCount.addEventListener('click', decrementCounter)
+
+        function incrementCounter() {
+            count++;
+            console.log(count);
+        }
+    </script>
 </body>
 
 </html>
