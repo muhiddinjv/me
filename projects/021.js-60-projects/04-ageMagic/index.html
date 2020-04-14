@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pass Message</title>
+    <title>Age Magic</title>
     <style>
         body {
             min-height: 100vh;
@@ -66,8 +66,9 @@
     <div class="container">
         <h3>How old are you?</h3>
         <input type="text" name="msgIn" id="msgIn">
+        <p> <i>Input a number between 1 and 150</i> </p>
         <button id="btn">Magic</button>
-        <h4 id="msgOut"></h4>
+        <p id="msgOut"></p>
     </div>
     <script>
         const btn = document.querySelector('#btn')
@@ -77,11 +78,12 @@
         btn.addEventListener('click', sendMsg)
 
         function sendMsg() {
-            let number = msgIn.value;
-            if (number === '') {
-                alert('Please enter valid number')
+            let x = msgIn.value;
+            // let x = msgIn.value;
+            if (x === '' || isNaN(x) || x < 1 || x > 150) {
+                alert('Input not valid')
             } else {
-                msgOut.innerHTML = "Wow, you're " + number * 12 + " <i>months</i> old";
+                msgOut.innerHTML = "Wow, you are " + x * 12 + " <b>months</b> and " + x * 52 + " <b>weeks</b> and " + x * 365 + " <b>days</b> old! So young!";
                 msgIn.value = ''; //empties the box when the button is clicked
             }
         }
