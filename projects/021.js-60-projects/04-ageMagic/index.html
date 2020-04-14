@@ -54,37 +54,32 @@
         input[type=text]:focus {
             box-shadow: 0 0 9px #88d5e9;
         }
-        
-        #msgOut {
-            margin: 0.5rem 0;
-            color: #333;
-        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h3>How old are you?</h3>
-        <input type="text" name="msgIn" id="msgIn">
-        <p> <i>Input a number between 1 and 150</i> </p>
+        <input type="text" name="ageIn" id="ageIn">
+        <p> <i>Input a number between 1 and 120</i> </p>
         <button id="btn">Magic</button>
-        <p id="msgOut"></p>
+        <p id="ageOut"></p>
     </div>
     <script>
         const btn = document.querySelector('#btn')
-        const msgIn = document.querySelector('#msgIn')
-        const msgOut = document.querySelector('#msgOut')
+        const ageIn = document.querySelector('#ageIn')
+        const ageOut = document.querySelector('#ageOut')
 
-        btn.addEventListener('click', sendMsg)
+        btn.addEventListener('click', sendAge)
 
-        function sendMsg() {
-            let x = msgIn.value;
-            // let x = msgIn.value;
-            if (x === '' || isNaN(x) || x < 1 || x > 150) {
+        function sendAge() {
+            let x = ageIn.value;
+            // if x is empty or Not a Number (NaN) or less than 1 or greater than 150
+            if (x === '' || isNaN(x) || x < 1 || x > 120) {
                 alert('Input not valid')
             } else {
-                msgOut.innerHTML = "Wow, you are " + x * 12 + " <b>months</b> and " + x * 52 + " <b>weeks</b> and " + x * 365 + " <b>days</b> old! So young!";
-                msgIn.value = ''; //empties the box when the button is clicked
+                ageOut.innerHTML = "Wow, you are " + x * 12 + " <b>months</b> and " + x * 52 + " <b>weeks</b> and " + x * 365 + " <b>days</b> old! So young!";
+                ageIn.value = ''; //empties the box when the button is clicked
             }
         }
     </script>
