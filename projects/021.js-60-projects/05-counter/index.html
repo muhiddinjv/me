@@ -5,11 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('img/nightSky.jpg');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .counter-box {
+            flex: 0 0 70%;
+            text-align: center;
+            border: 3px solid grey;
+            padding: 1rem;
+            font-weight: bold;
+            box-shadow: 3px 3px 10px 10px black;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        new element here
+        <h1>counter</h1>
+        <h1 class="counter">0</h1>
+        <div id="btns">
+            <button class="btn" id="lowerCountBtn">Lower Count</button>
+            <button class="btn" id="addCountBtn">Add Count</button>
+        </div>
     </div>
 </body>
 
