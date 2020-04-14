@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffd0a8;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            /* text-transform: capitalize; */
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 5px;
+            background-color: #fff;
+            flex: 0 0 80%;
+        }
+        
+        #btn {
+            border: none;
+            color: #fff;
+            background: #d89156;
+            font-size: 1rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 7px;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        #btn:hover {
+            color: #ffd000;
+        }
+        
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 10px solid #fcdbbf;
+            margin: 1.5rem;
+            padding: 0.5rem;
+        }
+        
+        #author {
+            color: chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quotes by Famous People</h2>
+        <button id="btn">get quote</button>
+        <blockquote>
+            <h2 id="quote"></h2>
+        </blockquote>
+        <h3 id="author">author of the quote</h3>
+    </div>
+
+    <script>
+        const quotes = [{
+            name: 'Stephen King',
+            quote: 'Get busy living or get busy dying'
+        }, {
+            name: 'John F. Kennedy',
+            quote: 'Those who dare to fail miserabley can achieve greatly'
+        }, {
+            name: 'Abraham Lincoln',
+            quote: 'I\'m a success today because I had a friend who believed in me and I didnt have the heart to let him down'
+        }, {
+            name: 'Leonardo Da Vinci',
+            quote: 'It had long since come to my attention that people of accomplishment rarely sat back and let things happen to them. They went out and happend to things.'
+        }, {
+            name: 'Leo Tolstoy',
+            quote: 'If you want to be happy, be.'
+        }, {
+            name: 'Muhiddin',
+            quote: 'For some people, life is a battle. For others, its a test. But to me life is a miracle. If one is curious enough, s/he can literally work wonders.'
+        }]
+
+        const btn = document.querySelector('#btn')
+        const author = document.querySelector("#author")
+        const quote = document.querySelector('#quote')
+        btn.addEventListener('click', getQuote)
+
+        function getQuote() {
+            let random = Math.floor(Math.random() * quotes.length)
+            author.innerHTML = quotes[random].name;
+            quote.innerHTML = quotes[random].quote;
+        }
+    </script>
+</body>
+
+</html>

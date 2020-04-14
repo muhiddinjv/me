@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffd0a8;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            /* text-transform: capitalize; */
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 5px;
+            background-color: #fff;
+            flex: 0 0 80%;
+        }
+        
+        #btn {
+            border: none;
+            color: #fff;
+            background: #d89156;
+            font-size: 1rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 7px;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        #btn:hover {
+            color: #ffd000;
+        }
+        
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 10px solid #fcdbbf;
+            margin: 1.5rem;
+            padding: 0.5rem;
+        }
+        
+        #author {
+            color: chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Read the story</h2>
+        <button id="btn">Next</button>
+        <blockquote>
+            <h2 id="quote"></h2>
+        </blockquote>
+        <h3 id="author">author of the quote</h3>
+    </div>
+
+    <script>
+        const quotes = [{
+            name: 'Paco is a person from Spain',
+            quote: 'Paco es una persona de Espania'
+        }, {
+            name: 'Paco is a professional tennis player',
+            quote: 'Paco es un jugador professional de tennis'
+        }, {
+            name: 'One day, Paco goes to a store',
+            quote: 'Un dia, Paco va a la tienda...'
+        }, {
+            name: '...because he wants to buy Nike shoes',
+            quote: '...porque quere comprar uno zapatos Nike'
+        }, {
+            name: 'Paco buy Nike shoes',
+            quote: 'Paco comprar uno zapatos Nike'
+        }]
+
+        const btn = document.querySelector('#btn')
+        const author = document.querySelector("#author")
+        const quote = document.querySelector('#quote')
+        btn.addEventListener('click', getQuote)
+
+        function getQuote() {
+            let random = quotes[quotes.length]
+            author.innerHTML = quotes[random].name;
+            quote.innerHTML = quotes[random].quote;
+        }
+    </script>
+</body>
+
+</html>
