@@ -86,11 +86,11 @@
         }]
 
         const btn = document.querySelector('#btn')
-        const author = document.querySelector("#author")
+        const author = document.querySelector('#author')
         const quote = document.querySelector('#quote')
-        btn.addEventListener('click', getQuote)
+        btn.addEventListener('click', changeQuote)
 
-        function getQuote() {
+        function changeQuote() {
             let random = Math.floor(Math.random() * quotes.length)
             author.innerHTML = quotes[random].name;
             quote.innerHTML = quotes[random].quote;
