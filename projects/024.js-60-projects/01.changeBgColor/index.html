@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p1-changeBgColor</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #btn {
+            padding: 10px 15px;
+            /* background-color: transparent; */
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 7px;
+            color: #fff;
+            font-size: 15px;
+            border: 3px solid #fefefe;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        #btn:hover {
+            background-color: rgba(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">Click Me!</button>
+    <script>
+        //---variables-------------------------------------
+        const tana = document.querySelector('body');
+        const tugma = document.querySelector('#btn');
+        const ranglar = ['red', 'green', 'blue', 'yellow', 'pink', 'purple'];
+
+        tana.style.backgroundColor = "aqua";
+        tugma.addEventListener('click', rangUzgartir);
+
+        //---functions----------------------------------------
+        function rangUzgartir() {
+            let harhil = Math.floor(Math.random() * ranglar.length)
+                // oldCode >> const rangIndexi = parseInt(Math.random() * ranglar.length)
+            tana.style.backgroundColor = ranglar[harhil];
+        }
+    </script>
+</body>
+
+</html>
