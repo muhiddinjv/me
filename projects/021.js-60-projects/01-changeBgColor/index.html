@@ -40,15 +40,23 @@
         const tana = document.querySelector('body');
         const tugma = document.querySelector('#btn');
         const ranglar = ['red', 'green', 'blue', 'yellow', 'pink', 'purple'];
+        // created a random number generator for fun --------------
+        const raqam = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let meniRaqamim = document.createElement('h1');
+        // the end of random number generator ------------------------
 
         tana.style.backgroundColor = "aqua";
         tugma.addEventListener('click', rangUzgartir);
 
         //---functions----------------------------------------
         function rangUzgartir() {
-            let harhil = Math.floor(Math.random() * ranglar.length)
-                // oldCode >> const rangIndexi = parseInt(Math.random() * ranglar.length)
+            let harhil = Math.floor(Math.random() * ranglar.length);
+            // oldCode >> const rangIndexi = parseInt(Math.random() * ranglar.length)
             tana.style.backgroundColor = ranglar[harhil];
+            // random number function (start) ------------------
+            let raqamlar = Math.floor(Math.random() * raqam.length);
+            tana.appendChild(meniRaqamim);
+            // meniRaqamim.innerText = raqamlar; //press ctrl+/ on raqamlar
         }
     </script>
 </body>
