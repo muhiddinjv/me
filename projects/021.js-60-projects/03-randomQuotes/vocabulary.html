@@ -78,7 +78,7 @@
             name: '...because he wants to buy Nike shoes',
             quote: '...porque quere comprar uno zapatos Nike'
         }, {
-            name: 'Paco buy Nike shoes',
+            name: 'Paco buys Nike shoes',
             quote: 'Paco comprar uno zapatos Nike'
         }]
 
@@ -88,7 +88,7 @@
         btn.addEventListener('click', getQuote)
 
         function getQuote() {
-            let random = quotes[quotes.length]
+            let random = Math.floor(Math.random() * quotes.length)
             author.innerHTML = quotes[random].name;
             quote.innerHTML = quotes[random].quote;
         }
