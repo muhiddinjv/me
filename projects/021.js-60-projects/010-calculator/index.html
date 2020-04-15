@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        /* Started: 3:00pm, April 15, 2020 */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .calculator {
+            flex: 0 0 95%;
+        }
+        
+        .screen {
+            width: 100%;
+            font-size: 7rem;
+            padding: 0.5rem;
+            background: rgb(41, 41, 56);
+            color: white;
+            border: none;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            /* transition: all 0.2s linear; */
+        }
+        
+        button {
+            flex: 0 0 25%;
+            border: 1px solid black;
+            padding: 0.25rem 0;
+            /* transition: all 0.2s ease; */
+        }
+        
+        button:hover {
+            background: blue;
+        }
+        
+        .btn-yellow {
+            background: rgb(245, 146, 62);
+            color: white;
+        }
+        
+        .btn-grey {
+            background: rgb(224, 224, 224);
+        }
+        
+        .btn,
+        .btn-equal,
+        .btn-clear {
+            font-size: 4rem;
+        }
+        
+        .btn-equal {
+            background: green;
+        }
+        
+        .btn-clear {
+            background: red;
+        }
+    </style>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <section class="Calculator">
+        <form action="">
+            <input type="text" name="" id="" class="screen">
+        </form>
+        <div class="buttons">
+            <!-- yellow buttons -->
+            <button class="btn btn-yellow" data-num="*">*</button>
+            <button class="btn btn-yellow" data-num="/">/</button>
+            <button class="btn btn-yellow" data-num="-">-</button>
+            <button class="btn btn-yellow" data-num="+">+</button>
+
+            <!-- grey buttons -->
+            <button class="btn btn-yellow" data-num=".">.</button>
+            <button class="btn btn-yellow" data-num="9">9</button>
+            <button class="btn btn-yellow" data-num="8">8</button>
+            <button class="btn btn-yellow" data-num="7">7</button>
+            <button class="btn btn-yellow" data-num="6">6</button>
+            <button class="btn btn-yellow" data-num="5">5</button>
+            <button class="btn btn-yellow" data-num="4">4</button>
+            <button class="btn btn-yellow" data-num="3">3</button>
+            <button class="btn btn-yellow" data-num="2">2</button>
+            <button class="btn btn-yellow" data-num="1">1</button>
+            <button class="btn btn-yellow" data-num="0">0</button>
+            <button class="btn-equal btn-grey">=</button>
+            <button class="btn-clear btn-grey">C</button>
+        </div>
+
+        <script>
+            const btns = document.querySelectorAll('.btn')
+            const equal = document.querySelector('.btn-equal')
+            const clear = document.querySelector('.btn-clear')
+            const screen = document.querySelector('.screen')
+
+            for (let i = 0; i < btns.length; i++) {
+                bnts[i].addEventListener('click', function() {
+                    let number =
+                })
+            }
+        </script>
+    </section>
+</body>
+
+</html>

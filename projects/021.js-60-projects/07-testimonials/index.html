@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h3>CLIENT</h3>
+            <h1>TESTIMONIALS</h1>
+        </div>
+        <div class="quotes">
+            <img src="img/customer-0.jpg" alt="">
+            <h3 class="customer"></h3>
+            <div class="stars">
+                <span class="star"><i class="icon-star"></i></span>
+                <span class="star"><i class="icon-star"></i></span>
+                <span class="star"><i class="icon-star"></i></span>
+                <span class="star"><i class="icon-star"></i></span>
+                <span class="star"><i class="icon-star"></i></span>
+            </div>
+            <p id="text"></p>
+            <button class="btn prevBtn">Prev</button>
+            <button class="btn nextBtn">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const quotes = [{
+            name: 'Stephen King',
+            quote: 'Get busy living or get busy dying'
+        }, {
+            name: 'John F. Kennedy',
+            quote: 'Those who dare to fail miserabley can achieve greatly'
+        }, {
+            name: 'Abraham Lincoln',
+            quote: 'I\'m a success today because I had a friend who believed in me and I didnt have the heart to let him down'
+        }, {
+            name: 'Leonardo Da Vinci',
+            quote: 'It had long since come to my attention that people of accomplishment rarely sat back and let things happen to them. They went out and happend to things.'
+        }, {
+            name: 'Leo Tolstoy',
+            quote: 'If you want to be happy, be.'
+        }, {
+            name: 'Muhiddin',
+            quote: 'For some people, life is a battle. For others, its a test. But to me life is a miracle. If one is curious enough, s/he can literally work wonders.'
+        }]
+
+        const prevBtn = document.querySelector('.prevBtn')
+        const nextBtn = document.querySelector('.nextBtn')
+        const customer = document.querySelector('.customer')
+        const quote = document.querySelector('#quote')
+        prevBtn.addEventListener('click', changeQuote)
+
+        function changeQuote() {
+            let random = Math.floor(Math.random() * quotes.length)
+            customer.innerHTML = quotes[random].name;
+            text.innerHTML = quotes[random].quote;
+        }
+    </script>
+</body>
+
+</html>
