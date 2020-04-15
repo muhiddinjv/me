@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5 Practice</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        #counter {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>COUNTER</h2>
+        <div id="counter">0</div>
+        <div id="btns">
+            <button id="lower">Lower</button>
+            <button id="higher">Higher</button>
+        </div>
+        <span class="demo"></span>
+    </div>
+    <script>
+        const counter = document.querySelector('#counter')
+        const lower = document.querySelector('#lower')
+        const higher = document.querySelector('#higher')
+        const colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+        const body = document.querySelector('body')
+        const demo = document.querySelector('.demo')
+        let count = 0;
+
+        higher.addEventListener('click', countUp)
+        higher.addEventListener('click', changeColor)
+        lower.addEventListener('click', countDown)
+        lower.addEventListener('click', changeColor)
+
+        function countUp() {
+            count++;
+            counter.innerHTML = count;
+            if (counter.innerHTML > '0') {
+                counter.style.color = 'green';
+            } else if (counter.innerHTML === '0') {
+                counter.style.color = 'blue';
+            }
+        }
+
+        function changeColor() {
+            let empty = '#';
+            for (let i = 0; i < 6; i++) {
+                let random = Math.floor(Math.random() * colors.length)
+                empty += colors[random];
+            }
+            demo.textContent = empty;
+            body.style.backgroundColor = empty;
+        }
+
+        function countDown() {
+            count--;
+            counter.innerHTML = count;
+            if (counter.innerHTML < '0') {
+                counter.style.color = 'red';
+            } else if (counter.innerHTML === '0') {
+                counter.style.color = 'blue';
+            }
+        }
+    </script>
+</body>
+
+</html>
