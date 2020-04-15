@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BG Image Silder</title>
+    <title>Image Slider</title>
     <style>
-        /*Started: 11:41AM, April 15, 2020*/
+        /*Started: 11:41am, April 15, 2020*/
+        /*Finished: 1:57pm, April 15, 2020*/
         
         body {
             min-height: 100vh;
@@ -79,11 +80,14 @@
         nextBtn.addEventListener('click', nextImg)
 
         function nextImg() {
-            counter.animate([{
-                opacity: 0.2
+            images.animate([{
+                opacity: '0.1'
             }, {
-                opacity: 0.1
-            }], 500)
+                opacity: '1.0'
+            }], {
+                duration: 500,
+                fill: 'forwards'
+            });
             if (counter === 4) {
                 counter = -1;
             }
@@ -92,6 +96,14 @@
         }
 
         function prevImg() {
+            images.animate([{
+                opacity: '0.1'
+            }, {
+                opacity: '1.0'
+            }], {
+                duration: 500,
+                fill: 'forwards'
+            });
             if (counter === 0) {
                 counter = 5;
             }
