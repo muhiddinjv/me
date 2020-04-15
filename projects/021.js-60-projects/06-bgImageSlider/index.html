@@ -19,8 +19,9 @@
         .images {
             background: yellow;
             flex: 0 0 80%;
-            min-height: 70vh;
-            background: url('img/bg-1')center/cover no-repeat;
+            min-height: 80vh;
+            max-width: 700px;
+            background: url('img/bg-1.jpg')center/cover no-repeat;
             border-radius: 15px;
             box-shadow: 5px 10px black;
             position: relative;
@@ -36,6 +37,30 @@
             box-shadow: 2px 5px black;
             outline: none;
         }
+        
+        .prevBtn {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+        }
+        
+        .nextBtn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+        
+        .btn:active {
+            background: grey;
+            box-shadow: 1px 1px grey;
+        }
+        
+        .btn:hover {
+            background: green;
+            color: white;
+        }
     </style>
 </head>
 
@@ -44,6 +69,28 @@
         <button class="btn prevBtn">Prev</button>
         <button class="btn nextBtn">Next</button>
     </div>
+    <script>
+        const images = document.querySelector('.images')
+        const prevBtn = document.querySelector('.prevBtn')
+        const nextBtn = document.querySelector('.nextBtn')
+
+        let counter = 0;
+        prevBtn.addEventListener('click', prevImg)
+        nextBtn.addEventListener('click', nextImg)
+
+        function prevImg() {
+            if (counter === 5) {
+                counter = 0;
+            }
+            counter++;
+            images.style.backgroundImage = `url(img/bg-${counter}.jpg)`
+        }
+
+        function nextImg() {
+            counter--;
+            images.style.backgroundImage = `url(img/bg-${counter}.jpg)`
+        }
+    </script>
 </body>
 
 </html>
