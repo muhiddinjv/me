@@ -78,15 +78,23 @@
         prevBtn.addEventListener('click', prevImg)
         nextBtn.addEventListener('click', nextImg)
 
-        function prevImg() {
-            if (counter === 5) {
-                counter = 0;
+        function nextImg() {
+            counter.animate([{
+                opacity: 0.2
+            }, {
+                opacity: 0.1
+            }], 500)
+            if (counter === 4) {
+                counter = -1;
             }
             counter++;
             images.style.backgroundImage = `url(img/bg-${counter}.jpg)`
         }
 
-        function nextImg() {
+        function prevImg() {
+            if (counter === 0) {
+                counter = 5;
+            }
             counter--;
             images.style.backgroundImage = `url(img/bg-${counter}.jpg)`
         }
