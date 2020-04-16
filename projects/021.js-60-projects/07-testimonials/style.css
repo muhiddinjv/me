@@ -7,12 +7,14 @@ body {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 95vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/questionBcg.jpeg')center/cover no-repeat fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/questionBcg.jpeg')center/cover no-repeat fixed;
 }
 
 .container {
-    width: 646px;
+    padding-bottom: 3rem;
+    max-width: 646px;
     color: white;
+    margin: 0 3rem;
 }
 
 .row {
@@ -28,7 +30,7 @@ body {
 
 .testimon {
     font-weight: 600;
-    margin: 0;
+    margin: 0 0 7rem 0;
     font-size: 2.5rem;
 }
 
@@ -41,18 +43,20 @@ body {
     border-radius: 5px;
     position: relative;
     border: 0.05rem solid white;
-    padding: 22px;
+    padding: 3rem 1rem 0.5rem 1rem;
 }
 
 .images {
-    background: yellow;
-    flex: 0 0 80%;
-    min-height: 8vh;
-    max-width: 90px;
+    height: 100px;
+    width: 150px;
     background: url('img/bg-0.jpg')center/cover no-repeat;
-    border-radius: 15px;
-    box-shadow: 5px 10px black;
-    position: relative;
+    border-radius: 50%;
+    position: absolute;
+    top: -20%;
+}
+
+.customer {
+    text-transform: uppercase;
 }
 
 .stars {

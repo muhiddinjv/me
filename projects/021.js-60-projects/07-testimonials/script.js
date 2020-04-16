@@ -27,6 +27,7 @@ const quote = document.querySelector('#quote')
 let counter = 0;
 prevBtn.addEventListener('click', changeQuote)
 prevBtn.addEventListener('click', prevImg)
+nextBtn.addEventListener('click', nextImg)
 
 function changeQuote() {
     let random = Math.floor(Math.random() * quotes.length)
