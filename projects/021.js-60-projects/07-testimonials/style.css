@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    max-width: 646px;
+    width: 646px;
     color: white;
 }
 
@@ -42,6 +42,17 @@ body {
     position: relative;
     border: 0.05rem solid white;
     padding: 22px;
+}
+
+.images {
+    background: yellow;
+    flex: 0 0 80%;
+    min-height: 8vh;
+    max-width: 90px;
+    background: url('img/bg-0.jpg')center/cover no-repeat;
+    border-radius: 15px;
+    box-shadow: 5px 10px black;
+    position: relative;
 }
 
 .stars {
