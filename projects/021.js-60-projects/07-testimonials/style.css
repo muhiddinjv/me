@@ -22,7 +22,7 @@ body {
 
 .client {
     font-size: 1.5rem;
-    color: #F1502E;
+    color: #FFC244;
     margin-bottom: 0.5rem;
 }
 
@@ -49,13 +49,13 @@ body {
 }
 
 .btn {
-    display: inline-block;
-    background: white;
-    border: 3px solid green;
+    border: 3px solid #FFC244;
+    background: transparent;
+    font-weight: bold;
+    color: #FFC244;
     font-size: 1.5rem;
     padding: 0.5rem;
     border-radius: 50%;
-    box-shadow: 2px 5px black;
     outline: none;
 }
 
@@ -71,24 +71,19 @@ body {
 .prevBtn {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: -1.5rem;
     transform: translate(-50%, -50%);
 }
 
 .nextBtn {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: -1.5rem;
     transform: translate(50%, -50%);
 }
 
-.btn:active {
-    background: grey;
-    box-shadow: 1px 1px grey;
-}
-
 .btn:hover {
-    background: green;
+    background: #FFC244;
     cursor: pointer;
     color: white;
 }
