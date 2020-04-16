@@ -24,13 +24,9 @@ const text = document.querySelector('#text')
 let counter = 0;
 // prevBtn.addEventListener('click', changeQuote)
 prevBtn.addEventListener('click', prevImg)
+prevBtn.addEventListener('click', prevText)
 nextBtn.addEventListener('click', nextImg)
-
-// function changeQuote() {
-//     let random = Math.floor(Math.random() * quotes.length)
-//     customer.innerHTML = quotes[random].name;
-//     text.innerHTML = quotes[random].quote;
-// }
+nextBtn.addEventListener('click', nextText)
 
 function nextImg() {
     images.animate([{
@@ -46,7 +42,15 @@ function nextImg() {
     }
     counter++;
     images.style.backgroundImage = `url(img/bg-${counter}.jpg)`
-        // text.innerHTML = quotes[1, 2];
+}
+
+function nextText() {
+    if (counter === 4) {
+        counter = -1;
+    }
+    counter++;
+    customer.innerHTML = quotes[counter].name;
+    text.innerHTML = quotes[counter].quote;
 }
 
 function prevImg() {
@@ -63,4 +67,13 @@ function prevImg() {
     }
     counter--;
     images.style.backgroundImage = `url(img/bg-${counter}.jpg)`
+}
+
+function prevText() {
+    if (counter === 0) {
+        counter = 5;
+    }
+    counter--;
+    customer.innerHTML = quotes[counter].name;
+    text.innerHTML = quotes[counter].quote;
 }
