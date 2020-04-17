@@ -1,4 +1,4 @@
-/*Started: 5:00pm, April 15, 2020*/
+/*Started: 5pm, Apr 15, 2020 >> Finished: 2pm, Apr 16, 2020*/
 
 body {
     display: grid;
@@ -101,4 +101,6 @@ body {
     background: #FFC244;
     cursor: pointer;
     color: white;
+    opacity: 1;
+    transition: 2s;
 }

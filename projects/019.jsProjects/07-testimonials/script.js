@@ -12,7 +12,7 @@ const quotes = [{
     quote: 'It had long since come to my attention that people of accomplishment rarely sat back and let things happen to them. They went out and happend to things.'
 }, {
     name: 'Muhiddin',
-    quote: 'For some people, life is a battle. For others, its a test. But to me life is a miracle. If one is curious enough, s/he can literally work wonders.'
+    quote: 'For some people, life is a battle. For others, its a test. But to me life is a miracle. If one is curious enough, s/he can find the ways to literally work wonders.'
 }]
 
 const images = document.querySelector('.images')
@@ -34,7 +34,7 @@ function nextImg() {
     }, {
         opacity: '1.0'
     }], {
-        duration: 500,
+        duration: 300,
         fill: 'forwards'
     });
     if (counter === 4) {
@@ -59,7 +59,7 @@ function prevImg() {
     }, {
         opacity: '1.0'
     }], {
-        duration: 500,
+        duration: 300,
         fill: 'forwards'
     });
     if (counter === 0) {
