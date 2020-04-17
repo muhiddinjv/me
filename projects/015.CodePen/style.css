@@ -99,9 +99,10 @@ h6 {
     padding: 10px;
 }
 
-.preview {
+iframe {
     display: grid;
-    grid-column: 1 / -1;
+    width: 100%;
+    height: 100%;
 }
 
 
