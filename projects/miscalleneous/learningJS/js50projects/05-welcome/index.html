@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5: Welcome</title>
+    <style>
+        body {
+            text-align: center;
+            background: silver;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="output1"></div>
+    <input type="text" value="Enter name">
+    <button>Show</button>
+
+    <script>
+        const output1 = document.querySelector('div')
+        const input2 = document.querySelector('input')
+        const btn3 = document.querySelector('button')
+
+        btn3.addEventListener('click', showText)
+
+        function showText() {
+            output1.innerHTML = "Hello " + input2.value + ". Welcome!";
+        }
+    </script>
+</body>
+
+</html>
