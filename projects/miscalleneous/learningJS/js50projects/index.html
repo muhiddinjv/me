@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js50projs</title>
+    <style>
+        body {
+            text-align: center;
+            background: silver;
+        }
+    </style>
+</head>
+
+<body>
+    <p></p>
+    Name: <input type="text" value="Enter name">
+    <button>Send</button>
+    <script>
+        const para = document.querySelector('p')
+        const input = document.querySelector('input')
+        const btn = document.querySelector('button')
+
+        btn.addEventListener('click', sendText)
+
+        function sendText() {
+            para.innerHTML = input.value;
+        }
+    </script>
+</body>
+
+</html>
