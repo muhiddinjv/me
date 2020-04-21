@@ -13,12 +13,12 @@
 </head>
 
 <body>
-    <div></div>
+    <input class="output1" disabled></input>
     <input value="100">
     <button>Tip</button>
 
     <script>
-        const output1 = document.querySelector('div')
+        const output1 = document.querySelector('.output1')
         const input2 = document.querySelector('input')
         const btn3 = document.querySelector('button')
         const colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
@@ -28,8 +28,8 @@
 
         function calcTip() {
             let tip = (input2.value * 0.15).toFixed(2);
-            let text = `<h2>You should tip $${tip} on $${input2.value}</h2>`;
-            output1.innerHTML = text;
+            let text = `You should tip $${tip} on $${input2.value}`;
+            output1.value = text;
             // output1.innerText = text; - this "innerText" thing took me at least 5 hours to find. It was supposed to be "innerHTML".
         }
 

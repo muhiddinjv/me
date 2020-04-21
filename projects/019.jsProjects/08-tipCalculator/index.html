@@ -62,6 +62,7 @@
         <label for="">Percentage Tip:</label><input type="text" id="percentage-tip">
         <label for="">Tip Amount</label><input type="text" id="tip-amount" disabled>
         <label for="">Total</label><input type="text" id="total" disabled>
+        <button id="calculate">calculate</button>
     </div>
     <script>
         let billAmount = document.getElementById('bill-amount');
@@ -76,9 +77,9 @@
                 billAmount = Number(billAmount.value);
                 percentTip = Number(percentTip.value);
 
-                if (isNaN(billAmount) || billAmount <= 0 || billAmount === null) {
-                    alert('Please enter a valid Bill Amount')
-                } else if (isNaN(percentTip) || percentTip <= 0 || percentTip === null) {
+                if (isNaN(billAmount) || billAmount <= 0 || billAmount === 0) {
+                    alert('Please enter a valid Bill Amount');
+                } else if (isNaN(percentTip) || percentTip <= 0 || percentTip === 0) {
                     alert('Please enter a valid Tip Percentage')
                 } else {
                     let calculatedTip = percentTip / 100 * billAmount;
