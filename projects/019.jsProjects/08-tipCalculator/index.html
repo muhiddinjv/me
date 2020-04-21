@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tip Calculator</title>
+    <style>
+        h1 {
+            color: darkcyan;
+            font-size: 50px;
+            text-align: center;
+        }
+        
+        span#tip-word {
+            color: palevioletred;
+        }
+        
+        div#calculator {
+            color: white;
+            font-size: 35px;
+            width: 600px;
+            background-color: rgb(48, 48, 168);
+            border-radius: 25px;
+            padding: 50px;
+            margin: auto;
+        }
+        
+        label {
+            display: inline-block;
+            width: 300px;
+            margin-right: 25px;
+            padding: 15px;
+        }
+        
+        input {
+            margin-right: 50px;
+            width: 100px;
+            height: 25px;
+            padding: 2.5px 40px;
+            text-align: center;
+        }
+        
+        #calculate {
+            background-color: rgb(236, 46, 46);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            width: 150px;
+            height: 35px;
+            font-size: 25px;
+            margin: 25px 200px 15px 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><span id="tip-word">Tip</span> calculator</h1>
+    <div id="calculator">
+        <label>Bill Amount:</label><input id="bill-amount"></br>
+        <label>Percentage Tip:</label><input id="percentage-tip"></br>
+        <label>Tip Amount:</label><input id="tip-amount" disabled></br>
+        <label>Total:</label><input id="total" disabled></br>
+        <button id="calculate">Calculate</button>
+    </div>
+    <script>
+        const billAmount = document.getElementById('bill-amount');
+        const percentTip = document.getElementById('precentage-tip');
+        const tipAmount = document.getElementById('tip-amount');
+        const total = document.getElementById('total');
+        const calculate = document.getElementById('calculate');
+
+        calculate.addEventListener('click', function() {
+                billAmount = Number(billAmount.value);
+                percentTip = Number(percentTip.value);
+
+                if (isNaN(billAmount) || billAmount <= 0 || billAmount === null) {
+                    alert('Please enter a valid Bill Amount')
+                } else if (isNaN(percentTip) || tipAmount <= 0 || tipAmount === null) {
+                    alert('Please enter a valid Tip Percentage')
+                } else {
+                    let calculatedTip = percentTip / 100 * billAmount;
+                    tipAmount.value = '$' + calculatedTip;
+
+                    let calculatedTotal = billAmount + calculatedTip;
+                    total.value = '$' + calculatedTotal;
+                }
+            })
+            // calculate.addEventListener('click', function() {
+            //     billAmount = Number(billAmount.value);
+            //     percentTip = Number(percentTip.value);
+
+        //     if (isNaN(billAmount) || billAmount <= 0 || billAmount === null) {
+        //         alert('Please enter a valid Bill Amount')
+        //     } else if (isNaN(percentTip) || percentTip <= 0 || percentTip === null) {
+        //         alert('Please enter a valid Tip Percentage')
+        //     } else {
+        //         let calculatedTip = percentTip / 100 * billAmount;
+        //         tipAmount.value = '$' + calculatedTip;
+
+        //         let calculatedTotal = billAmount + calculatedTip;
+        //         total.value = '$' + calculatedTotal;
+        //     }
+
+
+        // })
+    </script>
+</body>
+
+</html>
