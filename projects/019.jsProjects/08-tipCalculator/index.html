@@ -65,11 +65,13 @@
         <button id="calculate">Calculate</button>
     </div>
     <script>
-        const billAmount = document.getElementById('bill-amount');
-        const percentTip = document.getElementById('precentage-tip');
-        const tipAmount = document.getElementById('tip-amount');
-        const total = document.getElementById('total');
-        const calculate = document.getElementById('calculate');
+        let billAmount = document.getElementById('bill-amount');
+        let percentTip = document.getElementById('percentage-tip');
+        /* Error: Cannot read property 'value' of null at HTMLButtonElement.<anonymous> (index.html:77)(anonymous) @ index.html:77 */
+        // pERcentage-tip, NOT pREcentage-tip: took me 30 minutes
+        let tipAmount = document.getElementById('tip-amount');
+        let total = document.getElementById('total');
+        let calculate = document.getElementById('calculate');
 
         calculate.addEventListener('click', function() {
                 billAmount = Number(billAmount.value);
@@ -77,7 +79,7 @@
 
                 if (isNaN(billAmount) || billAmount <= 0 || billAmount === null) {
                     alert('Please enter a valid Bill Amount')
-                } else if (isNaN(percentTip) || tipAmount <= 0 || tipAmount === null) {
+                } else if (isNaN(percentTip) || percentTip <= 0 || percentTip === null) {
                     alert('Please enter a valid Tip Percentage')
                 } else {
                     let calculatedTip = percentTip / 100 * billAmount;
@@ -102,8 +104,6 @@
         //         let calculatedTotal = billAmount + calculatedTip;
         //         total.value = '$' + calculatedTotal;
         //     }
-
-
         // })
     </script>
 </body>
