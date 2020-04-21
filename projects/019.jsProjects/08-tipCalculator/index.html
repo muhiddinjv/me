@@ -46,11 +46,18 @@
             background-color: rgb(236, 46, 46);
             color: white;
             border: none;
+            outline: none;
             border-radius: 15px;
             width: 150px;
             height: 35px;
             font-size: 25px;
             margin: 25px 200px 15px 200px;
+        }
+        
+        #calculate:hover {
+            cursor: pointer;
+            color: rgb(236, 46, 46);
+            background-color: white;
         }
     </style>
 </head>
@@ -83,15 +90,14 @@
                 alert('Please enter a valid Tip Percentage')
             } else {
                 let calculatedTip = percentTip / 100 * billAmount;
+                // (5) / 100 * (250) = 12.5 = calculated tip
                 tipAmount.value = calculatedTip;
 
                 let calculatedTotal = billAmount + calculatedTip;
+                // 12.5 + 250 = 262.5 = calculated total
                 total.value = calculatedTotal;
             }
         })
-
-        // (5) / 100 * (250) = 12.5 (calculated tip)
-        // 12.5 + 250 = 262.5 (calculated total)
     </script>
 </body>
 
