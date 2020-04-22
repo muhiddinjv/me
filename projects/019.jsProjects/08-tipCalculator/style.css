@@ -25,7 +25,11 @@ body {
     margin: 6rem;
 }
 
-h3 {
+.calculated {
+    text-align: center;
+}
+
+.card-title {
     border-radius: 1rem 1rem 0 0;
     margin: 0;
     color: white;
@@ -82,7 +86,7 @@ input:focus {
     grid-template-columns: 1fr;
 }
 
-#select {
+#select-input {
     /* outline: #4CAF50 solid 1px; */
     border-radius: 5px;
     border: 2px solid silver;
@@ -117,3 +121,28 @@ input:focus {
     color: #212529;
     transition: 0.5s;
 }
+
+
+/* feedback */
+
+.feedback {
+    display: none;
+    text-align: center;
+    font-size: 1.5rem;
+    background: #F8D7DA;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.loader {
+    display: none;
+}
+
+.results {
+    display: none;
+}
+
+
+/* .showItem {
+    display: block;
+} */

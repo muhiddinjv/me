@@ -10,21 +10,26 @@
 
 <body>
     <div class="card">
-        <h3>TIP CALCULATOR</h3>
+        <h3 class="card-title">TIP CALCULATOR</h3>
         <div class="card-body">
+            <div class="feedback">
+                <p>Bill amount cannot be blank</p>
+                <p>Number of users must be greater than zero</p>
+                <p>You must select a service</p>
+            </div>
             <h5>How Much Was Your Bill ?</h5>
-            <div class="bill inputDiv">
+            <div class="inputDiv">
                 <span class="icon">$</span>
-                <input type="number">
+                <input id="bill-input" type="number">
             </div>
             <h5>How Many People Sharing The Bill ?</h5>
-            <div class="people inputDiv">
+            <div class="inputDiv">
                 <span class="icon">8</span>
-                <input type="number">
+                <input id="people-input" type="number">
             </div>
             <h5>How Was Your Service ?</h5>
             <div class="service">
-                <select id="select">
+                <select id="select-input">
                     <option value="0" selected>Choose...</option>
                     <option value="1">Great - 20%</option>
                     <option value="2">Good - 15%</option>
@@ -36,8 +41,42 @@
             <div class="btn-container">
                 <input id="btn" type="button" value="Calculate">
             </div>
+            <div class="calculated">
+                <div class="loader">
+                    <img src="img/Facebook-1s-200px.gif" alt="">
+                </div>
+                <div class="results">
+                    <h3 class=" result ">
+                        Tip Amount
+                        <span>$</span>
+                        <span id="tip-amount ">30.00</span>
+                    </h3>
+                    <h3 class="result ">
+                        Total Amount
+                        <span>$</span>
+                        <span id="total-amount ">20.00</span>
+                    </h3>
+                    <h3 class="result ">
+                        Each Person Owes
+                        <span>$</span>
+                        <span id="each-owes ">10.00</span>
+                    </h3>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Javascript -->
+    <script>
+        let billInput = document.getElementById('bill-input')
+        let peopleInput = document.getElementById('people-input')
+        let selectInput = document.getElementById('select-input')
+        let button = document.getElementById('btn')
+        let calculated = document.getElementById('calculated')
+
+        button.addEventListener('click', function() {
+            javascript
+        })
+    </script>
 </body>
 
 </html>
