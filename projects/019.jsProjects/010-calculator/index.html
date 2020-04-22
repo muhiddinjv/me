@@ -6,136 +6,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <style>
-        /* Started: 3:00pm, April 15, 2020 */
+        /* Started: 6:00pm, April 22, 2020 */
         
-        * {
-            margin: 0;
-            padding: 0;
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
+            /* border-box = easier to size elements */
+            font-family: Gotham, Rounded, sans-serif;
+            font-weight: normal;
         }
         
         body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 0;
+            margin: 0;
+            background: linear-gradient(to right, #00AAFF, #00ff6c);
+        }
+        
+        .calculator-grid {
+            display: grid;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            grid-template-columns: repeat(4, 100px);
+            grid-template-rows: minmax(120px, auto) repeat(5, 100px);
         }
         
-        .calculator {
-            flex: 0 0 95%;
+        .calculator-grid>button {
+            cursor: pointer;
+            font-size: 2rem;
+            border: 1px solid white;
+            outline: none;
+            background: rgba(255, 255, 255, .75);
         }
         
-        .screen {
-            width: 100%;
-            font-size: 7rem;
-            padding: 0.5rem;
-            background: rgb(41, 41, 56);
-            color: white;
-            border: none;
+        .calculator-grid>button:hover {
+            background-color: rgba(255, 255, 255, .9);
         }
         
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            /* transition: all 0.2s linear; */
+        .span-two {
+            grid-column: span 2;
         }
         
-        button {
-            flex: 0 0 25%;
-            border: 1px solid black;
-            padding: 0.25rem 0;
-            /* transition: all 0.2s ease; */
+        .output {
+            grid-column: 1 / -1;
+            background: rgba(0, 0, 0, .75);
         }
-        
-        button:hover {
-            background: blue;
-        }
-        
-        .btn-yellow {
-            background: rgb(245, 146, 62);
-            color: white;
-        }
-        
-        .btn-grey {
-            background: rgb(224, 224, 224);
-        }
-        
-        .btn,
-        .btn-equal,
-        .btn-clear {
-            font-size: 4rem;
-        }
-        
-        .btn-equal {
-            background: green;
-        }
-        
-        .btn-clear {
-            background: red;
-        }
-    </style>
-    <style>
-
     </style>
 </head>
 
 <body>
-    <section class="Calculator">
-        <form action="">
-            <input type="text" name="" id="" class="screen">
-        </form>
-        <div class="buttons">
-            <!-- yellow buttons -->
-            <button class="btn btn-yellow" data-num="*">*</button>
-            <button class="btn btn-yellow" data-num="/">/</button>
-            <button class="btn btn-yellow" data-num="-">-</button>
-            <button class="btn btn-yellow" data-num="+">+</button>
-
-            <!-- grey buttons -->
-            <button class="btn btn-yellow" data-num=".">.</button>
-            <button class="btn btn-yellow" data-num="9">9</button>
-            <button class="btn btn-yellow" data-num="8">8</button>
-            <button class="btn btn-yellow" data-num="7">7</button>
-            <button class="btn btn-yellow" data-num="6">6</button>
-            <button class="btn btn-yellow" data-num="5">5</button>
-            <button class="btn btn-yellow" data-num="4">4</button>
-            <button class="btn btn-yellow" data-num="3">3</button>
-            <button class="btn btn-yellow" data-num="2">2</button>
-            <button class="btn btn-yellow" data-num="1">1</button>
-            <button class="btn btn-yellow" data-num="0">0</button>
-            <button class="btn-equal btn-grey">=</button>
-            <button class="btn-clear btn-grey">C</button>
+    <div class="calculator-grid">
+        <div class="output">
+            <div class="prev-operand"></div>
+            <div class="current-operand"></div>
         </div>
+        <button class="span-two">AC</button>
+        <button>DEL</button>
+        <button>/</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>*</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>+</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>-</button>
+        <button>.</button>
+        <button>0</button>
+        <button class="span-two">=</button>
+    </div>
 
-        <script>
-            const btns = document.querySelectorAll('.btn')
-            const screen = document.querySelector('.screen')
-            const equalBtn = document.querySelector('.btn-equal')
-            const clearBtn = document.querySelector('.btn-clear')
+    <script>
+        const btns = document.querySelectorAll('.btn')
+        const screen = document.querySelector('.screen')
+        const equalBtn = document.querySelector('.btn-equal')
+        const clearBtn = document.querySelector('.btn-clear')
 
-            // all the buttons
-            for (let i = 0; i < btns.length; i++) {
-                // loop thru all the buttons btns[i] indexes
-                btns[i].addEventListener('click', function() {
-                    let number = btns[i].getAttribute('data-num');
-                    // get the attributes of 'data-num' (+,-,*,1)
-                    screen.value += number; //show attributes
-                })
-            }
-
-            // equal button
-            equalBtn.addEventListener('click', function() {
-                let value = eval(screen.value);
-                // when clicked, it evaluates whats on the screen
-                screen.value = value;
+        // all the buttons
+        for (let i = 0; i < btns.length; i++) {
+            // loop thru all the buttons btns[i] indexes
+            btns[i].addEventListener('click', function() {
+                let number = btns[i].getAttribute('data-num');
+                // get the attributes of 'data-num' (+,-,*,1)
+                screen.value += number; //show attributes
             })
+        }
 
-            // clear button
-            clearBtn.addEventListener('click', function() {
-                screen.value = '';
-            })
-        </script>
-    </section>
+        // equal button
+        equalBtn.addEventListener('click', function() {
+            let value = eval(screen.value);
+            // when clicked, it evaluates whats on the screen
+            screen.value = value;
+        })
+
+        // clear button
+        clearBtn.addEventListener('click', function() {
+            screen.value = '';
+        })
+    </script>
 </body>
 
 </html>
