@@ -52,7 +52,7 @@ h5 {
     text-align: center;
     color: white;
     padding: 1rem;
-    margin: 0;
+    border-radius: 5px 0 0 5px;
 }
 
 .inputDiv {
@@ -65,6 +65,16 @@ input {
     font-size: 2rem;
     padding: 0 1rem;
     color: #495057;
+    border-radius: 0 5px 5px 0;
+    border: 2px solid silver;
+    border-left: none;
+    transition: 0.9s;
+    outline: none;
+}
+
+input:focus {
+    border: 2px solid #555;
+    border-left: none;
 }
 
 .service {
@@ -73,6 +83,9 @@ input {
 }
 
 #select {
+    /* outline: #4CAF50 solid 1px; */
+    border-radius: 5px;
+    border: 2px solid silver;
     height: 4.8rem;
     font-size: 2rem;
     padding: 1rem 2rem;
@@ -102,5 +115,5 @@ input {
 #btn:hover {
     background: #86BBD8;
     color: #212529;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: 0.5s;
 }
