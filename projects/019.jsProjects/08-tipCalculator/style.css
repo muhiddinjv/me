@@ -16,7 +16,7 @@ body {
 
 .card {
     max-width: 73rem;
-    margin: 5rem;
+    margin: 6rem;
 }
 
 h3 {
@@ -42,14 +42,20 @@ h5 {
 
 .icon {
     background: #336699;
+    text-align: center;
     color: white;
     padding: 1rem;
     margin: 0;
 }
 
-input {
-    width: 80%;
-    margin: 0;
+.inputDiv {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+}
+
+.service {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .btn-container {
