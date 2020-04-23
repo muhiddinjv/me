@@ -42,7 +42,7 @@
         
         .calculator-grid>button:hover {
             background-color: rgba(255, 255, 255, .9);
-            transition: 0.5s;
+            /* transition: 0.3s; */
         }
         
         .btn-equal,
@@ -50,9 +50,19 @@
             grid-column: span 2;
         }
         
+        .btn-clear:hover {
+            background-color: rgb(255, 114, 114) !important;
+            color: white;
+        }
+        
         .btn2 {
             grid-column: 4;
             grid-row: 2;
+        }
+        
+        .btnOp:hover {
+            background-color: #00AAFF !important;
+            color: white;
         }
         
         .output {
@@ -80,23 +90,23 @@
             <input type="text" class="screen">
         </form>
         <button class="btn-clear">AC</button>
-        <button class="btn-delete">DEL</button>
+        <button class="btn btnOp btnPer" data-num="%">%</button>
         <button class="btn" data-num="1">1</button>
-        <button class="btn btn2" data-num="/">/</button>
+        <button class="btn btn2 btnOp" data-num="/">/</button>
         <button class="btn" data-num="2">2</button>
         <button class="btn" data-num="3">3</button>
-        <button class="btn" data-num="*">*</button>
+        <button class="btn btnOp" data-num="*">*</button>
         <button class="btn" data-num="4">4</button>
         <button class="btn" data-num="5">5</button>
         <button class="btn" data-num="6">6</button>
-        <button class="btn" data-num="+">+</button>
+        <button class="btn btnOp" data-num="+">+</button>
         <button class="btn" data-num="7">7</button>
         <button class="btn" data-num="8">8</button>
         <button class="btn" data-num="9">9</button>
-        <button class="btn" data-num="-">-</button>
+        <button class="btn btnOp" data-num="-">-</button>
         <button class="btn" data-num=".">.</button>
         <button class="btn" data-num="0">0</button>
-        <button class="btn-equal">=</button>
+        <button class="btn-equal btnOp">=</button>
     </div>
 
     <script>
@@ -104,6 +114,7 @@
         const screen = document.querySelector('.screen')
         const equalBtn = document.querySelector('.btn-equal')
         const clearBtn = document.querySelector('.btn-clear')
+            // const percentBtn = document.querySelector('.btnPer')
 
         // all the buttons
         for (let i = 0; i < btns.length; i++) {
@@ -118,7 +129,7 @@
         // equal button
         equalBtn.addEventListener('click', function() {
             let value = eval(screen.value);
-            // when clicked, it evaluates whats on the screen
+            // when clicked, it calculates whats on the screen
             screen.value = value;
         })
 
