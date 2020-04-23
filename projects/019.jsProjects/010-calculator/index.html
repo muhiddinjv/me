@@ -127,9 +127,13 @@
 
         // equal button
         equalBtn.addEventListener('click', function() {
-            let value = eval(screen.value);
-            // when clicked, it calculates whats on the screen
-            screen.value = value;
+            if (screen.value === '') {
+                alert('Input is empty!')
+            } else {
+                let value = eval(screen.value);
+                // when clicked, it calculates whats on the screen
+                screen.value = value;
+            }
         })
 
         // clear button
