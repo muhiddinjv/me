@@ -1,0 +1,53 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 62.5%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#container {
+    font-size: 1.5rem;
+    flex-direction: column;
+    width: 360px;
+    height: 640px;
+    background: silver;
+    text-align: center;
+}
+
+
+/* ------------vocabulary-learn--------------------- */
+
+.lesson {
+    background: lightseagreen;
+    color: white;
+    padding: 1rem;
+    margin: 0;
+}
+
+.vidDiv {
+    padding: 1rem;
+    margin-top: 0;
+    background: white;
+}
+
+.vidDiv>p {
+    margin: 0;
+}
+
+
+/* -------vocabulary-quiz--------------------------- */
+
+#start {
+    background: lightcoral;
+}
+
+#quiz {
+    background: lightseagreen;
+}
+
+#score {
+    background: limegreen;
+}
