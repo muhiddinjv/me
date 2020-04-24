@@ -39,10 +39,6 @@ const questions = [{
     q: 'Which operator is used to assign a value to a variable?',
     options: ['-', '=', '+', '*'],
     answer: 1
-}, {
-    q: 'How much time did it take me to create this app?',
-    options: ['2 hours', '5 hours', '10 hours', '2 days'],
-    answer: 3
 }]
 
 // set questions and options and question number

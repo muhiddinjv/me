@@ -12,19 +12,17 @@ html {
     background-color: #009688;
 }
 
-
-/* @media only screen and (max-width: 75em) {
+@media (max-width: 45em) {
     html {
         font-size: 50%;
     }
-} */
+}
 
 body {
     font-family: "Nunito", sans-serif;
-    /* color: #6D5D4B; */
     font-weight: 300;
     font-size: 1.6rem;
-    /* line-height: 1.6; */
+    padding: 2rem;
 }
 
 .quiz-container {
