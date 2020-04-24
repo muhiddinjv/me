@@ -2,6 +2,9 @@ const options = document.querySelector('.options').children;
 const answerTrackerContainer = document.querySelector('.answer-tracker')
 const questionNumberSpan = document.querySelector('.question-num-value');
 const totalQuestionSpan = document.querySelector('.total-question');
+const correctAnswerSpan = document.querySelector('.correct-answers');
+const totalQuestionSpan2 = document.querySelector('.total-question2');
+const percentage = document.querySelector('.percentage');
 const question = document.querySelector('.question ');
 const op1 = document.querySelector('.option1');
 const op2 = document.querySelector('.option2');
@@ -12,6 +15,7 @@ let questionIndex; //Random questions
 let index = 0;
 let myArray = [];
 let myArr = [];
+let score = 0;
 
 // questions and options and answers
 
@@ -35,6 +39,10 @@ const questions = [{
     q: 'Which operator is used to assign a value to a variable?',
     options: ['-', '=', '+', '*'],
     answer: 1
+}, {
+    q: 'How much time did it take me to create this app?',
+    options: ['2 hours', '5 hours', '10 hours', '2 days'],
+    answer: 3
 }]
 
 // set questions and options and question number
@@ -55,6 +63,8 @@ function check(element) {
     if (element.id == questions[questionIndex].answer) {
         element.classList.add('correct');
         updateAnswerTracker('correct');
+        score++;
+        console.log('score' + score);
     } else {
         element.classList.add('wrong');
         updateAnswerTracker('wrong');
@@ -97,7 +107,7 @@ function randomQuestion() {
     let randomNumber = Math.floor(Math.random() * questions.length);
     let hitDuplicate = 0;
     if (index == questions.length) {
-        console.log('quiz over')
+        quizOver();
     } else {
         if (myArray.length > 0) {
             for (let i = 0; i < myArray.length; i++) {
@@ -119,7 +129,6 @@ function randomQuestion() {
             load();
             myArr.push(questionIndex);
         }
-        console.log('myArr: ' + myArr);
         myArray.push(randomNumber); //check question duplicacy
     }
 }
@@ -134,6 +143,18 @@ function answerTracker() {
 function updateAnswerTracker(className) {
     answerTrackerContainer.children[index - 1].classList.add(className);
 }
+
+function quizOver() {
+    document.querySelector('.quiz-over').classList.add('show');
+    correctAnswerSpan.innerHTML = score;
+    totalQuestionSpan2.innerHTML = questions.length;
+    percentage.innerHTML = (score / questions.length) * 100 + '%';
+}
+
+function tryAgain() {
+    window.location.reload();
+}
+
 window.onload = function() {
     randomQuestion()
     answerTracker()

@@ -190,7 +190,7 @@ body {
     justify-content: center;
 }
 
-.quiz-over .show {
+.show {
     display: flex;
 }
 
