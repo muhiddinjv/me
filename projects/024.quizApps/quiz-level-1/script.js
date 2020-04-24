@@ -1,3 +1,5 @@
+const options = document.querySelector('.options').children;
+const answerTrackerContainer = document.querySelector('.answer-tracker')
 const questionNumberSpan = document.querySelector('.question-num-value');
 const totalQuestionSpan = document.querySelector('.total-question');
 const question = document.querySelector('.question ');
@@ -49,10 +51,25 @@ function load() {
 function check(element) {
     // check if the option is correct
     if (element.id == questions[questionIndex].answer) {
-        console.log('correct');
+        element.classList.add('correct');
+        updateAnswerTracker('correct');
     } else {
-        console.log('wrong');
+        element.classList.add('wrong');
+        updateAnswerTracker('wrong');
     }
+    // if the user selected one option then disable all options
+    disabledOptions();
+}
+
+function disabledOptions() {
+    for (let i = 0; i < options.length; i++) {
+        options[i].classList.add('disabled');
+    }
+}
+
+function next() {
+    // before going to the next question, check if any answer is selected, if not then alert('please select')
+
 }
 
 function randomQuestion() {
@@ -62,6 +79,17 @@ function randomQuestion() {
     load();
 }
 
+function answerTracker() {
+    for (let i = 0; i < questions.length; i++) {
+        const div = document.createElement('div');
+        answerTrackerContainer.appendChild(div);
+    }
+}
+
+function updateAnswerTracker(className) {
+    answerTrackerContainer.children[index - 1].classList.add(className);
+}
 window.onload = function() {
     randomQuestion()
+    answerTracker()
 }
