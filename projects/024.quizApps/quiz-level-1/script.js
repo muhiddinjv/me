@@ -10,6 +10,8 @@ const op4 = document.querySelector('.option4');
 // let questionIndex = 0; questions IN ORDER
 let questionIndex; //Random questions
 let index = 0;
+let myArray = [];
+let myArr = [];
 
 // questions and options and answers
 
@@ -67,16 +69,59 @@ function disabledOptions() {
     }
 }
 
+function enableOptions() {
+    for (let i = 0; i < options.length; i++) {
+        options[i].classList.remove('disabled', 'correct', 'wrong');
+    }
+}
+
+function validate() {
+    if (!options[0].classList.contains('disabled')) {
+        // if options[0] doesn't have class 'disabled' then
+        // alert('please select')
+        alert('Please select one option')
+    } else {
+        enableOptions();
+        randomQuestion();
+    }
+}
+
 function next() {
-    // before going to the next question, check if any answer is selected, if not then alert('please select')
+    // before going to the next question, check if any answer 
+    // is selected, if not then alert('please select'), else next
+    validate()
 
 }
 
 function randomQuestion() {
     let randomNumber = Math.floor(Math.random() * questions.length);
-    questionIndex = randomNumber;
-    // console.log(questionIndex);
-    load();
+    let hitDuplicate = 0;
+    if (index == questions.length) {
+        console.log('quiz over')
+    } else {
+        if (myArray.length > 0) {
+            for (let i = 0; i < myArray.length; i++) {
+                if (myArray[i] == randomNumber) {
+                    hitDuplicate = 1;
+                    break;
+                }
+            }
+            if (hitDuplicate == 1) {
+                randomQuestion();
+            } else {
+                questionIndex = randomNumber;
+                load();
+                myArr.push(questionIndex);
+            }
+        }
+        if (myArray.length == 0) {
+            questionIndex = randomNumber;
+            load();
+            myArr.push(questionIndex);
+        }
+        console.log('myArr: ' + myArr);
+        myArray.push(randomNumber); //check question duplicacy
+    }
 }
 
 function answerTracker() {
