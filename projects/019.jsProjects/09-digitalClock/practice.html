@@ -24,6 +24,7 @@
 </head>
 
 <body>
+
     <div id="clock"></div>
     <script>
         function showTime() {
@@ -31,6 +32,7 @@
             let hours = date.getHours()
             let minutes = date.getMinutes()
             let seconds = date.getSeconds()
+
             let formatHours = convertFormat(hours)
             hours = checkTime(hours)
 
@@ -52,6 +54,8 @@
         function checkTime(time) {
             if (time > 12) {
                 time = time - 12;
+            } else if (time === 0) {
+                time = 12;
             }
             return time;
         }
@@ -59,10 +63,10 @@
         function addZero(time) {
             if (time < 10) {
                 time = '0' + time;
-            } else if (time === 0) {
-                time = 12;
             }
+            return time;
         }
+
         showTime()
         setInterval(showTime, 1000)
             // 1 - convertFormat(PM)
