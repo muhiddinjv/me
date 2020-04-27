@@ -5,24 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emuallim Spanish</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 
 <body>
     <div id="container">
         <!-- <div id="start">Start Quiz</div> -->
+        <h4 class="lesson">VOCABULARY</h4>
         <div class="vocabulary">
-            <h4 class="lesson">VOCABULARY</h4>
             <div class="vidDiv">
                 <p>Repeat the action!</p>
-                <video width="320" height="240" controls loop>
+                <video controls loop>
                     <source src="vid/voc-1.mp4" type="video/mp4">
                 </video>
-                <p>Es - is</p>
+                <p class="words"><b>Es</b> - <i>is</i></p>
             </div>
-            <button class="btn prevBtn">Prev</button>
-            <button class="btn nextBtn">Next</button>
+            <div class="buttons">
+                <button class="btn prevBtn">Prev</button>
+                <button class="btn nextBtn">Next</button>
+            </div>
         </div>
         <div id="quiz" style="display: none;">
             <div id="question">question</div>
