@@ -9,7 +9,6 @@ body {
 
 #container {
     font-size: 1.5rem;
-    flex-direction: column;
     width: 360px;
     height: 640px;
     background: #e6e6e6;
@@ -18,36 +17,63 @@ body {
 
 /* ----------- Start --------------------------- */
 
-#start {
+.start {
     font-size: 1rem;
+    justify-content: center;
+}
+
+.start-header {
+    font-size: 1.5rem;
+}
+
+.start-body {
+    padding: .1rem .7rem;
 }
 
 .hide {
-    display: none;
+    display: none !important;
+}
+
+.start-btn {
+    text-align: center;
+}
+
+.startBtn:hover {
+    background-color: #3e8e41;
+}
+
+.startBtn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
 
 /* ------------vocabulary-learn--------------------- */
 
-.lesson {
+.vocabulary {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
+.header,
+.start-header {
+    text-align: center;
     background: #4CAF50;
     color: white;
     padding: 1rem;
     margin: 0;
+    grid-column: 1 / -1;
 }
 
-.vocabulary {
-    display: grid;
-    justify-content: center;
-    margin: 0.5rem;
-}
-
-.vidDiv {
+.vidDiv,
+.start-body {
     color: #555555;
+    grid-column: 1 / -1;
     background: white;
-    margin-bottom: 1rem;
-    width: 21rem;
-    /* border-bottom: 2px solid silver; */
+    margin: .5rem .8rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -55,6 +81,7 @@ video {
     width: 20rem;
     height: 15rem;
     outline: none;
+    grid-column: span 2;
 }
 
 .vidDiv>p {
@@ -62,10 +89,11 @@ video {
     padding: 1rem;
 }
 
-.btn {
+.btn,
+.startBtn {
     color: white;
     outline: none;
-    margin: .5rem;
+    margin: .9rem;
     padding: .5rem 3rem;
     font-size: 1.2rem;
     background: #4CAF50;

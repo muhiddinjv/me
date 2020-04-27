@@ -1,3 +1,15 @@
+const startBtn = document.querySelector('.startBtn')
+const startDiv = document.querySelector('.start')
+const lesson = document.querySelector('.lesson')
+const vocabulary = document.querySelector('.vocabulary')
+
+startBtn.addEventListener('click', startGame)
+
+function startGame() {
+    startDiv.classList.add('hide')
+    vocabulary.classList.remove('hide')
+}
+
 const newWords = [{
     vocab: '(1) <b>Es</b> - <i>is</i>',
     video: "vid/voc-1.mp4"
@@ -17,7 +29,7 @@ const newWords = [{
     vocab: '(6) <b>Zapatos</b> - <i>shoes</i>',
     video: "vid/voc-6.mp4"
 }, {
-    vocab: '(7) <b>La tienda</b> - <i>the store</i>',
+    vocab: '(7) <b>Tienda</b> - <i>store</i>',
     video: "vid/voc-7.mp4"
 }, {
     vocab: '(8) <b>Un dia</b> - <i>1 day</i>',
