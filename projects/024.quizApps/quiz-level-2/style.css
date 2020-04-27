@@ -13,7 +13,17 @@ body {
     width: 360px;
     height: 640px;
     background: #e6e6e6;
-    text-align: center;
+}
+
+
+/* ----------- Start --------------------------- */
+
+#start {
+    font-size: 1rem;
+}
+
+.hide {
+    display: none;
 }
 
 
