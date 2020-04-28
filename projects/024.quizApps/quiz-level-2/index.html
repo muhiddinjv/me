@@ -12,6 +12,7 @@
 <body>
     <!-- started April 24, 2020  -->
     <div id="container">
+        <!-- Section 1 - START -------------------------------------------->
         <div class="start">
             <h4 class="start-header">PLAY SPANISH</h4>
             <div class="start-body">
@@ -22,16 +23,18 @@
                     <li>Test your Spanish through <u>quiz</u></li>
                     <li><u>Retell</u> the story in your words</li>
                 </ol>
-                <p>To engrave the vocabulary on your memory, you must <u>do the actions</u> & <u>retell the story</u> in your own words! <br><br>Enjoy!</p>
+                <p>To engrave the vocabulary on your memory, you must <u>do the actions</u> <i>(some words don't have actions)</i> & <u>retell the story</u> in your own words! <br><br>Enjoy!</p>
             </div>
             <div class="start-btn">
-                <button class="startBtn">start</button>
+                <button class="startBtn">START</button>
             </div>
         </div>
+
+        <!-- Section 2 - vocabular -------------------------------------------->
         <div class="vocabulary hide">
             <h4 class="header">VOCABULARY</h4>
             <div class="vidDiv">
-                <p>Repeat the action 3x!</p>
+                <p class="action">Repeat the action 3x!</p>
                 <video controls loop>
                     <source src="vid/voc-1.mp4" type="video/mp4">
                 </video>
@@ -39,7 +42,23 @@
             </div>
             <button class="btn prevBtn">Prev</button>
             <button class="btn nextBtn">Next</button>
+            <button class="btn storyBtn">Story >></button>
         </div>
+
+
+        <!-- Section 3 - STORY -------------------------------------------->
+        <div class="storyDiv hide">
+            <h4 class="story-header">STORY</h4>
+            <div class="storyVideo">
+                <p class="action">Repeat the action 3x!</p>
+                <video controls loop>
+                    <source src="vid/story.mp4" type="video/mp4">
+                </video>
+                <p class="words">(1) <b>Es</b> - <i>is</i></p>
+            </div>
+            <button class="btn storyBtn">Quiz >></button>
+        </div>
+
         <div id="quiz" class="hide">
             <div id="question">question</div>
             <div id="qImg">Image</div>

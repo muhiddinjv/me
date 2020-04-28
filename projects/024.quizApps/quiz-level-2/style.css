@@ -1,7 +1,18 @@
-body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+*,
+*::before,
+*::after {
+    font-family: Verdana, Tahoma, sans-serif;
     box-sizing: border-box;
+}
+
+:root {
+    --darkGreen: #3e8e41;
+    --lightGreen: #4CAF50;
+}
+
+body {
     font-size: 62.5%;
+    margin: 0;
     background: lightblue;
     display: flex;
     justify-content: center;
@@ -14,8 +25,12 @@ body {
     background: #e6e6e6;
 }
 
+.hide {
+    display: none !important;
+}
 
-/* ----------- Start --------------------------- */
+
+/* ----------- Section 1 - Start --------------------------- */
 
 .start {
     font-size: 1rem;
@@ -30,26 +45,22 @@ body {
     padding: .1rem .7rem;
 }
 
-.hide {
-    display: none !important;
-}
-
 .start-btn {
     text-align: center;
 }
 
 .startBtn:hover {
-    background-color: #3e8e41;
+    background-color: var(--darkGreen);
 }
 
 .startBtn:active {
-    background-color: #3e8e41;
+    background-color: var(--darkGreen);
     box-shadow: 0 2px #666;
     transform: translateY(4px);
 }
 
 
-/* ------------vocabulary-learn--------------------- */
+/* ------------ Section-2: Vocabulary--------------------- */
 
 .vocabulary {
     text-align: center;
@@ -59,9 +70,10 @@ body {
 }
 
 .header,
-.start-header {
+.start-header,
+.story-header {
     text-align: center;
-    background: #4CAF50;
+    background: var(--lightGreen);
     color: white;
     padding: 1rem;
     margin: 0;
@@ -96,21 +108,30 @@ video {
     margin: .9rem;
     padding: .5rem 3rem;
     font-size: 1.2rem;
-    background: #4CAF50;
+    background: var(--lightGreen);
     border: none;
     box-shadow: 0 5px #999;
     border-radius: .5rem;
 }
 
 .btn:hover {
-    background-color: #3e8e41;
+    background-color: var(--darkGreen);
 }
 
 .btn:active {
-    background-color: #3e8e41;
+    background-color: var(--darkGreen);
     box-shadow: 0 2px #666;
     transform: translateY(4px);
 }
+
+.storyBtn {
+    grid-column: span 2;
+    justify-self: center;
+    margin-top: 4rem;
+}
+
+
+/* ------------ Section-3: Story--------------------- */
 
 
 /* -------vocabulary-quiz--------------------------- */

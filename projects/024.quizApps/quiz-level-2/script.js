@@ -10,6 +10,18 @@ function startGame() {
     vocabulary.classList.remove('hide')
 }
 
+// ----- Section 3 - Story ------------------------------
+const storyBtn = document.querySelector('.storyBtn')
+const storyDiv = document.querySelector('.storyDiv')
+
+storyBtn.addEventListener('click', startStory)
+
+function startStory() {
+    storyDiv.classList.remove('hide')
+    vocabulary.classList.add('hide')
+}
+
+// ----- Section 2 - Vocabulary ------------------------------
 const newWords = [{
     vocab: '(1) <b>Es</b> - <i>is</i>',
     video: "vid/voc-1.mp4"
@@ -34,6 +46,21 @@ const newWords = [{
 }, {
     vocab: '(8) <b>Un dia</b> - <i>1 day</i>',
     video: "vid/voc-8.mp4"
+}, {
+    vocab: '(9) <b>Si o No</b> - <i>Yes or No</i>',
+    video: "vid/voc-9.mp4"
+}, {
+    vocab: '(10) <b>Porque</b> - <i>why/because</i>',
+    video: "vid/voc-10.mp4"
+}, {
+    vocab: '(11) <b>Quien</b> - <i>who</i>',
+    video: "vid/voc-11.mp4"
+}, {
+    vocab: '(12) <b>Que</b> - <i>what</i>',
+    video: "vid/voc-12.mp4"
+}, {
+    vocab: '(13) <b>Donde</b> - <i>where</i>',
+    video: "vid/voc-13.mp4"
 }]
 
 const prevBtn = document.querySelector('.prevBtn')
@@ -46,7 +73,7 @@ prevBtn.addEventListener('click', prevVid)
 nextBtn.addEventListener('click', nextVid)
 
 function nextVid() {
-    if (counter === 8) {
+    if (counter === 13) {
         counter = -1;
     }
     counter++;
@@ -56,7 +83,7 @@ function nextVid() {
 
 function prevVid() {
     if (counter === 0) {
-        counter = 9;
+        counter = 14;
     }
     counter--;
     words.innerHTML = newWords[counter].vocab;
