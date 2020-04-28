@@ -47,34 +47,44 @@
 
 
         <!-- Section 3 - STORY -------------------------------------------->
-        <div class="storyDiv hide">
-            <h4 class="story-header">STORY</h4>
+        <div class="story hide">
+            <h4 class="storyHeader">STORY</h4>
             <div class="storyVideo">
-                <p class="action">Repeat the action 3x!</p>
+                <p class="action">Watch 3x!</p>
                 <video controls loop>
                     <source src="vid/story.mp4" type="video/mp4">
                 </video>
-                <p class="words">(1) <b>Es</b> - <i>is</i></p>
+                <p class="words storyText"><i>Paco es una person de Espania. Paco es un jugador professional de tennis. Un dia, Paco va a la tienda porque quiere uno zapatos Nike. Paco compra lo zapatos Nike.</i></p>
             </div>
-            <button class="btn storyBtn">Quiz >></button>
+            <button class="btn quizBtn">Quiz >></button>
         </div>
 
-        <div id="quiz" class="hide">
-            <div id="question">question</div>
-            <div id="qImg">Image</div>
-            <div id="choices">
-                <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
-                <div class="choice" id="B" onclick="checkAnswer('B')">B</div>
-                <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
+
+        <!-- Section 4 - QUIZ -------------------------------------------->
+        <div class="quiz-container">
+            <div id="quiz" class="hide">
+                <div id="question">QUIZ</div>
+                <div class="quizBody">
+                    <div id="timer">
+                        <div id="counter"></div>
+                        <div id="btimeGauge"></div>
+                        <div id="timeGauge"></div>
+                    </div>
+                    <video controls>
+                        <source src="vid/ques-1.mp4" type="video/mp4">
+                        </video>
+                    <p class="quizText">Paco es de Mexico si o no?</p>
+                    <div id="progress">
+                    </div>
+                </div>
+                <button class="btn choice" id="A" onclick="checkAnswer('A')">A</button>
+                <button class="btn choice" id="B" onclick="checkAnswer('B')">B</button>
             </div>
-            <div id="timer">
-                <div id="counter">counter</div>
-                <div id="btimeGauge">btimeGauge</div>
-                <div id="timeGauge">timeGauge</div>
+            <div id="score" class="">
+                <img src="img/1.png" alt="">
+                <p>50%</p>
             </div>
-            <div id="progress">progress</div>
         </div>
-        <!-- <div id="score">score</div> -->
     </div>
 </body>
 

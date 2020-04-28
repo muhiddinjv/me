@@ -1,3 +1,4 @@
+// ----- Section 1 - START ------------------------------
 const startBtn = document.querySelector('.startBtn')
 const startDiv = document.querySelector('.start')
 const lesson = document.querySelector('.lesson')
@@ -10,9 +11,9 @@ function startGame() {
     vocabulary.classList.remove('hide')
 }
 
-// ----- Section 3 - Story ------------------------------
+// ----- Section 3 - STORY ------------------------------
 const storyBtn = document.querySelector('.storyBtn')
-const storyDiv = document.querySelector('.storyDiv')
+const storyDiv = document.querySelector('.story')
 
 storyBtn.addEventListener('click', startStory)
 
@@ -21,7 +22,7 @@ function startStory() {
     vocabulary.classList.add('hide')
 }
 
-// ----- Section 2 - Vocabulary ------------------------------
+// ----- Section 2 - VOCABULARY ------------------------------
 const newWords = [{
     vocab: '(1) <b>Es</b> - <i>is</i>',
     video: "vid/voc-1.mp4"
@@ -88,4 +89,159 @@ function prevVid() {
     counter--;
     words.innerHTML = newWords[counter].vocab;
     vidDiv.src = newWords[counter].video;
+}
+
+// ----- Section 4 - QUIZ ------------------------------
+const quizBtn = document.querySelector('.quizBtn')
+const quiz = document.getElementById('quiz')
+const vidSrc = document.querySelector('video')
+const question = document.querySelector('.quizText')
+const counterDiv = document.getElementById('counter')
+const timeGauage = document.getElementById('timeGauge')
+const choiceA = document.getElementById('A')
+const choiceB = document.getElementById('B')
+const progress = document.getElementById('progress')
+const scoreDiv = document.getElementById('score')
+
+let questions = [{
+    question: '<i>Paco es de Mexico si o no?</i>',
+    vidSrc: "vid/ques-1.mp4",
+    choiceA: 'Si',
+    choiceB: 'No',
+    correct: 'B'
+}, {
+    question: '<i>Quien es de Espania Paco or Felippe?</i>',
+    vidSrc: "vid/ques-2.mp4",
+    choiceA: 'Paco',
+    choiceB: 'Felippe',
+    correct: 'A'
+}, {
+    question: '<i>Paco es jugador professional de baseball o de tennis?</i>',
+    vidSrc: "vid/ques-3.mp4",
+    choiceA: 'baseball',
+    choiceB: 'tennis',
+    correct: 'B'
+}, {
+    question: '<i>Un dia, a donde va Paco?</i>',
+    vidSrc: "vid/ques-4.mp4",
+    choiceB: 'Tienda',
+    choiceA: 'Discoteca',
+    correct: 'A'
+}, {
+    question: '<i>Va a la discoteca Paco?</i>',
+    vidSrc: "vid/ques-5.mp4",
+    choiceA: 'Si',
+    choiceB: 'No',
+    correct: 'B'
+}, {
+    question: '<i>Por que va a latienda Paco?</i>',
+    vidSrc: "vid/ques-6.mp4",
+    choiceA: 'compra Rebook',
+    choiceB: 'compra Nike',
+    correct: 'B'
+}, {
+    question: '<i>Va a latienda porque quiere compra uno zapatos de Rebook?</i>',
+    vidSrc: "vid/ques-7.mp4",
+    choiceA: 'Si',
+    choiceB: 'No',
+    correct: 'B'
+}]
+
+// create some variables ---------------------------
+const lastQuestion = questions.length - 1;
+let runningQuestion = 0;
+//counter render
+let count = 0;
+const questionTime = 10; //10s
+const gaugeWidth = 320; //320px
+const gaugeUnit = gaugeWidth / questionTime;
+let timer;
+let score = 0;
+
+// render a question ------------------------------------
+function renderQuestion() {
+    let q = questions[runningQuestion]; // avoid retyping
+    question.innerHTML = '<p>' + q.question + ' </p>';
+    vidSrc.innerHTML = "<source src=" + q.vidSrc + ">";
+    choiceA.innerHTML = q.choiceA;
+    choiceB.innerHTML = q.choiceB;
+}
+
+// start quiz -------------------------------------
+quizBtn.addEventListener('click', startQuiz)
+
+function startQuiz() {
+    renderQuestion();
+    storyDiv.classList.add('hide')
+    renderProgress();
+    quiz.classList.remove('hide')
+    renderCounter();
+    timer = setInterval(renderCounter, 1000); // 1 second
+}
+
+// render progress -----------------------------------
+function renderProgress() {
+    for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+        progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
+    }
+}
+
+function renderCounter() {
+    if (count <= questionTime) {
+        counterDiv.innerHTML = count;
+        timeGauage.style.width = count * gaugeUnit + "px";
+        count++;
+    } else {
+        count = 0;
+        // answer is wrong
+        // change progress color to red
+        answerIsWrong();
+        if (runningQuestion < lastQuestion) {
+            runningQuestion++;
+            renderQuestion();
+        } else {
+            // end the quiz and show the score
+            clearInterval(timer);
+            scoreRender();
+        }
+    }
+}
+
+// check answer -----------------------------------------------
+function checkAnswer(answer) {
+    if (answer == questions[runningQuestion].correct) {
+        // answer is correct
+        score++
+        // change progress color to green
+        answerIsCorrect();
+    } else {
+        // answer is wrong
+        // change progress color to red
+        answerIsWrong();
+    }
+    count = 0;
+    if (runningQuestion < lastQuestion) {
+        runningQuestion++;
+        renderQuestion();
+    } else {
+        // end the quiz and show the score
+        clearInterval(timer);
+        scoreRender();
+    }
+}
+// answer is correct
+function answerIsCorrect() {
+    document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+}
+
+// answer is wrong
+function answerIsWrong() {
+    document.getElementById(runningQuestion).style.backgroundColor = "#f00";
+}
+
+// Score render -------------------------------------
+function scoreRender() {
+    // display score container
+    scoreDiv.classList.remove('hide')
+        // quiz.classList.add('hide')
 }
