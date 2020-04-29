@@ -23,7 +23,7 @@
                     <li>Test your Spanish through <u>quiz</u></li>
                     <li><u>Retell</u> the story in your words</li>
                 </ol>
-                <p>To engrave the vocabulary on your memory, you must <u>do the actions</u> <i>(some words don't have actions)</i> & <u>retell the story</u> in your own words! <br><br>Enjoy!</p>
+                <p>To retain the vocabulary words easily, you must <u>do the actions</u> <i>(some words don't have actions)</i> & <u>retell the story</u> in your own words! <br><br>Enjoy!</p>
             </div>
             <div class="start-btn">
                 <button class="startBtn">START</button>
@@ -35,7 +35,7 @@
             <h4 class="header">VOCABULARY</h4>
             <div class="vidDiv">
                 <p class="action">Repeat the action 3x!</p>
-                <video controls loop>
+                <video controls autoplay>
                     <source src="vid/voc-1.mp4" type="video/mp4">
                 </video>
                 <p class="words ">(1) <b>Es</b> - <i>is</i></p>
@@ -51,7 +51,7 @@
             <h4 class="storyHeader">STORY</h4>
             <div class="storyVideo">
                 <p class="action">Watch 3x!</p>
-                <video controls loop>
+                <video controls>
                     <source src="vid/story.mp4" type="video/mp4">
                 </video>
                 <p class="words storyText"><i>Paco es una person de Espania. Paco es un jugador professional de tennis. Un dia, Paco va a la tienda porque quiere uno zapatos Nike. Paco compra lo zapatos Nike.</i></p>
@@ -61,28 +61,39 @@
 
 
         <!-- Section 4 - QUIZ -------------------------------------------->
-        <div class="quiz-container">
-            <div id="quiz" class="hide">
-                <div id="question">QUIZ</div>
-                <div class="quizBody">
-                    <div id="timer">
-                        <div id="counter"></div>
-                        <div id="btimeGauge"></div>
-                        <div id="timeGauge"></div>
-                    </div>
-                    <video controls>
-                        <source src="vid/ques-1.mp4" type="video/mp4">
-                        </video>
-                    <p class="quizText">Paco es de Mexico si o no?</p>
-                    <div id="progress">
-                    </div>
+        <div class="quiz hide">
+            <div id="question">QUIZ</div>
+            <div class="quizBody">
+                <div id="timer">
+                    <div id="counter"></div>
+                    <div id="btimeGauge"></div>
+                    <div id="timeGauge"></div>
                 </div>
-                <button class="btn choice" id="A" onclick="checkAnswer('A')">A</button>
-                <button class="btn choice" id="B" onclick="checkAnswer('B')">B</button>
+                <video id="vid" controls autoplay>
+                        <source src="vid/ques-1.mp4" type="video/mp4">
+                    </video>
+
+                <p class="quizText">Paco es de Mexico si o no?</p>
+                <div id="progress"></div>
             </div>
-            <div id="score" class="">
-                <img src="img/1.png" alt="">
-                <p>50%</p>
+            <button class="btn choice" id="A" onclick="checkAnswer('A')">A</button>
+            <button class="btn choice" id="B" onclick="checkAnswer('B')">B</button>
+        </div>
+        <div class="score hide">
+            <img src="img/1.png" alt="">
+            <p>100%</p>
+            <button class="btn retellBtn">Retell >></button>
+        </div>
+
+        <!-- Section 5 - Retell -------------------------------------------->
+        <div class="retell hide">
+            <h4 class="retell-header">RETELL</h4>
+            <div class="retell-body">
+                <img class="image" src="img/talk.jpg" alt="">
+                <p>For this story to be engraved on your memory, you must <u>retell the story</u> in your own words! <br><br>Thank you for using this app!</p>
+            </div>
+            <div class="reload-btn">
+                <button class="btn reloadBtn">RESTART</button>
             </div>
         </div>
     </div>

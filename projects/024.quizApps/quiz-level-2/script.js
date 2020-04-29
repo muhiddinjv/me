@@ -93,15 +93,15 @@ function prevVid() {
 
 // ----- Section 4 - QUIZ ------------------------------
 const quizBtn = document.querySelector('.quizBtn')
-const quiz = document.getElementById('quiz')
-const vidSrc = document.querySelector('video')
+const quiz = document.querySelector('.quiz')
+const qVid = document.getElementById('vid')
 const question = document.querySelector('.quizText')
 const counterDiv = document.getElementById('counter')
 const timeGauage = document.getElementById('timeGauge')
 const choiceA = document.getElementById('A')
 const choiceB = document.getElementById('B')
 const progress = document.getElementById('progress')
-const scoreDiv = document.getElementById('score')
+const scoreDiv = document.querySelector('.score')
 
 let questions = [{
     question: '<i>Paco es de Mexico si o no?</i>',
@@ -124,8 +124,8 @@ let questions = [{
 }, {
     question: '<i>Un dia, a donde va Paco?</i>',
     vidSrc: "vid/ques-4.mp4",
-    choiceB: 'Tienda',
-    choiceA: 'Discoteca',
+    choiceB: 'Discoteca',
+    choiceA: 'Tienda',
     correct: 'A'
 }, {
     question: '<i>Va a la discoteca Paco?</i>',
@@ -157,14 +157,22 @@ const gaugeWidth = 320; //320px
 const gaugeUnit = gaugeWidth / questionTime;
 let timer;
 let score = 0;
+let counter2 = -1;
 
 // render a question ------------------------------------
 function renderQuestion() {
-    let q = questions[runningQuestion]; // avoid retyping
-    question.innerHTML = '<p>' + q.question + ' </p>';
-    vidSrc.innerHTML = "<source src=" + q.vidSrc + ">";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
+    // let q = questions[runningQuestion]; // avoid retyping
+    // question.innerHTML = '<p>' + q.question + ' </p>';
+    // qVid.innerHTML = "<video src=" + q.vidSrc + ">";
+
+    counter2++;
+    qVid.src = questions[counter2].vidSrc;
+    question.innerHTML = questions[counter2].question;
+    choiceA.innerHTML = questions[counter2].choiceA;
+    choiceB.innerHTML = questions[counter2].choiceB;
+
+    // choiceA.innerHTML = q.choiceA;
+    // choiceB.innerHTML = q.choiceB;
 }
 
 // start quiz -------------------------------------
@@ -239,9 +247,39 @@ function answerIsWrong() {
     document.getElementById(runningQuestion).style.backgroundColor = "#f00";
 }
 
-// Score render -------------------------------------
+// -------- Score render -------------------------------------
+
 function scoreRender() {
     // display score container
     scoreDiv.classList.remove('hide')
-        // quiz.classList.add('hide')
+        // calculate the amount of question percent answered
+    const scorePercent = Math.round(100 * score / questions.length);
+    //choose images based on the score percent
+    let img = (scorePercent >= 80) ? "img/5.png" :
+        (scorePercent >= 60) ? "img/4.png" :
+        (scorePercent >= 40) ? "img/3.png" :
+        (scorePercent >= 20) ? "img/2.png" :
+        "img/1.png";
+    scoreDiv.innerHTML = "<img src=" + img + ">";
+    scoreDiv.innerHTML += "<p>" + scorePercent + "%</p>";
+    scoreDiv.appendChild(retellBtn)
+}
+
+// -------- story retell -------------------------------------
+
+const retellBtn = document.querySelector('.retellBtn');
+const retellDiv = document.querySelector('.retell');
+const reloadBtn = document.querySelector('.reloadBtn')
+retellBtn.addEventListener('click', startRetell);
+reloadBtn.addEventListener('click', startReload)
+
+function startRetell() {
+    scoreDiv.classList.add('hide');
+    quiz.classList.add('hide');
+    retellDiv.classList.remove('hide')
+}
+
+
+function startReload() {
+    window.location.reload();
 }
