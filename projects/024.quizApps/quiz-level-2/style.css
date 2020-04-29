@@ -13,7 +13,7 @@
 body {
     font-size: 62.5%;
     margin: 0;
-    background: lightblue;
+    background: steelblue;
     display: flex;
     justify-content: center;
 }
@@ -44,6 +44,16 @@ body {
 
 .start-body {
     padding: .1rem .7rem;
+    font-size: .8rem;
+}
+
+.startImg {
+    width: 19.7rem;
+    margin-top: .4rem;
+}
+
+.startText {
+    margin: .5rem 0;
 }
 
 .start-btn {
@@ -252,6 +262,12 @@ video {
 }
 
 .image {
-    margin-top: .4rem;
+    margin-top: .5rem;
     width: 95%;
+}
+
+.imageText {
+    font-size: .9rem;
+    padding: 0 1rem;
+    text-align: left;
 }
