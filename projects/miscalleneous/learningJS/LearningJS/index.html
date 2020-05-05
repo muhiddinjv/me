@@ -8,37 +8,24 @@
 </head>
 
 <body>
-    <div id="app">welcome</div>
-
+    <div id="output"></div>
     <script>
-        // Object Constructor
-        function Client(name, balance) {
-            this.name = name;
-            this.balance = balance;
-            this.membership = function() {
+        const client = {
+            name: 'Muhiddin',
+            balance: 1000,
+            membership: function() {
                 let name;
-                // check for the balance
                 if (this.balance > 1000) {
                     name = 'Gold';
                 } else if (this.balance > 500) {
                     name = 'Platinum';
                 } else {
-                    name = 'Standard';
+                    name = 'Normal';
                 }
                 return name;
             }
         }
-
-        const person = new Client('Muhiddin', 1000);
-        const person2 = new Client('Abdulla', 100);
-
-        console.log(Client.prototype);
-
-
-        console.log(person);
-        console.log(person.membership());
-        console.log(person2);
-        console.log(person2.membership());
+        console.log(client);
     </script>
 </body>
 

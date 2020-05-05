@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Tutorial</title>
+    <style media="screen">
+        body {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: silver;
+        }
+        
+        input,
+        button {
+            height: 30px;
+        }
+        
+        fieldset {
+            margin-bottom: 20px;
+            max-width: 550px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Local Storage - JavaScript</h2>
+    <FIeldset>
+        <legend>Insert Data</legend>
+        <input type="text" id="inpKey">
+        <input type="text" id="inpValue">
+        <button id="btnInsert">Insert</button>
+        <button id="btnClear">Clear</button>
+    </FIeldset>
+    <fieldset>
+        <legend>Output Data</legend>
+        <div id="lsOutput"></div>
+    </fieldset>
+
+    <script>
+        const inpKey = document.getElementById('inpKey');
+        const inpValue = document.getElementById('inpValue');
+        const btnInsert = document.getElementById('btnInsert');
+        const btnClear = document.getElementById('btnClear');
+        const lsOutput = document.getElementById('lsOutput');
+
+        btnInsert.addEventListener('click', insertData)
+        btnClear.addEventListener('click', outputData)
+
+        function insertData() {
+            const key = inpKey.value;
+            const value = inpValue.value;
+
+            // is there text in input? No? Dont input
+            if (key && value) {
+                localStorage.setItem(key, value)
+                location.reload();
+            }
+        }
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key);
+
+            lsOutput.innerHTML += `${key}:${value}<br>`;
+
+        }
+
+        function outputData() {
+            localStorage.clear();
+            location.reload();
+        }
+    </script>
+</body>
+
+
+</html>

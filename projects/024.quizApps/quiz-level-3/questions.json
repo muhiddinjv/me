@@ -1,0 +1,81 @@
+[{
+        "question": "Inside which HTML element do we put the JavaScript??",
+        "choice1": "<script>",
+        "choice2": "<javascript>",
+        "choice3": "<js>",
+        "choice4": "<scripting>",
+        "answer": 1
+    },
+    {
+        "question": "What is the correct syntax for referring to an external script called 'xxx.js'?",
+        "choice1": "<script href='xxx.js'>",
+        "choice2": "<script name='xxx.js'>",
+        "choice3": "<script src='xxx.js'>",
+        "choice4": "<script file='xxx.js'>",
+        "answer": 3
+    },
+    {
+        "question": " How do you write 'Hello World' in an alert box?",
+        "choice1": "msgBox('Hello World');",
+        "choice2": "alertBox('Hello World');",
+        "choice3": "msg('Hello World');",
+        "choice4": "alert('Hello World');",
+        "answer": 4
+    },
+    {
+        "question": "The Web is...",
+        "choice1": "Another name for the Internet",
+        "choice2": "A global set of resources logically interrelated",
+        "choice3": "An Internet protocol",
+        "choice4": "A programming language",
+        "answer": 2
+    },
+    {
+        "question": "A Uniform Resource Identifier",
+        "choice1": "Consists of a URL and a URN",
+        "choice2": "Is an Internet protocol",
+        "choice3": "Is a layer of the OSI",
+        "choice4": "has methods 3 ways to use",
+        "answer": 1
+    },
+    {
+        "question": "There is a unique set of web design principles",
+        "choice1": "There is the 20-principles approach",
+        "choice2": "There is not a unique set of principles",
+        "choice3": "There is only the 10-principles approach",
+        "choice4": "There is the 30-principles approach",
+        "answer": 2
+    },
+    {
+        "question": "Static HTML pages present content that",
+        "choice1": "Does not change in time",
+        "choice2": "Changes depending on the visitor",
+        "choice3": "Changes on a regular time basis",
+        "choice4": "Changes once a year",
+        "answer": 1
+    },
+    {
+        "question": "Client-side web programming refers to applications",
+        "choice1": "Running on a server",
+        "choice2": "Running on a client",
+        "choice3": "Running on a server and delivering dynamic content on a client",
+        "choice4": "Running on a local storage",
+        "answer": 2
+    },
+    {
+        "question": "6 What does HTML stand for?",
+        "choice1": "Home Tool Markup Language",
+        "choice2": "Hyperlinks and Text Markup Language",
+        "choice3": "Hyper Text Markup Language",
+        "choice4": "Home Tactic Marine Language",
+        "answer": 3
+    },
+    {
+        "question": "Who is making the Web standards?",
+        "choice1": "The World Wide Web Consortium",
+        "choice2": "Mozilla",
+        "choice3": "Microsoft",
+        "choice4": "Google",
+        "answer": 1
+    }
+]
