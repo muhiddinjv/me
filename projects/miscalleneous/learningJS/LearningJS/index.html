@@ -8,11 +8,14 @@
 </head>
 
 <body>
-    <div id="output"></div>
+    <div>name: <span id="name"></span></div>
+    <div>balance: <span id="balance"></span></div>
+    <div>membership: <span id="member"></span></div>
     <script>
+        // Object literal
         const client = {
-            name: 'Muhiddin',
-            balance: 1000,
+            name: prompt('whats your name?'),
+            balance: prompt('how much do u have?'),
             membership: function() {
                 let name;
                 if (this.balance > 1000) {
@@ -25,7 +28,33 @@
                 return name;
             }
         }
-        console.log(client);
+
+        const member = document.getElementById('member');
+        const name = document.getElementById('name');
+        const balance = document.getElementById('balance');
+        member.innerText = client.membership();
+        name.innerText = client.name;
+        balance.innerText = client.balance;
+
+        // Object Constructor
+        // function Client(name, balance) {
+        //     this.name = name;
+        //     this.balance = balance;
+        //     this.membership = function() {
+        //         let name;
+        //         if (this.balance > 1000) {
+        //             name = 'Gold';
+        //         } else if (this.balance > 500) {
+        //             name = 'Platinum';
+        //         } else {
+        //             name = 'Normal';
+        //         }
+        //         return name;
+        //     }
+        // }
+        // const person = new Client(prompt('name'), prompt('money'))
+        // console.log(person.membership());
+        // console.log(person);
     </script>
 </body>
 
