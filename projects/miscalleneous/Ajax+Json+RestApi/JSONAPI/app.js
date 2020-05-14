@@ -1,31 +1,28 @@
-document.querySelector('#load').addEventListener('click',  loadPosts);
-
+document.querySelector('#load').addEventListener('click', loadPosts);
 
 function loadPosts() {
-     // Create the object
-     const xhr = new XMLHttpRequest();
+    // create the object
+    const xhr = new XMLHttpRequest();
 
-     // Open the connection
-     xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+    // open the connection
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
 
-     // Execute the function
-     xhr.onload = function() {
-          if(this.status === 200) {
-               const response = JSON.parse( this.responseText );
+    // execute the function
+    xhr.onload = function() {
+        if (this.status === 200) {
+            const response = JSON.parse(this.responseText);
+            //   console.log(response);
+            let output = '';
+            response.forEach(function(post) {
+                output += `
+                    <h3>${post.title}</h3>
+                    <p>${post.body}</p>
+                 `;
+            })
+            document.getElementById('result').innerHTML = output;
+        }
+    }
 
-               // print the contents
-               let output = '';
-
-               response.forEach(function(post) {
-                    output += `
-                         <h3>${post.title}</h3>
-                         <p>${post.body}</p>
-                    `;
-               });
-               document.querySelector('#result').innerHTML = output;
-          }
-     }
-
-     // Send the request
-     xhr.send();
+    // send the request
+    xhr.send();
 }
