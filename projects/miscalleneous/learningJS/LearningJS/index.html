@@ -5,57 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS-10-Projects</title>
+    <script defer src="appES6.js"></script>
 </head>
 
 <body>
     <div>name: <span id="name"></span></div>
     <div>balance: <span id="balance"></span></div>
     <div>membership: <span id="member"></span></div>
-    <script>
-        // Object literal
-        const client = {
-            name: prompt('whats your name?'),
-            balance: prompt('how much do u have?'),
-            membership: function() {
-                let name;
-                if (this.balance > 1000) {
-                    name = 'Gold';
-                } else if (this.balance > 500) {
-                    name = 'Platinum';
-                } else {
-                    name = 'Normal';
-                }
-                return name;
+    <!-- <script>
+        // Object Create
+        const Client = {
+            getBalance: function() {
+                return `Hello ${this.name} your balance is ${this.balance}`;
+            },
+            withdraw: function(amount) {
+                return this.balance -= amount;
+            },
+            deposit: function(amount) {
+                return this.balance += amount;
             }
         }
 
-        const member = document.getElementById('member');
-        const name = document.getElementById('name');
-        const balance = document.getElementById('balance');
-        member.innerText = client.membership();
-        name.innerText = client.name;
-        balance.innerText = client.balance;
+        // Create a new object and give a balance
+        const mary = Object.create(Client);
 
-        // Object Constructor
-        // function Client(name, balance) {
-        //     this.name = name;
-        //     this.balance = balance;
-        //     this.membership = function() {
-        //         let name;
-        //         if (this.balance > 1000) {
-        //             name = 'Gold';
-        //         } else if (this.balance > 500) {
-        //             name = 'Platinum';
-        //         } else {
-        //             name = 'Normal';
-        //         }
-        //         return name;
-        //     }
-        // }
-        // const person = new Client(prompt('name'), prompt('money'))
-        // console.log(person.membership());
-        // console.log(person);
-    </script>
+        mary.name = 'Mary';
+        mary.balance = 1000;
+
+        console.log(mary);
+        console.log(mary.getBalance());
+
+        // Withdraw some money
+        mary.withdraw(500);
+        console.log(mary.getBalance());
+
+        // Deposit some money
+        mary.deposit(1300);
+        console.log(mary.getBalance());
+
+        //Another Method
+        const muhiddin = Object.create(Client, {
+            name: {
+                value: 'Muhiddin'
+            },
+            balance: {
+                value: 2000
+            }
+        })
+
+        console.log(muhiddin);
+    </script> -->
 </body>
 
 </html>

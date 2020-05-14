@@ -1,0 +1,16 @@
+[{
+    "id": 1,
+    "name": "Muhiddin",
+    "company": "Emuallim",
+    "job": "Web Developer"
+}, {
+    "id": 2,
+    "name": "Tolqin",
+    "company": "Emuallim",
+    "job": "Artist"
+}, {
+    "id": 3,
+    "name": "Sardor",
+    "company": "Emuallim",
+    "job": "Copy Writer"
+}]
