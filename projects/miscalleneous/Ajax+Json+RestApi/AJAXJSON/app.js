@@ -30,18 +30,26 @@ function loadEmployee() {
 
 function loadEmployees() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'employees.json', true);
+    xhr.open('GET', 'contacts.json', true);
     xhr.onload = function() {
         if (this.status === 200) {
-            const employees = JSON.parse(this.responseText);
+            const contacts = JSON.parse(this.responseText);
             let output = '';
-            employees.forEach(function(employee) {
+            contacts.forEach(function(employee) {
                 output += `
                  <ul>
                     <li>ID: ${employee.id}</li>
+                    <li>Status: ${employee.status}</li>
                     <li>Name: ${employee.name}</li>
+                    <li>Country: ${employee.country}</li>
+                    <li>City: ${employee.city}</li>
                     <li>Company: ${employee.company}</li>
                     <li>Job: ${employee.job}</li>
+                    <li>Description: ${employee.description}</li>
+                    <li>Email: ${employee.email}</li>
+                    <li>Phone: ${employee.phone}</li>
+                    <li>Adress: ${employee.address}</li>
+
                 </ul>
                  `;
             });
