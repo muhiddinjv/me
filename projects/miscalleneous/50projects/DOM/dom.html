@@ -8,33 +8,68 @@
     <title>JavaScript</title>
     <style>
         .red {
+            background-color: #eee;
             color: red;
+            text-decoration: line-through;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        li {
+            position: relative;
+        }
+        
+        span {
+            position: absolute;
+            left: 99px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Welcome to JavaScript DOM</h1>
-    <div id="myID">This is the first DIV</div>
-    <div class="first"><span>Span 1!</span><span>Span 2</span> <span>Span 3!</span><span>Span 4</span><span>Span 5!</span> <span>Span 6</span><span>Span 7!</span> </div>
-    <p class="first">Hello World</p>
-    <ul class="second">
-        <li class="first red"><a href="#">Link One</a></li>
-        <li class="first"><a href="#">Link Two</a></li>
-        <li><a href="#">Link Three</a></li>
-        <li><a href="#">Link Four</a></li>
-        <li class="first"><a href="http://www.google.com">Link Five</a></li>
-        <li class="first"><a href="#">Link Six</a></li>
-        <li><a href="#">Link Seven</a></li>
+    <h1>Hello World</h1>
+    <ul id="list">
+        <li>Bananas <span>x</span></li>
+        <li>Cherries <span>x</span></li>
+        <li>Bread <span>x</span></li>
+        <li>New Color <span>x</span></li>
     </ul>
-    <script src="changeMany.js"></script>
+    <input type="text" name="newItem" id="inp">
+    <!-- JAVASCRIPT GOES HERE  -->
     <script>
-        // change the text content of several items simultaneously
-        let newSpan = document.querySelectorAll('.first');
-        newSpan.forEach(function(el, index) {
-                el.textContent = ` ${index} : updated`;
-                el.style.background = 'yellow';
-            }) // only for querySelector = doesn't work on getElementsByTagName
+        const inp = document.querySelector('input');
+        const ul = document.querySelector('ul');
+        const li = document.querySelectorAll('li');
+        const del = document.querySelectorAll('span');
+
+        inp.addEventListener('kepress', function(e) {
+            if (e.keyCode === 13) {
+                alert(e.keyCode);
+                makeNew();
+            }
+        })
+
+        function makeNew() {
+            const li = document.createElement('li');
+            const text = document.createTextNode(inp.value);
+            li.appendChild(text);
+            ul.appendChild(li);
+        }
+        for (let x = 0; x < li.length; x++) {
+            const element = li[x];
+            element.addEventListener('click', function() {
+                this.classList.toggle('red');
+            })
+        }
+        for (let x = 0; x < del.length; x++) {
+            const element = del[x];
+            element.addEventListener('click', function() {
+                this.classList.add('hide');
+            })
+
+        }
     </script>
 </body>
 
