@@ -51,12 +51,6 @@
             }
         })
 
-        function makeNew() {
-            const li = document.createElement('li');
-            const text = document.createTextNode(inp.value);
-            li.appendChild(text);
-            ul.appendChild(li);
-        }
         for (let x = 0; x < li.length; x++) {
             const element = li[x];
             element.addEventListener('click', function() {
@@ -68,7 +62,16 @@
             element.addEventListener('click', function() {
                 this.classList.add('hide');
             })
+        }
 
+        function makeNew() {
+            let lis = document.createElement('lis');
+            lis.addEventListener('click', myList);
+            let text = inp.value;
+            inp.value = '';
+            let textNode = document.createTextNode(text);
+            lis.appendChild(textNode);
+            ul.appendChild(lis);
         }
     </script>
 </body>
