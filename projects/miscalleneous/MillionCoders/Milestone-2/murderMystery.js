@@ -41,28 +41,28 @@ var solved = false;
 if (room == "gallery" && suspect == "Ms. Van Cleve") {
     solved = true;
     weapon = 'trophy';
-    document.write(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
+    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
     // BILLARDS
 } else if (room == "billiards room" && suspect == "Mrs. Sparr") {
     solved = true;
     weapon = 'pool stick';
-    document.write(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
+    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
     // BALLROOM
 } else if (room == "ballroom" && suspect == "Mr. Kalehoff") {
     solved = true;
     weapon = 'poison';
-    document.write(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
+    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
     // DINING ROOM
 } else if (room == "dining room" && suspect == "Mr. Parkes") {
     solved = true;
     weapon = 'knife';
-    document.write(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
+    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
 } else {
-    document.write('lets be serious!');
+    console.log('lets be serious!');
 }
 /* ****************************************** */
 // The code below will run only when `solved` is true
 if (solved) {
-    document.write(' Case Closed!');
+    console.log(' Case Closed!');
 }
 /* ****************************************** */
