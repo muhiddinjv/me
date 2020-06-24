@@ -19,11 +19,11 @@
 // Change the value of `room` and `suspect` to test your code
 
 // A room can be either of - dining room, gallery, ballroom, or billiards room
-var room = "gallery";
+var room = "billiards room";
 
 // A suspect can be either of - Mr. Parkes, Ms. Van Cleve, Mrs. Sparr, or Mr. Kalehoff
 // Test your code by giving matching as well as unmatching names of the suspect
-var suspect = "Ms. Van Cleve";
+var suspect = "Mrs. Sparr";
 
 /* ****************************************** */
 
@@ -38,31 +38,27 @@ var solved = false;
  * 1. sets the value of weapon based on the room and
  * 2. sets the value of solved to true if the value of room matches the suspect's room
  */
-if (room == "gallery" && suspect == "Ms. Van Cleve") {
+if (room === "gallery" && suspect === "Ms. Van Cleve") {
     solved = true;
     weapon = 'trophy';
-    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
     // BILLARDS
-} else if (room == "billiards room" && suspect == "Mrs. Sparr") {
+} else if (room === "billiards room" && suspect === "Mrs. Sparr") {
     solved = true;
     weapon = 'pool stick';
-    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
     // BALLROOM
-} else if (room == "ballroom" && suspect == "Mr. Kalehoff") {
+} else if (room === "ballroom" && suspect === "Mr. Kalehoff") {
     solved = true;
     weapon = 'poison';
-    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
     // DINING ROOM
-} else if (room == "dining room" && suspect == "Mr. Parkes") {
+} else if (room === "dining room" && suspect === "Mr. Parkes") {
     solved = true;
     weapon = 'knife';
-    console.log(suspect + ' did it in the ' + room + ' with the ' + weapon + '!');
 } else {
     console.log('lets be serious!');
 }
 /* ****************************************** */
 // The code below will run only when `solved` is true
 if (solved) {
-    console.log(' Case Closed!');
+    console.log(suspect + " did it in the " + room + " with the " + weapon + "!");
 }
 /* ****************************************** */
