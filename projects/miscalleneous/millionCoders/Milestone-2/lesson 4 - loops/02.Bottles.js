@@ -22,7 +22,7 @@
 
 var num = 99;
 
-// MY LONG AND BEGINNER LEVEL CODE
+// MY BEGINNER LEVEL CODE
 while (num >= 1) {
     if (num === 1) {
         console.log(num + " bottles of juice on the wall!" +
