@@ -12,24 +12,25 @@
         <p>Brownie lollipop <span>carrot cake</span> gummies lemon drops sweet roll dessert tiramisu. Pudding muffin <span>cotton candy</span> croissant fruitcake tootsie roll. Jelly jujubes brownie. Marshmallow jujubes topping sugar plum jelly jujubes chocolate.</p>
 
         <p>Tart bonbon soufflé gummi bears. Donut marshmallow <span>gingerbread cupcake</span> macaroon jujubes muffin. Soufflé candy caramels tootsie roll powder sweet roll brownie <span>apple pie</span> gummies. Fruitcake danish chocolate tootsie roll
-            macaroon.</p>
+            macaroon.
+        </p>
     </article>
     <script>
         // 200 elements, 200 listeners, 200 functions = take up 600mb of space in memory
-        const myCustomDiv = document.createElement('div');
+        // const myCustomDiv = document.createElement('div');
 
-        for (let i = 1; i <= 200; i++) {
-            const newElement = document.createElement('p');
-            newElement.textContent = 'This is paragraph number ' + i;
+        // for (let i = 1; i <= 200; i++) {
+        //     const newElement = document.createElement('p');
+        //     newElement.textContent = 'This is paragraph number ' + i;
 
-            newElement.addEventListener('click', function respondToTheClick(evt) {
-                console.log('A paragraph was clicked.');
-            });
+        //     newElement.addEventListener('click', function respondToTheClick(evt) {
+        //         console.log('A paragraph was clicked.');
+        //     });
 
-            myCustomDiv.appendChild(newElement);
-        }
+        //     myCustomDiv.appendChild(newElement);
+        // }
 
-        document.body.appendChild(myCustomDiv);
+        // document.body.appendChild(myCustomDiv);
 
         /* Now there is only: - 1) a single event listener  2) a single listener function
 
