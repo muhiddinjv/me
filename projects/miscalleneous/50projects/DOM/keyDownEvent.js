@@ -1,3 +1,12 @@
+// KEY EVENTS -------------------
+document.addEventListener("keydown", pressKeyOn);
+
+function pressKeyOn(e) {
+    console.log(e.key);
+    e.preventDefault();
+}
+// ---------------------------
+
 const input = document.querySelector('input');
 const log = document.getElementById('log');
 

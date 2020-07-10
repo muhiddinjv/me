@@ -20,60 +20,45 @@
         li {
             position: relative;
         }
-        
-        span {
+        /* span {
             position: absolute;
             left: 99px;
-        }
+        } */
     </style>
 </head>
 
 <body>
-    <h1>Hello World</h1>
+    <h1>Hello World 2</h1>
     <ul id="list">
-        <li>Bananas <span>x</span></li>
-        <li>Cherries <span>x</span></li>
-        <li>Bread <span>x</span></li>
-        <li>New Color <span>x</span></li>
+        <li>Bananas</li>
+        <li>Cherries</li>
+        <li>Bread</li>
+        <li>New Color</li>
     </ul>
+
     <input type="text" name="newItem" id="inp">
+    <div>
+        1
+        <div>
+            2
+            <div>
+                3
+                <div>
+                    4
+                    <div>5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section></section>
+
     <!-- JAVASCRIPT GOES HERE  -->
-    <script>
-        const inp = document.querySelector('input');
-        const ul = document.querySelector('ul');
-        const li = document.querySelectorAll('li');
-        const del = document.querySelectorAll('span');
-
-        inp.addEventListener('kepress', function(e) {
-            if (e.keyCode === 13) {
-                alert(e.keyCode);
-                makeNew();
-            }
-        })
-
-        for (let x = 0; x < li.length; x++) {
-            const element = li[x];
-            element.addEventListener('click', function() {
-                this.classList.toggle('red');
-            })
-        }
-        for (let x = 0; x < del.length; x++) {
-            const element = del[x];
-            element.addEventListener('click', function() {
-                this.classList.add('hide');
-            })
-        }
-
-        function makeNew() {
-            let lis = document.createElement('lis');
-            lis.addEventListener('click', myList);
-            let text = inp.value;
-            inp.value = '';
-            let textNode = document.createTextNode(text);
-            lis.appendChild(textNode);
-            ul.appendChild(lis);
-        }
-    </script>
+    <!-- <script src="listItems.js"></script> -->
+    <!-- <script src="bgColor.js"></script> -->
+    <!-- <script src="keyDownEvent.js"></script> -->
+    <!-- <script src="keyDownEvent2.js"></script> -->
+    <!-- <script src="mouseEvents.js"></script> -->
+    <script src="evtBubCap.js"></script>
 </body>
 
 </html>
