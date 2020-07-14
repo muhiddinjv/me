@@ -1,21 +1,11 @@
 const minInp = document.querySelector('#min');
 const maxInp = document.querySelector('#max');
-const btn = document.querySelector('#btn');
+const random = document.querySelector('#random');
 const show = document.querySelector('#show');
-const output = document.querySelector('.output');
+const container = document.querySelector('.container');
 const hexValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
 
-btn.addEventListener('click', randomNum)
-btn.addEventListener('click', changeColor);
-
-function randomNum() {
-    let min = minInp.value;
-    let max = maxInp.value;
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    let num = Math.floor(Math.random() * (max - min)) + min;
-    output.innerHTML = num;
-}
+random.addEventListener('click', changeColor);
 
 function changeColor() {
     let hex = "#"
@@ -46,12 +36,22 @@ const quotes = [{
     quote: 'For some people, life is a battle. For others, its a test. But to me life is a miracle. If one is curious enough, s/he can find the ways to literally work wonders.'
 }]
 
-const author = document.querySelector('#author')
-const quote = document.querySelector('#quote')
-show.addEventListener('click', changeQuote)
+const author = document.querySelector('#author');
+const quote = document.querySelector('#quote');
+const output = document.querySelector('.output');
+random.addEventListener('click', changeQuote)
 
 function changeQuote() {
-    let random = Math.floor(Math.random() * quotes.length)
+    let min = minInp.value;
+    let max = maxInp.value;
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    let random = Math.floor(Math.random() * (max - min)) + min;
     author.innerHTML = quotes[random].name;
     quote.innerHTML = quotes[random].quote;
+    output.innerHTML = random;
 }
+
+show.addEventListener('click', function() {
+    container.classList.toggle('hide');
+});
