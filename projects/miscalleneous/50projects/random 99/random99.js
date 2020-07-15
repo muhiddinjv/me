@@ -2,20 +2,23 @@ const minInp = document.querySelector('#min');
 const maxInp = document.querySelector('#max');
 const random = document.querySelector('#random');
 const show = document.querySelector('#show');
+const author = document.querySelector('#author');
+const quote = document.querySelector('#quote');
+const output = document.querySelector('.output');
 const container = document.querySelector('.container');
-const hexValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
 
-random.addEventListener('click', changeColor);
+// SHOW THE TEXT --------------------------------------
+show.addEventListener('click', function() {
+    container.classList.toggle('hide');
+});
 
-function changeColor() {
-    let hex = "#"
-    for (let i = 0; i < 6; i++) {
-        const index = Math.floor(Math.random() * hexValue.length)
-        hex += hexValue[index]
-    }
-    document.body.style.background = hex;
-}
+// BACKGROUND COLOR CHANGER ----------------------------
+random.addEventListener('click', function() {
+    let myColor = "#" + Math.random().toString(16).substr(-6);
+    document.body.style.background = myColor;
+});
 
+// QUOTES ARRAY ------------------------------------------
 const quotes = [{
     name: 'Stephen King',
     quote: 'Get busy living or get busy dying'
@@ -36,9 +39,7 @@ const quotes = [{
     quote: 'For some people, life is a battle. For others, its a test. But to me life is a miracle. If one is curious enough, s/he can find the ways to literally work wonders.'
 }]
 
-const author = document.querySelector('#author');
-const quote = document.querySelector('#quote');
-const output = document.querySelector('.output');
+// QUOTES CHANGER --------------------------------------
 random.addEventListener('click', changeQuote)
 
 function changeQuote() {
@@ -51,7 +52,3 @@ function changeQuote() {
     quote.innerHTML = quotes[random].quote;
     output.innerHTML = random;
 }
-
-show.addEventListener('click', function() {
-    container.classList.toggle('hide');
-});
