@@ -13,10 +13,10 @@ show.addEventListener('click', function() {
 });
 
 // BACKGROUND COLOR CHANGER ----------------------------
-random.addEventListener('click', function() {
-    let myColor = "#" + Math.random().toString(16).substr(-6);
-    document.body.style.background = myColor;
-});
+// random.addEventListener('click', function() {
+//     let myColor = "#" + Math.random().toString(16).substr(-6);
+//     document.body.style.background = myColor;
+// });
 
 // QUOTES ARRAY ------------------------------------------
 const quotes = [{

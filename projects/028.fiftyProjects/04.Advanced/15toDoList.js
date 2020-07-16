@@ -11,9 +11,9 @@ function loadJSON() {
             const element = data[i];
             let div = document.createElement('div');
             if (element.completed) {
-                div.style.color = 'green';
+                div.style.color = 'blue';
             } else {
-                div.style.color = 'red';
+                div.style.color = 'green';
             }
             div.textContent = element.id + ". " + element.title;
             output.appendChild(div);
