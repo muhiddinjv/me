@@ -1,4 +1,5 @@
 const coinArr = ["Heads", "Tails"];
+let score = [0, 0];
 const msg = document.querySelector('.msg');
 const btns = document.querySelectorAll('button');
 console.log(btns);
@@ -9,9 +10,17 @@ for (let i = 0; i < btns.length; i++) {
 }
 
 function tossCoin(e) {
-    console.log(e.target.innerText);
-    const cpu = Math.floor(Math.random() * 2);
-    msg.innerHTML = cpu + " " + e.target.innerText;
-    console.log(coinArr[cpu]);
-
+    const random = Math.floor(Math.random() * 2);
+    let you = e.target.innerText;
+    let cpu = coinArr[random];
+    msg.innerHTML = `Cpu says ${cpu}<br>`;
+    let output;
+    if (you === cpu) {
+        output = "You win!"
+        score[0]++;
+    } else {
+        output = "Cpu wins!"
+        score[1]++;
+    }
+    msg.innerHTML += `${output}<br>You ${score[0]} Cpu ${score[1]}`;
 }
