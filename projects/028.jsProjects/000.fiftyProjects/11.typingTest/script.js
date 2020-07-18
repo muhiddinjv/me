@@ -1,0 +1,56 @@
+const wording = ["Do you like JavaScript as much as I do?", "Hope you are having fun because it is a simple game you can make.", "Source code is included so you can create your own version of this challenge."];
+let startTime, endTime;
+const msg = document.querySelector('.message');
+const playText = document.querySelector('textarea');
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+    if (this.innerText == "Start") {
+        playText.disabled = false;
+        playGame();
+    } else if (this.innerText == "Done") {
+        playText.disabled = true;
+        btn.innerText = "Start";
+        endPlay();
+    }
+})
+
+function playGame() {
+    let random = Math.floor(Math.random() * wording.length);
+    msg.innerText = wording[random];
+    let date = new Date();
+    startTime = date.getTime();
+    btn.innerText = "Done";
+}
+
+function endPlay() {
+    let date = new Date();
+    endTime = date.getTime();
+    let totalTime = ((endTime - startTime) / 1000);
+    console.log(totalTime);
+    let str = playText.value;
+    // count words and devide by totalTime
+    let wordCount = wordCounter(str);
+    let speed = Math.round((wordCount / totalTime) * 60);
+    let finalMsg = "You type at " + speed + " words per minute!";
+    finalMsg += "<br>" + compareWords(msg.innerText, str);
+    msg.innerHTML = finalMsg;
+}
+
+function wordCounter(words) {
+    let res = words.split(' ').length;
+    return res;
+}
+
+function compareWords(str1, str2) {
+    let words1 = str1.split(" ");
+    let words2 = str2.split(" ");
+    let cnt = 0;
+    words1.forEach(function(item, index) {
+        if (item == words2[index]) {
+            cnt++;
+        }
+    })
+    return (cnt + " correct out of " + words1.length + " words");
+
+}
