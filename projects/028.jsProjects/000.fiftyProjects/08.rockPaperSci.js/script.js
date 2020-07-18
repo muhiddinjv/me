@@ -20,43 +20,42 @@ function playGame(e) {
     };
     let result = checkWinner(player, cpu);
     if (result == "player") {
-        result += " wins!";
+        result += " wins!"
         winner[0]++;
     } else if (result == "cpu") {
-        result += " wins!";
+        result += " wins";
         winner[1]++;
     } else {
-        result += " results in a tie match";
+        result += " results in a tie match!";
     }
-    pts.innerHTML = `Player 1[${winner[0]}] Player 2[${winner[1]}]`;
-    // messager(player + " vs " + cpu + "<br><b>" + result + "</b>");
-    messager(`${player} vs ${cpu} <br><b> ${result}</b>`);
+    pts.innerHTML = `Player[${winner[0]}] CPU[${winner[1]}]`;
+    messager(`${player} vs ${cpu} <br> <b>${result}</b>`)
 }
 
 function messager(mes) {
     msg.innerHTML = mes;
 }
 
-function checkWinner(yo, cp) {
-    if (yo === cp) {
+function checkWinner(pl, co) {
+    if (pl === co) {
         return "Draw";
     }
-    if (yo === "Rock") {
-        if (cp === "Paper") {
+    if (pl === "Rock") {
+        if (co === "Paper") {
             return "cpu";
         } else {
             return "player";
         }
     }
-    if (yo === "Paper") {
-        if (cp === "Scissors") {
+    if (pl === "Paper") {
+        if (co === "Scissors") {
             return "cpu";
         } else {
             return "player";
         }
     }
-    if (yo === "Scissors") {
-        if (cp === "Rock") {
+    if (pl === "Scissors") {
+        if (co === "Rock") {
             return "cpu";
         } else {
             return "player";
