@@ -27,7 +27,6 @@ function endPlay() {
     let date = new Date();
     endTime = date.getTime();
     let totalTime = ((endTime - startTime) / 1000);
-    console.log(totalTime);
     let str = playText.value;
     // count words and devide by totalTime
     let wordCount = wordCounter(str);
@@ -52,5 +51,4 @@ function compareWords(str1, str2) {
         }
     })
     return (cnt + " correct out of " + words1.length + " words");
-
 }

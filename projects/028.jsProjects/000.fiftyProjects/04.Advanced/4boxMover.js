@@ -33,5 +33,5 @@ function build() {
     player.el.style.background = "red";
     player.el.style.top = player.y + "px";
     player.el.style.left = player.x + "px";
-    document.body.appendChild(player.el);
+    document.body.appendChild(player.el)
 }
