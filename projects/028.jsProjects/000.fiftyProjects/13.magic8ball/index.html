@@ -8,10 +8,22 @@
 </head>
 
 <body>
+    <!-- Completed at 6PM/July20/2020 -->
     <div class="msg">Ask Your Question!</div>
     <input type="text" placeholder="yes/no question">
     <button>Ask</button>
-    <script src="script.js"></script>
+    <script>
+        const answer = ["It will work", "In your dreams!", "Probably Not", "Highly Likely", "Absolutely!"];
+        const msg = document.querySelector('.msg');
+        const inp = document.querySelector('input');
+        const btn = document.querySelector('button');
+
+        btn.addEventListener('click', function() {
+            let random = Math.floor(Math.random() * answer.length);
+            msg.innerHTML = `${inp.value}? ${answer[random]}`;
+            inp.value = "";
+        })
+    </script>
 </body>
 
 </html>
