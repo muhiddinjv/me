@@ -8,6 +8,7 @@ btn.addEventListener('click', function() {
     if (!gamePlay) {
         gamePlay = true;
         score = 0;
+        gameArea.innerHTML = "";
         maker();
         btn.innerHTML = "Check Combo";
     } else {
@@ -29,13 +30,24 @@ btn.addEventListener('click', function() {
                 let color = (el.value < el.correct) ? "blue" : "red";
                 el.style.color = "white";
                 el.style.background = color;
+                console.log('no match');
+            }
+            if (winCondition == numbers.length) {
+                gameOver();
             }
         }
     }
 })
 
+function gameOver() {
+    console.log('game over now');
+    msg.innerHTML = "You solved the combo in " + score + " guesses!";
+    gamePlay = false;
+    btn.innerHTML = "Restart Game";
+}
+
 function maker() {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
         let inp = document.createElement('input');
         inp.setAttribute("type", "number");
         inp.max = 9;
@@ -48,7 +60,7 @@ function maker() {
         //--------------------------
         inp.order = i;
         inp.correct = Math.floor(Math.random() * 10);
-        inp.value = inp.correct;
+        inp.value = 0;
         console.log(inp);
         gameArea.appendChild(inp);
     }
