@@ -1,0 +1,64 @@
+body {
+    background: silver;
+    text-align: center;
+}
+
+.container {
+    max-width: 80%;
+}
+
+.myProgress {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.myBar {
+    height: 50px;
+    text-align: center;
+    line-height: 33px;
+    line-height: 50px;
+    color: white;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0;
+    font-size: 1.3rem;
+}
+
+.total {
+    background: #E32934;
+    width: 12%;
+    font-size: 2rem;
+}
+
+.css {
+    background: #4285F4;
+    width: 8%;
+}
+
+.html {
+    background: #F65314;
+    width: 7%;
+}
+
+.js {
+    background: #FBBC05;
+    width: 6%;
+}
+
+.json {
+    background: #bf00ff;
+    font-size: 1.2rem;
+    width: 5%;
+}
+
+.xml {
+    background: #ED7600;
+    font-size: 1rem;
+    width: 4%;
+}
+
+.sass {
+    background: #C76195;
+    font-size: .7rem;
+    width: 3%;
+}

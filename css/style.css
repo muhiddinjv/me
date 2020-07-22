@@ -1,0 +1,129 @@
+body {
+    /* background: silver; */
+    text-align: center;
+}
+
+.barDiv {
+    margin-bottom: 100px;
+}
+
+.myProgress {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.myBar {
+    height: 50px;
+    text-align: center;
+    line-height: 33px;
+    line-height: 50px;
+    color: white;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0;
+    font-size: 1.3rem;
+}
+
+.total {
+    background: #E32934;
+    width: 12%;
+    font-size: 2rem;
+}
+
+.css {
+    background: #4285F4;
+    width: 8%;
+}
+
+.html {
+    background: #F65314;
+    width: 7%;
+}
+
+.js {
+    background: #FBBC05;
+    width: 6%;
+}
+
+.json {
+    background: #bf00ff;
+    font-size: 1.2rem;
+    width: 5%;
+}
+
+.xml {
+    background: #ED7600;
+    font-size: 1rem;
+    width: 4%;
+}
+
+.sass {
+    background: #C76195;
+    font-size: .7rem;
+    width: 3%;
+}
+
+
+/* TOOLTIPS ------------------------------------ */
+
+#tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+#tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 9;
+    left: 130%;
+}
+
+#tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -11px;
+    border-width: 11px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+#tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+/* MEDIA QUERIES --------------------------------------- */
+
+@media (max-width: 991px) {
+    .myBar {
+        font-size: 1rem;
+    }
+    .span {
+        -ms-transform: rotate(-90deg);
+        /* IE 9 */
+        -webkit-transform: rotate(-90deg);
+        /* Safari */
+        transform: rotate(-90deg);
+        padding: .3rem 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .myBar {
+        font-size: .8rem;
+    }
+    .span {
+        -ms-transform: rotate(-90deg);
+        /* IE 9 */
+        -webkit-transform: rotate(-90deg);
+        /* Safari */
+        transform: rotate(-90deg);
+        padding: .3rem 0;
+    }
+}
