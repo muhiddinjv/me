@@ -1,10 +1,10 @@
 body {
-    /* background: silver; */
     text-align: center;
 }
 
 .barDiv {
     margin-bottom: 100px;
+    display: none;
 }
 
 .myProgress {
