@@ -11,7 +11,7 @@
     <div>Paste Text:</div>
     <textarea name="text" id="text" cols="30" rows="10">
       helsdjafkl adl aldfj real@email.com asdlfk adsffs adlfjas real1@email.com ldasjfalskd adsfsa adsfasdf real.test@email.com lsadkjf aldfkj real-test@email.com ladsjfkl ladjsfkl
-    </textarea>
+    </textarea><br>
     <button>Get Emails</button>
     <div class="msg">
         <span class="counter"></span> Emails in Text:
@@ -34,13 +34,13 @@
             let holder = [];
             for (let i = 0; i < emailData.length; i++) {
                 const el = emailData[i];
-                if (holder.indexOf(el) == -1) {
+                if (holder.indexOf(el)==-1){
                     holder.push(el);
                 }
             }
-
+            let textHolder = holder.join("\t");
             counter.innerText = "Found " + holder.length;
-            emailBox.innerText = holder;
+            emailBox.innerText = textHolder;
         })
     </script>
 </body>
