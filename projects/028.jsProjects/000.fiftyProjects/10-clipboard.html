@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipboard</title>
+    <style>
+        .container {
+            width: 222px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text">Source Text:</div>
+        <textarea name="input" cols="30" rows="10"></textarea>
+        <button class="move">Move Text</button>
+        <button class="copy">Copy Text</button>
+        <textarea name="output" id="" cols="30" rows="10"></textarea>
+        <div class="msg"></div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const container = document.querySelector('.container');
+        const inpBox = document.querySelector('textarea[name=input]');
+        const outBox = document.querySelector('textarea[name=output]');
+        const moveBtn = document.querySelector('.move');
+        const copyBtn = document.querySelector('.copy');
+        const msg = document.querySelector('.msg');
+
+        moveBtn.addEventListener('click', moveText);
+        copyBtn.addEventListener('click', copyText);
+        inpBox.addEventListener('click', selAll);
+        outBox.addEventListener('click', selAll);
+
+        function selAll() {
+            this.select();
+        }
+
+        function moveText() {
+            outBox.value = inpBox.value;
+        }
+
+        function copyText() {
+            let temp = inpBox.value;
+            copytoClipBoard(temp);
+        }
+
+        function copytoClipBoard(str) {
+            const ta = document.createElement('textarea');
+            ta.value = str;
+            container.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            container.removeChild(ta);
+            msg.innerHTML = `<h3>Copied content </h3> ${ta.value}`;
+        }
+
+        // function copytoClipBoard(str) {
+        //     0 - create a textarea
+        //     1 - its value equals string
+        //     2 - append it to container
+        //     3 - select its content
+        //     4 - copy the content
+        //     5 - remove the element
+        //     6 - output ta.value to msg
+        // }
+    </script>
+</body>
+
+</html>
