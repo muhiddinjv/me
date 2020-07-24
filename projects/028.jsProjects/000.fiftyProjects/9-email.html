@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Extractor</title>
+</head>
+
+<body>
+    <div>Paste Text:</div>
+    <textarea name="text" id="text" cols="30" rows="10">
+      helsdjafkl adl aldfj real@email.com asdlfk adsffs adlfjas real1@email.com ldasjfalskd adsfsa adsfasdf real.test@email.com lsadkjf aldfkj real-test@email.com ladsjfkl ladjsfkl
+    </textarea>
+    <button>Get Emails</button>
+    <div class="msg">Emails in Text:</div>
+    <textarea name="email" id="email" cols="30" rows="10"></textarea>
+
+    <!-- JAVASCRIPT IS BELOW -->
+    <script>
+        const txt = document.querySelector("#text");
+        const btn = document.querySelector("button");
+        const msg = document.querySelector(".msg");
+        const email = document.getElementById('email');
+
+        btn.addEventListener('click', function() {
+            let temp = txt.value;
+            let exp = /([A-Za-z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
+        })
+    </script>
+</body>
+
+</html>
