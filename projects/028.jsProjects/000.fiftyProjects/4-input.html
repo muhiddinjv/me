@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Counter</title>
+</head>
+
+<body>
+    <textarea name="text" id="text" cols="30" rows="10"></textarea>
+    <div class="msg"></div>
+
+    <!-- JAVASCRIPT BELOW -->
+    <script>
+        const txt = document.querySelector('textarea');
+        const msg = document.querySelector('.msg');
+
+        // txt.addEventListener('change', textCounter);
+        // txt.addEventListener('keyup', textCounter);
+        // txt.addEventListener('keydown', textCounter);
+
+        ["keyup", "keydown", "change"].forEach(function(e) {
+            txt.addEventListener(e, textCounter);
+        })
+
+        const maxLength = 10;
+        const warnLength = 5;
+
+        function textCounter(e) {
+            let count = txt.value.length;
+            txt.value = txt.value.substr(0, maxLength);
+        }
+    </script>
+</body>
+
+</html>
