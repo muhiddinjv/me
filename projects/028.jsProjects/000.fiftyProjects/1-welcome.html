@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div class="msg"></div>
+    Name: <input type="text" value="Muhiddin">
+    <button>Click</button>
+    <script>
+        const msg = document.querySelector(".msg");
+        const inp = document.querySelector("input");
+        const btn = document.querySelector("button");
+
+        btn.addEventListener("click", function() {
+            msg.innerHTML = `<h2>Hello welcome, ${inp.value}</h2>`;
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Match</title>
+    <style>
+        .gamearea {
+            width: 200px;
+            height: 200px;
+            font-size: 0;
+            border: 1px solid black;
+        }
+        
+        .box {
+            width: 50%;
+            height: 50%;
+            color: black;
+            text-align: center;
+            display: inline-block;
+            font-size: 0;
+        }
+        
+        .active {
+            border: 1px solid red;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="msg">Press Start</div>
+    <div class="gamearea"></div>
+    <button>Start</button>
+    <script>
+        const msg = document.querySelector('.msg');
+        const gamearea = document.querySelector('.gamearea');
+        const btn = document.querySelector('button');
+        const colors = ["red", "blue", "yellow", "green"];
+        let gameClicks = [];
+        let userClicks = [];
+        let inPlay = false;
+        let playNum = 1;
+
+        window.addEventListener("load", setup);
+        btn.addEventListener('click', function() {
+            if (!inPlay) {
+                player();
+            }
+        })
+
+        function player() {
+            btn.disabled = true;
+            gameClicks = [];
+            userClicks = [];
+            runSequence();
+        }
+
+        function runSequence(num) {
+            let boxes = document.querySelectorAll(".box");
+            num--;
+            if (num < 0) {
+                inPlay = true;
+                return;
+            }
+            let random = Math.floor(Math.random() * colors.length);
+            console.log(boxes[random]);
+            gameClicks.push(colors[random]);
+            console.log(gameClicks);
+            boxes[random].style.opacity = "1";
+            setTimeout(() => {
+                boxes[random].style.opacity = "0.5";
+            }, 500);
+        }
+
+        function setup() {
+            console.log('page loaded');
+            for (let i = 0; i < colors.length; i++) {
+                const el = colors[i];
+                let div = eleFactory("div");
+                div.style.background = el;
+                div.classList.add('box');
+                div.style.opacity = "0.5";
+                div.myColor = el;
+                div.addEventListener('click', checkAnswer);
+                gamearea.appendChild(div);
+            }
+        }
+
+        function checkAnswer(e) {
+            if (inPlay) {
+                let tar = e.target;
+                userClicks.push(tar.myColor);
+                tar.style.opacity = "1";
+                setTimeout(function() {
+                    tar.style.opacity = "0.5";
+                }, 500)
+            }
+            console.log(userClicks);
+        }
+
+        function eleFactory(type) {
+            let ele = document.createElement(type);
+            return ele;
+        }
+    </script>
+</body>
+
+</html>

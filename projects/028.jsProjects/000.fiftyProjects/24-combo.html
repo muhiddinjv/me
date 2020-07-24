@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Safe Cracker</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .numb {
+            font-size: 2em;
+        }
+        
+        button {
+            margin-top: 10px;
+        }
+        
+        .msg {
+            margin: 5px 0;
+        }
+        
+        p {
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- completed at 13:30/july21/2020 -->
+    <h3 class="msg">Guess Combo</h3>
+    <div class="game"></div>
+    <button>Start</button>
+    <p>
+        <small>Instructions: Guess the combo! Blue = higher, red = lower. Try to guess it in as (little) few guesses as possible!</small>
+    </p>
+    <script>
+        const gameArea = document.querySelector('.game');
+        const btn = document.querySelector('button');
+        const msg = document.querySelector('.msg');
+        let score = 0;
+
+        let gamePlay = false;
+        btn.addEventListener('click', function() {
+            if (!gamePlay) {
+                gamePlay = true;
+                score = 0;
+                gameArea.innerHTML = "";
+                maker();
+                btn.innerHTML = "Check Combo";
+            } else {
+                console.log('checker');
+                score++;
+                msg.innerHTML = "Guesses " + score;
+                const numbers = document.querySelectorAll(".numb");
+                let winCondition = 0;
+                for (let x = 0; x < numbers.length; x++) {
+                    const el = numbers[x];
+                    console.log(el.value);
+                    console.log(el.correct);
+                    if (el.value == el.correct) {
+                        el.style.background = "green";
+                        el.style.color = "white";
+                        console.log('match');
+                        winCondition++;
+                    } else {
+                        let color = (el.value < el.correct) ? "blue" : "red";
+                        el.style.color = "white";
+                        el.style.background = color;
+                        console.log('no match');
+                    }
+                    if (winCondition == numbers.length) {
+                        gameOver();
+                    }
+                }
+            }
+        })
+
+        function gameOver() {
+            console.log('game over now');
+            msg.innerHTML = "You solved the combo in " + score + " guesses!";
+            gamePlay = false;
+            btn.innerHTML = "Restart Game";
+        }
+
+        function maker() {
+            for (let i = 0; i < 5; i++) {
+                let inp = document.createElement('input');
+                inp.setAttribute("type", "number");
+                inp.max = 9;
+                inp.min = 0;
+                inp.size = 1;
+                inp.order = 0;
+                inp.value = 0;
+                inp.style.width = "40px";
+                inp.classList.add("numb");
+                //--------------------------
+                inp.order = i;
+                inp.correct = Math.floor(Math.random() * 10);
+                inp.value = 0;
+                console.log(inp);
+                gameArea.appendChild(inp);
+            }
+        }
+    </script>
+</body>
+
+</html>

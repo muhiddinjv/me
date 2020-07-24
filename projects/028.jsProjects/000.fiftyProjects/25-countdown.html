@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        .clock {
+            background: blue;
+            width: 400px;
+            text-align: center;
+            color: white;
+            font-size: 1em;
+        }
+        
+        .clock>span {
+            padding: 10px;
+            border-radius: 10px;
+            background: black;
+        }
+        
+        .clock>span>span {
+            padding: 5px;
+            border-radius: 10px;
+            background: red;
+        }
+        
+        input {
+            padding: 15px;
+            margin: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="date" name="calendar">
+    <div class="clock">
+        <span><span class="days">0</span> days</span>
+        <span><span class="hours">0</span> hours</span>
+        <span><span class="minutes">0</span> minutes</span>
+        <span><span class="seconds">0</span> seconds</span>
+    </div>
+    <script>
+        const inp = document.querySelector("input[name='calendar']");
+        const msg = document.querySelector(".msg");
+        let timeInterval;
+        let timeStop = true;
+        const savedValue = localStorage.getItem("countdown") || false;
+
+        if (savedValue) {
+            startClock(savedValue);
+            let inputValue = new Date(savedValue);
+            console.log(inputValue);
+            inp.valueAsDate = inputValue;
+        }
+
+        inp.addEventListener("change", function(e) {
+            e.preventDefault();
+            clearInterval(timeInterval);
+            let inpVal = new Date(inp.value);
+            localStorage.setItem("countdown", inpVal)
+            startClock(inpVal);
+            timeStop = false;
+        })
+
+        function startClock(d) {
+            function updateCounter() {
+                let tl = (timeLeft(d));
+                if (tl.total <= 0) {
+                    timeStop = false
+                };
+                for (let pro in tl) {
+                    let el = document.querySelector('.' + pro);
+                    if (el) {
+                        el.innerHTML = tl[pro];
+                    }
+                }
+            }
+            updateCounter();
+            if (timeStop) {
+                timeInterval = setInterval(updateCounter, 1000);
+            } else {
+                clearInterval(timeInterval);
+            }
+        }
+
+        function timeLeft(d) {
+            let currentDate = new Date();
+            let t = Date.parse(d) - Date.parse(currentDate);
+            let seconds = Math.floor((t / 1000) % 60);
+            let minutes = Math.floor((t / 1000 / 60) % 60);
+            let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            let days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                "total": t,
+                "days": days,
+                "hours": hours,
+                "minutes": minutes,
+                "seconds": seconds
+            };
+        }
+    </script>
+</body>
+
+</html>
