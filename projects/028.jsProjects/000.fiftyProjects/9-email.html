@@ -26,10 +26,21 @@
         const btn = document.querySelector("button");
         const msg = document.querySelector(".msg");
 
-        btn.addEventListener("click", function() {
+        btn.addEventListener('click', function() {
             let temp = txtBox.value;
             let exp = /([A-Za-z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
-            let eData = temp.match(exp)
+            let emailData = temp.match(exp);
+
+            let holder = [];
+            for (let i = 0; i < emailData.length; i++) {
+                const el = emailData[i];
+                if (holder.indexOf(el) == -1) {
+                    holder.push(el);
+                }
+            }
+
+            counter.innerText = "Found " + holder.length;
+            emailBox.innerText = holder;
         })
     </script>
 </body>
