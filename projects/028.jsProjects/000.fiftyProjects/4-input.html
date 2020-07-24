@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Counter</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- COMPLETE 11AM/JULy24/2020 -->
     <textarea name="text" id="text" cols="30" rows="10"></textarea>
     <div class="msg"></div>
 
@@ -24,12 +30,19 @@
             txt.addEventListener(e, textCounter);
         })
 
-        const maxLength = 10;
-        const warnLength = 5;
+        const maxLength = 20;
+        const warnLength = 10;
 
         function textCounter(e) {
-            let count = txt.value.length;
-            txt.value = txt.value.substr(0, maxLength);
+            let count = text.value.length;
+            if (count > maxLength) {
+                txt.value = txt.value.substr(0, maxLength);
+            } else if (count > warnLength) {
+                msg.classList.add("red");
+            } else {
+                msg.classList.remove("red");
+            }
+            msg.innerHTML = `${maxLength-count} characters left`;
         }
     </script>
 </body>
