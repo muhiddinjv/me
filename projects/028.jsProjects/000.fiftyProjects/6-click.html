@@ -8,7 +8,31 @@
 </head>
 
 <body>
-    <button>Click</button>
+    <script>
+        let counter = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            const msg = document.createElement('div');
+            const btn = document.createElement('button');
+            const msgTxt = document.createTextNode('click the button');
+            const btnTxt = document.createTextNode('click me');
+            document.body.style.textAlign = "center";
+            document.body.appendChild(msg);
+            document.body.appendChild(btn);
+            msg.appendChild(msgTxt);
+            btn.appendChild(btnTxt);
+            msg.style.fontSize = '25px';
+            btn.style.cssText = "width:200px;height:35px;font-size:18px;background:lightblue;"
+            console.log('ready');
+
+            btn.addEventListener('click', function() {
+                if (counter == 0) {
+                    counter = counter + 1;
+                    console.log(counter);
+
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
