@@ -13,19 +13,23 @@
       helsdjafkl adl aldfj real@email.com asdlfk adsffs adlfjas real1@email.com ldasjfalskd adsfsa adsfasdf real.test@email.com lsadkjf aldfkj real-test@email.com ladsjfkl ladjsfkl
     </textarea>
     <button>Get Emails</button>
-    <div class="msg">Emails in Text:</div>
+    <div class="msg">
+        <span class="counter"></span> Emails in Text:
+    </div>
     <textarea name="email" id="email" cols="30" rows="10"></textarea>
 
     <!-- JAVASCRIPT IS BELOW -->
     <script>
-        const txt = document.querySelector("#text");
+        const counter = document.querySelector(".counter");
+        const emailBox = document.getElementById('email');
+        const txtBox = document.querySelector("#text");
         const btn = document.querySelector("button");
         const msg = document.querySelector(".msg");
-        const email = document.getElementById('email');
 
-        btn.addEventListener('click', function() {
-            let temp = txt.value;
+        btn.addEventListener("click", function() {
+            let temp = txtBox.value;
             let exp = /([A-Za-z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
+            let eData = temp.match(exp)
         })
     </script>
 </body>
