@@ -58,20 +58,26 @@
     <script>
         const popups = document.querySelectorAll('.popup');
         const output = document.querySelector('.output');
+        const close = document.querySelector('.close');
         const msg = document.querySelector('.msg');
 
+        // 1 - select all popups and add click event
         for (let i = 0; i < popups.length; i++) {
             const el = popups[i];
             el.addEventListener('click', function() {
-                let outputText = this.getAttribute("data-msg");
-                message(outputText);
+                let attr = this.getAttribute('data-msg');
+                message(attr);
             })
         }
 
         function message(str) {
-            output.classList.remove('hide')
-            msg.innerText = str;
+            output.classList.remove('hide');
+            msg.innerHTML = str;
         }
+
+        close.addEventListener('click', function() {
+            output.classList.add('hide');
+        })
     </script>
 </body>
 
