@@ -5,25 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Generator</title>
+    <style>
+        .width,
+        .height {
+            width: 100px;
+        }
+    </style>
 </head>
 
 <body>
-    Image size:
+    <!-- Image size:
     <select>
       <option value="150x50">Small</option>
       <option value="350x150">Medium</option>
       <option value="650x350">Large</option>
-    </select><br> Text on Image:
+    </select> -->
+    Image Width:
+    <input type="number" class="width"><br>Image Height:
+    <input type="number" class="height"><br> Text on Image:
     <input type="text"><br> Color of Background:
     <input type="color" id="bck" value="#dddddd"><br> Color of Text:
     <input type="color" id="txt" value="#ff0000"><br>
     <img src="" alt="">
     <script>
-        const sel = document.querySelector('select');
+        // const sel = document.querySelector('select');
+        // const width = document.querySelector('.width');
+        // const height = document.querySelector('.height');
         const inpAll = document.querySelectorAll('input');
         const image = document.querySelector('img');
 
-        sel.addEventListener('click', build);
         inpAll.forEach(function(item) {
             item.addEventListener('click', build);
         })
@@ -36,11 +46,13 @@
 
         function build(e) {
             let i = {};
-            i.size = sel.value;
-            i.text = inpAll[0].value;
-            i.bgClr = clean(inpAll[1].value);
-            i.txtClr = clean(inpAll[2].value);
-            i.path = `http://via.placeholder.com/${i.size}/${i.bgClr}/${i.txtClr}?text=${i.text}`;
+            // i.size = sel.value;
+            i.wd = inpAll[0].value;
+            i.hi = inpAll[1].value;
+            i.text = inpAll[2].value;
+            i.bgClr = clean(inpAll[3].value);
+            i.txtClr = clean(inpAll[4].value);
+            i.path = `http://via.placeholder.com/${i.wd}x${i.hi}/${i.bgClr}/${i.txtClr}?text=${i.text}`;
             console.log(i);
             image.src = i.path;
         }
