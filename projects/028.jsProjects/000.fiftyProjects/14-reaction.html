@@ -5,12 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reaction Game</title>
-    <style>
-        .box {
-            position: relative;
-            border-radius: 50%;
-        }
-    </style>
 </head>
 
 <body>
@@ -38,12 +32,19 @@
         function showBox() {
             let start = new Date().getTime();
             console.log(start);
-
+            myBox();
         }
 
         function myBox() {
             let div = document.createElement('div');
-            div.classList.add('box');
+            let myColor = "#" + Math.random().toString(16).substr(-6);
+            div.style.background = myColor;
+            div.style.width = rand(30) + 70 + "px";
+            div.style.height = rand(30) + 70 + "px";
+            div.style.borderRadius = rand(50) + "%";
+            div.style.position = "relative";
+            div.style.top = rand(150) + "px";
+            div.style.left = rand(5) + "px";
             gameArea.appendChild(div);
         }
 
