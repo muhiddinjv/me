@@ -39,15 +39,17 @@
 
         function clean(str) {
             // removes hash # from inpAll
-            // website doesn't need # hash
+            // link doesn't need # hash
             return str.replace("#", "");
         }
 
         function spacers(str) {
+            // split text in link and join with a plus
             return str.split(" ").join("+");
         }
 
         msg.addEventListener('click', function() {
+            // copies the text when you click on textarea
             this.select();
             document.execCommand("copy");
         })
