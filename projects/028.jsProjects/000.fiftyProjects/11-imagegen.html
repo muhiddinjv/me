@@ -15,11 +15,44 @@
       <option value="650x350">Large</option>
     </select><br> Text on Image:
     <input type="text"><br> Color of Background:
-    <input type="color" id="bck"><br> Color of Text:
-    <input type="color" id="txt"><br>
+    <input type="color" id="bck" value="#dddddd"><br> Color of Text:
+    <input type="color" id="txt" value="#ff0000"><br>
     <img src="" alt="">
     <script>
-        // javascript goes here
+        const sel = document.querySelector('select');
+        const inpAll = document.querySelectorAll('input');
+        const image = document.querySelector('img');
+
+        sel.addEventListener('click', build);
+        inpAll.forEach(function(item) {
+            item.addEventListener('click', build);
+        })
+
+        function clean(str) {
+            // removes hash # from inpAll
+            // website doesn't need # hash
+            return str.replace("#", "");
+        }
+
+        function build(e) {
+            let i = {};
+            i.size = sel.value;
+            i.text = inpAll[0].value;
+            i.bgClr = clean(inpAll[1].value);
+            i.txtClr = clean(inpAll[2].value);
+            i.path = `http://via.placeholder.com/${i.size}/${i.bgClr}/${i.txtClr}?text=${i.text}`;
+            console.log(i);
+            image.src = i.path;
+        }
+
+        // function build(e) {
+        //     1-create object
+        //     2 - obj size to sel value
+        //     3 - obj text = inp value 1
+        //     4 - obj bgColor = inp value 2
+        //     5 - obj txt color = inp val 3
+        //     console.log(i);
+        // }
     </script>
 </body>
 
