@@ -26,6 +26,23 @@
         
         .output {
             position: absolute;
+            background: #ddd;
+            left: 25%;
+            width: 50%;
+            top: 10%;
+            padding: 15px;
+            border: 1px solid black;
+            min-height: 25%;
+        }
+        
+        .msg {
+            text-align: center;
+            font-family: sans-serif;
+            margin-top: 20px;
+        }
+        
+        .hide {
+            display: none;
         }
     </style>
 </head>
@@ -39,7 +56,22 @@
     <div class="popup" data-msg="javascript is fun">javascript</div>
     <div class="popup" data-msg="wow cool">click me 2</div>
     <script>
-        //adfasf
+        const popups = document.querySelectorAll('.popup');
+        const output = document.querySelector('.output');
+        const msg = document.querySelector('.msg');
+
+        for (let i = 0; i < popups.length; i++) {
+            const el = popups[i];
+            el.addEventListener('click', function() {
+                let outputText = this.getAttribute("data-msg");
+                message(outputText);
+            })
+        }
+
+        function message(output) {
+            output.classList.remove('hide')
+            msg.innerText = output;
+        }
     </script>
 </body>
 
