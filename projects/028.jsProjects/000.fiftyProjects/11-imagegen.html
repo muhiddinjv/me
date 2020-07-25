@@ -27,12 +27,11 @@
     <input type="color" id="bck" value="#dddddd"><br> Color of Text:
     <input type="color" id="txt" value="#ff0000"><br>
     <img src="" alt="">
+    <textarea class="msg" rows="2" cols="40"></textarea>
     <script>
-        // const sel = document.querySelector('select');
-        // const width = document.querySelector('.width');
-        // const height = document.querySelector('.height');
         const inpAll = document.querySelectorAll('input');
         const image = document.querySelector('img');
+        const msg = document.querySelector('.msg');
 
         inpAll.forEach(function(item) {
             item.addEventListener('click', build);
@@ -44,27 +43,27 @@
             return str.replace("#", "");
         }
 
+        function spacers(str) {
+            return str.split(" ").join("+");
+        }
+
+        msg.addEventListener('click', function() {
+            this.select();
+            document.execCommand("copy");
+        })
+
         function build(e) {
             let i = {};
-            // i.size = sel.value;
             i.wd = inpAll[0].value;
             i.hi = inpAll[1].value;
-            i.text = inpAll[2].value;
+            i.text = spacers(inpAll[2].value);
             i.bgClr = clean(inpAll[3].value);
             i.txtClr = clean(inpAll[4].value);
             i.path = `http://via.placeholder.com/${i.wd}x${i.hi}/${i.bgClr}/${i.txtClr}?text=${i.text}`;
             console.log(i);
             image.src = i.path;
+            msg.value = i.path;
         }
-
-        // function build(e) {
-        //     1-create object
-        //     2 - obj size to sel value
-        //     3 - obj text = inp value 1
-        //     4 - obj bgColor = inp value 2
-        //     5 - obj txt color = inp val 3
-        //     console.log(i);
-        // }
     </script>
 </body>
 
