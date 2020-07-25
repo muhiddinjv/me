@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Message</title>
+    <style>
+        .popup {
+            padding: 10px;
+            font-family: cursive;
+            border: 1px solid black;
+            text-align: center;
+            cursor: pointer;
+            width: 200px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            font-size: 0.8em;
+        }
+        
+        .output {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="output hide">
+        <button class="close">close</button>
+        <div class="msg">no content yet</div>
+    </div>
+    <div class="popup" data-msg="hello world">click me</div>
+    <div class="popup" data-msg="javascript is fun">javascript</div>
+    <div class="popup" data-msg="wow cool">click me 2</div>
+    <script>
+        //adfasf
+    </script>
+</body>
+
+</html>
