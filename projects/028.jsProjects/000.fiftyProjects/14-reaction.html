@@ -5,14 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reaction Game</title>
+    <style>
+        .box {
+            position: relative;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
     <button>Start</button>
-    <div class="msg"></div>
+    <div class="msg">Click Start</div>
     <div class="gameArea"></div>
     <script>
+        let inPlay = false;
+        let playArea = {};
+        let startTime;
+
         const msg = document.querySelector('.msg');
+        const btn = document.querySelector('button');
+        const gameArea = document.querySelector('.gameArea');
+
+        btn.addEventListener('click', function() {
+            if (!inPlay) {
+                inPlay = true;
+                btn.style.display = "none";
+                msg.innerHTML = "Click the circles as quickly as you can!"
+                showBox();
+            }
+        })
+
+        function showBox() {
+            let start = new Date().getTime();
+            console.log(start);
+
+        }
+
+        function myBox() {
+            let div = document.createElement('div');
+            div.classList.add('box');
+            gameArea.appendChild(div);
+        }
+
+        function rand(num) {
+            let tempVal = Math.floor(Math.random() * num);
+            return tempVal;
+        }
     </script>
 </body>
 
