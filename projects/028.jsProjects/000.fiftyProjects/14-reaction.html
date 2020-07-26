@@ -11,14 +11,18 @@
     <!-- Completed at 11:53/July26/2020 -->
     <button>Start</button>
     <div class="msg">Click Start</div>
+    <div class="score"></div>
     <div class="gameArea"></div>
     <script>
         let playArea = {};
         playArea.inPlay = false;
+        let score = 1;
 
         const msg = document.querySelector('.msg');
         const btn = document.querySelector('button');
+        const scoreDiv = document.querySelector('.score');
         const gameArea = document.querySelector('.gameArea');
+        document.body.style.textAlign = "center";
 
         btn.addEventListener('click', function() {
             if (!playArea.inPlay) {
@@ -37,8 +41,8 @@
             div.style.height = rand(30) + 70 + "px";
             div.style.borderRadius = rand(50) + "%";
             div.style.position = "relative";
-            div.style.top = rand(150) + "px";
-            div.style.left = rand(5) + "px";
+            div.style.top = rand(450) + "px";
+            div.style.left = rand(1100) + "px";
             div.addEventListener('click', hit);
             div.start = new Date().getTime();
             gameArea.appendChild(div);
@@ -54,7 +58,8 @@
             let start = e.target.start; // pull back the start time created at div.start in myBox
             let duration = (end - start) / 1000; // calculate the duration in seconds 
             msg.innerHTML = "It took " + duration + " seconds";
-            clearTimeout(playArea.timer); // clear timeout in at playArea.timer in if condition
+            clearTimeout(playArea.timer); // clear timeout at playArea.timer in if condition
+            scoreDiv.innerHTML = "Your score: " + score++;
             gameArea.children[0].remove(); // remove the only element in gameArea 
             playArea.timer = setTimeout(myBox, rand(3000)); // set new timer and launch new myBox
         }
