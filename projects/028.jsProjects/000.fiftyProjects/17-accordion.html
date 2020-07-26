@@ -16,6 +16,7 @@
         .main {
             font-size: 1.5em;
             background: #ddd;
+            cursor: pointer;
         }
         
         .active {
@@ -29,23 +30,36 @@
         1-Deserunt pariatur nostrud consequat eiusmod sit exercitation commodo est dolore dolor.
     </h3>
     <div class="para">
-        Sint ipsum ut minim duis qui dolor ipsum quis non. Do qui dolore ad ut aute. Adipisicing consectetur tempor minim elit ea ullamco in ad id elit elit elit proident. Excepteur excepteur irure quis in exercitation fugiat mollit.
+        1-Sint ipsum ut minim duis qui dolor ipsum quis non. Do qui dolore ad ut aute. Adipisicing consectetur tempor minim elit ea ullamco in ad id elit elit elit proident. Excepteur excepteur irure quis in exercitation fugiat mollit.
     </div>
     <h3 class="main">
         2-Deserunt pariatur nostrud consequat eiusmod sit exercitation commodo est dolore dolor.
     </h3>
     <div class="para">
-        Sint ipsum ut minim duis qui dolor ipsum quis non. Do qui dolore ad ut aute. Adipisicing consectetur tempor minim elit ea ullamco in ad id elit elit elit proident. Excepteur excepteur irure quis in exercitation fugiat mollit.
+        2-Sint ipsum ut minim duis qui dolor ipsum quis non. Do qui dolore ad ut aute. Adipisicing consectetur tempor minim elit ea ullamco in ad id elit elit elit proident. Excepteur excepteur irure quis in exercitation fugiat mollit.
     </div>
     <h3 class="main">
         3-Deserunt pariatur nostrud consequat eiusmod sit exercitation commodo est dolore dolor.
     </h3>
     <div class="para">
-        Sint ipsum ut minim duis qui dolor ipsum quis non. Do qui dolore ad ut aute. Adipisicing consectetur tempor minim elit ea ullamco in ad id elit elit elit proident. Excepteur excepteur irure quis in exercitation fugiat mollit.
+        3-Sint ipsum ut minim duis qui dolor ipsum quis non. Do qui dolore ad ut aute. Adipisicing consectetur tempor minim elit ea ullamco in ad id elit elit elit proident. Excepteur excepteur irure quis in exercitation fugiat mollit.
     </div>
     <script>
         const main = document.querySelectorAll('.main');
         const para = document.querySelectorAll('.para');
+
+        main.forEach(function(el) {
+            el.addEventListener('click', function() {
+                clearAct();
+                el.nextElementSibling.classList.toggle('active');
+            })
+        })
+
+        function clearAct() {
+            for (let i = 0; i < para.length; i++) {
+                para[i].classList.remove('active');
+            }
+        }
     </script>
 </body>
 
