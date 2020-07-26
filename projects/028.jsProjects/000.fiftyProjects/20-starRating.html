@@ -26,7 +26,7 @@
             color: orange;
         }
         
-        .output {
+        .msg {
             margin: 50px 0;
             padding: 10px;
             border: 1px solid #eee;
@@ -43,8 +43,44 @@
         <li class="star"><i class="fa fa-star fa-fw"></i></li>
         <li class="star"><i class="fa fa-star fa-fw"></i></li>
     </ul>
+    <div class="msg">Message</div>
     <script>
-        // asdfasf
+        const stars = document.querySelectorAll('.star');
+        const msg = document.querySelector('.msg');
+
+        for (let i = 0; i < stars.length; i++) {
+            stars[i].starValue = (i + 1);
+            ["mouseover", "mouseout", "click"].forEach(function(e) {
+                stars[i].addEventListener(e, starRate);
+            })
+        }
+
+        function starRate(e) {
+            let t = e.type;
+            let starValue = this.starValue;
+            stars.forEach(function(el, ind) {
+                console.log(el);
+                console.log(ind);
+                if (t === "click") {
+                    if (ind < starValue) {
+                        el.classList.add('orange');
+                    } else {
+                        el.classList.remove('orange');
+                    }
+                }
+                if (t === "mouseover") {
+                    if (ind < starValue) {
+                        el.classList.add('yellow');
+                    } else {
+                        el.classList.remove('yellow');
+                    }
+                }
+                if (t === "mouseout") {
+                    el.classList.remove('yellow');
+                }
+
+            })
+        }
     </script>
 </body>
 
