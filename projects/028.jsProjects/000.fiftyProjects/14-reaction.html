@@ -8,32 +8,26 @@
 </head>
 
 <body>
+    <!-- Completed at 11:53/July26/2020 -->
     <button>Start</button>
     <div class="msg">Click Start</div>
     <div class="gameArea"></div>
     <script>
-        let inPlay = false;
         let playArea = {};
-        let startTime;
+        playArea.inPlay = false;
 
         const msg = document.querySelector('.msg');
         const btn = document.querySelector('button');
         const gameArea = document.querySelector('.gameArea');
 
         btn.addEventListener('click', function() {
-            if (!inPlay) {
-                inPlay = true;
+            if (!playArea.inPlay) {
+                playArea.inPlay = true;
                 btn.style.display = "none";
                 msg.innerHTML = "Click the circles as quickly as you can!"
-                showBox();
+                playArea.timer = setTimeout(myBox, rand(3000));
             }
         })
-
-        function showBox() {
-            let start = new Date().getTime();
-            console.log(start);
-            myBox();
-        }
 
         function myBox() {
             let div = document.createElement('div');
@@ -45,12 +39,24 @@
             div.style.position = "relative";
             div.style.top = rand(150) + "px";
             div.style.left = rand(5) + "px";
+            div.addEventListener('click', hit);
+            div.start = new Date().getTime();
             gameArea.appendChild(div);
         }
 
         function rand(num) {
             let tempVal = Math.floor(Math.random() * num);
             return tempVal;
+        }
+
+        function hit(e) {
+            let end = new Date().getTime(); // record time in milliseconds when the element gets clicked
+            let start = e.target.start; // pull back the start time created at div.start in myBox
+            let duration = (end - start) / 1000; // calculate the duration in seconds 
+            msg.innerHTML = "It took " + duration + " seconds";
+            clearTimeout(playArea.timer); // clear timeout in at playArea.timer in if condition
+            gameArea.children[0].remove(); // remove the only element in gameArea 
+            playArea.timer = setTimeout(myBox, rand(3000)); // set new timer and launch new myBox
         }
     </script>
 </body>
