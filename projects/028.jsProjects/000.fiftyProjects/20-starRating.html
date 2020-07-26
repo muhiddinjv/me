@@ -31,6 +31,7 @@
             padding: 10px;
             border: 1px solid #eee;
             background: #ddd;
+            width: 250px;
         }
     </style>
 </head>
@@ -58,9 +59,13 @@
         function starRate(e) {
             let t = e.type;
             let starValue = this.starValue;
+            if (t === "click") {
+                if (starValue > 0) {
+                    msg.innerHTML = `You rated this ${starValue} stars`;
+                }
+            }
             stars.forEach(function(el, ind) {
-                console.log(el);
-                console.log(ind);
+                // console.log(el); // console.log(ind);
                 if (t === "click") {
                     if (ind < starValue) {
                         el.classList.add('orange');
@@ -78,7 +83,6 @@
                 if (t === "mouseout") {
                     el.classList.remove('yellow');
                 }
-
             })
         }
     </script>
