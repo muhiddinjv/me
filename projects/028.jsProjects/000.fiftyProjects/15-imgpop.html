@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Popup</title>
     <style>
-        img {
+        body {
+            text-align: center;
+        }
+        
+        .pop img {
             width: 150px;
         }
         
@@ -24,12 +28,12 @@
         }
         
         .output {
-            width: 60%;
-            height: 40%;
+            width: 40%;
+            height: 60%;
             background: white;
             position: absolute;
-            top: 30%;
-            left: 20%;
+            top: 20%;
+            left: 30%;
             overflow: hidden;
             z-index: 100;
         }
@@ -48,7 +52,7 @@
             right: 2%;
             z-index: 105;
             cursor: pointer;
-            color: black;
+            color: white;
         }
     </style>
 </head>
@@ -67,7 +71,23 @@
         </div>
     </div>
     <script>
-        // asdfdsf
+        const imgs = document.querySelectorAll('.pop img');
+        const popImg = document.querySelector('.output img');
+        const show = document.querySelector('.show');
+        const close = document.querySelectorAll('.close');
+
+        imgs.forEach(function(e) {
+            e.addEventListener('click', function() {
+                show.classList.remove('hide');
+                let attr = e.getAttribute('src');
+                popImg.setAttribute("src", attr);
+            })
+        })
+        close.forEach(function(e) {
+            e.addEventListener('click', function() {
+                show.classList.add('hide');
+            })
+        })
     </script>
 </body>
 
