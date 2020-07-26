@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Popup</title>
+    <style>
+        img {
+            width: 150px;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .66);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .output {
+            width: 60%;
+            height: 40%;
+            background: white;
+            position: absolute;
+            top: 30%;
+            left: 20%;
+            overflow: hidden;
+            z-index: 100;
+        }
+        
+        .output img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .output span {
+            position: absolute;
+            top: 10px;
+            right: 2%;
+            z-index: 105;
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pop">
+        <img src="img/cabin.png" alt="cabin">
+        <img src="img/cake.png" alt="cake">
+        <img src="img/game.png" alt="game">
+    </div>
+    <div class="show hide">
+        <div class="overlay close"></div>
+        <div class="output">
+            <span class="close">X</span>
+            <img src="" alt="">
+        </div>
+    </div>
+    <script>
+        // asdfdsf
+    </script>
+</body>
+
+</html>
