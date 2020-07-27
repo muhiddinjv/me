@@ -82,6 +82,7 @@ a:hover {
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .products li {
@@ -118,4 +119,8 @@ a:hover {
 .product-image {
     max-width: 34rem;
     max-height: 34rem;
+}
+
+.product-rating {
+    margin-bottom: 1rem;
 }
