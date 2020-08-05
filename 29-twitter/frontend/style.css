@@ -35,3 +35,9 @@ body {
   cursor: pointer;
   border: 0;
 }
+
+.twitDiv{
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+}
