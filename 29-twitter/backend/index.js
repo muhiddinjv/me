@@ -1,3 +1,4 @@
+
 const express = require('express');
 // turn input into string
 const cors = require('cors');
@@ -17,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.listen(5000, ()=> console.log('listening on http://localhost:5000'))
-
+// mongo "mongodb+srv://cluster0.r97pr.mongodb.net/twitter" --username muhiddin
 app.get('/', (req,res)=>{
   res.json({
     message: 'tweeeteee'
