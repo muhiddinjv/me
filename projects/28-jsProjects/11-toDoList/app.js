@@ -1,3 +1,4 @@
+// get elements
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const feedback = document.querySelector(".feedback");
@@ -16,7 +17,15 @@ form.addEventListener("submit", function (event) {
   if (textValue === "") {
     showFeedback("Please enter valid value");
   } else {
+    // 1-create item and append
     addItem(textValue);
+    input.value = "";
+    // 2-add item to empty array
+    itemData.push(textValue);
+    console.log(itemData);
+
+    // 3-handling the items
+    // 4-add the items to local storage
   }
 });
 
@@ -30,7 +39,7 @@ function showFeedback(text) {
   }, 3000);
 }
 
-// create items from input value and append to item list
+// create item and append to item list
 function addItem(value) {
   const div = document.createElement("div");
   div.classList.add("item");
@@ -43,5 +52,4 @@ function addItem(value) {
     </div>
   `;
   itemList.appendChild(div);
-  input.value = "";
 }

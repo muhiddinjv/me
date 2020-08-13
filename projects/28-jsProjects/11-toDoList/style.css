@@ -38,12 +38,13 @@ html {
 
 .itemList {
   margin: 0 auto;
-  border: 1px solid red;
+  border: 1px solid silver;
   max-width: 50rem;
 }
 
 .itemText {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  border: 1px solid green;
 }
 
 .itemIcons {
@@ -52,6 +53,6 @@ html {
 }
 
 .itemIcon img {
-  width: 2rem;
+  width: 1.5rem;
   margin-left: 1rem;
 }

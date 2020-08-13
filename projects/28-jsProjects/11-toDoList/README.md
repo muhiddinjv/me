@@ -40,7 +40,10 @@ with the following features:
     - [x] if input is empty, show feedback
     - [x] remove feedback after 3 seconds
   - [] if input isnt empty, add value to array
-  - [] and append value to the item list
+    - [x] create item and append
+    - [x] add items to empty array
+    - [] handle the items
+    - [] add the items to local storage
 
 ## What's next?
 
