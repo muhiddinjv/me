@@ -17,14 +17,16 @@ html {
   text-align: center;
 }
 
+.container {
+  text-align: center;
+}
+
 .feedback {
   color: white;
-  text-align: center;
   margin: 0 auto;
   width: 33rem;
   font-size: 2rem;
   display: none;
-  /* max-width: 22rem; */
 }
 
 .danger {
@@ -72,4 +74,8 @@ html {
 .itemIcon img {
   width: 1.5rem;
   margin-left: 1rem;
+}
+
+.clearBtnContainer {
+  text-align: center;
 }

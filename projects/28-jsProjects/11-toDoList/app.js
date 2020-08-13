@@ -22,7 +22,7 @@ form.addEventListener("submit", function (event) {
     input.value = "";
     // 2-add item to empty array
     itemData.push(inpValue);
-    console.log(itemData);
+    // console.log(itemData);
     // 3-handling the items
     handleItem(inpValue); // run AFTER submit
     // 4-add the items to local storage
@@ -89,3 +89,13 @@ function handleItem(inpValue) {
     }
   });
 }
+
+clearBtn.addEventListener("click", function () {
+  itemData = [];
+  const items = itemList.querySelectorAll(".item");
+  if (items.length > 0) {
+    items.forEach(function (item) {
+      itemList.removeChild(item);
+    });
+  }
+});

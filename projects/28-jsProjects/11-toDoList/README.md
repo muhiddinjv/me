@@ -13,7 +13,7 @@ with the following features:
 - [ ] ➡️ Send user input from the client to a local storage
 - [ ] 🗃 Store data in the local storage
 - [ ] 🔍 Retrieve data from the local storage
-- [ ] 🙈 Hide/delete elements on the client
+- [ ] 🙈 Show/Hide/delete elements on the client
 
 ## HTML
 
@@ -35,34 +35,33 @@ with the following features:
 
 - [x] Get elements
 - [] Form submissions
-  - [x] Alert Feedback
-    - [x] preventDefault on submit
-    - [x] if input is empty...
-      - [x] show feedback
-      - [x] remove feedback after 3 seconds
-    - [] if input is not empty...
-      - [x] create item and append
-      - [x] add items to empty array
-      - [] handle the items
-        - [x] add eventListeners to icons
-          - [x] loop thru items using forEach
-            - [x] if item textContent = input value
-              - [x] add complete eventListener
-                - [x] item classList toggle completed
-                - [x] this classList toggle visibility
-              - [x] add edit eventListener
-                - [x] input value = inpValue
-                - [x] item list remove child
-              - [x] add delete eventListener
-                - [x] item list remove child
-                - [x] show feedback
-      - [] add the items to local storage
+  - [x] preventDefault on submit
+  - [x] if input is empty...
+    - [x] show feedback & remove
+  - [] if input is not empty...
+    - [x] create item and append
+    - [x] add items to empty array
+    - [] handle the items
+      - [x] add eventListeners to icons
+        - [x] loop thru items using forEach
+          - [x] if item textContent = input value
+            - [x] add complete eventListener
+              - [x] item classList toggle completed
+              - [x] this classList toggle visibility
+            - [x] add edit eventListener
+              - [x] input value = inpValue
+              - [x] item list remove child
+            - [x] add delete eventListener
+              - [x] item list remove child
+              - [x] show feedback & remove
+    - [x] clear itemData & remove item(s)
+  - [] add the items to local storage
 
 ## What's next?
 
 - Add time & date to item
 - Add deadline to item
-- Search for items
+- Search for item(s)
 - User Sign up/Login
 - User Profiles
   - Only show items from given user
