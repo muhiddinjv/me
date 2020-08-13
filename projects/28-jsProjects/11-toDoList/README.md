@@ -63,7 +63,7 @@ with the following features:
       - [x] if itemData length > 0...
         - [x] itemList.inserAdjacentHTML beforeend
         - [x] handleItem(singleItem)
-- [] beautify the page with css
+- [x] beautify the page with css
 
 ## What's next?
 

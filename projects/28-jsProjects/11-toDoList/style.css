@@ -1,3 +1,9 @@
+:root {
+  --mainWhite: #f5f5f5;
+  --mainGreen: #80cfa9;
+  --mainBlack: #333333;
+}
+
 *,
 *::before,
 *::after {
@@ -10,56 +16,132 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.form {
-  margin: 2rem;
-  text-align: center;
+  background-color: var(--mainWhite);
+  color: #333333;
 }
 
 .container {
+  margin: 1.5rem 0;
   text-align: center;
+  padding: 0 2rem;
+}
+
+/* Form ----------------------- */
+.form {
+  text-align: center;
+}
+
+.form > h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 3rem 0;
+}
+
+.formInput{
+  display: flex;
+  max-width: 73rem;
+  margin: 0 auto;
+  height: 4rem;
+}
+
+.inp{
+  flex: 0.8;
+  border: 1px solid var(--mainGreen);
+  border-radius: .5rem 0 0 .5rem;
+  border-color: var(--mainGreen);
+  font-size: 2rem;
+  padding-left: 1rem;
+  color: var(--mainBlack);
+  text-transform: capitalize;
+}
+
+.inp:focus{
+  outline: none;
+  border: .22rem solid var(--mainGreen);
+}
+
+.addBtn{
+  flex: 0.2;
+  border-radius: 0 .5rem .5rem 0;
+  border: 1px solid var(--mainGreen);
+  color: var(--mainGreen);
+  font-size: 1.6rem;
+  background: transparent;
+}
+
+.btn:focus{
+  outline: none;
+  border: .2rem solid var(--mainGreen);
+}
+
+.btn:hover{
+  background: var(--mainGreen);
+  color: var(--mainBlack);
+  cursor: pointer;
 }
 
 .feedback {
   color: white;
   margin: 0 auto;
-  width: 33rem;
-  font-size: 2rem;
+  max-width: 100%;
+  height: 5rem;
+  font-size: 1.5rem;
   display: none;
+  text-align: center;
+  border-radius: .25rem;
 }
 
-.danger {
-  background-color: rgb(187, 68, 68);
-}
-
-.success {
-  background-color: green;
-}
-
-.show {
-  display: block;
-}
-
+/* items -------------------- */
 .item {
   display: flex;
   justify-content: space-between;
+  margin: 2rem 0;
 }
 
 .itemList {
   margin: 0 auto;
-  border: 1px solid silver;
-  max-width: 50rem;
+  max-width: 73rem;
+  padding-top: 2rem;
 }
 
 .itemText {
   font-size: 1.5rem;
-  border: 1px solid green;
+  text-transform: capitalize;
 }
 
 .itemIcons {
   display: flex;
-  border: 1px solid blue;
+}
+
+.itemIcon img {
+  width: 2rem;
+  margin-left: 2rem;
+}
+
+.clearBtn{
+  border: 1px solid var(--mainGreen);
+  color: var(--mainGreen);
+  font-size: 1.6rem;
+  background:transparent;
+  margin-top: 2rem;
+  padding:1rem 2rem;
+  border-radius: .5rem;
+  height: 4rem;
+}
+
+/* additional styles ---------------- */
+.danger {
+  background-color: lightcoral;
+}
+
+.success {
+  background-color: var(--mainGreen);
+}
+
+.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .completed {
@@ -69,11 +151,6 @@ html {
 
 .visibility {
   opacity: 0.5;
-}
-
-.itemIcon img {
-  width: 1.5rem;
-  margin-left: 1rem;
 }
 
 .clearBtnContainer {

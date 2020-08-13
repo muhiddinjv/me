@@ -13,12 +13,14 @@
     <div class="feedback hide"></div>
     <form class="form">
       <h1>To Do List</h1>
-      <input class="inp" type="text" /><button type="submit" class="addBtn">
-        Add Item
-      </button>
-      <div class="items">
-        <div class="itemList">
-          <!-- <div class="item">
+      <div class="formInput">
+        <input class="inp" type="text" placeholder="Name..." />
+        <button class="btn addBtn" type="submit">
+          Add Item
+        </button>
+      </div>
+      <div class="itemList">
+        <!-- <div class="item">
               <h5 class="itemText">${singleItem}</h5>
               <div class="itemIcons">
                 <a href="#" class="itemIcon complete"><img src="img/check.svg" alt="check icon"/></a>
@@ -26,11 +28,10 @@
                 <a href="#" class="itemIcon delete"><img src="img/close.svg" alt="delete icon"/></a>
               </div>
             </div> -->
-        </div>
       </div>
     </form>
     <div class="clearBtnContainer">
-      <button class="clearBtn">Clear Items</button>
+      <button class="btn clearBtn">Clear Items</button>
     </div>
   </div>
   <script src="app.js"></script>
