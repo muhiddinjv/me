@@ -60,11 +60,22 @@ function handleItem(inpValue) {
   items.forEach(function (item) {
     // to avoid adding event listeners that are not being used
     if (item.querySelector(".itemText").textContent === inpValue) {
+      //1-complete event listener
       item.querySelector(".complete").addEventListener("click", function () {
         // item.qs works faster than document.qs b/c it doesnt go thru the whole document to select the item
         item.querySelector(".itemText").classList.toggle("completed");
         this.classList.toggle("visibility");
-        //
+      });
+
+      //2-edit event listener
+      item.querySelector(".edit").addEventListener("click", function () {
+        input.value = inpValue;
+        itemList.removeChild(item); // remove from DOM
+        console.log(itemData);
+        itemData = itemData.filter(function (item) {
+          return item !== inpValue;
+        });
+        console.log(itemData);
       });
     }
   });

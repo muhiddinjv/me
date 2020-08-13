@@ -48,7 +48,7 @@ with the following features:
           - [] loop thru items using forEach
             - [] if item textContent = input value
               - [x] add complete eventListener
-              - [] add edit eventListener
+              - [x] add edit eventListener
               - [] add delete eventListener
       - [] add the items to local storage
 
