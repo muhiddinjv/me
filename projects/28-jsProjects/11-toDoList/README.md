@@ -35,21 +35,28 @@ with the following features:
 
 - [x] Get elements
 - [] Form submissions
-  - [] Alert Feedback
+  - [x] Alert Feedback
     - [x] preventDefault on submit
-    - [x] if input is empty, show feedback
-    - [x] remove feedback after 3 seconds
-  - [] if input isnt empty, add value to array
-    - [x] create item and append
-    - [x] add items to empty array
-    - [] handle the items
-    - [] add the items to local storage
+    - [x] if input is empty...
+      - [x] show feedback
+      - [x] remove feedback after 3 seconds
+    - [] if input is not empty...
+      - [x] create item and append
+      - [x] add items to empty array
+      - [] handle the items
+        - [] add eventListeners to icons
+          - [] loop thru items using forEach
+            - [] if item textContent = input value
+              - [x] add complete eventListener
+              - [] add edit eventListener
+              - [] add delete eventListener
+      - [] add the items to local storage
 
 ## What's next?
 
-- Add the time & date to an item
-- Add a deadline to an item
+- Add time & date to item
+- Add deadline to item
 - Search for items
 - User Sign up/Login
 - User Profiles
-  - Only show items from a given user
+  - Only show items from given user

@@ -52,6 +52,15 @@ html {
   border: 1px solid blue;
 }
 
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.visibility {
+  opacity: 0.5;
+}
+
 .itemIcon img {
   width: 1.5rem;
   margin-left: 1rem;
