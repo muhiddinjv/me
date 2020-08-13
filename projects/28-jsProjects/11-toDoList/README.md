@@ -44,12 +44,18 @@ with the following features:
       - [x] create item and append
       - [x] add items to empty array
       - [] handle the items
-        - [] add eventListeners to icons
-          - [] loop thru items using forEach
-            - [] if item textContent = input value
+        - [x] add eventListeners to icons
+          - [x] loop thru items using forEach
+            - [x] if item textContent = input value
               - [x] add complete eventListener
+                - [x] item classList toggle completed
+                - [x] this classList toggle visibility
               - [x] add edit eventListener
-              - [] add delete eventListener
+                - [x] input value = inpValue
+                - [x] item list remove child
+              - [x] add delete eventListener
+                - [x] item list remove child
+                - [x] show feedback
       - [] add the items to local storage
 
 ## What's next?

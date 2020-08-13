@@ -18,17 +18,25 @@ html {
 }
 
 .feedback {
-  background-color: rgb(187, 68, 68);
   color: white;
   text-align: center;
   margin: 0 auto;
   width: 33rem;
   font-size: 2rem;
+  display: none;
   /* max-width: 22rem; */
 }
 
-.hide {
-  display: none;
+.danger {
+  background-color: rgb(187, 68, 68);
+}
+
+.success {
+  background-color: green;
+}
+
+.show {
+  display: block;
 }
 
 .item {

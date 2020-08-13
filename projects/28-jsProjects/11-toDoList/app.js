@@ -15,7 +15,7 @@ form.addEventListener("submit", function (event) {
   const inpValue = input.value;
 
   if (inpValue === "") {
-    showFeedback("Please enter valid value");
+    showFeedback("Please enter valid value", "danger");
   } else {
     // 1-create item and append
     addItem(inpValue);
@@ -30,12 +30,12 @@ form.addEventListener("submit", function (event) {
 });
 
 // show feedback function
-function showFeedback(text) {
-  feedback.classList.remove("hide");
+function showFeedback(text, action) {
+  feedback.classList.add("show", action);
   feedback.innerHTML = `<p>${text}</p>`;
 
   setTimeout(() => {
-    feedback.classList.add("hide");
+    feedback.classList.remove("show", action);
   }, 3000);
 }
 
@@ -70,12 +70,21 @@ function handleItem(inpValue) {
       //2-edit event listener
       item.querySelector(".edit").addEventListener("click", function () {
         input.value = inpValue;
-        itemList.removeChild(item); // remove from DOM
-        console.log(itemData);
+        itemList.removeChild(item);
+        // console.log(itemData);
         itemData = itemData.filter(function (item) {
           return item !== inpValue;
         });
-        console.log(itemData);
+        // console.log(itemData);
+      });
+
+      //3-delete event listener
+      item.querySelector(".delete").addEventListener("click", function () {
+        itemList.removeChild(item);
+        itemData = itemData.filter(function (item) {
+          return item !== inpValue;
+        });
+        showFeedback("Item deleted", "success");
       });
     }
   });
