@@ -41,7 +41,7 @@ with the following features:
   - [] if input is not empty...
     - [x] create item and append
     - [x] add items to empty array
-    - [] handle the items
+    - [x] handle the items
       - [x] add eventListeners to icons
         - [x] loop thru items using forEach
           - [x] if item textContent = input value
@@ -55,7 +55,10 @@ with the following features:
               - [x] item list remove child
               - [x] show feedback & remove
     - [x] clear itemData & remove item(s)
-  - [] add the items to local storage
+    - [x] add the items to local storage
+      - [x] setItem - list with JSON stringify
+      - [x] removeItem - list
+    - [] retrieve data from localstorage
 
 ## What's next?
 
