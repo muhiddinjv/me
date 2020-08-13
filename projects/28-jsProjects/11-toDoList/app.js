@@ -6,7 +6,28 @@ const itemList = document.querySelector(".itemList");
 const addBtn = document.querySelector(".addBtn");
 const clearBtn = document.querySelector(".clearBtn");
 
-let itemData = [];
+// If there's data in local storage, show it or show nothing
+let itemData = JSON.parse(localStorage.getItem("list")) || [];
+console.log(itemData);
+
+if (itemData.length > 0) {
+  itemData.forEach(function (singleItem) {
+    itemList.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="item">
+        <h5 class="itemText">${singleItem}</h5>
+        <div class="itemIcons">
+          <a href="#" class="itemIcon complete"><img src="img/check.svg" alt="check icon"/></a>
+          <a href="#" class="itemIcon edit"><img src="img/edit.svg" alt="edit icon"/></a>
+          <a href="#" class="itemIcon delete"><img src="img/close.svg" alt="delete icon"/></a>
+        </div>
+      </div>
+      `
+    );
+    handleItem(singleItem);
+  });
+}
 
 // form submission
 form.addEventListener("submit", function (event) {

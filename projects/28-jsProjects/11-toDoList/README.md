@@ -58,7 +58,12 @@ with the following features:
     - [x] add the items to local storage
       - [x] setItem - list with JSON stringify
       - [x] removeItem - list
-    - [] retrieve data from localstorage
+    - [x] retrieve data from localstorage
+      - [x] itemData = localstorage list
+      - [x] if itemData length > 0...
+        - [x] itemList.inserAdjacentHTML beforeend
+        - [x] handleItem(singleItem)
+- [] beautify the page with css
 
 ## What's next?
 
