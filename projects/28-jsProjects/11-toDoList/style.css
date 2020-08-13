@@ -1,16 +1,57 @@
-* {
-  font-size: 62.5%;
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .form {
-  font-size: 3rem;
   margin: 2rem;
   text-align: center;
 }
 
+.feedback {
+  background-color: rgb(187, 68, 68);
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 33rem;
+  font-size: 2rem;
+  /* max-width: 22rem; */
+}
+
 .hide {
   display: none;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemList {
+  margin: 0 auto;
+  border: 1px solid red;
+  max-width: 50rem;
+}
+
+.itemText {
+  font-size: 2rem;
+}
+
+.itemIcons {
+  display: flex;
+  border: 1px solid blue;
+}
+
+.itemIcon img {
+  width: 2rem;
+  margin-left: 1rem;
 }
