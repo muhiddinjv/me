@@ -70,7 +70,7 @@ html {
 }
 
 .btn:focus{
-  outline: none;
+  outline: none; /* couldn't remember */
   border: .2rem solid var(--mainGreen);
 }
 
@@ -89,6 +89,8 @@ html {
   display: none;
   text-align: center;
   border-radius: .25rem;
+  justify-content: center;
+  align-items: center;
 }
 
 /* items -------------------- */
@@ -140,8 +142,6 @@ html {
 
 .show {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .completed {
@@ -151,8 +151,4 @@ html {
 
 .visibility {
   opacity: 0.5;
-}
-
-.clearBtnContainer {
-  text-align: center;
 }

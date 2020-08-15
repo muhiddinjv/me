@@ -6,7 +6,7 @@ const itemList = document.querySelector(".itemList");
 const addBtn = document.querySelector(".addBtn");
 const clearBtn = document.querySelector(".clearBtn");
 
-// If there's data in local storage, show it or show nothing
+// If there's data in local storage, show it OR if not, show nothing
 let itemData = JSON.parse(localStorage.getItem("list")) || [];
 console.log(itemData);
 
@@ -29,7 +29,7 @@ if (itemData.length > 0) {
   });
 }
 
-// form submission
+// form submission (magic happpens here) ------------------------
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -44,24 +44,26 @@ form.addEventListener("submit", function (event) {
     // 2-add item to empty array
     itemData.push(inpValue);
     // console.log(itemData);
-    // 4-add the items to local storage
+    // 5-add the items to local storage
     localStorage.setItem("list", JSON.stringify(itemData));
-    // 3-handling the items
-    handleItem(inpValue); // run AFTER submit
+    // 3-handle-items
+    handleItem(inpValue);// run AFTER submit
   }
 });
+// 4-clear-items
+// 6-get-items-from-local-storage
 
-// show feedback function
-function showFeedback(text, action) {
-  feedback.classList.add("show", action);
+// show feedback function ----------------------------------------
+function showFeedback(text, klass) {
+  feedback.classList.add("show", klass);
   feedback.innerHTML = `<p>${text}</p>`;
 
   setTimeout(() => {
-    feedback.classList.remove("show", action);
+    feedback.classList.remove("show", klass);
   }, 3000);
 }
 
-// create item and append to item list
+// 1-create item and append to item list ---------------------------
 function addItem(inpValue) {
   const div = document.createElement("div");
   div.classList.add("item");
@@ -76,20 +78,21 @@ function addItem(inpValue) {
   itemList.appendChild(div);
 }
 
+// handleItem -----------------------------------------------------
 function handleItem(inpValue) {
   const items = itemList.querySelectorAll(".item");
   //loop through the items
   items.forEach(function (item) {
     // to avoid adding event listeners that are not being used
     if (item.querySelector(".itemText").textContent === inpValue) {
-      //1-complete event listener-----------------------------------
+      //1-complete-event-listener-----------------------------------
       item.querySelector(".complete").addEventListener("click", function () {
         // item.qs works faster than document.qs b/c it doesnt go thru the whole document to select the item
         item.querySelector(".itemText").classList.toggle("completed");
-        this.classList.toggle("visibility");
+        this.classList.toggle("visibility"); // this selects clicked element
       });
 
-      //2-edit event listener-------------------------------------------
+      //2-edit-event-listener--------------------------------------
       item.querySelector(".edit").addEventListener("click", function () {
         input.value = inpValue;
         itemList.removeChild(item);
@@ -98,22 +101,23 @@ function handleItem(inpValue) {
           return item !== inpValue;
         });
         // console.log(itemData);
-        localStorage.setItem("list", JSON.stringify(itemData));
+        localStorage.setItem("list", JSON.stringify(itemData)); //updates
       });
 
-      //3-delete event listener-------------------------------------------
+      //3-delete-event-listener--------------------------------------
       item.querySelector(".delete").addEventListener("click", function () {
         itemList.removeChild(item);
         itemData = itemData.filter(function (item) {
           return item !== inpValue;
         });
-        localStorage.setItem("list", JSON.stringify(itemData));
+        localStorage.setItem("list", JSON.stringify(itemData)); //updates
         showFeedback("Item deleted", "success");
       });
     }
   });
 }
 
+// 4-clear-items ---------------------------------------------
 clearBtn.addEventListener("click", function () {
   itemData = [];
   localStorage.removeItem("list");

@@ -34,11 +34,11 @@ with the following features:
 ## JavaScript
 
 - [x] Get elements
-- [] Form submissions
+- [x] Form submissions
   - [x] preventDefault on submit
   - [x] if input is empty...
     - [x] show feedback & remove
-  - [] if input is not empty...
+  - [x] if input is not empty...
     - [x] create item and append
     - [x] add items to empty array
     - [x] handle the items
