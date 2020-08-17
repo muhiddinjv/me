@@ -9,7 +9,7 @@ const clearBtn = document.querySelector(".clearBtn");
 // If there's data in local storage, show it OR if not, show nothing
 let itemData = JSON.parse(localStorage.getItem("list")) || [];
 console.log(itemData);
-// 6-get items from local storage and add to the page
+
 if (itemData.length > 0) {
   itemData.forEach(function (singleItem) {
     itemList.insertAdjacentHTML(
@@ -51,7 +51,7 @@ form.addEventListener("submit", function (event) {
   }
 });
 // 4-clear-items
-// 6-get items from local storage and add to the page
+// 6-get-items-from-local-storage
 
 // show feedback function ----------------------------------------
 function showFeedback(text, klass) {
@@ -63,7 +63,7 @@ function showFeedback(text, klass) {
   }, 3000);
 }
 
-// 1-create item and append to item list --------------------------
+// 1-create item and append to item list ---------------------------
 function addItem(inpValue) {
   const div = document.createElement("div");
   div.classList.add("item");
@@ -87,9 +87,9 @@ function handleItem(inpValue) {
     if (item.querySelector(".itemText").textContent === inpValue) {
       //1-complete-event-listener-----------------------------------
       item.querySelector(".complete").addEventListener("click", function () {
-        // item.qS works faster than document.qS b/c it doesnt go thru the whole document to select the item
+        // item.qs works faster than document.qs b/c it doesnt go thru the whole document to select the item
         item.querySelector(".itemText").classList.toggle("completed");
-        this.classList.toggle("visibility"); // "this" selects clicked element
+        this.classList.toggle("visibility"); // this selects clicked element
       });
 
       //2-edit-event-listener--------------------------------------

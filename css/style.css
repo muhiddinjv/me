@@ -127,3 +127,7 @@ body {
         padding: .3rem 0;
     }
 }
+
+.hide{
+    display: none !important;
+}
