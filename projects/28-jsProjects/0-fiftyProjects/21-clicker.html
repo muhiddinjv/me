@@ -5,11 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicker</title>
+    <style>
+        .btn {
+            padding: 10px 25px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 1.6em;
+            display: inline-block;
+            background: blueviolet;
+            border-radius: 15px;
+            color: white;
+            margin: auto;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin: auto;
+        }
+
+        .score {
+            font-size: 2em;
+            padding: 5px;
+            width: 40%;
+            margin: auto;
+        }
+
+        .div {
+            position: absolute;
+            border-radius: 10%;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="score">0</div>
+        <div class="btn">Start</div>
+    </div>
     <Script>
-        // adsfasf
+        const container = document.querySelector(".container");
+        const startBtn = document.querySelector(".btn");
+        const scoreArea = document.querySelector(".score");
+        let player = { score: 0 };
+
+        startBtn.addEventListener('click', function () {
+            startBtn.style.display = "none";
+            let ranTime = Math.random() * 2000 + 1000;
+            setTimeout(makeItem, ranTime);
+        })
+
+        function makeItem() {
+            let boundary = container.getBoundingClientRect();
+            let div = document.createElement('div');
+            div.classList = "div";
+            div.style.left = Math.random() * boundary.width + "px";
+            div.style.top = Math.random() * boundary.height + "px";
+            div.style.width = Math.random() * 10 + 40 + "px";
+            div.style.height = Math.random() * 10 + 40 + "px";
+            div.style.background = "#" + Math.random().toString(16).substr(-6);
+            // whenever a new div is created, timer starts
+            div.startTime = Date.now();
+            div.addEventListener("click", function () {
+                let endTime = Date.now();
+                let diff = (endTime - div.startTime) / 1000;
+                scoreArea.innerHTML = "Clicked in " + diff + " seconds";
+                clearTimeout(div.timer);
+                container.removeChild(div);
+                makeItem();
+            });
+            div.timer = setTimeout(function () {
+                container.removeChild(div);
+                makeItem();
+            }, 1000)
+            container.appendChild(div);
+        }
     </Script>
 </body>
 
