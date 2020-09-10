@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV Maker</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    button {
+      background: aqua;
+      padding: .5em;
+      border-radius: .5em;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="output"></div>
+  <button>Download CSV File</button>
+  <script>
+    const output = document.querySelector(".output");
+    const btn = document.querySelector("button");
+
+    let url;
+    let myData = [
+      ["Title", "Content"],
+      ["Row1", "Once"],
+      ["Row2", "upon"],
+      ["Row3", "a time"],
+    ];
+
+    btn.addEventListener("click", function () {
+      createCSV(myData);
+    })
+
+    function createCSV(data) {
+      console.log(data);
+      let file;
+      let holder = "";
+      if (url !== null) {
+        window.URL.revokeObjectURL(url);
+      }
+      let filename = "test.csv";
+      let properties = { type: "text/csv;charset=utf-8;" };
+      data.forEach(function (item) {
+        holder += item.join() + "\n";
+      });
+      file = new File([holder], filename, properties);
+      let link = document.createElement("a");
+      url = URL.createObjectURL(file);
+      link.setAttribute("href", url);
+      link.setAttribute("download", filename);
+      link.style.visibility = "hidden";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      console.log(holder);
+    }
+  </script>
+</body>
+
+</html>
