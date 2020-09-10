@@ -43,6 +43,7 @@
 </head>
 
 <body>
+    <!-- Finished at 8PM/Sep9/2020 -->
     <div class="container">
         <div class="score">0</div>
         <div class="btn">Start</div>
@@ -73,7 +74,7 @@
             div.addEventListener("click", function () {
                 let endTime = Date.now();
                 let diff = (endTime - div.startTime) / 1000;
-                scoreArea.innerHTML = "Clicked in " + diff + " seconds";
+                scoreArea.innerHTML = `Clicked in ${diff} seconds`;
                 clearTimeout(div.timer);
                 container.removeChild(div);
                 makeItem();

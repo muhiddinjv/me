@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup</title>
+  <style>
+    .btnDiv {
+      text-align: center;
+    }
+
+    .wrapper {
+      display: none;
+    }
+
+    .wrapper.show {
+      background: rgba(0, 0, 0, 0.5);
+      height: 100vh;
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pop {
+      width: 50%;
+      left: 25%;
+      top: 10%;
+      position: absolute;
+      background: aliceblue;
+      /* border-radius: 55%; */
+    }
+
+    .pop__h2 {
+      background: teal;
+      color: white;
+      font-size: 2em;
+      text-align: center;
+    }
+
+    .pop__main {
+      padding: 10px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      background: indianred;
+      color: white;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- finished at 8:41AM/Sep10/2020 -->
+  <div class="btnDiv">
+    <button>Popup</button>
+  </div>
+  <div class="wrapper">
+    <div class="pop">
+      <header>
+        <div class="pop__h2">Grammar</div>
+      </header>
+      <div class="pop__main">
+        <p><strong>"does"</strong> gapni boshida kesa savol bo'ladi va "...adimi" manosini beradi</p>
+        <i>Misol: (does) he go to school? - U bor(adimi) maktabga?</i>
+      </div>
+      <footer>popup footer</footer>
+    </div>
+  </div>
+
+  <!------------------------- javascript ----------------------------->
+  <script>
+    const btn = document.querySelector("button");
+    const wrapper = document.querySelector(".wrapper");
+    const core = document.querySelector(".pop");
+    const body = document.querySelector("body");
+
+    btn.addEventListener("click", function () {
+      wrapper.classList.add("show");
+      wrapper.addEventListener("click", function () {
+        wrapper.classList.remove("show");
+      })
+      body.addEventListener("keydown", function (e) {
+        // console.log(e.keyCode);
+        if (e.keyCode === 27) {// 27 = Esc button
+          return wrapper.classList.remove("show");
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
