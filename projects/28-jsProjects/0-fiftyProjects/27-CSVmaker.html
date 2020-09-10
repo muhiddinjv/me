@@ -20,16 +20,20 @@
 </head>
 
 <body>
+  <!-- finished at 22:21/Sep10/2020 -->
   <div class="output"></div>
-  <button>Download CSV File</button>
+  <button>Download CSV File Online</button>
   <script>
     const output = document.querySelector(".output");
     const btn = document.querySelector("button");
 
     let url;
+    const feedID = "150zOMnzhyAvP0reRlbIAStSrSBhRH0uqnsVodXAoC3c";
+    const feed = "https://spreadsheet.google.com/feeds/list/" + feedID + "/1/public/values?alt=json";
+
     let myData = [
       ["Title", "Content"],
-      ["Row1", "Once"],
+      ["Row1", "Once, twice"],
       ["Row2", "upon"],
       ["Row3", "a time"],
     ];
@@ -38,8 +42,46 @@
       createCSV(myData);
     })
 
+    document.addEventListener("DOMContentLoaded", loadJSON);
+    function loadJSON() {
+      fetch(feed).then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        let mainArray = [];
+        let heading = [];
+        let firstRun = true;
+        data.feed.entry.forEach(function (item) {
+          let holder = [];
+          for (let key in item) {
+            if (key.substring(0, 3) == "gsx") {
+              if (firstRun) {
+                heading.push(key.split("$")[1])
+              }
+              holder.push(item[key].$t);
+            }
+          }
+          if (firstRun) {
+            firstRun = false;
+            mainArray.push(heading);
+          }
+          mainArray.push(holder);
+        })
+        myData = mainArray;
+      })
+    }
+
+    function clean(row) {
+      let rep = "";
+      row.forEach(function (cell, index) {
+        cell = cell == null ? "" : cell.toString();
+        if (cell.search(/("|,|\n)/g) >= 0) cell = '"' + cell + '"';
+        if (index > 0) rep += ",";
+        rep += cell;
+      })
+      return rep;
+    }
+
     function createCSV(data) {
-      console.log(data);
       let file;
       let holder = "";
       if (url !== null) {
@@ -48,19 +90,17 @@
       let filename = "test.csv";
       let properties = { type: "text/csv;charset=utf-8;" };
       data.forEach(function (item) {
-        holder += item.join() + "\n";
+        holder += clean(item) + "\n";
       });
       file = new File([holder], filename, properties);
       let link = document.createElement("a");
-      url = URL.createObjectURL(file);
+      url = window.URL.createObjectURL(file);
       link.setAttribute("href", url);
       link.setAttribute("download", filename);
       link.style.visibility = "hidden";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-
-      console.log(holder);
     }
   </script>
 </body>
