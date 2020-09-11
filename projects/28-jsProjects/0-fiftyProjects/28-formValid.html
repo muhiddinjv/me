@@ -5,12 +5,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Validation</title>
+  <style>
+    .hide {
+      display: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.8em;
+      font-family: serif;
+      font-style: italic;
+    }
+
+    input {
+      border-color: #ddd;
+      width: 400px;
+      display: block;
+      font-size: 1.5em;
+    }
+
+    #btn {
+      width: 408px;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- finished at 23:19/Sep11/2020 -->
   <h1>Form Validation</h1>
+  <form action="" name="myform">
+    Email: <input type="email" name="email">
+    <span class="error hide"></span><br>
+    Password: <input type="password" name="password">
+    <span class="error hide"></span><br>
+    User Name: <input type="text" name="userName">
+    <span class="error hide"></span><br>
+    <input type="submit" value="Sign Up" id="btn">
+  </form>
+
+  <!-- javascript --------------------------------------------->
   <script>
-    // adfasf
+    const myForm = document.querySelector("form");
+    const inputs = document.querySelectorAll("input");
+    const errors = document.querySelectorAll(".error");
+    const btn = document.getElementById('btn');
+    const required = ["email", "userName"];
+
+    myForm.addEventListener("submit", function (e) {
+      let data = {};
+      e.preventDefault();
+      errors.forEach(function (item) {
+        item.classList.add("hide");
+      })
+      let error = false;
+      inputs.forEach(function (el) {
+        let inpName = el.getAttribute("name");
+        if (inpName != null) {
+          el.style.borderColor = "#ddd";
+
+          if (el.value.length == 0 && required.includes(inpName)) {
+            addError(el, "Required Field", inpName);
+            error = true;
+          }
+
+          if (inpName == "email") {
+            let exp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+            let result = exp.test(el.value);
+            if (!result) {
+              addError(el, "Invalid Email", inpName);
+              error = true;
+            }
+          }
+
+          if (inpName == "password") {
+            let exp = /[A-Za-z0-9]+$/;
+            let cap = /[A-Z0-9]/;
+            let result = exp.test(el.value);
+            let capital = cap.test(el.value);
+            if (!capital) {
+              addError(el, "Add capital letter & number", inpName);
+              error = true;
+            }
+            if (!result) {
+              addError(el, "Only numbers & letters", inpName);
+              error = true;
+            }
+            if (el.value.length < 5) {
+              addError(el, "More than 4 characters", inpName);
+            }
+          }
+          data[inpName] = el.value;
+        }
+      })
+      if (!error) {
+        myForm.submit();
+      }
+    })
+
+    function addError(el, msg, inpName) {
+      let temp = el.nextElementSibling;
+      temp.classList.remove("hide");
+      temp.textContent = inpName.toUpperCase() + " " + msg;
+      el.style.borderColor = "red";
+      el.focus();
+    }
   </script>
 </body>
 
