@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess Number</title>
+  <style>
+    .replay {
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- started at 9:50AM/Sep12/2020 -->
+  <!-- finished at 12:30PM/Sep12/2020 -->
+  <div class="msg"></div>
+  <div class="output">
+    <input type="number">
+    <button>Guess</button>
+  </div>
+  <script>
+    let game = { "min": 1, "max": 10 };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      game.output = document.querySelector('.output');
+      game.msg = document.querySelector('.msg');
+      game.input = document.querySelector('input');
+      game.btn = document.querySelector('button');
+      game.btn.addEventListener("click", guessNum);
+      init();
+    })
+
+    function guessNum() {
+      if (game.btn.classList.contains("replay")) {
+        init();
+        game.btn.innerHTML = "Guess";
+        game.output.style.display = "flex";
+        game.input.style.display = "block";
+        game.btn.classList.remove("replay");
+      } else {
+        game.guesses++;
+        let guessInp = game.input.value;
+        game.input.value = "";
+        guessInp = Number(guessInp);
+        if (guessInp === game.num) {
+          msg(`Correct guess of ${game.num} in ${game.guesses} guesses`, "green");
+          gameOver();
+        } else {
+          let holder = guessInp > game.num ? { "c": "blue", "m": "It was lower!" } : { "c": "purple", "m": "It was higher!" }
+          msg(holder.m, holder.c);
+
+        }
+        console.log(game.num);
+      }
+    }
+
+
+    function gameOver() {
+      game.btn.innerHTML = "Restart Game";
+      game.input.style.display = "none";
+      game.btn.classList.add("replay");
+      game.max += 5;
+    }
+
+    function init() {
+      game.guesses = 0;
+      game.num = randomNum(game.min, game.max);
+      let tempMsg = `Guess a number from ${game.min} to ${game.max}`;
+      msg(tempMsg, "blue");
+    }
+
+    function randomNum() {
+      return Math.floor(Math.random() * (game.max - game.min + 1) + game.min);
+    };
+
+    function msg(mes, clr) {
+      game.msg.innerHTML = mes;
+      game.msg.style.color = clr || "black";
+      game.input.style.borderColor = clr || "black";
+      game.btn.style.backgroundColor = clr || "black";
+      game.btn.style.color = "white";
+    }
+
+  </script>
+</body>
+
+</html>
