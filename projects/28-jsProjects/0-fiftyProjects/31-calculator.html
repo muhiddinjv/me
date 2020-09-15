@@ -86,21 +86,16 @@
     const screen = document.querySelector('.screen');
 
     document.addEventListener('DOMContentLoaded', function () {
-      console.log('DOM is ready');
-
       btns.forEach(function (e) {
         e.addEventListener('click', function () {
           screen.innerText += e.innerText;
         })
       })
-
       // equal button
       equalBtn.addEventListener('click', function () {
-        let valueEval = eval(screen.innerText);
         // when clicked, it calculates whats on the screen
-        screen.innerText = valueEval;
+        screen.innerText = eval(screen.innerText);
       })
-
       // clear button
       clearBtn.addEventListener('click', function () {
         screen.innerText = '';
