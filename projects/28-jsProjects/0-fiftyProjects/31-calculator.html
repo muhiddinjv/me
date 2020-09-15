@@ -85,22 +85,21 @@
     const clearBtn = document.querySelector('.clearBtn');
     const screen = document.querySelector('.screen');
 
-    document.addEventListener('DOMContentLoaded', function () {
-      btns.forEach(function (e) {
-        e.addEventListener('click', function () {
-          screen.innerText += e.innerText;
-        })
-      })
-      // equal button
-      equalBtn.addEventListener('click', function () {
-        // when clicked, it calculates whats on the screen
-        screen.innerText = eval(screen.innerText);
-      })
-      // clear button
-      clearBtn.addEventListener('click', function () {
-        screen.innerText = '';
+    btns.forEach(function (e) {
+      e.addEventListener('click', function () {
+        screen.innerText += e.innerText;
       })
     })
+    // equal button
+    equalBtn.addEventListener('click', function () {
+      // when clicked, it calculates whats on the screen
+      screen.innerText = eval(screen.innerText);
+    })
+    // clear button
+    clearBtn.addEventListener('click', function () {
+      screen.innerText = '';
+    })
+
   </script>
 </body>
 
