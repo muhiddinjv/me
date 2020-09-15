@@ -90,8 +90,7 @@
 
       btns.forEach(function (e) {
         e.addEventListener('click', function () {
-          let myValue = e.innerText;
-          screen.innerText += myValue;
+          screen.innerText += e.innerText;
         })
       })
 
