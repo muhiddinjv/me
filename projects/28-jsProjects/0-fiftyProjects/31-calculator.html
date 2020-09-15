@@ -11,7 +11,7 @@
       justify-content: center;
     }
 
-    .myCal {
+    .wrapper {
       width: 280px;
       height: 340px;
       background-color: dimgray;
@@ -48,17 +48,24 @@
       cursor: pointer;
       vertical-align: middle;
       line-height: 50px;
+      /* transition: 300ms; */
     }
 
     .btn:hover {
-      background: cornsilk;
+      background: cadetblue;
+      color: white;
+    }
+
+    .btn2:hover {
+      background: palevioletred;
+      color: white;
     }
   </style>
 </head>
 
 <body>
   <!-- finished at 9:25PM/Sep15/2020 -->
-  <div class="myCal">
+  <div class="wrapper">
     <div class="screen"></div>
     <div class="btns">
       <div class="btn">1</div>
@@ -73,9 +80,9 @@
       <div class="btn">8</div>
       <div class="btn">9</div>
       <div class="btn">*</div>
-      <div class="clearBtn">C</div>
+      <div class="btn2 clearBtn">C</div>
       <div class="btn">0</div>
-      <div class="equalBtn">=</div>
+      <div class="btn2 equalBtn">=</div>
       <div class="btn">/</div>
     </div>
   </div>
