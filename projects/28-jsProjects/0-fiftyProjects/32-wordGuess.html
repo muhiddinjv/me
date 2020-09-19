@@ -9,12 +9,27 @@
 
 <body>
   <h1>Word Guess</h1>
+  <div class="msg">Press Start</div>
+  <button>Start Game</button>
+  <div class="game">game goes here</div>
+
   <script>
-    window.addEventListener('load', init);
-    function init() {
-      console.log('loaded');
-    }
+    const div = document.querySelector('.msg');
+    const btn = document.querySelector('button');
+    const game = document.querySelector('.game');
+    const myWords = ["javascript", "html", "course", "laurance", "coding", "brackets"];
+
+    window.addEventListener('load', function () {
+      btn.addEventListener('click', function () {
+        this.style.display = "none";
+        message("Select this word")
+      })
+      function message(output) {
+        div.innerHTML = output;
+      }
+    });
   </script>
+
 </body>
 
 </html>
