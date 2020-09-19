@@ -22,6 +22,19 @@
     window.addEventListener('load', function () {
       btn.addEventListener('click', function () {
         this.style.display = "none";
+        myWords.sort(function (a, b) {
+          return 0.5 - Math.random();
+        })
+        myWords.forEach(function (item) {
+          let temp = item.split("");
+          temp.sort(function (a, b) {
+            return 0.5 - Math.random();
+          })
+          let temp1 = temp.join("");
+          game.innerHTML = temp1;
+        })
+        console.log(myWords);
+
         message("Select this word")
       })
       function message(output) {
