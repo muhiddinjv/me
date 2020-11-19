@@ -9,16 +9,17 @@
 
 <body style="text-align:center;">
     <h2 class="output"></h2>
-    <input type="number" value="100" id="inp">
+    <input type="number" value="100">
     <button class="btn">Tip</button>
     <script>
         const h2 = document.querySelector('h2');
         const inp = document.querySelector('input');
         const btn = document.querySelector('button');
 
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             let tip = (inp.value * 0.15).toFixed(2);
-            h2.innerHTML = `You should tip $${tip} on ${inp.value}`;
+            // let tip = inp.value * 0.15;
+            h2.innerHTML = `You should tip $${tip} on $${inp.value}`;
         })
     </script>
 </body>

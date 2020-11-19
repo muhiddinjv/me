@@ -26,7 +26,7 @@
         // txt.addEventListener('keyup', textCounter);
         // txt.addEventListener('keydown', textCounter);
 
-        ["keyup", "keydown", "change"].forEach(function(e) {
+        ["keyup", "keydown", "change"].forEach(function (e) {
             txt.addEventListener(e, textCounter);
         })
 
@@ -42,7 +42,7 @@
             } else {
                 msg.classList.remove("red");
             }
-            msg.innerHTML = `${maxLength-count} characters left`;
+            msg.innerHTML = `${maxLength - count} characters left`;
         }
     </script>
 </body>

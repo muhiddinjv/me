@@ -18,8 +18,7 @@
         const btns = document.querySelectorAll('button');
 
         for (let i = 0; i < btns.length; i++) {
-            const el = btns[i];
-            el.addEventListener('click', coinToss);
+            btns[i].addEventListener('click', coinToss);
         }
 
         function coinToss(e) {

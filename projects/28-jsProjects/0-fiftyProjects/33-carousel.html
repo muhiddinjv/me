@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel</title>
+  <style>
+    .mySlides {
+      display: none;
+    }
+
+    .slideContainer {
+      width: 80%;
+      height: 60%;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slideContainer img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .dot {
+      height: 25px;
+      width: 25px;
+      margin: 2px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .indicator {
+      margin-top: 10px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .caption {
+      color: #f3f3f3;
+      font-size: 0.8em;
+      padding: 10px;
+      position: absolute;
+      bottom: 2px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .active {
+      background-color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Completed 11:52AM/Nov19/2020 -->
+  <div class="slideContainer"></div>
+  <div class="indicator"></div>
+  <script>
+    let slideIndex = 0;
+    let timer;
+    const myImages = [
+      {
+        "img": "img/cabin.png"
+        , "caption": "Hello World Image 1"
+      }
+      , {
+        "img": "img/cake.png"
+        , "caption": "Hello World Image 2"
+      }
+      , {
+        "img": "img/game.png"
+        , "caption": "Hello World Image 3"
+      }
+    ];
+
+    builder();
+    /* 
+      1. create a function called builder
+        2. create for loop for myImages
+          3. create div called slide
+          4. set class to mySlide fade
+          5. create img
+          6. set src to myImages[x].img
+          7. create div called cap
+          8. cap classList to caption
+          9. cap innerText to myImages[x].caption
+          10. append img & cap to slide
+          11. select slideContainer & append slide
+          12. create span & classList to dot
+          13. eventlistener > moveSlide(x);
+          14. select indicator & append span
+          15. playSlides()
+    */
+    function builder() {
+      for (let x = 0; x < myImages.length; x++) {
+        const slide = document.createElement('div');
+        const img = document.createElement('img');
+        const cap = document.createElement('div');
+        const span = document.createElement('span');
+
+        slide.setAttribute("class", "mySlide fade");
+        img.setAttribute("src", myImages[x].img);
+
+        cap.classList.add('caption');
+        cap.innerText = myImages[x].caption;
+
+        slide.appendChild(img);
+        slide.appendChild(cap);
+
+        document.querySelector('.slideContainer').appendChild(slide)
+        document.querySelector('.indicator').appendChild(span);
+
+        span.classList.add('dot');
+        span.addEventListener("click", () => { moveSlide(x) })
+      }
+      playSlides();
+    }
+    /*
+      16. playSlides
+          17. select all of mySlides and name slides
+          18. select all of dots and name dot
+          18. select all of active and name active
+          19. if slideIndex + 1 is greater than slides length then slideIndex = 0
+          20. forEach el style display none
+          21. set slides[slideIndex] display to block
+          22. increment slideIndex by 1
+          23. setTimeout for timer and playSlides every 3s
+    */
+    function playSlides() {
+      const slides = document.querySelectorAll('.mySlide');
+      const dots = document.querySelectorAll(".dot");
+      const active = document.querySelector(".active");
+      if (active != null) {
+        active.classList.remove("active");
+      }
+      if (slideIndex + 1 > slides.length) {
+        slideIndex = 0;
+      }
+      slides.forEach((el) => {
+        el.style.display = 'none';
+      })
+      slides[slideIndex].style.display = 'block';
+      dots[slideIndex].classList.add("active");
+      slideIndex++;
+      timer = setTimeout(playSlides, 3000)
+    }
+    /*
+      24. moveSlides
+          25. set slideindex equal to num
+          26. put timer in clearTimeout
+          27. playslides
+    */
+    function moveSlide(num) {
+      slideIndex = num;
+      clearTimeout(timer);
+      playSlides();
+    }
+  </script>
+</body>
+
+</html>
