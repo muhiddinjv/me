@@ -37,9 +37,16 @@
     <script>
         /*
           1. select msg, gamearea, button
-          2. add eventlistener to button
-          3. array named gameColors with 4 colors
-          4. add "load" eventlistener with "setup" function to window 
+          2. add eventlistener (EL) to btn & CLC (console log check)
+          3. array named gameColors with 4 colors 
+          4. add "load" EL with "setup" function to window & CLC
+            4.1. for loop with x<4 for 4 different elements
+                4.1.1 create variable "div" = function "eleFactory" with "div" as its parameter
+                4.1.2 append "div" to gamearea
+                4.1.3 add bgc to div equaling to gameColors[x] array
+          5. eleFactory function with "elType" parameter
+          6. variable ele that creates element with elType
+          7. return ele
         */
         const msg = document.querySelector('.msg');
         const gamearea = document.querySelector('.gamearea');
