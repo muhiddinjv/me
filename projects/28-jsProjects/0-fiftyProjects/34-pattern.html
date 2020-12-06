@@ -38,23 +38,60 @@
         /*
           1. select msg, gamearea, button
           2. add eventlistener (EL) to btn & CLC (console log check)
-          3. array named gameColors with 4 colors 
+          3. create array named gameColors with 4 colors 
           4. add "load" EL with "setup" function to window & CLC
-            4.1. for loop with x<4 for 4 different elements
-                4.1.1 create variable "div" = function "eleFactory" with "div" as its parameter
-                4.1.2 append "div" to gamearea
-                4.1.3 add bgc to div equaling to gameColors[x] array
+            4.0. for loop with x<4 for 4 different elements
+            4.1 create variable "div" = function "eleFactory" with "div" as its parameter
+            4.2 add bgc to div equaling to gameColors[x] array
+            4.3 set div opacity to 0.5
+            4.4 add classList of "box" to div
+            4.5 add EL to div with click checkAnswer func
+            (when u create a func, always have a corresponding func ready to go so that you avoid errors)
+            4.6 add myColor (hidden value) to div = gameColors[x];
+            4.? append "div" to gamearea
           5. eleFactory function with "elType" parameter
-          6. variable ele that creates element with elType
-          7. return ele
+            5.1. variable ele that creates element with elType
+            5.2. return ele
+          6. func checkAnswer with (e) parameter
+            (use shift+tab to move code left)
+            1. let el to get e.target when its clicked & CLC 
+            (START: Lesson_185._Store_Sequence_in_Array)
         */
+        const gameColors = ["red", "green", "blue", "yellow"];
         const msg = document.querySelector('.msg');
         const gamearea = document.querySelector('.gamearea');
         const btn = document.querySelector('button');
 
         btn.addEventListener('click', () => {
-            console.log('works');
+            console.log('button clicked');
         })
+
+        window.addEventListener('load', setup);
+
+        function setup(el) {
+            console.log('window loaded');
+            for (let x = 0; x < gameColors.length; x++) {
+                const el = gameColors[x];
+                let div = eleFactory("div");
+                div.style.backgroundColor = el;
+                div.style.opacity = "0.5";
+                div.classList.add("box");
+                div.myColor = el;
+                div.addEventListener("click", checkAnswer);
+                gamearea.appendChild(div);
+            }
+        }
+
+        function eleFactory(elType) {
+            let ele = document.createElement(elType);
+            return ele;
+        }
+
+        function checkAnswer(e) {
+            let el = e.target;
+            console.log(el);
+
+        }
 
     </script>
 </body>
