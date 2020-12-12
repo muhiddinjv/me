@@ -63,7 +63,7 @@
       11. add eventlistener (EL) to btn & CLC 
         11.1 check to see if inPlay is false
         12.2 if it's false, run the function "player()"
-      12. set up the player func.  
+      12. set up the player func(playNum).  
         12.1 apply property of "disabled" to btn and set it to true 
         (disables the ability to keep pressing the btn)
         12.2 place arrays of "gameClicks" and "userClicks" here
@@ -89,6 +89,8 @@
         15.8 set the opacity of squares[randomNum] to 1
         15.9 setTimeout with a function that lasts 500ms
           a) set the opacity of squares back to 0.5
+          b) setTimeout with a function that lasts 100ms
+           - runSequence(num) and try playNum = 5
 
 
     */
@@ -100,8 +102,9 @@
     let gameClicks = [];
     let userClicks = [];
     let inPlay = false;
-    let playNum = 1;
+    let playNum = 5;
 
+    window.addEventListener('load', setup);
     btn.addEventListener('click', () => {
       console.log('button clicked');
       if (!inPlay) {
@@ -113,7 +116,7 @@
       btn.disabled = true;
       gameClicks = [];
       userClicks = [];
-      runSequence();
+      runSequence(playNum);
     }
 
     function runSequence(num) {
@@ -128,12 +131,14 @@
       gameClicks.push(gameColors[randomNum]);
       console.log(gameClicks);
       squares[randomNum].style.opacity = "1";
-      setTimeout(function () {
+      setTimeout(() => {
         squares[randomNum].style.opacity = "0.5";
+        setTimeout(() => {
+          runSequence(num);
+        }, 100)
       }, 500)
     }
 
-    window.addEventListener('load', setup);
 
     function setup(el) {
       console.log('window loaded');
@@ -159,7 +164,7 @@
         let el = e.target;
         userClicks.push(el.myColor);
         el.style.opacity = "1";
-        setTimeout(function () {
+        setTimeout(() => {
           el.style.opacity = "0.5";
         }, 500)
         console.log(userClicks);
