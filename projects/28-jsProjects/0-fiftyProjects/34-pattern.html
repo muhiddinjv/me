@@ -2,98 +2,143 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pattern Match</title>
-    <style>
-        .gamearea {
-            width: 200px;
-            height: 200px;
-            font-size: 0;
-            border: 1px solid black;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern Match</title>
+  <style>
+    .gamearea {
+      width: 200px;
+      height: 200px;
+      font-size: 0;
+      border: 1px solid black;
+    }
 
-        .box {
-            width: 50%;
-            height: 50%;
-            color: black;
-            text-align: center;
-            display: inline-block;
-            font-size: 0;
-        }
+    .box {
+      width: 50%;
+      height: 50%;
+      color: black;
+      text-align: center;
+      display: inline-block;
+      font-size: 0;
+    }
 
-        .active {
-            border: 1px solid red;
-            color: red;
-        }
-    </style>
+    .active {
+      border: 1px solid red;
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- started at 10:12PM/Dec6/2020 -->
-    <div class="msg">Press Start</div>
-    <div class="gamearea"></div>
-    <button>Start</button>
-    <script>
-        /*
-          1. select msg, gamearea, button
-          2. add eventlistener (EL) to btn & CLC (console log check)
-          3. create array named gameColors with 4 colors 
-          4. add "load" EL with "setup" function to window & CLC
-            4.0. for loop with x<4 for 4 different elements
-            4.1 create variable "div" = function "eleFactory" with "div" as its parameter
-            4.2 add bgc to div equaling to gameColors[x] array
-            4.3 set div opacity to 0.5
-            4.4 add classList of "box" to div
-            4.5 add EL to div with click checkAnswer func
-            (when u create a func, always have a corresponding func ready to go so that you avoid errors)
-            4.6 add myColor (hidden value) to div = gameColors[x];
-            4.? append "div" to gamearea
-          5. eleFactory function with "elType" parameter
-            5.1. variable ele that creates element with elType
-            5.2. return ele
-          6. func checkAnswer with (e) parameter
-            (use shift+tab to move code left)
-            1. let el to get e.target when its clicked & CLC 
-            (START: Lesson_185._Store_Sequence_in_Array)
-        */
-        const gameColors = ["red", "green", "blue", "yellow"];
-        const msg = document.querySelector('.msg');
-        const gamearea = document.querySelector('.gamearea');
-        const btn = document.querySelector('button');
+  <!-- started at 10:12PM/Dec6/2020 -->
+  <!-- coded for 1.5 hour(s) -->
+  <div class="msg">Press Start</div>
+  <div class="gamearea"></div>
+  <button>Start</button>
+  <script>
+    /*
+      2. select msg, gamearea, button
+      3. create array named gameColors with 4 colors 
+      4. add "load" EL with "setup" function to window & CLC (console log check)
+        4.0. for loop with x<4 for 4 different elements
+        4.1 create variable "div" = function "eleFactory" with "div" as its parameter
+        4.2 add bgc to div equaling to gameColors[x] array
+        4.3 set div opacity to 0.5
+        4.4 add classList of "box" to div
+        4.5 add EL to div with click checkAnswer func
+        (when u create a func, always have a corresponding func ready to go so that you avoid errors)
+        4.6 add myColor (hidden value) to div = gameColors[x];
+        4.? append "div" to gamearea
+      5. eleFactory function with (elType) parameter
+        5.1. variable ele that creates element with elType
+        5.2. return ele
+      6. func checkAnswer with (e) parameter
+        (use shift+tab to move code left)
+        1. let el to get e.target when its clicked & CLC DONE
+      7. setup a global variable called "gameClicks" (blank) array to store clicked colors
+      8. setup another let variable called "userClick" (blank) array 
+      9. setup one more let variable called "inPlay" and set it to false = on/off gameplay
+      10. setup 1 more variable called "playNum" but it equals to 1; correct answer will increase 
+      the number to show more colors to remember at once. it's gonna keep getting harder & harder
+      11. add eventlistener (EL) to btn & CLC 
+        11.1 check to see if inPlay is false
+        12.2 if it's false, run the function "player()"
+      12. set up the player func.  
+        12.1 apply property of "disabled" to btn and set it to true 
+        (disables the ability to keep pressing the btn)
+        12.2 place arrays of "gameClicks" and "userClicks" here
+        12.3 run a function "runSequence()"
+      14. Check if the contents of checkanswer are inPlay
+        14.1 push userClicks() and output el.myColor into userClick()
+        14.2 take the elem and apply style + opacity = 1 to it 
+        14.3 setTimeout & within it, write another fuction
+           a) update the opacity and send it back to be 0.5
+           b) how long of a timeout we want? 500ms!
+        14.? else CLC userClicks
+      15. In runSequence, set inPlay to true
+      Watch esson_186._Set_Timeout_of_style
 
-        btn.addEventListener('click', () => {
-            console.log('button clicked');
-        })
+    */
+    const gameColors = ["red", "green", "blue", "yellow"];
+    const msg = document.querySelector('.msg');
+    const gamearea = document.querySelector('.gamearea');
+    const btn = document.querySelector('button');
 
-        window.addEventListener('load', setup);
+    let gameClicks = [];
+    let userClicks = [];
+    let inPlay = false;
+    let playNum = 1;
 
-        function setup(el) {
-            console.log('window loaded');
-            for (let x = 0; x < gameColors.length; x++) {
-                const el = gameColors[x];
-                let div = eleFactory("div");
-                div.style.backgroundColor = el;
-                div.style.opacity = "0.5";
-                div.classList.add("box");
-                div.myColor = el;
-                div.addEventListener("click", checkAnswer);
-                gamearea.appendChild(div);
-            }
-        }
+    btn.addEventListener('click', () => {
+      console.log('button clicked');
+      if (!inPlay) {
+        player();
+      }
+    })
 
-        function eleFactory(elType) {
-            let ele = document.createElement(elType);
-            return ele;
-        }
+    function player() {
+      btn.disabled = true;
+      gameClicks = [];
+      userClicks = [];
+      runSequence();
+    }
 
-        function checkAnswer(e) {
-            let el = e.target;
-            console.log(el);
+    function runSequence() {
+      inPlay = true;
+    }
 
-        }
+    window.addEventListener('load', setup);
 
-    </script>
+    function setup(el) {
+      console.log('window loaded');
+      for (let x = 0; x < gameColors.length; x++) {
+        const el = gameColors[x];
+        let div = eleFactory("div");
+        div.style.backgroundColor = el;
+        div.style.opacity = "0.5";
+        div.classList.add("box");
+        div.myColor = el;
+        div.addEventListener("click", checkAnswer);
+        gamearea.appendChild(div);
+      }
+    }
+
+    function eleFactory(elType) {
+      let ele = document.createElement(elType);
+      return ele;
+    }
+
+    function checkAnswer(e) {
+      if (inPlay) {
+        let el = e.target;
+        userClicks.push(el.myColor);
+        console.log(userClicks);
+      } else {
+        console.log("the game is off");
+      }
+    }
+
+  </script>
 </body>
 
 </html>
