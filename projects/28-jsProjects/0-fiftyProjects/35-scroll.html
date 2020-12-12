@@ -8,7 +8,7 @@
   <style>
     #cElement {
       background-color: #c9c9c9;
-      width: 1em;
+      width: 400px;
       font-size: 1em;
       position: relative;
       border: 1px solid black;
@@ -26,7 +26,7 @@
 
 <body>
   <!-- Started at 3:52/12.12.2020 -->
-  <!-- coded for 30 minute(s) -->
+  <!-- coded for 60 minute(s) -->
   <div>
     <input type="number" value="10">
     <div class="output"></div>
@@ -42,7 +42,7 @@
     const sElement = document.getElementById('sElement');
     const speed = document.querySelector('input');
     const output = document.querySelector('.output');
-    const content = "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, ad soluta. Repellendus earum assumenda voluptatibus doloremque a enim error, natus excepturi optio et sit recusandae velit consequuntur, nostrum itaque laudantium.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nemo consequatur laboriosam fugit similique tenetur neque distinctio corporis culpa, illo consequuntur recusandae est rem nihil id esse officia atque a.</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates obcaecati error velit nobis, officia, iste animi fugit earum commodi voluptatem inventore quo dolorum quisquam! Quos esse soluta libero corrupti eligendi!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus blanditiis ipsam perspiciatis soluta assumenda nisi voluptatibus saepe illo tenetur sed alias veritatis odit autem iusto fugit doloremque harum, rerum non!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero consequatur, impedit tempora quas incidunt quam quod tempore repudiandae doloremque qui, sunt, reprehenderit soluta beatae voluptate. Iste hic perspiciatis autem cum.</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet voluptates ipsa culpa voluptas fugit sunt ut et recusandae inventore quasi. Maiores voluptate eum culpa vero perferendis quia dolorem odio aspernatur?</p>"
+    const content = "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, ad soluta. Repellendus earum assumenda voluptatibus doloremque a enim error, natus excepturi optio et sit recusandae velit consequuntur, nostrum itaque laudantium.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nemo consequatur laboriosam fugit similique tenetur neque distinctio corporis culpa, illo consequuntur recusandae est rem nihil id esse officia atque a.</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates obcaecati error velit nobis, officia, iste animi fugit earum commodi voluptatem inventore quo dolorum quisquam! Quos esse soluta libero corrupti eligendi!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus blanditiis ipsam perspiciatis soluta assumenda nisi voluptatibus saepe illo tenetur sed alias veritatis odit autem iusto fugit doloremque harum, rerum non!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero consequatur, impedit tempora quas incidunt quam quod tempore repudiandae doloremque qui, sunt, reprehenderit soluta beatae voluptate. Iste hic perspiciatis autem cum.</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet voluptates ipsa culpa voluptas fugit sunt ut et recusandae inventore quasi. Maiores voluptate eum culpa vero perferendis quia dolorem odio aspernatur?</p>";
     /* 
       1. select btn, cEle, sEle, input, output
       2. add window.onload = setupScroll eventlistener 
@@ -68,11 +68,11 @@
       let temp = sElement.getBoundingClientRect();
       console.log(temp);
       cElement.style.height = temp.height + "px";
-      cElement.style.top = temp.height + "px";
+      sElement.style.top = temp.height + "px";
       scrollInt = setInterval(scrollingEle, 50);
     }
     function scrollingEle() {
-      console.log("working");
+      // console.log("working");
 
     }
   </script>
