@@ -31,8 +31,12 @@
 
 <body>
   <!-- started at 10:12PM/Dec6/2020 -->
-  <!-- coded for 3 hour(s) -->
-  <div class="msg">Press Start</div>
+  <!-- coded for 4 hour(s) -->
+  <div class="msg">
+    Score
+    <span class="score">0</span>
+    <span class="text"></span>
+  </div>
   <div class="gamearea"></div>
   <button>Start</button>
   <script>
@@ -104,23 +108,28 @@
         - setTimeout with a function that lasts 500ms
           a) set the opacity of squares back to 0.5
           b) setTimeout with a function that lasts 100ms
-           - runSequence(num) and try playNum = 5
+           - runSequence(num)
 
-
+      scoring system & a pop-up message is 100% my idea!
     */
     const gameColors = ["red", "green", "blue", "yellow"];
     const msg = document.querySelector('.msg');
     const gamearea = document.querySelector('.gamearea');
     const btn = document.querySelector('button');
+    const score = document.querySelector('.score');
+    let text = document.querySelector('.text');
+
 
     let gameClicks = [];
     let userClicks = [];
     let inPlay = false;
-    let playNum = 5;
+    let playNum = 1;
+    let pts = 0;
+
 
     window.addEventListener('load', setup);
     btn.addEventListener('click', () => {
-      console.log('button clicked');
+      // console.log('button clicked');
       if (!inPlay) {
         player();
       }
@@ -143,20 +152,19 @@
       let randomNum = Math.floor(Math.random() * gameColors.length);
       // console.log(squares[randomNum]);
       gameClicks.push(gameColors[randomNum]);
-      console.log(gameClicks);
+      // console.log(gameClicks);
       squares[randomNum].style.opacity = "1";
       setTimeout(() => {
         squares[randomNum].style.opacity = "0.5";
         setTimeout(() => {
-          runSequence(num);
-          // recursion = running a func within itself
+          runSequence(num);// recursion = running a func within itself
         }, 100)
       }, 500)
     }
 
 
     function setup(el) {
-      console.log('window loaded');
+      // console.log('window loaded');
       for (let x = 0; x < gameColors.length; x++) {
         const el = gameColors[x];
         let div = eleFactory("div");
@@ -186,9 +194,9 @@
           inPlay = false;
           endGame();
         }
-        console.log(userClicks);
+        // console.log(userClicks);
       } else {
-        console.log("the game is off");
+        // console.log("the game is off");
       }
     }
 
@@ -196,10 +204,29 @@
       btn.disabled = false;
       if (userClicks.toString() == gameClicks.toString()) {
         playNum++;
-        console.log('correct');
+        pts++;
+        text.textContent = " You got it!";
+        text.style = "color:green;font-weight:bold;";
+        msg.appendChild(text);
+        setTimeout(() => {
+          text.remove();
+        }, 1000)
+      } else if (pts <= 0) {
+        incorrect();
       } else {
-        console.log('not correct');
+        pts--;
+        incorrect();
       }
+      score.textContent = pts;
+    }
+
+    function incorrect() {
+      text.textContent = " Try again!";
+      text.style = "color:red;font-weight:bold;";
+      msg.appendChild(text);
+      setTimeout(() => {
+        text.remove();
+      }, 1000)
     }
 
   </script>
