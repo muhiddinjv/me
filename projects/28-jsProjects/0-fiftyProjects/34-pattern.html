@@ -132,6 +132,10 @@
       if (inPlay) {
         let el = e.target;
         userClicks.push(el.myColor);
+        el.style.opacity = 1;
+        setTimeout(function () {
+          el.style.opacity = 0.5;
+        }, 500)
         console.log(userClicks);
       } else {
         console.log("the game is off");
