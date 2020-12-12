@@ -67,7 +67,7 @@
         12.1 apply property of "disabled" to btn and set it to true 
         (disables the ability to keep pressing the btn)
         12.2 place arrays of "gameClicks" and "userClicks" here
-        12.3 run a function "runSequence()"
+        12.3 run a function "runSequence()" with playNum parameter
       14. Check if the contents of checkanswer are inPlay
         14.1 push userClicks() and output el.myColor into userClick()
         14.2 take the elem and apply style + opacity = 1 to it 
@@ -75,8 +75,21 @@
            a) update the opacity and send it back to be 0.5
            b) how long of a timeout we want? 500ms!
         14.? else CLC userClicks
-      15. In runSequence, set inPlay to true
-      Watch esson_186._Set_Timeout_of_style
+      15. create runSequence(num) function
+        15.1 let variable called "squares" that selects all the elements on that page that have a class of "box"
+        15.2 decrease the value of num by 1 
+        15.3 if the value of num is less than 0 then run...
+          a) set inPlay to true
+          (we're only gonna allow the user to build their sequence after our sequence has finished running. Otherwise, the user can click the colors as they appear) 
+          b) return;
+        15.4 create randomNum multiplied by gameColors.length 
+        15.5 CLC randomNum THEN use randomNum as index value within the squares to randomly select one of the elements (boxes)
+        15.6 push gameColors with randomNum as index val into gameClicks
+        15.7 CLC gameClicks
+        15.8 set the opacity of squares[randomNum] to 1
+        15.9 setTimeout with a function that lasts 500ms
+          a) set the opacity of squares back to 0.5
+
 
     */
     const gameColors = ["red", "green", "blue", "yellow"];
@@ -103,8 +116,21 @@
       runSequence();
     }
 
-    function runSequence() {
-      inPlay = true;
+    function runSequence(num) {
+      let squares = document.querySelectorAll('.box');
+      num--;
+      if (num < 0) {
+        inPlay = true;
+        return;
+      };
+      let randomNum = Math.floor(Math.random() * gameColors.length);
+      // console.log(squares[randomNum]);
+      gameClicks.push(gameColors[randomNum]);
+      console.log(gameClicks);
+      squares[randomNum].style.opacity = "1";
+      setTimeout(function () {
+        squares[randomNum].style.opacity = "0.5";
+      }, 500)
     }
 
     window.addEventListener('load', setup);
@@ -132,9 +158,9 @@
       if (inPlay) {
         let el = e.target;
         userClicks.push(el.myColor);
-        el.style.opacity = 1;
+        el.style.opacity = "1";
         setTimeout(function () {
-          el.style.opacity = 0.5;
+          el.style.opacity = "0.5";
         }, 500)
         console.log(userClicks);
       } else {
