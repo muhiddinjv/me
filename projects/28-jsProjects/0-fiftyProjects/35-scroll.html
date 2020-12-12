@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll</title>
+</head>
+
+<body>
+  <!-- Started at 3:52/12.12.2020 -->
+  <div>
+    <input type="number" value="10">
+    <div class="output"></div>
+    <div id="cElement">
+      <div id="sElement"></div>
+    </div>
+    <button>Click</button>
+  </div>
+
+  <script>
+    const btn = document.querySelector('button');
+    const cElement = document.getElementById('cElement');
+    const sElement = document.getElementById('sElement');
+    const speed = document.querySelector('input');
+    const output = document.querySelector('.output');
+
+    /* 
+      1. select btn, cEle, sEle, input, output
+      2. 
+    */
+
+    btn.addEventListener('click', () => {
+      console.log('clicked');
+    })
+  </script>
+</body>
+
+</html>
