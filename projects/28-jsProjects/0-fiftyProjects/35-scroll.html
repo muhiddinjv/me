@@ -56,7 +56,11 @@
         - set sEle's top to temp.height + "px"
         - set scrollint to setInterval with "scorillingEle" para, 50s
       4. function scrollingEle()
-        - CLO "working"
+        - set scrollSpeed at 10
+        - set posY to parseInt w/ sEle.style.top as a argument
+        - CLO use sElement top in parseInt as a argument to turn 10px into 10 (w/o px)
+
+
     */
     window.onload = setupScroll;
     btn.addEventListener('click', () => {
