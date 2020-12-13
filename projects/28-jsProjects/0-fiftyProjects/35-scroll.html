@@ -56,11 +56,14 @@
         - set sEle's top to temp.height + "px"
         - set scrollint to setInterval with "scorillingEle" para, 50s
       4. function scrollingEle()
-        - set scrollSpeed at 10
-        - set posY to parseInt w/ sEle.style.top as a argument
+        - var scrollSpeed at 10
+        - var posY to parseInt w/ sEle.style.top as a argument
         - CLO use sElement top in parseInt as a argument to turn 10px into 10 (w/o px)
-
-
+        - if posY plus sElement's clientHeight is greater than 0...
+          - set sElement's top equal to posY minus scrollSpeed plus "px"
+          else
+          - set sElement's top equal to cElem's clientHeight plus "px"
+        - update innerHTML of output with "Scroll speed" plus scrollSpeed plus " Y position" plus posY;
     */
     window.onload = setupScroll;
     btn.addEventListener('click', () => {
@@ -71,12 +74,20 @@
       sElement.innerHTML = content;
       let temp = sElement.getBoundingClientRect();
       console.log(temp);
-      cElement.style.height = temp.height + "px";
+      cElement.style.height = (temp.height / 2) + "px";
       sElement.style.top = temp.height + "px";
       scrollInt = setInterval(scrollingEle, 50);
     }
     function scrollingEle() {
-      // console.log("working");
+      let scrollSpeed = 10;
+      let posY = parseInt(sElement.style.top);
+      // console.log(parseInt(posY));
+      if (posY + sElement.clientHeight > 0) {
+        sElement.style.top = posY - scrollSpeed + "px";
+      } else {
+        sElement.style.top = cElement.clientHeight + "px";
+      }
+      output.innerHTML = `Scroll speed ${scrollSpeed} Y position ${posY}`;
 
     }
   </script>
