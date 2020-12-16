@@ -74,11 +74,16 @@
         - CLO e.type variable where e is the element that triggers the event
         - set scroller equal to ternary operator where e.type = "mouseenter" ? false : true
         - update the output innerHTML w/ "Mouse stopper"
+      11. change scrollSpeed value to speed.value
+      12. add scroller ^= true (toggle boolean value) to btn func
+      13. update btn's innnerText to scroller ? "Stop" : "Start"
 
     */
     window.onload = setupScroll;
     btn.addEventListener('click', () => {
       console.log('clicked');
+      scroller ^= true;
+      btn.innerText = scroller ? "Stop" : "Start";
     })
 
     function setupScroll() {
@@ -89,7 +94,7 @@
       scrollInt = setInterval(scrollingEle, 50);
     }
     function scrollingEle() {
-      let scrollSpeed = 10;
+      let scrollSpeed = speed.value;
       if (scroller) {
         let posY = parseInt(sElement.style.top);
         if (posY + sElement.clientHeight > 0) {
