@@ -26,7 +26,7 @@
 
 <body>
   <!-- Started at 3:52/12.12.2020 -->
-  <!-- coded for 2 hour(s) -->
+  <!-- coded for 2.5 hour(s) -->
   <div>
     <input type="number" value="10">
     <div class="output"></div>
@@ -42,6 +42,7 @@
     const sElement = document.getElementById('sElement');
     const speed = document.querySelector('input');
     const output = document.querySelector('.output');
+    let scroller = true;
     const content = "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, ad soluta. Repellendus earum assumenda voluptatibus doloremque a enim error, natus excepturi optio et sit recusandae velit consequuntur, nostrum itaque laudantium.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nemo consequatur laboriosam fugit similique tenetur neque distinctio corporis culpa, illo consequuntur recusandae est rem nihil id esse officia atque a.</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates obcaecati error velit nobis, officia, iste animi fugit earum commodi voluptatem inventore quo dolorum quisquam! Quos esse soluta libero corrupti eligendi!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus blanditiis ipsam perspiciatis soluta assumenda nisi voluptatibus saepe illo tenetur sed alias veritatis odit autem iusto fugit doloremque harum, rerum non!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero consequatur, impedit tempora quas incidunt quam quod tempore repudiandae doloremque qui, sunt, reprehenderit soluta beatae voluptate. Iste hic perspiciatis autem cum.</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet voluptates ipsa culpa voluptas fugit sunt ut et recusandae inventore quasi. Maiores voluptate eum culpa vero perferendis quia dolorem odio aspernatur?</p>";
     /* 
       1. select btn, cEle, sEle, input, output
@@ -65,12 +66,14 @@
             - set sElement's top equal to posY minus scrollSpeed plus "px"
             else
             - set sElement's top equal to cElem's clientHeight plus "px"
-        - update innerHTML of output with "Scroll speed" plus scrollSpeed plus " Y position" plus posY;
-      5. addEventlistener to cEle with mouseenter event & scrollSpeed func
-      6. addEventlistener to cEle with mouseleave event & scrollSpeed func
-      7. scrollSpeed(e) func
+        - update innerHTML of output with "Scroll speed" plus scrollSpeed plus " Y position" plus posY
+      7. global variable called "scroller" set to "true"
+      8. select cElement & add mouseenter with scrollSpeed func
+      9. select cElement & add mouseleave with scrollSpeed func
+      10. scrollSpeed(e) func
         - CLO e.type variable where e is the element that triggers the event
         - set scroller equal to ternary operator where e.type = "mouseenter" ? false : true
+        - update the output innerHTML w/ "Mouse stopper"
 
     */
     window.onload = setupScroll;
@@ -87,14 +90,27 @@
     }
     function scrollingEle() {
       let scrollSpeed = 10;
-      let posY = parseInt(sElement.style.top);
-      if (posY + sElement.clientHeight > 0) {
-        sElement.style.top = posY - scrollSpeed + "px";
-      } else {
-        sElement.style.top = cElement.clientHeight + "px";
+      if (scroller) {
+        let posY = parseInt(sElement.style.top);
+        if (posY + sElement.clientHeight > 0) {
+          sElement.style.top = posY - scrollSpeed + "px";
+        } else {
+          sElement.style.top = cElement.clientHeight + "px";
+        }
+        output.innerHTML = `Scroll speed ${scrollSpeed} Y position ${posY}`;
       }
-      output.innerHTML = `Scroll speed ${scrollSpeed} Y position ${posY}`;
     }
+
+    cElement.addEventListener('mouseenter', scrollSpeed);
+    cElement.addEventListener('mouseleave', scrollSpeed);
+
+    function scrollSpeed(e) {
+      // console.log(e.type);
+      scroller = (e.type == "mouseenter") ? false : true;
+      output.innerHTML = "Mouse stopper";
+    }
+
+
   </script>
 </body>
 
