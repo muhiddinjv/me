@@ -109,9 +109,6 @@
     <div class="tooltip">
       <select id="toggle">
         <option selected disabled>toggle</option>
-        <option>bold</option>
-        <option>italic</option>
-        <option>center</option>
       </select>
       <span class="tooltiptext">Toggle Class</span>
     </div>
@@ -138,7 +135,11 @@
     <button id="addBtn">Add</button>
     <button id="updateBtn">Update</button>
     <br>
-    <div id="output" contenteditable="true">Hello World!</div>
+    <div id="output">
+      <div contenteditable="true">This is a div</div>
+      <p contenteditable="true">This is a paragraph</p>
+      <span contenteditable="true">This is a span</span>
+    </div>
   </div>
 
 
@@ -155,6 +156,13 @@
     const addBtn = document.querySelector('#addBtn');
     const update = document.querySelector('#updateBtn');
     const output = document.getElementById('output');
+    let nodeLister;
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   nodeLister = document.querySelectorAll('#output>*');
+    //   nodeLister.forEach((item) => {
+    //     console.log(item);
+    //   })
+    // })
 
     addBtn.addEventListener('click', () => {
       let item = document.createElement(add.value);
@@ -163,12 +171,18 @@
     })
 
     update.addEventListener('click', () => {
-      output.innerText = name.value;
-      output.style.backgroundColor = bg.value;
-      output.style.color = txt.value;
-      output.style.fontSize = size.value + "px";
-      output.style.padding = padding.value + "px";
-      output.classList.toggle(toggle.value);
+      nodeLister = document.querySelectorAll('#output>*');
+      nodeLister.forEach((item, index) => {
+        // item.innerText = name.value;
+        // item.style.backgroundColor = bg.value;
+        // item.style.color = txt.value;
+        // item.style.fontSize = size.value + "px";
+        // item.style.padding = padding.value + "px";
+        // item.classList.toggle(toggle.value);
+        console.log(index, item);
+
+      })
+
     })
   </script>
 </body>
