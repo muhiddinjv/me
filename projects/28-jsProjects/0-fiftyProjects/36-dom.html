@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit DOM</title>
+  <style>
+    * {
+      margin: 2px 0;
+    }
+
+    .container {
+      margin-left: 10px;
+    }
+
+    select {
+      height: 21px;
+    }
+
+    #txt,
+    #bg {
+      height: 17px;
+    }
+
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 100px;
+      background-color: teal;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      top: 150%;
+      left: 60%;
+      margin-left: -60px;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent teal transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    #size,
+    #padding {
+      width: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Started at 11:05PM/Dec16/2020 -->
+  <!-- coded for 2 hours -->
+  <div class="container">
+    <div class="tooltip">
+      <input type="text" id="name" value="Enter Text">
+      <!-- <span class="tooltiptext">Enter Text</span> -->
+    </div>
+
+    <div class="tooltip">
+      <select id="add">
+        <option value="add" selected disabled>add</option>
+        <option value="span">span</option>
+        <option value="div">div</option>
+        <option value="p">p</option>
+      </select>
+      <span class="tooltiptext">Add Item</span>
+    </div>
+
+    <div class="tooltip">
+      <select id="select">
+        <option value="select" selected disabled>choose</option>
+        <option value="span">span</option>
+        <option value="div">div</option>
+        <option value="p">p</option>
+      </select>
+      <span class="tooltiptext">Select Item</span>
+    </div>
+
+    <div class="tooltip">
+      <select id="toggle">
+        <option value="toggle" selected disabled>toggle</option>
+        <option value="span">padded</option>
+        <option value="div">border</option>
+        <option value="p">margin</option>
+      </select>
+      <span class="tooltiptext">Toggle Class</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="color" id="bg" value="#444444">
+      <span class="tooltiptext">Bg Color</span>
+    </div>
+    <div class="tooltip">
+      <input type="color" id="txt" value="#ffffff">
+      <span class="tooltiptext">Text Color</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="number" id="size" value="22">
+      <span class="tooltiptext">Font Size</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="number" id="padding" value="11">
+      <span class="tooltiptext">Padding</span>
+    </div>
+    <br>
+    <button id="addBtn">Add</button>
+    <button id="updateBtn">Update</button>
+    <br>
+    <div id="output" contenteditable="true">Hello World!</div>
+  </div>
+
+
+
+  <script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', (e) => {
+      div.innerText = text.value;
+      div.style.backgroundColor = bgc.value;
+      div.style.color = txtCol.value;
+      div.style.fontSize = size.value + "px";
+      div.style.padding = padding.value + "px";
+    })
+  </script>
+</body>
+
+</html>
