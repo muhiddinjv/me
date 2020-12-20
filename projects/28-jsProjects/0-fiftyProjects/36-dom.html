@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit DOM</title>
+  <title>DOMinator</title>
   <style>
     .container>* {
       margin: 2px 0;
@@ -20,21 +20,13 @@
     }
 
     #size,
-    #padding {
+    #padding,
+    #radius {
       width: 50px;
-    }
-
-    .border {
-      border: solid teal 2px;
     }
 
     .center {
       text-align: center;
-    }
-
-    .tooltip {
-      position: relative;
-      display: inline-block;
     }
 
     .italic {
@@ -43,6 +35,11 @@
 
     .bold {
       font-weight: bold;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
     }
 
     .tooltip .tooltiptext {
@@ -79,16 +76,12 @@
 
 <body>
   <!-- Started at 11:05PM/Dec16/2020 -->
-  <!-- coded for 2.5 hours -->
+  <!-- coded for 6 hours -->
   <div class="container">
-    <div class="tooltip">
-      <input type="text" id="name" value="Enter Text">
-      <!-- <span class="tooltiptext">Enter Text</span> -->
-    </div>
+    <input type="text" id="name" value="Enter text">
 
     <div class="tooltip">
       <select id="add">
-        <option selected disabled>add</option>
         <option>span</option>
         <option>div</option>
         <option>p</option>
@@ -97,25 +90,31 @@
     </div>
 
     <div class="tooltip">
-      <select id="select">
-        <option selected disabled>choose</option>
-        <option>span</option>
-        <option>div</option>
-        <option>p</option>
-      </select>
+      <select id="select"></select>
       <span class="tooltiptext">Select Item</span>
     </div>
 
     <div class="tooltip">
       <select id="toggle">
-        <option selected disabled>toggle</option>
+        <option>italic</option>
+        <option>center</option>
+        <option>bold</option>
       </select>
       <span class="tooltiptext">Toggle Class</span>
     </div>
 
     <div class="tooltip">
+      <select id="border">
+        <option>dotted</option>
+        <option>double</option>
+        <option>ridge</option>
+      </select>
+      <span class="tooltiptext">Border Style</span>
+    </div>
+
+    <div class="tooltip">
       <input type="color" id="bg" value="#444444">
-      <span class="tooltiptext">Bg Color</span>
+      <span class="tooltiptext">BG Color</span>
     </div>
     <div class="tooltip">
       <input type="color" id="txt" value="#ffffff">
@@ -123,25 +122,30 @@
     </div>
 
     <div class="tooltip">
-      <input type="number" id="size" value="22">
+      <input type="number" id="size" value="15">
       <span class="tooltiptext">Font Size</span>
     </div>
 
     <div class="tooltip">
-      <input type="number" id="padding" value="11">
+      <input type="number" id="radius" value="10">
+      <span class="tooltiptext">Border Radius</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="number" id="padding" value="5">
       <span class="tooltiptext">Padding</span>
     </div>
     <br>
+
     <button id="addBtn">Add</button>
     <button id="updateBtn">Update</button>
-    <br>
+
     <div id="output">
-      <div contenteditable="true">This is a div</div>
-      <p contenteditable="true">This is a paragraph</p>
-      <span contenteditable="true">This is a span</span>
+      <div>This is a div</div>
+      <p>This is a paragraph</p>
+      <span>Click here & press "Del"</span>
     </div>
   </div>
-
 
 
   <script>
@@ -149,41 +153,78 @@
     const add = document.getElementById('add');
     const select = document.getElementById('select');
     const toggle = document.getElementById('toggle');
-    const bg = document.getElementById('bg');
+    const bgc = document.getElementById('bg');
     const txt = document.getElementById('txt');
     const size = document.getElementById('size');
     const padding = document.getElementById('padding');
+    const radius = document.getElementById('radius');
+    const border = document.getElementById('border');
     const addBtn = document.querySelector('#addBtn');
     const update = document.querySelector('#updateBtn');
-    const output = document.getElementById('output');
+    let output = document.getElementById('output');
     let nodeLister;
-    // document.addEventListener('DOMContentLoaded', () => {
-    //   nodeLister = document.querySelectorAll('#output>*');
-    //   nodeLister.forEach((item) => {
-    //     console.log(item);
-    //   })
-    // })
 
     addBtn.addEventListener('click', () => {
       let item = document.createElement(add.value);
       item.innerText = name.value;
-      document.body.appendChild(item);
+      item.contentEditable = true;
+      output.appendChild(item);
+      dropDownBuilder();
+      item.addEventListener('keydown', delElement);
     })
 
-    update.addEventListener('click', () => {
-      nodeLister = document.querySelectorAll('#output>*');
-      nodeLister.forEach((item, index) => {
-        // item.innerText = name.value;
-        // item.style.backgroundColor = bg.value;
-        // item.style.color = txt.value;
-        // item.style.fontSize = size.value + "px";
-        // item.style.padding = padding.value + "px";
-        // item.classList.toggle(toggle.value);
-        console.log(index, item);
+    update.addEventListener('click', (e) => {
+      let temp = nodeLister[select.value];
+      temp.innerText = name.value;
+      temp.style.backgroundColor = bgc.value;
+      temp.style.color = txt.value;
+      temp.style.fontSize = size.value + "px";
+      temp.style.padding = padding.value + "px";
+      temp.style.borderRadius = radius.value + "px";
+      temp.style.borderStyle = border.value;
+      temp.classList.toggle(toggle.value);
+    })
 
+    document.addEventListener("DOMContentLoaded", () => {
+      nodeLister = document.querySelectorAll("#output>*");
+      editable();
+      dropDownBuilder();
+      removerElements();
+    })
+
+
+    function removerElements() {
+      nodeLister.forEach(function (item) {
+        item.addEventListener('keydown', delElement)
       })
+    }
 
-    })
+    function delElement(e) {
+      if (e.keyCode == 46) {
+        e.preventDefault();
+        output.removeChild(this)
+        dropDownBuilder();
+        // console.log(e.keyCode, e.key);
+      }
+    }
+
+    function editable() {
+      nodeLister.forEach(function (item) {
+        item.contentEditable = true;
+      })
+    }
+
+    function dropDownBuilder() {
+      select.innerHTML = "";
+      nodeLister = document.querySelectorAll("#output>*");
+      nodeLister.forEach(function (item, index) {
+        let opt = document.createElement("option");
+        opt.value = index;
+        opt.innerHTML = item.tagName.toLowerCase();
+        select.appendChild(opt);
+      })
+    }
+
   </script>
 </body>
 
