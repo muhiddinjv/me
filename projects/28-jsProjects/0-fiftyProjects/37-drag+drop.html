@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag+Drop</title>
+  <style>
+    .copyMe {
+      display: inline-block;
+      padding: 15px;
+      border: 1px solid black;
+      position: absolute;
+      max-width: 120px;
+      text-align: center;
+      height: 40px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Started at 10:19AM/Dec21/2020 -->
+  <div class="copyMe">JavaScript</div>
+  <div class="copyMe">WordPress</div>
+  <div class="copyMe">Python</div>
+  <div class="copyMe">React</div>
+  <div class="copyMe">Vue</div>
+
+  <script>
+    const copy = document.querySelectorAll('.copyMe');
+    copy.forEach((el, ind) => {
+      el.addEventListener('click', (e) => {
+        console.log(ind);
+      })
+    })
+
+  </script>
+</body>
+
+</html>
