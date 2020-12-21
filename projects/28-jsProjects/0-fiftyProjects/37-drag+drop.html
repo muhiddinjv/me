@@ -11,10 +11,17 @@
       padding: 15px;
       border: 1px solid black;
       position: absolute;
-      max-width: 120px;
+      width: 60px;
       text-align: center;
       height: 40px;
       cursor: pointer;
+    }
+
+    .copies {
+      cursor: move;
+      background: green;
+      left: 200px;
+      top: 200px;
     }
   </style>
 </head>
@@ -28,11 +35,29 @@
   <div class="copyMe">Vue</div>
 
   <script>
-    const copy = document.querySelectorAll('.copyMe');
-    copy.forEach((el, ind) => {
+    /*
+      0. select all 5 divs with "copyMe" class
+      1. create a global empty object called "holder"
+      2. use forEach to loop thru & get the element + index of the divs
+      3. attach eventlistener w/ click event & function(e)
+        - within the holder object, create an object called "obj" & equal it to el.cloneNode(true) which duplicates a node on which this method was called
+        - CLO (console log out) holder.obj to see the clone elements in the console
+        - add a class called "copies" to holder.obj
+        - append hojder.obj to body of the document
+      4. update the elem style using "left" = index multiplied by 140 + "px"
+
+    */
+    const div = document.querySelectorAll('.copyMe');
+    let holder = {};
+
+    div.forEach((el, ind) => {
       el.addEventListener('click', (e) => {
-        console.log(ind);
+        holder.obj = el.cloneNode(true);
+        // console.log(holder.obj);
+        holder.obj.classList.add("copies");
+        document.body.appendChild(holder.obj);
       })
+      el.style.left = ind * 100 + "px";
     })
 
   </script>
