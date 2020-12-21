@@ -17,7 +17,7 @@
       cursor: pointer;
     }
 
-    .copies {
+    .clone {
       cursor: move;
       background: green;
       left: 200px;
@@ -40,11 +40,31 @@
       1. create a global empty object called "holder"
       2. use forEach to loop thru & get the element + index of the divs
       3. attach eventlistener w/ click event & function(e)
-        - within the holder object, create an object called "obj" & equal it to el.cloneNode(true) which duplicates a node on which this method was called
-        - CLO (console log out) holder.obj to see the clone elements in the console
-        - add a class called "copies" to holder.obj
-        - append hojder.obj to body of the document
+        - within the holder object, create an object called "obj"
+        - variable called "clone" which equals to holder.obj;
+        - clone equals to el.cloneNode(true) which duplicates clicked element
+        - CLO (console log out) clone to see the clone elements in the console
+        - add a class called "clone" to clone
+        - set clone.startX equal to el.offsetLeft;
+        - set clone.startY equal to el.offsetTop;
+        - attach moves to clone and equal it to Math.floor(Math.random()*25)
+        - clone.int = setInterval with a function of "mover" which runs every 25s
+        - create a function called "mover"
+          - if clone.moves is less than or equal to 0 then...
+            - clearInterval of clone.int
+          - else decrease clone.moves--;
+            - attach startY variable to clone which plus+equals to 10
+            - attach startX variable to clone which plus+equals to 3
+            - change clone's top to clone.startY + "px"
+            - change clone's left to clone.startX + "px"
+            - dsfsfsf
+        - append clone to body of the document & CLO clone
       4. update the elem style using "left" = index multiplied by 140 + "px"
+
+      cursor: move;
+      background: green;
+      left: 200px;
+      top: 200px;
 
     */
     const div = document.querySelectorAll('.copyMe');
@@ -52,10 +72,26 @@
 
     div.forEach((el, ind) => {
       el.addEventListener('click', (e) => {
-        holder.obj = el.cloneNode(true);
-        // console.log(holder.obj);
-        holder.obj.classList.add("copies");
-        document.body.appendChild(holder.obj);
+        let clone = holder.obj;
+        clone = el.cloneNode(true);
+        clone.classList.add("clone");
+        clone.startX = el.offsetLeft;
+        clone.startY = el.offsetTop;
+        clone.moves = Math.floor(Math.random() * 25);
+        clone.int = setInterval(mover, 25);
+        function mover() {
+          if (clone.moves <= 0) {
+            clearInterval(clone.int);
+          } else {
+            clone.moves--;
+            clone.startY += 10;
+            clone.startX += 1;
+            clone.style.top = clone.startY + "px";
+            clone.style.left = clone.startX + "px";
+          }
+        }
+        document.body.appendChild(clone);
+        // console.log(clone);
       })
       el.style.left = ind * 100 + "px";
     })
