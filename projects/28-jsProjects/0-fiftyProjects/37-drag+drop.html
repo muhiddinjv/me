@@ -22,20 +22,31 @@
       left: 200px;
       top: 200px;
     }
+
+    #trash {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      background: #222;
+      left: 500px;
+      top: 300px;
+    }
   </style>
 </head>
 
 <body>
   <!-- Started at 10:19AM/Dec21/2020 -->
-  <!-- Coded for 1.5 hours -->
+  <!-- Coded for 2 hours -->
   <div class="copyMe">JavaScript</div>
   <div class="copyMe">WordPress</div>
   <div class="copyMe">Python</div>
   <div class="copyMe">React</div>
   <div class="copyMe">Vue</div>
+  <div id="trash"></div>
 
   <script>
     /*
+      0. select 
       0. select all 5 divs with "copyMe" class
       1. create a global empty object called "holder"
       2. use forEach to loop thru & get the element + index of the divs
@@ -44,8 +55,8 @@
         - variable called "clone" which equals to holder.obj;
         - clone equals to el.cloneNode(true) which duplicates clicked element
         - CLO (console log out) clone to see the clone elements in the console
-        - let ranColor = "#" + Math.random().toString(16).substr(-6);
-        - set clone's background to ranColor;
+        - let randomColor = "#" + Math.random().toString(16).substr(-6);
+        - set clone's background to randomColor;
         - add a class called "clone" to clone
         - set clone.startX equal to el.offsetLeft;
         - set clone.startY equal to el.offsetTop;
@@ -80,16 +91,24 @@
             - add newY to pos and equal it to e.clientY
             - update el top equalling it to  (el.offsetTop - pos.oldY) + "px"
             - update el left equalling it to  (el.offsetLeft - pos.oldX) + "px"
+            - if isCollide(el) true, then...
+              - CLO "OVER"
+              - else CLO "OK"
+      6. select the element with the "trash" id and "a" for property
+        - setup aRect which equals to a.getBoundingClientRect()
+        - setup bRect which equals to trash.getBoundingClientRect() & CLO aRect
+        - return!(aRect.bottom corner is smallar bRect.top) or (aRect.top corner bigger than bRect.bottom)or (aRect.right is smallar than b.Rect.left) or (aRect.left corner is greater than bRect.right conrner)
     */
     const div = document.querySelectorAll('.copyMe');
+    const trash = document.getElementById('trash');
     let holder = {};
 
     div.forEach((el, ind) => {
       el.addEventListener('click', (e) => {
         let clone = holder.obj;
         clone = el.cloneNode(true);
-        let myColor = "#" + Math.random().toString(16).substr(-6);
-        clone.style.background = myColor;
+        let randomColor = "#" + Math.random().toString(16).substr(-6);
+        clone.style.background = randomColor;
         clone.classList.add("clone");
         clone.startX = el.offsetLeft;
         clone.startY = el.offsetTop;
@@ -107,8 +126,8 @@
         }, 25)
         document.body.appendChild(clone);
         // console.log(clone);
-
         dragger(clone);
+
         function dragger(el) {
           let pos = {};
           el.onmousedown = dragMouse;
@@ -125,16 +144,30 @@
               pos.oldY = pos.newY - e.clientY; // move vertically
               pos.newX = e.clientX;
               pos.newY = e.clientY;
+              if (isCollide(el)) {
+                console.log('over');
+              } else {
+                console.log('ok');
+              }
               el.style.top = (el.offsetTop - pos.oldY) + "px";
               el.style.left = (el.offsetLeft - pos.oldX) + "px";
             }
           }
-
         }
       })
       el.style.left = ind * 100 + "px";
     })
 
+    function isCollide(el) {
+      let aRect = el.getBoundingClientRect();
+      let bRect = trash.getBoundingClientRect();
+      console.log(aRect);
+      return !(
+        (aRect.bottom < bRect.top) ||
+        (aRect.top > bRect.bottom) ||
+        (aRect.right < bRect.left) ||
+        (aRect.left > bRect.right))
+    }
   </script>
 </body>
 
