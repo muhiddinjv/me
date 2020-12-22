@@ -19,7 +19,6 @@
 
     .clone {
       cursor: move;
-      background: green;
       left: 200px;
       top: 200px;
     }
@@ -45,6 +44,8 @@
         - variable called "clone" which equals to holder.obj;
         - clone equals to el.cloneNode(true) which duplicates clicked element
         - CLO (console log out) clone to see the clone elements in the console
+        - let ranColor = "#" + Math.random().toString(16).substr(-6);
+        - set clone's background to ranColor;
         - add a class called "clone" to clone
         - set clone.startX equal to el.offsetLeft;
         - set clone.startY equal to el.offsetTop;
@@ -87,6 +88,8 @@
       el.addEventListener('click', (e) => {
         let clone = holder.obj;
         clone = el.cloneNode(true);
+        let myColor = "#" + Math.random().toString(16).substr(-6);
+        clone.style.background = myColor;
         clone.classList.add("clone");
         clone.startX = el.offsetLeft;
         clone.startY = el.offsetTop;
@@ -104,6 +107,7 @@
         }, 25)
         document.body.appendChild(clone);
         // console.log(clone);
+
         dragger(clone);
         function dragger(el) {
           let pos = {};
@@ -117,8 +121,8 @@
               document.onmousemove = null;
             }
             document.onmousemove = (e) => {
-              pos.oldX = pos.newX - e.clientX;
-              pos.oldY = pos.newY - e.clientY;
+              pos.oldX = pos.newX - e.clientX; // move horizontally
+              pos.oldY = pos.newY - e.clientY; // move vertically
               pos.newX = e.clientX;
               pos.newY = e.clientY;
               el.style.top = (el.offsetTop - pos.oldY) + "px";
