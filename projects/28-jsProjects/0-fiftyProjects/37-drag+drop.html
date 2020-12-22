@@ -28,6 +28,7 @@
 
 <body>
   <!-- Started at 10:19AM/Dec21/2020 -->
+  <!-- Coded for 1.5 hours -->
   <div class="copyMe">JavaScript</div>
   <div class="copyMe">WordPress</div>
   <div class="copyMe">Python</div>
@@ -48,8 +49,7 @@
         - set clone.startX equal to el.offsetLeft;
         - set clone.startY equal to el.offsetTop;
         - attach moves to clone and equal it to Math.floor(Math.random()*25)
-        - clone.int = setInterval with a function of "mover" which runs every 25s
-        - create a function called "mover"
+        - clone.int = setInterval with a function which runs every 25s
           - if clone.moves is less than or equal to 0 then...
             - clearInterval of clone.int
           - else decrease clone.moves--;
@@ -59,7 +59,26 @@
             - change clone's left to clone.startX + "px"
             - dsfsfsf
         - append clone to body of the document & CLO clone
+        - create a function called "dragger" and pass in "clone" as property
       4. update the elem style using "left" = index multiplied by 140 + "px"
+      5. dragger function with el property
+        - setup a global object called "pos" to use as a default position
+        - add onmousedown to el equalling to the function of "dragMouse"
+        - create dragMouse with e property
+          - add newX to pos and equal it to e.clientX
+          - add newY to pos and equal it to e.clientY
+          - CLO the 2 positions of the current element
+          - add onmouseup to document and equal it to function
+            - add onmouseup equalling to null to document
+            - add onmousemove equalling to null to document
+          - add onmousemove to document and equal it to function(e)
+              whenever the mouse is moving, we wanna move the element alongside of it
+            - take the position of oldX, equal to pos.newX minus e.clientX
+            - take the position of oldY, equal to pos.newY minus e.clientY
+            - add newX to pos and equal it to e.clientX
+            - add newY to pos and equal it to e.clientY
+            - update el top equalling it to  (el.offsetTop - pos.oldY) + "px"
+            - update el left equalling it to  (el.offsetLeft - pos.oldX) + "px"
     */
     const div = document.querySelectorAll('.copyMe');
     let holder = {};
@@ -72,8 +91,7 @@
         clone.startX = el.offsetLeft;
         clone.startY = el.offsetTop;
         clone.moves = Math.floor(Math.random() * 25);
-        clone.int = setInterval(mover, 25);
-        function mover() {
+        clone.int = setInterval(() => {
           if (clone.moves <= 0) {
             clearInterval(clone.int);
           } else {
@@ -83,9 +101,32 @@
             clone.style.top = clone.startY + "px";
             clone.style.left = clone.startX + "px";
           }
-        }
+        }, 25)
         document.body.appendChild(clone);
         // console.log(clone);
+        dragger(clone);
+        function dragger(el) {
+          let pos = {};
+          el.onmousedown = dragMouse;
+          function dragMouse(e) {
+            pos.newX = e.clientX;
+            pos.newY = e.clientY;
+            console.log(pos.newX, pos.newY);
+            document.onmouseup = () => {
+              document.onmouseup = null;
+              document.onmousemove = null;
+            }
+            document.onmousemove = (e) => {
+              pos.oldX = pos.newX - e.clientX;
+              pos.oldY = pos.newY - e.clientY;
+              pos.newX = e.clientX;
+              pos.newY = e.clientY;
+              el.style.top = (el.offsetTop - pos.oldY) + "px";
+              el.style.left = (el.offsetLeft - pos.oldX) + "px";
+            }
+          }
+
+        }
       })
       el.style.left = ind * 100 + "px";
     })
