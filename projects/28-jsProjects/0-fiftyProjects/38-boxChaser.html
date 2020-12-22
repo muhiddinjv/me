@@ -41,6 +41,30 @@
   <!-- Started at 4:38PM/Dec22/2020 -->
   <div class="gameArea"></div>
   <div>Score: <span class="score">0</span></div>
+
+  <script>
+    /*
+      0. create a global object called "box"
+      1. Select score & gameArea elements
+      3. variable to getBoundingClientRect of gameArea
+      4. create a global array called "squares"
+      5. global object called "gamebox" to select out starting position
+        - x:Math.floor(gameArea.width/100), -- horizontal position
+        (we chose 100 b/c thats the width of boxes)
+        - y:Math.floor(gameArea.height/100), -- vertical position
+    */
+    let box = {};
+    const score = document.querySelector('.score');
+    const gameAreaEle = document.querySelector('.gameArea');
+    const gameArea = gameAreaEle.getBoundingClientRect();
+    let squares = [];
+    let gamebox = {
+      x: Math.floor(gameArea.width / 100),
+      y: Math.floor(gameArea.height / 100)
+    }
+    console.log(gamebox);
+
+  </script>
 </body>
 
 </html>
