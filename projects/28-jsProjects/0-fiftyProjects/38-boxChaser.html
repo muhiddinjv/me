@@ -8,7 +8,7 @@
   <style>
     .gameArea {
       width: 800px;
-      height: 200px;
+      height: 300px;
     }
 
     .score {
@@ -39,6 +39,7 @@
 
 <body>
   <!-- Started at 4:38PM/Dec22/2020 -->
+  <!-- Coded for 1 hours -->
   <div class="gameArea"></div>
   <div>Score: <span class="score">0</span></div>
 
@@ -52,6 +53,24 @@
         - x:Math.floor(gameArea.width/100), -- horizontal position
         (we chose 100 b/c thats the width of boxes)
         - y:Math.floor(gameArea.height/100), -- vertical position
+      6. add DOMContentLoaded eventlistener and build function
+      7. Initiate the build function...
+        - add div createEle to box
+        - add class of "box" to box
+        - box.x equals to gameArea's top 
+        - box.y equals to gameArea's left 
+        - box top equals to box.y + "px"
+        - box left equals to box.x + "px"
+        - append box to gameAreaEle & CLO box
+        - to count the squares, create a variable called counter and set it to 1
+        - create for loop where gamebox.y is greater than y
+          - another for loop where gamebox.x is greater than x
+            - create squares with "counter" index equalling to doc.createEl('div')
+            - set squares[counter] innerHTML to counter
+            - add class of "square" to squares[counter]
+            - append square[counter] to gameAreaEle
+            - counter++
+      8. asdfsf
     */
     let box = {};
     const score = document.querySelector('.score');
@@ -62,7 +81,28 @@
       x: Math.floor(gameArea.width / 100),
       y: Math.floor(gameArea.height / 100)
     }
-    console.log(gamebox);
+    document.addEventListener('DOMContentLoaded', build);
+
+    function build() {
+      box = document.createElement('div');
+      box.classList.add('box');
+      box.x = gameArea.left;
+      box.y = gameArea.top;
+      box.top = box.y + "px";
+      box.left = box.x + "px";
+      gameAreaEle.appendChild(box);
+      console.log(box);
+      let counter = 1;
+      for (let y = 0; y < gamebox.y; y++) {
+        for (let x = 0; x < gamebox.x; x++) {
+          squares[counter] = document.createElement('div');
+          squares[counter].innerHTML = counter;
+          squares[counter].classList.add('square');
+          gameAreaEle.appendChild(squares[counter]);
+          counter++;
+        }
+      }
+    }
 
   </script>
 </body>
