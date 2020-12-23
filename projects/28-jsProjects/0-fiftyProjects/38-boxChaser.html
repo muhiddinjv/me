@@ -70,7 +70,14 @@
             - add class of "square" to squares[counter]
             - append square[counter] to gameAreaEle
             - counter++
-      8. asdfsf
+      8. setup  a new object called "player" after the "gamebox" object
+        - speed:100,square:1,score:0
+      9. addeventlistener to document with keyup func(e)
+        - CLO(e) & create an object called "allowKey"
+          - in it,  37:"left",38:"up",39:"right",40:"down"
+        - if allowKey[e.keyCode] exists then handleKeyPress()
+      10. HandleKeyPress function & pass in the value of "key"
+        - CLO key
     */
     let box = {};
     const score = document.querySelector('.score');
@@ -81,7 +88,23 @@
       x: Math.floor(gameArea.width / 100),
       y: Math.floor(gameArea.height / 100)
     }
+    let player = {
+      speed: 100, square: 1, score: 0
+    }
+
     document.addEventListener('DOMContentLoaded', build);
+    document.addEventListener('keyup', (e) => {
+      console.log(e.keyCode);
+
+      let allowKey = {
+        37: "left", 38: "up", 39: "right", 40: "down"
+      }
+      if (allowKey[e.keyCode]) { handleKeyPress(allowKey[e.keyCode]); }
+    })
+
+    function handleKeyPress(key) {
+      console.log(key);
+    }
 
     function build() {
       box = document.createElement('div');
