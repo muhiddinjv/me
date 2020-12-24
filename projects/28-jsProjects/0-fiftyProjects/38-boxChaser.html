@@ -22,6 +22,13 @@
       background-color: red;
     }
 
+    .boxBlue {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+
     .square {
       position: relative;
       border: 1px solid #ddd;
@@ -44,7 +51,8 @@
 
 <body>
   <!-- Started at 4:38PM/Dec22/2020 -->
-  <!-- Coded for 3 hours -->
+  <!-- Coded for 4 hours -->
+  <!-- Finished at 6:10PM/Dec24/2020 -->
   <div class="gameArea"></div>
   <div>Score: <span class="score">0</span></div>
 
@@ -120,7 +128,7 @@
     function makeActive() {
       let randomNum = Math.floor(Math.random() * squares.length);
       if (randomNum != 0 && player.square != randomNum) {
-        console.log(randomNum);
+        // console.log(randomNum);
         squares[randomNum].classList.add('active');
       } else {
         makeActive();
@@ -146,6 +154,14 @@
       }
       box.style.left = box.x + "px";
       box.style.top = box.y + "px";
+
+      if (squares[player.square].classList.contains("active")) {
+        // console.log('FOUND');
+        squares[player.square].classList.remove("active");
+        makeActive();
+        player.score++;
+        score.innerHTML = player.score;
+      }
     }
 
     function build() {
@@ -167,6 +183,7 @@
           counter++;
         }
       }
+      makeActive();
     }
 
   </script>
