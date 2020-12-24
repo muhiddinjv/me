@@ -44,7 +44,7 @@
 
 <body>
   <!-- Started at 4:38PM/Dec22/2020 -->
-  <!-- Coded for 1 hours -->
+  <!-- Coded for 3 hours -->
   <div class="gameArea"></div>
   <div>Score: <span class="score">0</span></div>
 
@@ -82,11 +82,12 @@
           - in it,  37:"left",38:"up",39:"right",40:"down"
         - if allowKey[e.keyCode] exists then handleKeyPress()
       10. HandleKeyPress function & pass in the value of "key"
-        - for RIGHT/LEFT >> if (key === "left/right") {
-          box.x/y -= player.speed;
-          player.square--;(UP/DOWN player.square-= gamebox.x/y;)
-        - box.style.left/right = box.x/y + "px";
-          
+        - for RIGHT/LEFT >> 
+        if (key === "left" && box.x>gameArea.left) {
+          box.x -= player.speed;
+          player.square--;
+          (for UP/DOWN player.square -= gamebox.x;)
+        - box.style.left = box.x + "px";          
       }
     */
     let box = {};
@@ -111,19 +112,21 @@
     })
 
     function handleKeyPress(key) {
-      if (key === "left") {
+      console.log(key);
+
+      if (key === "left" && box.x > gameArea.left) {
         box.x -= player.speed;
         player.square--;
       }
-      if (key === "right") {
+      if (key === "right" && box.x < gameArea.right - box.offsetWidth) {
         box.x += player.speed;
         player.square++;
       }
-      if (key === "down") {
+      if (key === "down" && box.y < gameArea.bottom - box.offsetHeight) {
         box.y += player.speed;
         player.square += gamebox.x;
       }
-      if (key === "up") {
+      if (key === "up" && box.y > gameArea.top) {
         box.y -= player.speed;
         player.square -= gamebox.x;
       }
