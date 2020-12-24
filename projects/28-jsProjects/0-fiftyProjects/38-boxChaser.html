@@ -83,11 +83,17 @@
         - if allowKey[e.keyCode] exists then handleKeyPress()
       10. HandleKeyPress function & pass in the value of "key"
         - for RIGHT/LEFT >> 
-        if (key === "left" && box.x>gameArea.left) {
+        if (key === "left" && box.x < gameArea.right - box.offsetWidth(add to right/down) ) {
           box.x -= player.speed;
           player.square--;
           (for UP/DOWN player.square -= gamebox.x;)
-        - box.style.left = box.x + "px";          
+        - box.style.left = box.x + "px"; 
+      11. create a function called makeActice 
+        - create a random number by multiplying math.random by squares.length
+        - if randomNum is not equal to 0 and player.square isn't equal to randomNum...
+          - CLO randomNum 
+          - use randomNum as an index for squares and add class list of "active" to it
+        - ELSE makeActive()       
       }
     */
     let box = {};
@@ -111,9 +117,17 @@
       if (allowKey[e.keyCode]) { handleKeyPress(allowKey[e.keyCode]); }
     })
 
-    function handleKeyPress(key) {
-      console.log(key);
+    function makeActive() {
+      let randomNum = Math.floor(Math.random() * squares.length);
+      if (randomNum != 0 && player.square != randomNum) {
+        console.log(randomNum);
+        squares[randomNum].classList.add('active');
+      } else {
+        makeActive();
+      }
+    }
 
+    function handleKeyPress(key) {
       if (key === "left" && box.x > gameArea.left) {
         box.x -= player.speed;
         player.square--;
@@ -132,8 +146,6 @@
       }
       box.style.left = box.x + "px";
       box.style.top = box.y + "px";
-      console.log(player.square);
-
     }
 
     function build() {
