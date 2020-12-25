@@ -6,13 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Box Chaser</title>
   <style>
+    body {
+      text-align: center;
+    }
+
     .gameArea {
       width: 800px;
       height: 600px;
     }
 
     .score {
-      font-size: 3em;
+      font-size: 2em;
     }
 
     .box {
@@ -22,11 +26,11 @@
       background-color: red;
     }
 
-    .boxBlue {
+    .box2 {
+      background-color: blue;
       position: absolute;
       width: 100px;
       height: 100px;
-      background-color: blue;
     }
 
     .square {
@@ -46,66 +50,45 @@
       background-color: green;
       color: white;
     }
+
+    .flex {
+      width: 800px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .border {
+      border: 1px solid #ddd;
+      padding: 2px 10px;
+      width: 78px;
+      font-weight: bold;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .blue {
+      color: blue;
+    }
   </style>
 </head>
 
 <body>
   <!-- Started at 4:38PM/Dec22/2020 -->
-  <!-- Coded for 4 hours -->
-  <!-- Finished at 6:10PM/Dec24/2020 -->
+  <!-- Coded for 6 hours -->
+  <!-- Finished at 12:42APM/Dec25/2020 -->
   <div class="gameArea"></div>
-  <div>Score: <span class="score">0</span></div>
+  <div class="flex">
+    <div class="border red">Red: <span class="score">0</span></div>
+    <div class="border blue">Blue: <span class="score score2">0</span></div>
+  </div>
 
   <script>
-    /*
-      0. create a global object called "box"
-      1. Select score & gameArea elements
-      3. variable to getBoundingClientRect of gameArea
-      4. create a global array called "squares"
-      5. global object called "gamebox" to select out starting position
-        - x:Math.floor(gameArea.width/100), -- horizontal position
-        (we chose 100 b/c thats the width of boxes)
-        - y:Math.floor(gameArea.height/100), -- vertical position
-      6. add DOMContentLoaded eventlistener and build function
-      7. Initiate the build function...
-        - add div createEle to box
-        - add class of "box" to box
-        - box.x equals to gameArea's top 
-        - box.y equals to gameArea's left 
-        - box top equals to box.y + "px"
-        - box left equals to box.x + "px"
-        - append box to gameAreaEle & CLO box
-        - to count the squares, create a variable called counter and set it to 1
-        - create for loop where gamebox.y is greater than y
-          - another for loop where gamebox.x is greater than x
-            - create squares with "counter" index equalling to doc.createEl('div')
-            - set squares[counter] innerHTML to counter
-            - add class of "square" to squares[counter]
-            - append square[counter] to gameAreaEle
-            - counter++
-      8. setup  a new object called "player" after the "gamebox" object
-        - speed:100,square:1,score:0
-      9. addeventlistener to document with keyup func(e)
-        - CLO(e) & create an object called "allowKey"
-          - in it,  37:"left",38:"up",39:"right",40:"down"
-        - if allowKey[e.keyCode] exists then handleKeyPress()
-      10. HandleKeyPress function & pass in the value of "key"
-        - for RIGHT/LEFT >> 
-        if (key === "left" && box.x < gameArea.right - box.offsetWidth(add to right/down) ) {
-          box.x -= player.speed;
-          player.square--;
-          (for UP/DOWN player.square -= gamebox.x;)
-        - box.style.left = box.x + "px"; 
-      11. create a function called makeActice 
-        - create a random number by multiplying math.random by squares.length
-        - if randomNum is not equal to 0 and player.square isn't equal to randomNum...
-          - CLO randomNum 
-          - use randomNum as an index for squares and add class list of "active" to it
-        - ELSE makeActive()       
-      }
-    */
     let box = {};
+    let box2 = {};
     const score = document.querySelector('.score');
+    const score2 = document.querySelector('.score2');
     const gameAreaEle = document.querySelector('.gameArea');
     const gameArea = gameAreaEle.getBoundingClientRect();
     let squares = [];
@@ -116,13 +99,28 @@
     let player = {
       speed: 100, square: 1, score: 0
     }
+    let player2 = {
+      speed2: 100, square2: 1, score2: 0
+    }
 
     document.addEventListener('DOMContentLoaded', build);
+    document.addEventListener('DOMContentLoaded', build2);
+
+    // red box buttons -----------------------------------
     document.addEventListener('keyup', (e) => {
       let allowKey = {
         37: "left", 38: "up", 39: "right", 40: "down"
       }
       if (allowKey[e.keyCode]) { handleKeyPress(allowKey[e.keyCode]); }
+    })
+
+    // red box buttons -----------------------------------
+    document.addEventListener('keyup', (e) => {
+      let allowKey2 = {
+        65: "left", 87: "up", 68: "right", 83: "down"
+      }
+
+      if (allowKey2[e.keyCode]) { handleKeyPress2(allowKey2[e.keyCode]); }
     })
 
     function makeActive() {
@@ -164,15 +162,36 @@
       }
     }
 
-    function build() {
-      box = document.createElement('div');
-      box.classList.add('box');
-      box.y = gameArea.top;
-      box.x = gameArea.left;
-      box.top = box.y + "px";
-      box.left = box.x + "px";
-      gameAreaEle.appendChild(box);
-      // console.log(box);
+    function handleKeyPress2(key) {
+      if (key === "left" && box2.x > gameArea.left) {
+        box2.x -= player2.speed2;
+        player2.square2--;
+      }
+      if (key === "right" && box2.x < gameArea.right - box2.offsetWidth) {
+        box2.x += player2.speed2;
+        player2.square2++;
+      }
+      if (key === "down" && box2.y < gameArea.bottom - box2.offsetHeight) {
+        box2.y += player2.speed2;
+        player2.square2 += gamebox.x;
+      }
+      if (key === "up" && box2.y > gameArea.top) {
+        box2.y -= player2.speed2;
+        player2.square2 -= gamebox.x;
+      }
+      box2.style.left = box2.x + "px";
+      box2.style.top = box2.y + "px";
+
+      if (squares[player2.square2].classList.contains("active")) {
+        // console.log('FOUND');
+        squares[player2.square2].classList.remove("active");
+        makeActive();
+        player2.score2++;
+        score2.innerHTML = player2.score2;
+      }
+    }
+
+    function boxes() {
       let counter = 1;
       for (let y = 0; y < gamebox.y; y++) {
         for (let x = 0; x < gamebox.x; x++) {
@@ -183,8 +202,31 @@
           counter++;
         }
       }
+    }
+
+    function build() {
+      box = document.createElement('div');
+      box.classList.add('box');
+      box.y = gameArea.top;
+      box.x = gameArea.left;
+      box.top = box.y + "px";
+      box.left = box.x + "px";
+      gameAreaEle.appendChild(box);
+      // makeActive();
+    }
+
+    function build2() {
+      box2 = document.createElement('div');
+      box2.classList.add('box2');
+      box2.y = gameArea.top;
+      box2.x = gameArea.left;
+      box2.top = box2.y + "px";
+      box2.left = box2.x + "px";
+      gameAreaEle.appendChild(box2);
+      boxes();
       makeActive();
     }
+
 
   </script>
 </body>
