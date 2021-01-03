@@ -57,6 +57,12 @@
         - CLO e.srcElement.innerText.indexOf(" ") (index num of space)
         - all we need is set, get, delete, and so we need to slice that...
         - var temp e.srcElement.innerText.substr(returns a part of the string)(0.e.srcElement.innerText.indexOf(" ")) & CLO temp
+        - create an object called v
+        - do forEach loop for getVals w/ func w/ item,index properties
+          - CLO item.getAttribute("name") & use it as a value for tempName var
+          - let tempValue terenary operator = if tempName is not equal to cookieExpire then item.value BUT if it is true then item.valueAsDate;   
+          - v[tempName] = tempValue;
+        - CLO v
     */
 
     btns.forEach((btn) => {
@@ -75,7 +81,14 @@
     function btnAction(e) {
       // console.log(e.srcElement.innerText.indexOf(" "));
       let temp = e.srcElement.innerText.substr(0, e.srcElement.innerText.indexOf(" "));
-      // console.log(temp);
+      let v = {};
+      getVals.forEach((item, index) => {
+        let tempName = item.getAttribute("name");
+        let tempValue = tempName != "cookieExpire" ? item.value : item.valueAsDate;
+        v[tempName] = tempValue;
+      })
+      console.log(v);
+
     }
   </script>
 </body>
