@@ -63,6 +63,19 @@
           - let tempValue terenary operator = if tempName is not equal to cookieExpire then item.value BUT if it is true then item.valueAsDate;   
           - v[tempName] = tempValue;
         - CLO v
+        - if temp is equal to Set then run setCookie func w/ param of v.cookieName, v.cookieValue, v.cookieExpire
+        - else if temp = Get then run getCookie w/ param of v.cookieName
+        - else if temp = Delete then run earaseCookie w/ param of v.cookieName
+        - else if temp = All then run listCookies();
+      4. func setCookie with the name,value,exp values 
+        - CLO exp.toUTCString() to get UTC string needed to set expiry date
+        - if value.length is higher than 0 then...
+          - set cookie into document & pass in the param in backticks name = encodeURIComponent(value); path=/; expires='exp.toUTCString()'
+          - output.textContent = backticks cookie (name) set
+          - ELSE > output.textContent = "Cookie needs a value"
+      5. func getCookie with the name value
+      6. func earaseCookie with the name value
+      7. func listCookie
     */
 
     btns.forEach((btn) => {
@@ -88,6 +101,27 @@
         v[tempName] = tempValue;
       })
       console.log(v);
+      if (temp == "Set") {
+        setCookie(v.cookieName, v.cookieValue, v.cookieExpire)
+      }
+      else if (temp == "Get") { getCookie(e.cookieName) }
+      else if (temp == "Delete") { delCookie(e.cookieName) }
+      else if (temp == "All") { listCookie() }
+    }
+    function setCookie(name, value, exp) {
+      console.log(exp.toUTCString());
+      if (value.length > 0) {
+        document.cookie = name + "=" + encodeURIComponent(value) + "; path=/; expires=" + exp.toUTCString();
+      }
+    }
+    function getCookie(name) {
+      console.log('getcookie here');
+    }
+    function delCookie(name) {
+      console.log('delcookie here');
+    }
+    function listCookie() {
+      console.log('listcookie here');
 
     }
   </script>
