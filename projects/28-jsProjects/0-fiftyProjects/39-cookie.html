@@ -9,7 +9,7 @@
     input {
       display: block;
       font-size: 1em;
-      width: 86%;
+      width: 400px;
     }
 
     button {
@@ -28,7 +28,8 @@
 
 <body>
   <!-- Started at 9:30PM / Jan3, 2021 -->
-  <!-- Coded for 2 hours -->
+  <!-- Coded for 4 hours -->
+  <!-- Finished at 12:30AM / Jan5, 2021 -->
   <input type="text" name="cookieName" value="cookie name">
   <input type="text" name="cookieValue" value="cookie value">
   <input type="date" name="cookieExpire">
@@ -75,8 +76,25 @@
           - output.textContent = backticks cookie (name) set
           - ELSE > output.textContent = "Cookie needs a value"
       5. func getCookie with the name value
-      6. func earaseCookie with the name value
+        - split doc.cookies w/ ; and store it in cookies var
+        - update output w/ "no cookies found"
+        - loop thru cookies w/ forEach and use item,index as param
+         - item = remove white space w/ item.trim method
+         - let tempCookie = split item with "=";
+         - if tempCookie[0] is stictly equal to name then...
+          - update output with "found: "+tempCookie[0].trim()+ " is " + decodeURIComponent(tempCookie[1]);
+         - CLO tempCookie
+      6. func delCookie with the name value
+        - document.cookie = name + "=; path=/; expires=Thu, 01 Jan 1979 00:00:01 GMT;";
+        - update the textContent of output and set equal to "Cookie" +name+ "removed"
       7. func listCookie
+        - copy everything from getCookie function and place here
+        - remove "no cookies found"
+        - inside forEach, create a div & set its attribute to 1)class 2)cookie
+        - addeventlistener w/ click func
+          - delCookie(tempCookie[0]);
+        - div.textContent = tempCookie[0].trim() + " " + decodeURIComponent(tempCookie[1]);
+        output.appendChild(div);
     */
 
     btns.forEach((btn) => {
@@ -90,7 +108,7 @@
       let month = ("0" + (now.getMonth() + 1)).slice(-2);
       let year = now.getFullYear();
       document.querySelector("input[type=date]").value = `${year}-${month}-${day}`;
-      console.log(month, day, year);
+      // console.log(month, day, year);
     })
     function btnAction(e) {
       // console.log(e.srcElement.innerText.indexOf(" "));
@@ -101,29 +119,53 @@
         let tempValue = tempName != "cookieExpire" ? item.value : item.valueAsDate;
         v[tempName] = tempValue;
       })
-      console.log(v);
+      // console.log(v);
       if (temp == "Set") {
         setCookie(v.cookieName, v.cookieValue, v.cookieExpire)
       }
-      else if (temp == "Get") { getCookie(e.cookieName) }
-      else if (temp == "Delete") { delCookie(e.cookieName) }
+      else if (temp == "Get") { getCookie(v.cookieName) }
+      else if (temp == "Delete") { delCookie(v.cookieName) }
       else if (temp == "All") { listCookie() }
     }
     function setCookie(name, value, exp) {
-      console.log(exp.toUTCString());
+      // console.log(exp.toUTCString());
       if (value.length > 0) {
         document.cookie = name + "=" + encodeURIComponent(value) + "; path=/; expires=" + exp.toUTCString();
       }
     }
     function getCookie(name) {
-      console.log('getcookie here');
+      let cookies = document.cookie.split(";");
+      output.textContent = "No cookies found";
+      cookies.forEach((item, index) => {
+        item = item.trim();
+        let tempCookie = item.split("=");
+        if (tempCookie[0] === name) {
+          output.textContent = "found: " + tempCookie[0].trim() + " is " + decodeURIComponent(tempCookie[1]);
+        }
+      })
     }
-    function delCookie(name) {
-      console.log('delcookie here');
-    }
-    function listCookie() {
-      console.log('listcookie here');
 
+    function delCookie(name) {
+      document.cookie = name + "=; path=/; expires=Thu, 01 Jan 1979 00:00:01 GMT;";
+      output.textContent = "Cookie " + name + " Removed";
+    }
+
+    function listCookie() {
+      let cookies = document.cookie.split(";");
+      cookies.forEach((item, index) => {
+        item = item.trim();
+        let tempCookie = item.split("=");
+
+        if (tempCookie[0].length > 0) {
+          let div = document.createElement('div');
+          div.setAttribute("class", "cookie");
+          div.addEventListener("click", () => {
+            delCookie(tempCookie[0]);
+          })
+          div.textContent = tempCookie[0].trim() + " " + decodeURIComponent(tempCookie[1]);
+          output.appendChild(div);
+        }
+      })
     }
   </script>
 </body>
