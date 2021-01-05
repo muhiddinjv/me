@@ -40,8 +40,8 @@
       margin-top: 20px;
     }
 
-    .message {
-      font-size: 2.5em;
+    .msg {
+      font-size: 1.5em;
       margin-top: 20px;
       font-family: cursive;
     }
@@ -50,6 +50,9 @@
 
 <body>
   <!-- started at 10:50AM/Jan5,2021 -->
+  <!-- coded for 3 hours -->
+  <!-- finished at 16:50PM/Jan5,2021 -->
+
   <div class="output1"></div>
   <div class="output2"></div>
   <div class="msg"></div>
@@ -86,6 +89,7 @@
             - CLO temp to see that you can't click a letter 2x
             - let counter = 0 to count how many letters the player has right
             - let guess = 0 to count how many of the letters the player got
+            - let mes; to output it into the innerHTML only once
             - attach forEach to solutionLetter
               - check if letter.innerHTML isnt equal to "_" then
                 - counter++
@@ -94,8 +98,11 @@
                 - guess++
             - if guess is greater than 0, then...
               - let mul guess > 1 ? "times":"time";
-              - let mes = backticks `you found (temp) letter (guess)`
+              - mes = `you found (temp) letter (guess) (mul)`
+              - update the color of msg with "green"
+            - ELSE > msg color to red & mes = "Not found"
             - let letterLeft = subtract (guess+counter) from solutionLetter.length
+            - set the innerHTML of msg to mes + "<br>" + letterLeft;
             - CLO letterLeft
             - if letterLeft is higher than 1, then...
               - set btn's display to "block"
@@ -103,7 +110,7 @@
           - set the div's innerHTML equal to temp
           - append the div to output1
     */
-    const myWords = ["aa", "bb", "cc"];
+    const myWords = ["javascript", "muhiddin", "react"];
     let player = {};
     const msg = document.querySelector(".msg");
     const output1 = document.querySelector('.output1');
@@ -147,6 +154,7 @@
           div.classList.add('done');
           let guess = 0;
           let counter = 0;
+          let mes;
           solutionLetter.forEach((letter) => {
             if (letter.innerHTML != "_") {
               counter++;
@@ -157,15 +165,19 @@
             }
           })
           if (guess > 0) {
-            console.log(`You found ${guess} letters`);
-
+            let mul = guess > 1 ? "times" : "time";
+            mes = `you found ${temp} letter ${guess} ${mul}`
+            msg.style.color = "green";
+          } else {
+            mes = "Not found";
+            msg.style.color = "red";
           }
           let letterLeft = solutionLetter.length - (guess + counter);
-          console.log(letterLeft);
-          if (letterLeft > 1) {
+          msg.innerHTML = mes + "<br>" + letterLeft + " letters left";
+          // console.log(letterLeft);
+          if (letterLeft < 1) {
             btn.style.display = "block";
           }
-
         }
         div.addEventListener('click', handler);
         div.innerHTML = temp;
