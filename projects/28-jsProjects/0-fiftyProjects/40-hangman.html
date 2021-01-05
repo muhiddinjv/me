@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HangMan</title>
+  <style>
+    .letter {
+      display: inline-block;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      margin-left: 10px;
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+
+    .letter2 {
+      display: inline-block;
+      padding: 5px;
+      margin-left: 10px;
+      font-size: 3em;
+    }
+
+    .done {
+      cursor: default;
+      color: #ddd;
+      border: 1px solid white;
+    }
+
+    button {
+      background-color: red;
+      width: 150px;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.5em;
+      color: white;
+      border-radius: 11px;
+      margin-top: 20px;
+    }
+
+    .message {
+      font-size: 2.5em;
+      margin-top: 20px;
+      font-family: cursive;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- started at 10:50AM/Jan5,2021 -->
+  <div class="output1"></div>
+  <div class="output2"></div>
+  <div class="msg"></div>
+  <button>Start</button>
+
+  <script>
+    /* 
+      1. addevelis to btn n func
+        - set innerHTML of output1,2 to "";
+        - if myWords.length is greater than 0
+          - set the display style of the button equal to "none" to hide it when the game starts
+          - take myWords and sort(func) it alphabetically
+            - func > return the sorted item & multiply it by .5 substract Math.random()
+          - var theWord = use shift on the myWords array to remove the first ele from the array and return it
+          - add a value called "solution" to the player object and equal it to theWord.split(""); which splits the word into letters and places them in the player.solution array and we can use this to loop thru and show the player how many characters they need to solve the puzzle
+          - create a func called buildBoard
+        - ELSE > msg.innerHTML = no more words
+        - CLO theWord
+      2. buildBoard
+        - loop thru player.solution with forEach & use "letter" as a param
+          - CLO letter
+          - create a div and add class of "letter2" to it
+          - set "_" as the innerText for the div
+          - add myLetter to the div and equal to letter
+          - append div to output2
+        - let solutionLetter = select all letter2
+        - build the alphabet by using for loop w/ x less than 26
+          - let temp = add fromCharCode(65+x) to String
+          - create a div and add a class of "letter"
+          - add myLetter to the div and equal it to temp
+          - let handler arrow func w/ (e) attr. 
+            - div.removeEventListener('click',handler)
+            - add a class of "done" to the div
+            - CLO temp to see that you can't click a letter 2x
+            - let counter = 0 to count how many letters the player has right
+            - let guess = 0 to count how many of the letters the player got
+            - attach forEach to solutionLetter
+              - check if letter.innerHTML isnt equal to "_" then
+                - counter++
+              - check if letter.myLetter turned into uppercase is strict equal to temp
+                - update the innerHTML of letter with temp
+                - guess++
+            - if guess is greater than 0, then...
+              - let mul guess > 1 ? "times":"time";
+              - let mes = backticks `you found (temp) letter (guess)`
+            - let letterLeft = subtract (guess+counter) from solutionLetter.length
+            - CLO letterLeft
+            - if letterLeft is higher than 1, then...
+              - set btn's display to "block"
+          - div.addEventListener('click',handler)
+          - set the div's innerHTML equal to temp
+          - append the div to output1
+    */
+    const myWords = ["aa", "bb", "cc"];
+    let player = {};
+    const msg = document.querySelector(".msg");
+    const output1 = document.querySelector('.output1');
+    const output2 = document.querySelector('.output2');
+    const btn = document.querySelector('button');
+
+    btn.addEventListener('click', () => {
+      output1.innerHTML = "";
+      output2.innerHTML = "";
+      if (myWords.length > 0) {
+        btn.style.display = "none";
+        myWords.sort(() => { return .5 - Math.random() })
+        let theWord = myWords.shift();
+        player.solution = theWord.split("");
+        buildBoard();
+      } else {
+        msg.style.color = "black";
+        msg.innerHTML = 'No more words';
+
+        // console.log(theWord);
+      }
+    })
+
+    function buildBoard() {
+      player.solution.forEach((letter) => {
+        // console.log(letter);
+        let div = document.createElement('div');
+        div.classList.add('letter2');
+        div.innerText = "_";
+        div.myLetter = letter;
+        output2.appendChild(div);
+      });
+      let solutionLetter = document.querySelectorAll(".letter2");
+      for (let x = 0; x < 26; x++) {
+        let temp = String.fromCharCode(65 + x);
+        let div = document.createElement('div');
+        div.classList.add('letter');
+        div.myLetter = temp;
+        let handler = (e) => {
+          div.removeEventListener('click', handler);
+          div.classList.add('done');
+          let guess = 0;
+          let counter = 0;
+          solutionLetter.forEach((letter) => {
+            if (letter.innerHTML != "_") {
+              counter++;
+            }
+            if (letter.myLetter.toUpperCase() === temp) {
+              letter.innerHTML = temp;
+              guess++;
+            }
+          })
+          if (guess > 0) {
+            console.log(`You found ${guess} letters`);
+
+          }
+          let letterLeft = solutionLetter.length - (guess + counter);
+          console.log(letterLeft);
+          if (letterLeft > 1) {
+            btn.style.display = "block";
+          }
+
+        }
+        div.addEventListener('click', handler);
+        div.innerHTML = temp;
+        output1.appendChild(div);
+      }
+    }
+  </script>
+</body>
+
+</html>
