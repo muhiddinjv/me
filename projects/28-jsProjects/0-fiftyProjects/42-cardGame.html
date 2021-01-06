@@ -87,6 +87,21 @@
           - makeCard()
           - toggleBtns()
       4. drawCard()
+        - if deck.length is higher than 0 then
+          - card variable w/ empty value
+          - return card
+          - ELSE > makeDeck() and return drawCard()
+      5. makeDeck()
+        - deck = []
+        - for loop where i is less than suits.length
+          - for loop where j is less than ranks.length
+          (you need to loop thru both arrays so that each one of the arrays gets assigned value)
+            - set up an empty object called "card"
+            - assign card a suit value which equals suits[i]
+            - assign card a rank value which equals ranks[j]
+            - assign card a value equaling to (j+1)
+            - push card into the global array called "deck"
+        - CLO deck
       5. makeCard()
     */
     for (let i = 0; i < btn.length; i++) {
@@ -111,8 +126,27 @@
     }
 
     function drawCard() {
-      console.log('drawCard function');
+      if (deck.length > 0) {
+        let card = "";
+        return card;
+      } else {
+        makeDeck();
+        return drawCard();
+      }
+    }
 
+    function makeDeck() {
+      deck = [];
+      for (let i = 0; i < suits.length; i++) {
+        for (let j = 0; j < ranks.length; j++) {
+          let card = {};
+          card.suit = suits[i];
+          card.rank = ranks[j];
+          card.value = (j + 1);
+          deck.push(card);
+        }
+      }
+      console.log(deck);
     }
 
     function makeCard() {
