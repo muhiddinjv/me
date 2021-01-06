@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Card Game</title>
   <style>
-    .hideButton {
+    .hideBtn {
       display: none;
     }
 
@@ -53,19 +53,20 @@
 
 <body>
   <!-- 9:20PM / Jan 6 / 2021 -->
+  <!-- coded for 0.5 hours -->
   <div>Streak:
     <div class="score">0</div>
   </div>
   <div class="message">Click to Start</div>
   <div class="gameplay"></div>
   <button>Start</button>
-  <button class="hideButton">Higher</button>
-  <button class="hideButton">Lower</button>
+  <button class="hideBtn">Higher</button>
+  <button class="hideBtn">Lower</button>
 
   <script>
     const msg = document.querySelector(".message");
-    const score = document.querySelector(".score");
     const btn = document.querySelectorAll("button");
+    const score = document.querySelector(".score");
     const gameplay = document.querySelector(".gameplay");
     let curCardValue = 0;
     let scoreValue = 0;
@@ -74,17 +75,48 @@
     const suits = ["hearts", "diams", "clubs", "spades"];
     /*
       1. loop thru the buttons using for loop where i is less than btn.length
-        - CLO btn[i] & addEveLis to btn[i] with func called playGame
-        - 
+        - CLO btn[i] & addEveLis to btn[i] with func called playGame(e)
+      2. toggleBtns()
+        - add toggle "hideBtn" to btns at an index of 0,1,2
+      3. playGame(e)
+        - variable temp has the clicked btn's innerText (use "target")
+        - set drawCard() as value for myCard variable
+        - if temp is equal to "Start" then...
+          - update msg html with "higher or lower"
+          - clear out anything that's available in the html of gameplay
+          - makeCard()
+          - toggleBtns()
+      4. drawCard()
+      5. makeCard()
     */
     for (let i = 0; i < btn.length; i++) {
-      console.log(btn[i]);
-
       btn[i].addEventListener('click', playGame);
+    }
+
+    function toggleBtns() {
+      btn[0].classList.toggle("hideBtn");
+      btn[1].classList.toggle("hideBtn");
+      btn[2].classList.toggle("hideBtn");
+    }
+
+    function playGame(e) {
+      let temp = e.target.innerText;
+      let myCard = drawCard();
+      if (temp == "Start") {
+        msg.innerHTML = "Higher or Lower?";
+        gameplay.innerHTML = "";
+        makeCard();
+        toggleBtns();
+      }
+    }
+
+    function drawCard() {
+      console.log('drawCard function');
 
     }
-    function playGame() {
-      console.log('the game begins');
+
+    function makeCard() {
+      console.log('makeCard function');
 
     }
   </script>
