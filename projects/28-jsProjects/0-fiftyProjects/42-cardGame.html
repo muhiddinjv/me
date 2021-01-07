@@ -53,7 +53,8 @@
 
 <body>
   <!-- 9:20PM / Jan 6 / 2021 -->
-  <!-- coded for 2 hours -->
+  <!-- coded for 4 hours -->
+  <!-- 5:00PM / Jan 7 / 2021 -->
   <div>Streak:
     <div class="score">0</div>
   </div>
@@ -81,11 +82,22 @@
       3. playGame(e)
         - variable temp has the clicked btn's innerText (use "target")
         - set drawCard() as value for myCard variable
+        - let win=false;
         - if temp is equal to "Start" then...
           - update msg html with "higher or lower"
           - clear out anything that's available in the html of gameplay
           - makeCard(myCard)
           - toggleBtns()
+          - return;//to break out of func
+        - if myCard.value is equal to curCardValue then...
+          - win="draw"
+          - set msg's html to 'draw
+          - ELSE > if (temp is equal to "higher" AND (myCard.value is eqaul to curCardValue) OR (temp is equal to "lower" AND myCard.value < curCardVal))
+            - take scoreValue and increment it by 1
+            - set score's html to scoreValue
+            - change msg's html to "Correct, Next?"
+            - ELSE > msg's html to "Wrong! Game Over!" & toggleBtns()
+        - makeCard(myCard)
       4. drawCard()
         - if deck.length is higher than 0 then
           - let randIndex = select a random card index from the deck
@@ -142,7 +154,22 @@
         gameplay.innerHTML = "";
         makeCard(myCard);
         toggleBtns();
+        return;//to break out of func
       }
+      if (myCard.value == curCardValue) {
+        msg.innerHTML = "Draw";
+      } else {
+        if ((temp == "Higher" && (myCard.value > curCardValue)) || (temp == "Lower" && (myCard.value < curCardValue))) {
+          scoreValue++;
+          score.innerHTML = scoreValue;
+          msg.innerHTML = "Correct! Next?";
+        } else {
+          msg.innerHTML = "Wrong! Game Over!";
+          window.location.reload();
+          toggleBtns();
+        }
+      }
+      makeCard(myCard);
     }
 
     function drawCard() {
@@ -168,13 +195,14 @@
           deck.push(card);
         }
       }
-      console.log(deck);
+      // console.log(deck);
     }
 
     function makeCard(card) {
       let html1 = card.rank + "<br>&" + card.suit + ";";
       let html2 = card.rank + "&" + card.suit + ";";
       let curCards = document.querySelectorAll('.card');
+
       let div = document.createElement('div');
       div.setAttribute("class", "card");
       div.style.left = (curCards.length * 25) + "px";
