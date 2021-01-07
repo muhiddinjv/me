@@ -83,12 +83,15 @@
         - set drawCard() as value for myCard variable
         - if temp is equal to "Start" then...
           - update msg html with "higher or lower"
-          - clear out anything that's available in the html of gameplay
+          (clear out anything that's available in the html of gameplay)
+          - set gameplay's innerHTML to myCard.rank + myCard.suit
           - makeCard()
           - toggleBtns()
       4. drawCard()
         - if deck.length is higher than 0 then
-          - card variable w/ empty value
+          - let randIndex = select a random card index from the deck
+          - let card = take deck and splice(randIndex,1)[0] out which removes the item out of the array and returns it back into the value of card
+          - CLO card
           - return card
           - ELSE > makeDeck() and return drawCard()
       5. makeDeck()
@@ -119,7 +122,7 @@
       let myCard = drawCard();
       if (temp == "Start") {
         msg.innerHTML = "Higher or Lower?";
-        gameplay.innerHTML = "";
+        gameplay.innerHTML = myCard.rank + myCard.suit;
         makeCard();
         toggleBtns();
       }
@@ -127,7 +130,8 @@
 
     function drawCard() {
       if (deck.length > 0) {
-        let card = "";
+        let randIndex = Math.floor(Math.random() * deck.length);
+        let card = deck.splice(randIndex, 1)[0];
         return card;
       } else {
         makeDeck();
@@ -141,6 +145,7 @@
         for (let j = 0; j < ranks.length; j++) {
           let card = {};
           card.suit = suits[i];
+
           card.rank = ranks[j];
           card.value = (j + 1);
           deck.push(card);
