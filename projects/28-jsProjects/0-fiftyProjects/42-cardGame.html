@@ -105,8 +105,23 @@
             - push card into the global array called "deck"
         - CLO deck
       5. makeCard()
-        - let html1 = card.rank +"<br>"+card.suit+";";
+        - let html1 = card.rank +"<br>&"+card.suit+";";
+        - let html2 = card.rank +"&"+card.suit+";";
+        - let curCards = select all elem w/ the class of .card
         - create a div and set its html to html1
+        - set divs class attr to "card"
+        - set divs style left to (curCards.length*25)+"px"; this overlaps cards
+        - update curCardValue with card.value;
+        - if card.suit is strictly equal to "hearts" OR card.suit is strictly equal to "diams" then...
+          - set divs class to "red"
+        - create a span element called span1 & its class attr to "tiny"
+        - set span1s html equal to html2
+        - append span1 to div
+
+        - create a span element called span2 & its class attr to "big"
+        - set span2s html equal to html1
+        - append span2 to div
+
         - append the div to gameplay
     */
     for (let i = 0; i < btn.length; i++) {
@@ -158,9 +173,26 @@
 
     function makeCard(card) {
       let html1 = card.rank + "<br>&" + card.suit + ";";
+      let html2 = card.rank + "&" + card.suit + ";";
+      let curCards = document.querySelectorAll('.card');
       let div = document.createElement('div');
-      div.classList.add('card');
-      div.innerHTML = html1;
+      div.setAttribute("class", "card");
+      div.style.left = (curCards.length * 25) + "px";
+      curCardValue = card.value;
+      if (card.suit === "hearts" || card.suit === "diams") {
+        div.classList.add("red");
+      }
+
+      let span1 = document.createElement('span');
+      span1.setAttribute("class", "tiny");
+      span1.innerHTML = html2;
+      div.appendChild(span1);
+
+      let span2 = document.createElement('span');
+      span2.setAttribute("class", "big");
+      span2.innerHTML = html1;
+      div.appendChild(span2);
+
       gameplay.appendChild(div);
     }
 
