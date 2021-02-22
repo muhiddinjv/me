@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profit with JS</title>
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" placeholder="whats your name?"><button>click</button>
+  <h1></h1>
+  <script>
+    let inp = document.querySelector('input');
+    let btn = document.querySelector('button');
+    let msg = document.querySelector('h1');
+
+    btn.addEventListener('click', () => {
+      msg.innerHTML = `Hello ${inp.value} the beautiful!`;
+    })
+
+    addition = (num1, num2) => {
+      let result = num1 + num2;
+      document.write(result + " ");
+    }
+    addition(10, 6);
+
+    subtraction = (vay1, vay2) => {
+      let result = vay1 - vay2;
+      document.write(result + " ");
+    }
+    subtraction(51, 10);
+
+    division = (bol1, bol2) => {
+      let result = bol1 / bol2;
+      document.write(result + " ");
+    }
+
+    division(20, 4);
+
+    subtraction = (ayr1, ayr2) => {
+      let result = ayr1 - ayr2;
+      document.write(result + " ");
+    }
+
+    subtraction(20, 5);
+
+    kopaytir = (kop1, kop2) => {
+      let result = kop1 * kop2;
+      document.write(result + " ");
+    }
+
+    kopaytir(5, 5);
+
+
+
+
+
+  </script>
+</body>
+
+</html>
