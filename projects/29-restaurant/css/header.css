@@ -1,0 +1,93 @@
+header{
+  background: url("../img/gradient.png") repeat-x,
+              url("../img/promo.jpg") no-repeat;
+  /* background: linear-gradient(gray, white); */
+  /* background: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)); */
+  height: 75rem;
+}
+
+.nav_wrapper{
+  display: flex;
+  height: 15rem;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  width: 125rem;
+  margin: 0 auto;
+}
+
+.logo{
+  /* font-family: "YesevaOne",sans-serif; */
+  text-decoration: none;
+  font-size: 3.6rem;
+  color: white;
+  transition: all .5s;
+}
+
+.logo:hover{
+  color:#dab33e;
+}
+
+.menu_wrapper{
+  display: flex;
+}
+
+.nav_menu{
+  font-size: 2rem;
+  width: 71rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_menu a{
+  font-family: "GentiumBasic","Arial",sans-serif;
+  text-decoration: none;
+  color: white;
+  padding: 2rem 0;
+  /* transition: all .5s; */
+}
+
+.nav_menu a:hover{
+  border-top: 3px solid white;
+}
+
+.social{
+  display: flex;
+  align-items: center;
+}
+
+.social a{
+  margin-left: 2rem;
+  color:#dab33e;
+  font-size: 2.5rem;
+  padding: 1rem 0;
+  transition: all .5s;
+}
+
+.social a:hover{
+  color: #fff;
+}
+
+.promo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65rem;
+  color: white;
+}
+
+.promo-btns{
+  display: flex;
+}
+
+.btn{
+  cursor: pointer;
+  padding: 0 3rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+}

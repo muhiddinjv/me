@@ -1,0 +1,41 @@
+@import "header.css";
+@import "promo.css";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+box-sizing: border-box;
+font-size: 62.5%;/* 62.5% = 10px or 1rem */
+font-family:"Lato regular", Verdana, sans-serif;
+}
+  
+body{
+ font-size: 1.6rem;
+ color: #4c4c4c;
+}
+
+.wrapper{
+  margin: 0 auto;
+  width: 160rem;
+  /* padding: 0 17.5rem; */
+}
+
+.about_wrapper{
+  background: url("../img/pattern-square.png");
+  background-color: silver;
+}
+
+.reservations_wrapper{
+  background: url("../img/pattern-drop.png");
+  background-color: silver;
+}
+
+.divider-white{
+  background:blueviolet;
+}
