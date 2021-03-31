@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w3javascript</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: burlywood;
+            padding: 30px;
+            margin: auto;
+        }
+        
+        #container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background: yellow;
+        }
+        
+        #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: rgb(63, 60, 60);
+        }
+        
+        #animate2 {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: blue;
+        }
+        
+        .animation {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hower {
+            background-color: #D94A38;
+            width: 120px;
+            height: 20px;
+            padding: 40px;
+        }
+        
+        .eventContainer {
+            display: flex;
+            justify-content: center;
+        }
+        
+        #myDiv,
+        #myDiv2 {
+            background-color: coral;
+            border: 1px solid;
+            padding: 20px;
+            width: 400px;
+        }
+        
+        .divcontainer {
+            border: 1px solid blue;
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+        
+        #table {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3>The strength of JavaScript arrays lies in the array methods.</h3>
+    <!-- <button onclick="numerically()">numerically</button> -->
+    <button onclick="unshift()">unshift</button>
+    <button onclick="shift()">shift</button>
+    <button onclick="spliceAdd()">splice(+)</button>
+    <button onclick="spliceDel()">splice(-)</button>
+    <button onclick="push()">push</button>
+    <button onclick="pop()">pop</button>
+    <button onclick="on()">on</button>
+    <button onclick="off()">off</button>
+
+    <p id="demo"></p>
+
+    <h3>JavaScript Sorting Arrays.</h3>
+    <button onclick="sort()">sort</button>
+    <button onclick="reverse()">reverse</button>
+    <button onclick="high()">high</button>
+    <button onclick="low()">low</button>
+    <button onclick="random()">random</button>
+    <button onclick="numbers()">numbers</button>
+    <button onclick="strings()">strings</button>
+
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+
+    <hr>
+    <h3>JavaScript Comparison and Logical Operators.</h3>
+    <p>Input your age and click the button:</p>
+    <input id="age" value="18" required/>
+    <button onclick="boolean()">boolean</button>
+    <p id="demo4"></p>
+
+
+    <hr>
+    <p>Click the button to display a time-based greeting:</p>
+    <button onclick="greet()">Greet</button>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+
+    <input id="myInput" type="text" value="Tutti Frutti" required>
+    <button onclick="checkFruit()">Check Fruit</button>
+    <p id="demo8"></p>
+
+
+    <hr>
+    <h3>JavaScript Loops</h3>
+    <p id="demo9"></p>
+
+
+    <hr>
+    <h3>JavaScript Data Types</h3>
+    <p id="demo10"></p>
+
+    <hr>
+    <h4>Replace "microsoft" with the word in the prompt:</h4>
+    <button onclick="replace()">Replace</button>
+    <p id="demo11">Please visit Microsoft!</p>
+
+
+    <hr>
+    <h4>Please input a number between 5 and 10:</h4>
+    <form action="demo_form.asp" method="post">
+        <input id="demo12" type="text" required>
+        <button type="button" onclick="check()">check</button>
+    </form>
+    <p id="message"></p>
+
+    <hr>
+    <p id="demo13"></p>
+    <p>With the debugger turned on, the code below should stop executing before it executes the third line.</p>
+
+    <h4>Using a variable without declaring it, is not allowed in "use strict" mode.</h4>
+    <p>Activate debugging in your browser (F12) to see the error report.</p>
+
+    <form action="" method="">
+        <input type="text" name="fname" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>If you click submit, without filling out the text field, your browser will display an error message.</p>
+
+
+    <hr>
+    <h3>JavaScript Can Validate Input</h3>
+    <p>Please input a number between 1 and 10:</p>
+    <input id="numb">
+    <button type="button" onclick="valit()">Submit</button>
+    <p id="demo14"></p>
+
+    <hr>
+    <p>Enter a number and click OK:</p>
+    <input id="id1" type="number" min="100" max="300" required>
+    <button onclick="valit()">OK</button>
+    <p>If the number is less than 100 or greater than 300, an error message will be displayed.</p>
+    <p id="demo15"></p>
+
+    <hr>
+    <p>Counting with a global variable.</p>
+    <button type="button" onclick="count()">Count!</button>
+    <p id="demo16">0</p>
+
+    <hr>
+    <p>Hello World!</p>
+    <p class="intro">The DOM is very useful.</p>
+    <p class="intro">This example demonstrates the <b>querySelectorAll</b> method.</p>
+    <p id="demo17"></p>
+
+
+    <hr>
+    <form id="frm1" action="http://www.w3schools.com/js/form_action.asp">
+        First name: <input type="text" name="fname" value="Donald"><br> Last name: <input type="text" name="lname" value="Duck"><br>
+    </form>
+    <p>Click "Try it" to display the value of each element in the form.</p>
+    <button onclick="forma()">Try it</button>
+    <p id="demo18"></p>
+
+
+    <hr>
+    <p><button onclick="myMove(), myMove2()">Click Me</button></p>
+    <div class="animation">
+        <div id="container">
+            <div id="animate"></div>
+            <div id="animate2"></div>
+        </div>
+    </div>
+
+
+    <hr>
+    <h3 onclick="changeText(this)">Click on this text!</h3>
+    <p>Click the button to display the date.</p>
+    <button onclick="displayDate()">The time is?</button>
+    <p id="demo19"></p>
+
+
+    Enter your name: <input type="text" id="fname" onchange="upper()">
+    <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
+    <hr>
+    <div class="animation">
+        <div class="hower" onmouseover="mOver(this)" onmouseout="mOut(this)">
+            Mouse Over Me</div>
+    </div>
+
+
+    <hr>
+    <h4>Add different types of events to the same element</h4>
+    <p>This example uses the addEventListener() method to add many events on the same button.</p>
+    <button id="knopka">Try it</button>
+    <p id="demo20"></p>
+
+
+    <hr>
+    <h4>Add an Event Handler to the Window Object</h4>
+    <p>This example uses the addEventListener() method on the window object.</p>
+    <p>Try resizing this browser window to trigger the "resize" event handler.</p>
+    <p id="demo22"></p>
+
+
+    <hr>
+    <h4>This example demonstrates the difference between bubbling and capturing when adding event listeners.</h4>
+    <div class="eventContainer">
+
+
+        <div id="myDiv">
+            <p id="myP">Click this paragraph, I am Bubbling = Inner 1st.</p>
+        </div><br>
+
+        <div id="myDiv2">
+            <p id="myP2">Click this paragraph, I am Capturing = Outer 1st</p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <p>The DOM is very useful!</p>
+        <p>This example demonstrates the <b>document.body</b> property.</p>
+    </div>
+
+    <hr>
+    <h1>JavaScript HTML DOM Elements</h1>
+    <h3>Creating New HTML Elements (Nodes)</h3>
+    <h4>Let's create a To-Do List</h4>
+    <div class="divcontainer">
+        <ol id="div1">
+            <li id="p1">buy apples.</li>
+            <li>make a cake</li>
+        </ol>
+    </div>
+    <button onclick="newpara()">Add</button>
+    <button onclick="replaceit()">Replace</button>
+    <button onclick="removeit()">Remove</button>
+    <button onclick="colorit()">BGcolor</button>
+
+
+    <hr>
+    <h1>The Browser Object Model BOM</h1>
+    <button onclick="getWH()">WindowWidthHight</button>
+    <p id="demo23"></p>
+
+    <p>Display the entire URL of the current page.</p>
+    <button onclick="getLoca()">PageLocation</button>
+    <p id="demo24"></p>
+
+    <p>Display the path name of the current URL.</p>
+    <button onclick="pagePath()">pagePath</button>
+    <p id="demo25"></p>
+
+    <input type="button" value="Load new document" onclick="newDoc()">
+    <input type="button" value="Back" onclick="goBack()">
+    <input type="button" value="Forward" onclick="goForward()">
+
+    <p>Are cookies enabled in your browser?</p>
+    <button onclick="cookiesOn()">Try it</button>
+    <p id="demo26"></p>
+
+    <b>What is the name(s) of your browser?</b>
+    <button onclick="browserName()">BrowserName</button>
+    <p id="demo27"></p>
+
+    <b>Display browser engine.</b>
+    <button onclick="browserEngine()">BrowserEngine</button>
+    <p id="demo28"></p>
+
+    <b>Display version information about the browser.</b>
+    <button onclick="browserVersion()">BrowserVersion</button>
+    <p id="demo29"></p>
+
+    <b>Is Java enabled?</b>
+    <button onclick="javaOn()">javaOn</button>
+    <p id="demo30"></p>
+
+    <b>Click the button to display a confirm box.</b>
+    <button onclick="confirmIt()">Try it</button>
+    <p id="demo31"></p>
+
+    <b>Click the button to demonstrate the prompt box.</b>
+    <button onclick="promptIt()">prompIt</button>
+    <p id="demo32"></p>
+
+    <p>Click the button to demonstrate line-breaks in a popup box.</p>
+    <button onclick="lineBreak()">lineBreak</button>
+
+    <p>Click "Try it". Wait 3 seconds. The page will alert "Hello".</p>
+    <p>Click "Stop" to prevent the first function to execute.</(p>
+        <p>(You must click "Stop" before the 3 seconds are up.)</p>
+        <button onclick="myVar = setTimeout(timeOut, 3000)">Try it</button>
+        <button onclick="clearTimeout(myVar)">Stop it</button>
+
+
+        <p>A script on this page starts this clock:</p>
+        <button onclick="myTimer()">Timer</button>
+        <button onclick="clearInterval(myVar2)">Stop time</button>
+        <p id="demo33"></p>
+        <h2>Change background color</h2>
+        <p>Mouse over the squares!</p>
+        <div id="table">
+            <table style="width:300px;height:100px">
+                <tr>
+                    <td onmouseover="bgChange(this.style.backgroundColor)" onmouseout="bgChange('transparent')" style="background-color:Khaki">
+                    </td>
+                    <td onmouseover="bgChange(this.style.backgroundColor)" onmouseout="bgChange('transparent')" style="background-color:PaleGreen">
+                    </td>
+                    <td onmouseover="bgChange(this.style.backgroundColor)" onmouseout="bgChange('transparent')" style="background-color:Silver">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <b>Click the button to loop from 1 to 6, to make HTML headings.</b>
+        <button onclick="changeHeading()">Try it</button>
+        <div id="demo34"></div>
+
+
+        <p id="p9">
+            This is a text. This is a text. This is a text.
+        </p>
+        <input type="button" value="Hide text" onclick="document.getElementById('p9').style.visibility='hidden'">
+        <input type="button" value="Show text" onclick="document.getElementById('p9').style.visibility='visible'">
+
+        <input type="button" value="Open window" onclick="openWin()">
+        <input type="button" value="Close Window'" onclick="closeWin()" />
+        <input type="button" value="Print this page" onclick="printPage()" />
+
+        <button onClick="setInterval(myCounter, 1000)">Start counter!</button>
+        <p id="demo35">Click on the button above and I will count forever.</p>
+
+
+
+
+
+
+
+
+
+
+        <!----------------------------- SCRIPT ------------------------------>
+        <script src="w3school.js"></script>
+</body>
+
+</html>
