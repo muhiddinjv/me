@@ -1,8 +1,6 @@
 header{
   background: url("../img/gradient.png") repeat-x,
               url("../img/promo.jpg") no-repeat;
-  /* background: linear-gradient(gray, white); */
-  /* background: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)); */
   height: 75rem;
 }
 
@@ -39,7 +37,7 @@ header{
   justify-content: space-between;
 }
 
-.nav_menu a{
+.nav_menu>*{
   font-family: "GentiumBasic","Arial",sans-serif;
   text-decoration: none;
   color: white;
@@ -47,16 +45,16 @@ header{
   /* transition: all .5s; */
 }
 
-.nav_menu a:hover{
+.nav_menu>*:hover{
   border-top: 3px solid white;
 }
 
-.social{
+.social_icons{
   display: flex;
   align-items: center;
 }
 
-.social a{
+.social_icon{
   margin-left: 2rem;
   color:#dab33e;
   font-size: 2.5rem;
@@ -64,7 +62,7 @@ header{
   transition: all .5s;
 }
 
-.social a:hover{
+.social_icon:hover{
   color: #fff;
 }
 
@@ -72,18 +70,17 @@ header{
 .promo{
   display: flex;
   flex-direction: column;
-  /* border: 1px solid white; */
   padding-bottom: 9rem;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: 0 auto;
   width: 77rem;
-  height: 65rem;
+  height: 60rem;
   color: white;
 }
 
-.promo h1{
+.promo_heading{
   font-size: 8rem;
   font-weight:lighter;
 }

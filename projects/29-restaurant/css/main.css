@@ -1,5 +1,8 @@
 @import "header.css";
 @import "promo.css";
+@import "about.css";
+@import "ingredients.css";
+@import "menu.css";
 
 *,
 *::before,
@@ -11,7 +14,7 @@
 
 html {
 box-sizing: border-box;
-font-size: 62.5%;/* 62.5% = 10px or 1rem */
+font-size: 62.5%; /* 62.5% = 10px or 1rem */
 font-family:"Lato regular", Verdana, sans-serif;
 }
   
@@ -26,9 +29,16 @@ body{
   /* padding: 0 17.5rem; */
 }
 
-.about_wrapper{
-  background: url("../img/pattern-square.png");
-  background-color: silver;
+h2 {
+  font-family: "YeservaOne Regular";
+  font-size: 3.4rem;
+  font-weight: lighter;
+  color:#dab33e;
+  line-height: 1;
+}
+
+.divider{
+  padding: 1.5rem 0 3rem 0;
 }
 
 .reservations_wrapper{

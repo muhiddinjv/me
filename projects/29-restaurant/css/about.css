@@ -1,0 +1,33 @@
+#about{
+  background-image: url("../img/pattern-drop.png");
+  height: 71rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.about-background{
+  position: absolute;
+  /* border: 1px solid red; */
+  background: linear-gradient(to left, rgba(211, 211, 211, 0.3), white);
+  height: 71rem;
+  width: 160rem;
+  z-index: -9;
+}
+
+.about_article {
+  width: 43rem;
+  text-align: center;
+}
+
+.about_text{color: #4c4c4c;}
+
+.cook{
+  padding-top: 5rem;
+}
+
+.dish{
+  width: 61rem;
+  padding-left: 4rem;
+}

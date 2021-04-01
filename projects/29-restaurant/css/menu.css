@@ -1,0 +1,53 @@
+#menu{
+  background-image: url("../img/pattern-square.png");
+  height: 99rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.menu-background{
+  position: absolute;
+  background: linear-gradient(130deg, rgba(211, 211, 211, 0.5), white);
+  /* background: linear-gradient(130deg, #dadfdf, #fff); */
+  height: 99rem;
+  width: 160rem;
+  z-index: -9;
+}
+
+.menu-groups{
+  display: flex;
+  width: 103rem;
+  /* align-items: center; */
+  justify-content: space-between;
+  border: 1px solid blue;
+  height: 80rem;
+}
+
+.menu-left, .menu-right{
+  border: 1px solid gray;
+  width: 43rem;
+}
+
+.food-price{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dab33e;
+  color:#dab33e;
+}
+
+.special{
+  display: flex;
+  justify-content:flex-end;
+  border: 1px solid red;
+}
+
+.special p{
+  background:#dab33e;
+}
+
+.description{
+  color: #4c4c4c;
+}
