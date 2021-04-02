@@ -3,6 +3,7 @@
 @import "about.css";
 @import "ingredients.css";
 @import "menu.css";
+@import "reviews.css";
 
 *,
 *::before,
@@ -29,15 +30,21 @@ body{
   /* padding: 0 17.5rem; */
 }
 
+h2,h3{ color:#cc9900}
+
 h2 {
   font-family: "YeservaOne Regular";
-  font-size: 3.4rem;
-  font-weight: lighter;
-  color:#dab33e;
+  font-size: 4rem;
   line-height: 1;
 }
 
-.divider{
+h3{font-size: 2.1rem}
+
+.divider_margin-small{
+  padding: 1.5rem 0 1rem 0;
+}
+
+.divider_margin-big{
   padding: 1.5rem 0 3rem 0;
 }
 

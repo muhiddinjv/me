@@ -1,0 +1,28 @@
+#reviews{
+  background: url("../img/reviews.jpg") no-repeat;
+  height: 75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviews_heading{color:white}
+
+.reviews_article{
+  width: 77rem;
+  color: white;
+  padding: 7rem 7rem 7rem 5rem;
+  /* border: 1px solid yellow; */
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.reviews_content{
+  display: flex;
+  margin-bottom: 4rem;
+}
+
+.reviews_text{
+  font-size: 2.3rem;
+  line-height: 2;
+}

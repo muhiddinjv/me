@@ -1,6 +1,7 @@
 header{
-  background: url("../img/gradient.png") repeat-x,
-              url("../img/promo.jpg") no-repeat;
+  background: 
+  url("../img/gradient.png") repeat-x,
+  url("../img/promo.jpg") no-repeat;
   height: 75rem;
 }
 
@@ -12,18 +13,6 @@ header{
   color: white;
   width: 125rem;
   margin: 0 auto;
-}
-
-.logo{
-  /* font-family: "YesevaOne",sans-serif; */
-  text-decoration: none;
-  font-size: 3.6rem;
-  color: white;
-  transition: all .5s;
-}
-
-.logo:hover{
-  color:#dab33e;
 }
 
 .menu_wrapper{
