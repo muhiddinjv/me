@@ -1,35 +1,27 @@
-#menu{
+.menu{
   background-image: url("../img/pattern-square.png");
-  height: 99rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10rem;
   position: relative;
 }
 
 .menu-background{
   position: absolute;
-  background: linear-gradient(130deg, rgba(211, 211, 211, 0.5), white);
-  /* background: linear-gradient(130deg, #dadfdf, #fff); */
-  height: 99rem;
+  background: linear-gradient(130deg, 
+  rgba(211, 211, 211, 0.5), white);
+  /* background: linear-gradient(130deg, 
+  #dadfdf, #fff); */
+  height: 100%;
   width: 160rem;
   z-index: -9;
 }
 
 .menu-groups{
-  display: flex;
   width: 103rem;
-  align-items: center;
-  justify-content: space-between;
-  /* height: 80rem; */
+  /* border: 1px solid gray; */
 }
 
 .salads, .dishes{
   margin-top: 5rem;
-}
-
-.menu-header{
-  text-align: center;
 }
 
 .menu_item{
@@ -38,12 +30,11 @@
 }
 
 .menu-left, .menu-right{
+  /* border: 1px solid gray; */
   width: 43rem;
 }
 
 .food-price{
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #dab33e;
@@ -63,9 +54,9 @@
 }
 
 .description{
-  color: #4c4c4c;
+  color: var(--darkGray);
 }
 
 .yellow-border{
-  border: 1px solid #dab33e;
+  border: 1px solid var(--lightYellow);
 }

@@ -1,9 +1,6 @@
-#about{
+.about{
   background-image: url("../img/pattern-drop.png");
-  height: 71rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6rem 0;
   position: relative;
 }
 
@@ -11,17 +8,16 @@
   position: absolute;
   /* border: 1px solid red; */
   background: linear-gradient(to left, rgba(211, 211, 211, 0.3), white);
-  height: 71rem;
+  height:100%;
   width: 160rem;
   z-index: -9;
 }
 
 .about_article {
   width: 43rem;
-  text-align: center;
 }
 
-.about_text{color: #4c4c4c;}
+.about_text{color: var(--darkGray)}
 
 .cook{
   padding-top: 5rem;

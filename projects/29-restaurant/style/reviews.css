@@ -1,9 +1,6 @@
-#reviews{
+.reviews{
   background: url("../img/reviews.jpg") no-repeat;
   height: 75rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .reviews_heading{color:white}
@@ -12,8 +9,6 @@
   width: 77rem;
   color: white;
   padding: 7rem 7rem 7rem 5rem;
-  /* border: 1px solid yellow; */
-  text-align: center;
   background: rgba(0, 0, 0, 0.8);
 }
 

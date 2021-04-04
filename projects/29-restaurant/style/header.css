@@ -6,9 +6,7 @@ header{
 }
 
 .nav_wrapper{
-  display: flex;
   height: 15rem;
-  justify-content: space-between;
   align-items: center;
   color: white;
   width: 125rem;
@@ -22,8 +20,6 @@ header{
 .nav_menu{
   font-size: 2rem;
   width: 71rem;
-  display: flex;
-  justify-content: space-between;
 }
 
 .nav_menu>*{
@@ -38,14 +34,9 @@ header{
   border-top: 3px solid white;
 }
 
-.social_icons{
-  display: flex;
-  align-items: center;
-}
-
 .social_icon{
   margin-left: 2rem;
-  color:#dab33e;
+  color:var(--lightYellow);
   font-size: 2.5rem;
   padding: 1rem 0;
   transition: all .5s;
@@ -57,12 +48,8 @@ header{
 
 /* Promo ---------------- */
 .promo{
-  display: flex;
   flex-direction: column;
   padding-bottom: 9rem;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   margin: 0 auto;
   width: 77rem;
   height: 60rem;
@@ -70,7 +57,7 @@ header{
 }
 
 .promo_heading{
-  font-size: 8rem;
+  font-size: 7rem;
   font-weight:lighter;
 }
 
@@ -82,21 +69,19 @@ header{
   display: flex !important;
 }
 
-.btn{
+.promo_btn{
   cursor: pointer;
   font-size: 1.8rem;
   width: 23rem;
   height: 6rem;
   color: white;
   margin: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  transition: all .5s;
 }
 
-.btn-black{
+.promo_btn:hover{
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid black;
-}
-
-.btn-white{
-  background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
 }

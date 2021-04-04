@@ -1,16 +1,13 @@
-#ingredients{
+.ingredients{
   background: url("../img/ingredients.jpg") no-repeat;
   height: 75rem;
-  display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
-#ingredients article{
+.ingredients article{
   width: 57rem;
   padding:8rem;
   /* border: 1px solid yellow; */
-  text-align: center;
   margin-right: 21rem;
   background: rgba(0, 0, 0, 0.6);
 }
